@@ -1,9 +1,9 @@
 <?php
 // Database connection (Change credentials accordingly)
-        $servername = "localhost";
-        $username = "root";
+        $servername = "s1099.usc1.mysecurecloudhost.com";
+        $username = "dualstre_octavat";
         $password = "OCT3244@DSfdrdv";
-        $dbname = "octavat";
+        $dbname = "dualstre_octavat";
 
         $conn = new mysqli($servername, $username, $password, $dbname);
         // if($conn){
