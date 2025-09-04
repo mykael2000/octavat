@@ -1,946 +1,2802 @@
-<?php include('header.php'); ?>
+<?php
+include('connection.php');
+include('functions.php');
 
-            <!-- Page content -->
-            <div class="page-content">
-                
-    <!-- Page title -->
-    <div class="page-title mt-5 mb-3 my-md-5">
-        <div class="row justify-content-between align-items-center">
-            <div class="mb-3 col-md-6 mb-md-0">
-                <h5 class="mb-0 text-white h3 font-weight-400">Welcome, <?php  echo $user['firstname'].' '.$user['lastname']; ?>!</h5>
-            </div>
-        </div>
-    </div>
-    <div>
-    </div>    <div>
-    </div>       <!--Portfolio-->
-	<div class="row">
-        <div class="col-12">
-            <div class="p-3 card shadow border">
-                <div class="mb-3">
-                    <div>
-                        <small class="text-muted" style="font-size:0.7rem !important">ACCOUNT BALANCE</small>
-                        <h1 class="mt-2 mb-1 text-" style="font-size:2rem !important"><b>$<?php  echo number_format($user['total_balance'], 2, '.', ','); ?></b></h1>
-                        <h6 class="mb-1 text- text-muted" style="font-weight:400">
-                          <span> BTC <?php echo $user['total_balance']/get_btc_current_price_usd(); ?> </span>
-                      </h6>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 pr-md-1 mb-4 mb-md-0 order-md-1 order-2">
-                         <!-- TradingView Widget BEGIN -->
-                        <div class="tradingview-widget-container">
-                          <div class="tradingview-widget-container__widget"></div>
-                          <div class="tradingview-widget-copyright"><a href="" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on Octavat</span></a></div>
-                          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-                          {
-                          "symbol": "BINANCE:BTCUSDT",
-                          "chartOnly": false,
-                          "dateRange": "12M",
-                          "noTimeScale": false,
-                          "colorTheme": "dark",
-                          "isTransparent": false,
-                          "locale": "en",
-                          "width": "100%",
-                          "autosize": true,
-                          "height": "100%"
-                        }
-                          </script>
-                        </div>
-                        <!-- TradingView Widget END -->
-                         
-                    </div>
-                    <!--Balance and earnings-->
-                    <div class="col-md-8 order-1 order-md-2">
-                    	<div class="row">
-                    	    <div class="col-md-6">
-                                <div class="ibox p-2 mb-md-4 mb-3 bg-success color-white widget-stat" style=" !important; border-radius: 10px;">
-                                    <div class="ibox-body">
-                                                                                                                                <h2 class="mb-0 font-strong" style="font-size: 1.5rem !important">$<?php  echo number_format($user['total_deposits'], 2, '.', ','); ?></h2>
-                                                                                                                            <div class="mb-1" style="font-size: 0.8rem !important">TOTAL DEPOSIT</div><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                                                                                              <path d="M6 9h12a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H6a4 4 0 0 1-4-4v-1a4 4 0 0 1 4-4z"/>
-                                                                                                                              <path d="M10 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/>
-                                                                                                                              <circle cx="16" cy="14" r="1"/>
-                                                                                                                            </svg>
+?>
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+        <title>Crypto Derivatives Exchange | Buy, Sell &amp;Trade Cryptocurrency | Bitunix</title>
+        <link rel="preconnect" href="https://bitunix-public.oss-ap-northeast-1.aliyuncs.com">
+        <link rel="preconnect" href="https://static.bitunix.com">
+        <link rel="preconnect" href="https://img.bitunix.com">
+        <link rel="stylesheet" href="https://static.bitunix.com/web/bitunix-assets/web/entry.DkwXMC9z.css" crossorigin>
+        <link rel="stylesheet" href="https://static.bitunix.com/web/bitunix-assets/web/default.DLW7AOF3.css" crossorigin>
+        <link rel="stylesheet" href="https://static.bitunix.com/web/bitunix-assets/web/default.CWemHeTO.css" crossorigin>
+        <link rel="stylesheet" href="https://static.bitunix.com/web/bitunix-assets/web/layout-footer.DKP24CYs.css" crossorigin>
+        <link rel="stylesheet" href="https://static.bitunix.com/web/bitunix-assets/web/index.xbQZl97C.css" crossorigin>
+        <link rel="stylesheet" href="https://static.bitunix.com/web/bitunix-assets/web/use
+        RegisterLimitAccess.BAKGqZ4K.css" crossorigin>
+        <link rel="stylesheet" href="https://static.bitunix.com/web/bitunix-assets/web/rate-display.BhKfOQGA.css" crossorigin>
+        <link rel="stylesheet" href="https://static.bitunix.com/web/bitunix-assets/web/check-user.Do71icfO.css" crossorigin>
+        <link rel="stylesheet" href="https://static.bitunix.com/web/bitunix-assets/web/index.Dq09a8dB.css" crossorigin>
+        <style>
+            :where(.i-bx-icon\:bitunix-logo) {
+                display: inline-block;
+                width: 3.32em;
+                height: 1em;
+                background-color: currentColor;
+                -webkit-mask-image: var(--svg);
+                mask-image: var(--svg);
+                -webkit-mask-repeat: no-repeat;
+                mask-repeat: no-repeat;
+                -webkit-mask-size: 100% 100%;
+                mask-size: 100% 100%;
+                --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3392 1024' width='3392' height='1024'%3E%3Cg fill='black'%3E%3Cpath d='M697.92 248H357.44c-39.68 0-76.48 13.44-105.92 36.48h116.16c151.04 0 264.64 137.92 236.16 286.08l-21.44 110.08-1.92 8.96a172.576 172.576 0 0 0 71.04-108.48l61.12-315.2a15.04 15.04 0 0 0-14.72-17.92z' p-id='5871'%3E%3C/path%3E %3Cpath d='M367.04 333.12H241.92c-81.28 0-151.36 57.6-166.72 137.6l-60.8 313.6c-1.92 9.28 5.44 17.92 14.72 17.92h355.52a149.76 149.76 0 0 0 146.88-120.96l23.36-120.64c22.72-117.76-67.52-227.52-187.52-227.52zM1389.76 499.2c-8.96-7.04-19.2-12.16-30.08-16.64h0.64c26.88-10.88 48-26.88 64-48 16.32-21.12 24.64-47.36 24.64-78.4 0-36.8-14.4-64.64-42.88-83.84-28.16-19.2-69.12-28.8-122.56-28.8h-237.76L947.2 740.48h258.24c43.2 0 81.28-5.76 114.88-16.96a171.84 171.84 0 0 0 78.08-54.72c19.2-23.36 28.8-52.8 28.8-87.36s-12.48-63.04-37.44-81.92z m-133.12-169.92c23.04 0 40.96 3.84 53.44 11.2 12.8 7.04 18.88 18.88 18.88 35.2 0 15.04-3.84 27.84-11.2 38.72-7.36 10.24-18.56 18.24-32.96 23.36-14.08 5.12-31.04 7.68-50.56 7.68h-115.84l23.04-116.48h115.52z m29.44 304c-17.92 11.84-42.56 17.6-73.92 17.6h-134.4l24-122.24h137.92c22.4 0 40.32 3.84 53.44 11.84 13.76 7.68 20.48 20.48 20.48 38.72 0 23.68-9.28 41.28-27.52 53.76zM1650.24 197.76c-11.84-10.88-27.2-16.32-46.4-16.32-21.44 0-39.04 6.4-52.8 19.2-13.12 12.16-19.84 27.84-19.84 46.72 0 16 5.76 29.76 17.6 40.96 11.84 10.88 27.2 16.32 46.4 16.32 22.08 0 39.68-6.08 52.8-18.24 13.76-12.8 20.48-29.12 20.48-49.28 0-15.68-6.08-28.48-18.24-38.72zM1446.4 739.84h108.8l76.16-382.4h-109.12L1446.4 739.84zM1841.28 273.28h-109.76l-65.28 327.36c-5.76 28.8-4.48 53.76 3.52 74.88 8.32 20.8 22.4 36.8 41.6 48 19.2 10.88 42.56 16.32 69.76 16.32 16.32 0 32.96-1.6 49.28-4.8 16.32-3.2 31.36-9.28 45.12-17.6l-16.32-78.4c-6.72 4.16-13.76 7.68-21.76 9.92-7.36 2.24-15.04 3.52-22.4 3.52-16.32 0-27.84-4.8-33.92-14.08-6.08-9.28-7.68-22.08-4.8-38.08l30.08-149.44h94.72l16.96-84.8h-94.4l18.56-92.48zM2248 357.44l-38.72 192.64c-6.08 32.96-18.56 57.28-37.44 73.28-18.24 16-40.96 24-68.16 24-25.92 0-43.84-7.68-54.08-22.72-9.92-15.04-11.84-36.48-6.4-64.32l40-203.2h-109.76l-41.6 210.24c-7.36 38.08-6.4 65.92 2.88 91.84 9.28 25.92 25.28 45.76 48 59.2 22.4 13.12 49.28 19.84 80.32 19.84s58.56-6.4 85.12-19.2c14.08-6.72 26.56-14.72 38.08-24.32l-8.64 43.52h104.32l76.16-381.12h-109.76zM2730.88 372.16c-22.4-13.76-49.92-20.48-82.24-20.48-30.08 0-58.56 6.72-85.76 19.84-14.08 6.72-26.88 15.36-38.4 26.24l8.32-40.32h-104.32l-75.84 381.12h109.76l38.72-194.24c7.04-32.96 19.84-57.28 38.08-73.28 18.88-16 41.92-24 69.76-24s45.12 7.68 55.04 22.72c10.24 15.04 12.8 36.48 7.04 64.32l-41.6 204.8h109.76l42.88-211.84c7.36-38.08 6.72-70.08-2.88-96s-25.28-45.44-48-58.56zM2956.8 304.32c22.08 0 39.68-6.08 52.8-18.24 13.76-12.8 20.48-29.12 20.48-49.28 0-15.68-6.08-28.48-18.24-38.72-11.84-10.88-27.2-16.32-46.4-16.32-21.44 0-39.04 6.4-52.8 19.2-13.12 12.16-19.84 27.84-19.84 46.72 0 16 5.76 29.76 17.6 40.96 11.84 10.88 27.2 16.32 46.4 16.32zM2992.64 357.44h-109.12l-76.16 381.12h109.12l76.16-381.12zM3392.32 358.08h-121.28l-105.28 111.36-60.16-111.36h-112.96l100.8 185.6-176.96 195.52h125.44l96.32-114.88 61.12 114.88h115.84l-104.96-191.36 182.08-189.76z' p-id='5872'%3E%3C/path%3E%3C/g%3E%3C/svg%3E")
+            }
 
-                                        <!--<div><i class="fa fa-level-up mr-1" style="font-size: 0.7rem !important"></i><small>21% higher</small></div>-->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="ibox p-2 mb-md-4 mb-3  bg-warning color-white widget-stat" style=" !important; border-radius: 10px;">
-                                    <div class="ibox-body">
-                                        <h2 class="mb-0 font-strong" style="font-size: 1.5rem !important">$<?php  echo number_format($user['total_profit'], 2, '.', ','); ?></h2>
-                                        <div class="mb-1" style="font-size: 0.8rem !important">TOTAL PROFIT</div><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                      <path d="M6 9h12a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H6a4 4 0 0 1-4-4v-1a4 4 0 0 1 4-4z"/>
-                                                      <path d="M10 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/>
-                                                      <circle cx="16" cy="14" r="1"/>
-                                                    </svg>
+            :where(.i-bx-icon\:homeindex-guide-icon1) {
+                display: inline-block;
+                width: 1em;
+                height: 1em;
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 112 112' width='112' height='112'%3E%3Cdefs%3E%3Cfilter id='filter0_i_3360_6613' x='43' y='20.5' width='26' height='33.5' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E %3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E %3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E %3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E %3CfeOffset dx='-5' dy='-4'/%3E %3CfeComposite in2='hardAlpha' operator='arithmetic' k2='-1' k3='1'/%3E %3CfeColorMatrix type='matrix' values='0 0 0 0 0.760784 0 0 0 0 0.784314 0 0 0 0 0.811765 0 0 0 1 0'/%3E %3CfeBlend mode='normal' in2='shape' result='effect1_innerShadow_3360_6613'/%3E %3C/filter%3E%3C/defs%3E%3Cg fill='none'%3E%3Crect x='69.499' y='33.5' width='1.5' height='28.5' fill='%23729F01'/%3E %3Cpath d='M24.5 73.7076C24.5 69.4033 27.2543 65.5819 31.3377 64.2208L45.5645 59.4785C52.3383 57.2206 59.6617 57.2206 66.4355 59.4785L80.6623 64.2208C84.7457 65.5819 87.5 69.4033 87.5 73.7076V81.5731C87.5 83.316 86.3715 84.8583 84.7103 85.3856L82.627 86.047C65.3017 91.5471 46.6983 91.5471 29.373 86.047L27.2897 85.3856C25.6285 84.8583 24.5 83.316 24.5 81.5731V73.7076Z' fill='%231F2B1F'/%3E %3Cpath d='M48.5 45H48V45.5V59C48 63.4183 51.5817 67 56 67C60.4183 67 64 63.4183 64 59V45.5V45H63.5H48.5Z' fill='white' stroke='black'/%3E %3Cmask id='mask0_3360_6613' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='48' y='45' width='16' height='22'%3E %3Cpath d='M48.5 45.5H63.5V59C63.5 63.1421 60.1421 66.5 56 66.5C51.8579 66.5 48.5 63.1421 48.5 59V45.5Z' fill='white'/%3E %3C/mask%3E %3Cg mask='url(%23mask0_3360_6613)'%3E %3Cpath d='M59 47H64.25V68H61.625H59V47Z' fill='%23C2C8CF'/%3E %3C/g%3E %3Cg filter='url(%23filter0_i_3360_6613)'%3E %3Cpath d='M44 26.5C44 23.7386 46.2386 21.5 49 21.5H68V41C68 47.6274 62.6274 53 56 53C49.3726 53 44 47.6274 44 41L44 26.5Z' fill='white'/%3E %3C/g%3E %3Cpath d='M68.5 21.5V21H68H49C45.9624 21 43.5 23.4624 43.5 26.5V41C43.5 47.9036 49.0964 53.5 56 53.5C62.9036 53.5 68.5 47.9036 68.5 41V21.5Z' stroke='black'/%3E %3Cpath d='M53.001 30.5C53.001 25.5294 57.0304 21.5 62.001 21.5H68.001V33.5H56.001C54.3441 33.5 53.001 32.1569 53.001 30.5Z' fill='%23D2D2D2'/%3E %3Cpath d='M44 27.5C44 24.1863 46.6863 21.5 50 21.5H68C68 28.1274 62.6274 33.5 56 33.5H50C46.6863 33.5 44 30.8137 44 27.5Z' fill='white'/%3E %3Cpath opacity='0.8' d='M41.001 32C41.001 28.6863 43.6873 26 47.001 26H65.001C68.3147 26 71.001 28.6863 71.001 32V36.5C71.001 39.8137 68.3147 42.5 65.001 42.5H64.6089C63.8839 42.5 63.1726 42.303 62.5509 41.93L58.059 39.2348C56.7922 38.4748 55.2097 38.4748 53.943 39.2348L49.451 41.93C48.8294 42.303 48.118 42.5 47.393 42.5H47.001C43.6873 42.5 41.001 39.8137 41.001 36.5V32Z' fill='%23B9F641' stroke='black'/%3E%3C/g%3E%3C/svg%3E")
+            }
 
-                                        <!--<div><i class="fa fa-level-up mr-1" style="font-size: 0.7rem !important"></i><small>21% higher</small></div>-->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="ibox p-2 mb-md-0 mb-3 bg-secondary color-white widget-stat" style=" !important; border-radius: 10px;">
-                                    <div class="ibox-body">
-                                        <h2 class="mb-0 font-strong" style="font-size: 1.5rem !important">$<?php  echo number_format($user['total_bonus'], 2, '.', ','); ?></h2>
-                                        <div class="mb-1" style="font-size: 0.8rem !important">TOTAL BONUS</div><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                              <path d="M6 9h12a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H6a4 4 0 0 1-4-4v-1a4 4 0 0 1 4-4z"/>
-                                              <path d="M10 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/>
-                                              <circle cx="16" cy="14" r="1"/>
-                                            </svg>
+            :where(.i-bx-icon\:homeindex-guide-icon2) {
+                display: inline-block;
+                width: 1em;
+                height: 1em;
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 112 112' width='112' height='112'%3E%3Cdefs%3E%3Cfilter id='filter0_i_3360_6612' x='26.5' y='38.5' width='57' height='45' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E %3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E %3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E %3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E %3CfeOffset dx='5'/%3E %3CfeComposite in2='hardAlpha' operator='arithmetic' k2='-1' k3='1'/%3E %3CfeColorMatrix type='matrix' values='0 0 0 0 0.760784 0 0 0 0 0.784314 0 0 0 0 0.811765 0 0 0 1 0'/%3E %3CfeBlend mode='normal' in2='shape' result='effect1_innerShadow_3360_6612'/%3E %3C/filter%3E %3Cfilter id='filter1_i_3360_6612' x='26.5' y='45.5' width='57' height='31' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E %3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E %3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E %3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E %3CfeOffset dx='6'/%3E %3CfeComposite in2='hardAlpha' operator='arithmetic' k2='-1' k3='1'/%3E %3CfeColorMatrix type='matrix' values='0 0 0 0 0.760784 0 0 0 0 0.784314 0 0 0 0 0.811765 0 0 0 0.5 0'/%3E %3CfeBlend mode='normal' in2='shape' result='effect1_innerShadow_3360_6612'/%3E %3C/filter%3E%3C/defs%3E%3Cg fill='none'%3E%3Cpath d='M31 41C31 39.8954 31.8954 39 33 39H59H82C84.7614 39 87 41.2386 87 44V78C87 80.7614 84.7614 83 82 83H59H33C31.8954 83 31 82.1046 31 81V41Z' fill='%231F2B1F' stroke='black'/%3E %3Cg filter='url(%23filter0_i_3360_6612)'%3E %3Cpath d='M27 41C27 39.8954 27.8954 39 29 39H54.4909H78C80.7614 39 83 41.2386 83 44V78C83 80.7614 80.7614 83 78 83H54.4909H29C27.8954 83 27 82.1046 27 81V41Z' fill='white'/%3E %3C/g%3E %3Cpath d='M27 41C27 39.8954 27.8954 39 29 39H54.4909H78C80.7614 39 83 41.2386 83 44V78C83 80.7614 80.7614 83 78 83H54.4909H29C27.8954 83 27 82.1046 27 81V41Z' stroke='black'/%3E %3Cg filter='url(%23filter1_i_3360_6612)'%3E %3Cpath d='M27 46H54.4909H83V76H54.4909H27V46Z' fill='white'/%3E %3C/g%3E %3Cpath d='M27 46H54.4909H83V76H54.4909H27V46Z' stroke='black'/%3E %3Cpath d='M89.5 53V52.5H89H77C72.3056 52.5 68.5 56.3056 68.5 61C68.5 65.6944 72.3056 69.5 77 69.5H89H89.5V69V53Z' fill='%23B9F641' stroke='black'/%3E %3Cpath d='M84 53H89V69H84V53Z' fill='%23729F01'/%3E %3Cpath d='M46 28H75V38H46V28Z' fill='%23B9F641' stroke='black'/%3E %3Cpath d='M43 30H72L73 38H44L43 30Z' fill='%23B9F641' stroke='black'/%3E %3Ccircle cx='77' cy='61' r='3' fill='%231F2B1F'/%3E%3C/g%3E%3C/svg%3E")
+            }
 
-                                        <!--<div><i class="fa fa-level-up mr-1" style="font-size: 0.7rem !important"></i><small>21% higher</small></div>-->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="ibox p-2 mb-md-0 mb-3 bg-primary color-white widget-stat" style=" !important; border-radius: 10px;">
-                                    <div class="ibox-body">
-                                          <h2 class="mb-0 font-strong" style="font-size: 1.5rem !important">$<?php  echo number_format($user['total_withdrawals'], 2, '.', ','); ?></h2> 
-                                          <div class="mb-1" style="font-size: 0.8rem !important">TRANSFERS</div><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                          <path d="M6 9h12a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H6a4 4 0 0 1-4-4v-1a4 4 0 0 1 4-4z"/>
-                                          <path d="M10 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/>
-                                          <circle cx="16" cy="14" r="1"/>
-                                          </svg>
+            :where(.i-bx-icon\:homeindex-guide-icon4) {
+                display: inline-block;
+                width: 1em;
+                height: 1em;
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 112 112' width='112' height='112'%3E%3Cg fill='none'%3E%3Cpath d='M58.5 25.5H58.4592H58.4164H58.3733H58.3297H58.2858H58.2415H58.1968H58.1516H58.1061H58.0601H58.0138H57.967H57.9199H57.8723H57.8243H57.7759H57.7271H57.6778H57.6282H57.5781H57.5276H57.4767H57.4254H57.3736H57.3214H57.2688H57.2157H57.1623H57.1084H57.054H56.9992H56.944H56.8884H56.8323H56.7757H56.7188H56.6614H56.6035H56.5452H56.4864H56.4272H56.3676H56.3075H56.2469H56.1859H56.1244H56.0625H56.0001H55.9373H55.8739H55.8102H55.7459H55.6812H55.6161H55.5504H55.4843H55.4177H55.3507H55.2832H55.2152H55.1467H55.0777H55.0083H54.9384H54.868H54.7971H54.7257H54.6538H54.5815H54.5087H54.4353H54.3615H54.2872H54.2124H54.1371H54.0613H53.985H53.9081H53.8308H53.753H53.6747H53.5959H53.5165H53.4367H53.3563H53.2755H53.1941H53.1122H53.0298H52.9468H52.8634H52.7794H52.6949H52.6099H52.5244H52.4383H52.3517H52.2646H52.1769H52.0887H52C36.496 25.5 24 39.1972 24 56C24 72.8028 36.496 86.5 52 86.5H52.0431H52.086H52.1288H52.1713H52.2137H52.2559H52.298H52.3398H52.3815H52.423H52.4644H52.5055H52.5465H52.5874H52.628H52.6685H52.7088H52.7489H52.7889H52.8287H52.8683H52.9078H52.9471H52.9862H53.0252H53.0639H53.1026H53.141H53.1793H53.2174H53.2553H53.2931H53.3307H53.3682H53.4055H53.4426H53.4796H53.5164H53.553H53.5895H53.6258H53.6619H53.6979H53.7337H53.7694H53.8049H53.8402H53.8754H53.9104H53.9453H53.98H54.0145H54.0489H54.0831H54.1172H54.1511H54.1848H54.2184H54.2519H54.2851H54.3183H54.3512H54.3841H54.4167H54.4492H54.4816H54.5138H54.5459H54.5778H54.6095H54.6411H54.6725H54.7038H54.735H54.766H54.7968H54.8275H54.858H54.8884H54.9187H54.9488H54.9787H55.0085H55.0382H55.0677H55.0971H55.1263H55.1553H55.1843H55.213H55.2417H55.2702H55.2985H55.3267H55.3548H55.3827H55.4105H55.4381H55.4656H55.493H55.5202H55.5472H55.5742H55.601H55.6276H55.6541H55.6805H55.7067H55.7328H55.7588H55.7846H55.8103H55.8358H55.8612H55.8865H55.9117H55.9367H55.9615H55.9863H56.0109H56.0353H56.0597H56.0839H56.1079H56.1319H56.1557H56.1794H56.2029H56.2263H56.2496H56.2728H56.2958H56.3187H56.3414H56.3641H56.3866H56.409H56.4312H56.4533H56.4753H56.4972H56.5189H56.5406H56.5621H56.5834H56.6047H56.6258H56.6468H56.6677H56.6884H56.709H56.7295H56.7499H56.7702H56.7903H56.8104H56.8303H56.85H56.8697H56.8892H56.9086H56.9279H56.9471H56.9662H56.9851H57.004H57.0227H57.0413H57.0598H57.0781H57.0964H57.1145H57.1325H57.1504H57.1682H57.1859H57.2035H57.2209H57.2382H57.2555H57.2726H57.2896H57.3065H57.3233H57.3399H57.3565H57.3729H57.3893H57.4055H57.4216H57.4376H57.4535H57.4693H57.485H57.5006H57.5161H57.5315H57.5467H57.5619H57.577H57.5919H57.6068H57.6215H57.6361H57.6507H57.6651H57.6794H57.6937H57.7078H57.7218H57.7357H57.7496H57.7633H57.7769H57.7904H57.8039H57.8172H57.8304H57.8436H57.8566H57.8695H57.8824H57.8951H57.9077H57.9203H57.9327H57.9451H57.9574H57.9695H57.9816H57.9936H58.0055H58.0173H58.029H58.0406H58.0521H58.0635H58.0749H58.0861H58.0973H58.1083H58.1193H58.1302H58.141H58.1517H58.1623H58.1728H58.1833H58.1936H58.2039H58.2141H58.2242H58.2342H58.2441H58.2539H58.2637H58.2734H58.283H58.2925H58.3019H58.3112H58.3205H58.3296H58.3387H58.3477H58.3567H58.3655H58.3743H58.383H58.3916H58.4001H58.4085H58.4169H58.4252H58.4334H58.4416H58.4496H58.4576H58.4655H58.4733H58.4811H58.4888H58.4964H58.5H58.5039H58.5114H58.5187H58.526H58.5333H58.5404H58.5475H58.5546H58.5615H58.5684H58.5752H58.5819H58.5886H58.5952H58.6017H58.6081H58.6145H58.6208H58.6271H58.6333H58.6394H58.6454H58.6514H58.6573H58.6632H58.669H58.6747H58.6803H58.6859H58.6915H58.6969H58.7023H58.7077H58.7129H58.7181H58.7233H58.7284H58.7334H58.7384H58.7433H58.7481H58.7529H58.7576H58.7623H58.7669H58.7715H58.7759H58.7804H58.7848H58.7891H58.7933H58.7976H58.8017H58.8058H58.8098H58.8138H58.8178H58.8216H58.8255H58.8292H58.833H58.8366H58.8403H58.8438H58.8473H58.8508H58.8542H58.8576H58.8609H58.8641H58.8673H58.8705H58.8736H58.8767H58.8797H58.8827H58.8856H58.8885H58.8913H58.8941H58.8968H58.8995H58.9022H58.9048H58.9074H58.9099H58.9123H58.9148H58.9172H58.9195H58.9218H58.9241H58.9263H58.9285H58.9306H58.9327H58.9348H58.9368H58.9388H58.9407H58.9426H58.9445H58.9463H58.9481H58.9499H58.9516H58.9533H58.9549H58.9565H58.9581H58.9597H58.9612H58.9626H58.9641H58.9655H58.9669H58.9682H58.9695H58.9708H58.972H58.9733H58.9744H58.9756H58.9767H58.9778H58.9789H58.9799H58.9809H58.9819H58.9829H58.9838H58.9847H58.9855H58.9864H58.9872H58.988H58.9888H58.9895H58.9902H58.9909H58.9916H58.9922H58.9929H58.9935H58.9941H58.9946H58.9951H58.9957H58.9962H58.9966H58.9971H58.9975H58.9979H58.9983H58.9987H58.9991H58.9994H58.9997H59H59.0001H59.0001H59.0002H59.0002H59.0003H59.0004H59.0004H59.0005H59.0006H59.0007H59.0007H59.0008H59.0009H59.001H59.0011H59.0011H59.0012H59.0013H59.0014H59.0015H59.0016H59.0017H59.0018H59.0019H59.002H59.002H59.0021H59.0022H59.0023H59.0023H59.0024H59.0024H59.0025H59.0026H59.0026H59.0027H59.0027H59.0028H59.0029H59.0029H59.003H59.003H59.0031L59.0031 86H59.5V26.5H59.5004H59.5011H59.5111H59.5218H59.5326H59.533H59.5434H59.5544H59.5645H59.5654H59.5764H59.5876H59.5957H59.5987H59.61H59.6213H59.6266H59.6326H59.644H59.6555H59.6571H59.667H59.6786H59.6872H59.6902H59.7019H59.7136H59.717H59.7253H59.7371H59.7464H59.749H59.7608H59.7728H59.7755H59.7847H59.7967H59.8043H59.8087H59.8208H59.8327H59.8329H59.845H59.8572H59.8608H59.8693H59.8816H59.8886H59.8938H59.906H59.916H59.9183H59.9306H59.9429H59.943H59.9553H59.9676H59.9698H59.98H59.9924H59.9962H60.0048H60.0172H60.0223H60.0296H60.042H60.048H60.0545H60.0669H60.0734H60.0793H60.0918H60.0985H60.1042H60.1167H60.1233H60.1291H60.1416H60.1478H60.154H60.1664H60.1719H60.1789H60.1913H60.1957H60.2037H60.2161H60.2192H60.2284H60.2408H60.2424H60.2532H60.2652H60.2655H60.2778H60.2878H60.2901H60.3024H60.31H60.3146H60.3268H60.3319H60.339H60.3512H60.3535H60.3634H60.3748H60.3755H60.3876H60.3958H60.3996H60.4116H60.4165H60.4236H60.4355H60.4368H60.4474H60.4569H60.4593H60.4711H60.4767H60.4829H60.4946H60.4961H60.5063H60.5153H60.518H60.5296H60.5342H60.5411H60.5526H60.5527H60.5641H60.571H60.5755H60.5868H60.589H60.5981H60.6067H60.6093H60.6204H60.6241H60.6315H60.6412H60.6426H60.6536H60.658H60.6645H60.6746H60.6753H60.6861H60.6908H60.6968H60.7068H60.7074H60.718H60.7225H60.7285H60.7379H60.7389H60.7492H60.753H60.7595H60.7679H60.7696H60.7797H60.7824H60.7898H60.7967H60.7997H60.8095H60.8107H60.8193H60.8245H60.829H60.838H60.8386H60.8481H60.8512H60.8575H60.8641H60.8668H60.876H60.8768H60.8851H60.8892H60.8941H60.9013H60.903H60.9118H60.9132H60.9206H60.9248H60.9292H60.9362H60.9377H60.9461H60.9473H60.9544H60.9581H60.9626H60.9687H60.9707H60.9786H60.979H60.9865H60.9891H60.9942H60.999H61.0018H61.0085H61.0093H61.0167H61.0179H61.024H61.0269H61.0311H61.0358H61.0382H61.0444H61.0451H61.0518H61.0527H61.0585H61.0608H61.065H61.0687H61.0714H61.0763H61.0776H61.0837H61.0837H61.0897H61.0909H61.0956H61.0978H61.1013H61.1045H61.1069H61.1109H61.1123H61.1172H61.1176H61.1227H61.1232H61.1278H61.1289H61.1326H61.1345H61.1373H61.1398H61.1419H61.1449H61.1463H61.1498H61.1506H61.1544H61.1547H61.1586H61.1589H61.1624H61.1631H61.1661H61.1671H61.1696H61.1709H61.1729H61.1744H61.1761H61.1778H61.1791H61.1809H61.1819H61.1839H61.1846H61.1866H61.1871H61.1892H61.1894H61.1915H61.1916H61.1936H61.1954H61.1955H61.1971H61.1972H61.1986H61.1987H61.1999H61.2001H61.201H61.2012H61.2019H61.2021H61.2027H61.2029H61.2033H61.2034H61.2037H61.2037H61.2039L61.2039 25.5H61.2037H61.2037H61.2034H61.2033H61.2029H61.2027H61.2021H61.2019H61.2012H61.201H61.2001H61.1999H61.1987H61.1986H61.1972H61.1971H61.1955H61.1954H61.1936H61.1916H61.1915H61.1894H61.1892H61.1871H61.1866H61.1846H61.1839H61.1819H61.1809H61.1791H61.1778H61.1761H61.1744H61.1729H61.1709H61.1696H61.1671H61.1661H61.1631H61.1624H61.1589H61.1586H61.1547H61.1544H61.1506H61.1498H61.1463H61.1449H61.1419H61.1398H61.1373H61.1345H61.1326H61.1289H61.1278H61.1232H61.1227H61.1176H61.1172H61.1123H61.1109H61.1069H61.1045H61.1013H61.0978H61.0956H61.0909H61.0897H61.0837H61.0837H61.0776H61.0763H61.0714H61.0687H61.065H61.0608H61.0585H61.0527H61.0518H61.0451H61.0444H61.0382H61.0358H61.0311H61.0269H61.024H61.0179H61.0167H61.0093H61.0085H61.0018H60.999H60.9942H60.9891H60.9865H60.979H60.9786H60.9707H60.9687H60.9626H60.9581H60.9544H60.9473H60.9461H60.9377H60.9362H60.9292H60.9248H60.9206H60.9132H60.9118H60.903H60.9013H60.8941H60.8892H60.8851H60.8768H60.876H60.8668H60.8641H60.8575H60.8512H60.8481H60.8386H60.838H60.829H60.8245H60.8193H60.8107H60.8095H60.7997H60.7967H60.7898H60.7824H60.7797H60.7696H60.7679H60.7595H60.753H60.7492H60.7389H60.7379H60.7285H60.7225H60.718H60.7074H60.7068H60.6968H60.6908H60.6861H60.6753H60.6746H60.6645H60.658H60.6536H60.6426H60.6412H60.6315H60.6241H60.6204H60.6093H60.6067H60.5981H60.589H60.5868H60.5755H60.571H60.5641H60.5527H60.5526H60.5411H60.5342H60.5296H60.518H60.5153H60.5063H60.4961H60.4946H60.4829H60.4767H60.4711H60.4593H60.4569H60.4474H60.4368H60.4355H60.4236H60.4165H60.4116H60.3996H60.3958H60.3876H60.3755H60.3748H60.3634H60.3535H60.3512H60.339H60.3319H60.3268H60.3146H60.31H60.3024H60.2901H60.2878H60.2778H60.2655H60.2652H60.2532H60.2424H60.2408H60.2284H60.2192H60.2161H60.2037H60.1957H60.1913H60.1789H60.1719H60.1664H60.154H60.1478H60.1416H60.1291H60.1233H60.1167H60.1042H60.0985H60.0918H60.0793H60.0734H60.0669H60.0545H60.048H60.042H60.0296H60.0223H60.0172H60.0048H59.9962H59.9924H59.98H59.9698H59.9676H59.9553H59.943H59.9429H59.9306H59.9183H59.916H59.906H59.8938H59.8886H59.8816H59.8693H59.8608H59.8572H59.845H59.8329H59.8327H59.8208H59.8087H59.8043H59.7967H59.7847H59.7755H59.7728H59.7608H59.749H59.7464H59.7371H59.7253H59.717H59.7136H59.7019H59.6902H59.6872H59.6786H59.667H59.6571H59.6555H59.644H59.6326H59.6266H59.6213H59.61H59.5987H59.5957H59.5876H59.5764H59.5654H59.5645H59.5544H59.5434H59.533H59.5326H59.5218H59.5111H59.5011H59.5004H59.4898H59.4793H59.4688H59.4585H59.4482H59.438H59.4363H59.4279H59.4178H59.4079H59.4033H59.398H59.3882H59.3785H59.37H59.3689H59.3593H59.3499H59.3406H59.3363H59.3313H59.3222H59.3131H59.3041H59.3023H59.2953H59.2865H59.2779H59.2693H59.2679H59.2609H59.2526H59.2443H59.2362H59.2331H59.2282H59.2203H59.2125H59.2049H59.198H59.1973H59.1899H59.1826H59.1754H59.1683H59.1625H59.1614H59.1546H59.1479H59.1413H59.1349H59.1286H59.1266H59.1224H59.1164H59.1105H59.1047H59.0991H59.0936H59.0904H59.0882H59.083H59.078H59.0731H59.0683H59.0637H59.0592H59.0549H59.0538H59.0507H59.0467H59.0428H59.0391H59.0356H59.0322H59.029H59.0259H59.023H59.0203H59.0177H59.0168H59.0153H59.0131H59.011H59.0091H59.0074H59.0059H59.0045H59.0033H59.0023H59.0015H59.0008H59.0004H59.0001H59H58.9795H58.9417H58.9036H58.8651H58.8263H58.787H58.7474H58.7074H58.667H58.6262H58.585H58.5435H58.5015H58.5Z' fill='%23C2C8CF' stroke='black'/%3E %3Cmask id='mask0_3360_6610' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='24' y='26' width='39' height='60'%3E %3Cpath d='M61 26V86C61 86 59.3699 86 52 86C36.8122 86 24.5 72.5685 24.5 56C24.5 39.4315 36.8122 26 52 26C67.1878 26 61 26 61 26Z' fill='%23C2C8CF'/%3E %3C/mask%3E %3Cg mask='url(%23mask0_3360_6610)'%3E %3Crect x='24.5' y='62' width='37' height='24' fill='%231F2B1F'/%3E %3Crect width='37' height='6' transform='matrix(1 0 0 -1 24.5 57)' fill='%231F2B1F'/%3E %3C/g%3E %3Cpath d='M60 86.5C75.504 86.5 88 72.8028 88 56C88 39.1972 75.504 25.5 60 25.5C44.496 25.5 32 39.1972 32 56C32 72.8028 44.496 86.5 60 86.5Z' fill='white' stroke='black'/%3E %3Cellipse cx='60.5' cy='56' rx='20' ry='23' fill='%23B9F641' stroke='black'/%3E %3Cpath d='M52.7724 59.1185C52.6655 59.1309 52.5717 59.229 52.5279 59.3732C52.4844 59.5182 52.4979 59.6862 52.5635 59.8113L58.0434 66.909C58.2421 67.0934 58.5133 67.001 58.5133 66.6009L58.5133 62.1059L69.7875 62.1059C69.9784 62.1395 70.1689 62.0444 70.3069 61.8472C70.4446 61.6501 70.5147 61.372 70.4974 61.0899L70.4974 60.1044C70.5064 59.8392 70.4393 59.581 70.3118 59.3926C70.1843 59.2052 70.0092 59.1057 69.8295 59.119L52.7724 59.119L52.7724 59.1185ZM70.1843 53.8815C70.2912 53.8691 70.3849 53.771 70.4288 53.6268C70.4503 53.5551 70.4583 53.4788 70.4521 53.4031C70.4459 53.3274 70.4258 53.2542 70.3932 53.1887L64.9133 46.091C64.7145 45.9066 64.4434 45.999 64.4434 46.3991L64.4434 50.8941L53.1691 50.8941C52.9891 50.8809 52.814 50.9803 52.6865 51.1682C52.559 51.3557 52.4915 51.6143 52.5009 51.8796L52.5009 52.8956C52.4919 53.1608 52.5594 53.419 52.6865 53.6074C52.814 53.7948 52.9891 53.8943 53.1691 53.881L70.1843 53.881L70.1843 53.8815Z' fill='black'/%3E%3C/g%3E%3C/svg%3E")
+            }
 
-                                        <!--<div><i class="fa fa-level-up mr-1" style="font-size: 0.7rem !important"></i><small>21% higher</small></div>-->
-                                    </div>
-                                </div>
-                            </div>
-                      </div>
-                  </div>
-                 
-                </div>
-            </div>
-        </div>
-    </div>
-    <!---->
-    <div class="row p-4">
-        <div class="col-4">
-            <a href="withdrawals.php">
-                <button class="btn btn-danger w-100 py-3 py-sm-2 d-flex flex-column justify-content-center align-items-center">
-                    <span class="btn-inner--icon mb-1"> <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                            <path d="M16 7V4A2 2 0 0 0 14 2H10A2 2 0 0 0 8 4V7"/>
-                            <path d="M2 13H22"/>
-                        </svg>
-                    </span>
-                    <span class="small text-nowrap">SEND</span>
-                </button>
-            </a>
-        </div>
-        <div class="col-4">
-            <a href="deposit.php">
-                <button class="btn btn-success w-100 py-3 py-sm-2 d-flex flex-column justify-content-center align-items-center">
-                    <span class="btn-inner--icon mb-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M3 7H17A2 2 0 0 1 19 9V15A2 2 0 0 1 17 17H3V7Z"/>
-                            <path d="M19 9H22V15H19" />
-                            <circle cx="16" cy="12" r="1"/>
-                        </svg>
-                    </span>
-                    <span class="small text-nowrap">RECEIVE</span>
-                </button>
-            </a>
-        </div>
-        <div class="col-4">
-            <a href="swap.php">
-                <button class="btn btn-warning w-100 py-3 py-sm-2 d-flex flex-column justify-content-center align-items-center">
-                    <span class="btn-inner--icon mb-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                           viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 3h5v5" />
-                            <path d="M21 3l-6.5 6.5a4 4 0 0 1-5.6 0L3 3" />
-                            <path d="M8 21H3v-5" />
-                            <path d="M3 21l6.5-6.5a4 4 0 0 1 5.6 0L21 21" />
-                        </svg>
-                    </span>
-                    <span class="small text-nowrap">SWAP</span>
-                </button>
-            </a>
-        </div>
-    </div>
-              <!--10 Recent transaction begin-->
-    <div class="row">
-        <div class="col-12">
-            <div class="card shadow-none">
-                <div class="card-body">
-                    <div class="nk-block-head-content mb-4">
-                        <h6 class="text-primary h5">Recent Transactions</h6>
-                    </div>
-                     <div class="tab-content" id="pills-tabContent">
-                          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                              <div class="wallet-history">
-                                  <?php
-                                  $count = 0;
-                                  $limit = 10;
+            :where(.i-bx-icon\:homeindex-reason1) {
+                display: inline-block;
+                width: 1em;
+                height: 1em;
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' width='120' height='120'%3E%3Cg fill='none'%3E%3Ccircle opacity='0.1' cx='60' cy='60' r='60' fill='%23808080'/%3E %3Cpath d='M92.4092 21.3076L99.4493 34.0476C98.8648 32.9809 97.4723 32.4432 95.8218 32.7381C83.5124 34.9149 73.8591 30.8128 68.4609 27.5432C67.1285 26.7366 65.4093 26.5632 63.6729 26.9361L56.6328 14.1873C58.3606 13.8144 60.0884 13.9879 61.4208 14.7944C66.819 18.0727 76.4723 22.1748 88.7817 19.9893C90.4236 19.6945 91.8161 20.2322 92.4092 21.2989V21.3076Z' fill='%23C3F53A'/%3E %3Cpath d='M56.6317 14.1873C54.904 14.5602 53.1762 15.4708 51.8352 16.8498C46.4025 22.4436 36.6891 30.6999 24.3797 33.8047C22.1877 34.3511 20.4341 36.1897 20.4255 38.0283L20.2794 70.646C20.2708 73.0483 20.8983 75.2425 22.0072 77.2459L29.0473 89.986C27.9384 87.9826 27.3109 85.7884 27.3195 83.3861L27.4656 50.7684C27.4656 48.9298 29.2278 47.0999 31.4198 46.5448C43.7292 43.4487 53.4426 35.1923 58.8753 29.5898C60.2163 28.2109 61.9441 27.2916 63.6718 26.9273L56.6317 14.1873Z' fill='%23C3F53A'/%3E %3Cpath d='M92.4092 21.3076L99.4493 34.0476C98.8648 32.9809 97.4723 32.4432 95.8218 32.7381C83.5124 34.9149 73.8591 30.8128 68.4609 27.5432C67.1285 26.7366 65.4093 26.5632 63.6729 26.9361L56.6328 14.1873C58.3606 13.8144 60.0884 13.9879 61.4208 14.7944C66.819 18.0727 76.4723 22.1748 88.7817 19.9893C90.4236 19.6945 91.8161 20.2322 92.4092 21.2989V21.3076Z' fill='%23C3F53A'/%3E %3Cpath d='M56.6317 14.1873C54.904 14.5602 53.1762 15.4708 51.8352 16.8498C46.4025 22.4436 36.6891 30.6999 24.3797 33.8047C22.1877 34.3511 20.4341 36.1897 20.4255 38.0283L20.2794 70.646C20.2708 73.0483 20.8983 75.2425 22.0072 77.2459L29.0473 89.986C27.9384 87.9826 27.3109 85.7884 27.3195 83.3861L27.4656 50.7684C27.4656 48.9298 29.2278 47.0999 31.4198 46.5448C43.7292 43.4487 53.4426 35.1923 58.8753 29.5898C60.2163 28.2109 61.9441 27.2916 63.6718 26.9273L56.6317 14.1873Z' fill='%23C3F53A'/%3E %3Cpath d='M92.4092 21.3076L99.4493 34.0476C98.8648 32.9809 97.4723 32.4432 95.8218 32.7381C83.5124 34.9149 73.8591 30.8128 68.4609 27.5432C67.1285 26.7366 65.4093 26.5632 63.6729 26.9361L56.6328 14.1873C58.3606 13.8144 60.0884 13.9879 61.4208 14.7944C66.819 18.0727 76.4723 22.1748 88.7817 19.9893C90.4236 19.6945 91.8161 20.2322 92.4092 21.2989V21.3076Z' fill='%23C3F53A'/%3E %3Cpath d='M56.6328 14.1873C54.905 14.5603 53.1762 15.4708 51.8352 16.8498C46.4025 22.4436 36.6891 30.6999 24.3797 33.8047C22.1877 34.3511 20.4341 36.1897 20.4255 38.0283L20.2794 70.646C20.2708 73.0483 20.8983 75.2425 22.0072 77.2459L29.0473 89.986C27.9384 87.9826 27.3109 85.7884 27.3195 83.3861L27.4656 50.7684C27.4656 48.9298 29.2278 47.0999 31.4198 46.5448C43.7292 43.4487 53.4426 35.1923 58.8753 29.5898C60.2163 28.2109 61.9441 27.2916 63.6718 26.9273L56.6328 14.1873Z' fill='%23C3F53A'/%3E %3Cpath d='M92.4092 21.3076L99.4493 34.0476C98.8648 32.9809 97.4723 32.4432 95.8218 32.7381C83.5124 34.9149 73.8591 30.8128 68.4609 27.5432C67.1285 26.7366 65.4093 26.5632 63.6729 26.9361L56.6328 14.1873C58.3606 13.8144 60.0884 13.9879 61.4208 14.7944C66.819 18.0727 76.4723 22.1748 88.7817 19.9893C90.4236 19.6945 91.8161 20.2322 92.4092 21.2989V21.3076Z' fill='%23C3F53A'/%3E %3Cpath d='M56.6328 14.1873C54.905 14.5603 53.1762 15.4708 51.8352 16.8498C46.4025 22.4436 36.6891 30.6999 24.3797 33.8047C22.1877 34.3511 20.4341 36.1897 20.4255 38.0283L20.2794 70.646C20.2708 73.0483 20.8983 75.2425 22.0072 77.2459L29.0473 89.986C27.9384 87.9826 27.3109 85.7884 27.3195 83.3861L27.4656 50.7684C27.4656 48.9298 29.2278 47.0999 31.4198 46.5448C43.7292 43.4487 53.4426 35.1923 58.8753 29.5898C60.2163 28.2109 61.9441 27.2916 63.6718 26.9273L56.6328 14.1873Z' fill='%23C3F53A'/%3E %3Cpath d='M56.6328 14.1873C58.3606 13.8144 60.0884 13.9879 61.4208 14.7944C66.819 18.0727 76.4723 22.1748 88.7817 19.9893C90.4236 19.6945 91.8161 20.2322 92.4092 21.2989V21.3076L99.4493 34.0476C98.8648 32.9809 97.4723 32.4432 95.8218 32.7381C83.5124 34.9149 73.8591 30.8128 68.4609 27.5432C67.1285 26.7366 65.4093 26.5632 63.6729 26.9361L56.6328 14.1873ZM56.6328 14.1873C54.905 14.5603 53.1762 15.4708 51.8352 16.8498M56.6328 14.1873L63.6718 26.9273M51.8352 16.8498C53.1762 15.4708 54.904 14.5602 56.6317 14.1873L63.6718 26.9273M51.8352 16.8498C46.4025 22.4436 36.6891 30.6999 24.3797 33.8047C22.1877 34.3511 20.4341 36.1897 20.4255 38.0283L20.2794 70.646C20.2708 73.0483 20.8983 75.2425 22.0072 77.2459L29.0473 89.986C27.9384 87.9826 27.3109 85.7884 27.3195 83.3861L27.4656 50.7684C27.4656 48.9298 29.2278 47.0999 31.4198 46.5448C43.7292 43.4487 53.4426 35.1923 58.8753 29.5898C60.2163 28.2109 61.9441 27.2916 63.6718 26.9273' stroke='black' stroke-miterlimit='10'/%3E %3Cpath opacity='0.5' d='M28.1 48L21.3784 35.6641C20.7867 36.3737 20.4294 37.2012 20.4255 38.0287L20.2794 70.6465C20.2708 73.0488 20.8983 75.243 22.0072 77.2463L29.0369 89.9677C27.9345 87.9694 26.82 86.5 26.82 84L26.98 51C27 50 27.4412 48.7362 28.1 48Z' fill='%2300C605'/%3E %3Cpath d='M63.6728 26.9276C65.4006 26.5547 67.1284 26.7281 68.4607 27.5347C73.859 30.8129 83.5123 34.9151 95.8217 32.7296C98.0137 32.3393 99.7587 33.4234 99.7501 35.262L99.604 67.8797C99.5266 84.5919 68.3662 104.808 63.3375 105.883C58.3003 106.967 27.2517 100.09 27.3204 83.3777L27.4666 50.7599C27.4666 48.9214 29.2287 47.0914 31.4207 46.5364C43.7301 43.4403 53.4436 35.1839 58.8762 29.5814C60.2172 28.2025 61.945 27.2832 63.6728 26.9189V26.9276Z' fill='%23F7FFF9'/%3E %3Cpath d='M63.6728 26.9276C65.4006 26.5547 67.1284 26.7281 68.4607 27.5347C73.859 30.8129 83.5123 34.9151 95.8217 32.7296C98.0137 32.3393 99.7587 33.4234 99.7501 35.262L99.604 67.8797C99.5266 84.5919 68.3662 104.808 63.3375 105.883C58.3003 106.967 27.2517 100.09 27.3204 83.3777L27.4666 50.7599C27.4666 48.9214 29.2287 47.0914 31.4207 46.5364C43.7301 43.4403 53.4436 35.1839 58.8762 29.5814C60.2172 28.2025 61.945 27.2832 63.6728 26.9189V26.9276Z' fill='%23F7FFF9'/%3E %3Cpath d='M63.6728 26.9276C65.4006 26.5547 67.1284 26.7281 68.4607 27.5347C73.859 30.8129 83.5123 34.9151 95.8217 32.7296C98.0137 32.3393 99.7587 33.4234 99.7501 35.262L99.604 67.8797C99.5266 84.5919 68.3662 104.808 63.3375 105.883C58.3003 106.967 27.2517 100.09 27.3204 83.3777L27.4666 50.7599C27.4666 48.9214 29.2287 47.0914 31.4207 46.5364C43.7301 43.4403 53.4436 35.1839 58.8762 29.5814C60.2172 28.2025 61.945 27.2832 63.6728 26.9189V26.9276Z' fill='%23F7FFF9'/%3E %3Cpath d='M63.6728 26.9276C65.4006 26.5547 67.1284 26.7281 68.4607 27.5347C73.859 30.8129 83.5123 34.9151 95.8217 32.7296C98.0137 32.3393 99.7587 33.4234 99.7501 35.262L99.604 67.8797C99.5266 84.5919 68.3662 104.808 63.3375 105.883C58.3003 106.967 27.2517 100.09 27.3204 83.3777L27.4666 50.7599C27.4666 48.9214 29.2287 47.0914 31.4207 46.5364C43.7301 43.4403 53.4436 35.1839 58.8762 29.5814C60.2172 28.2025 61.945 27.2832 63.6728 26.9189V26.9276Z' fill='%23F7FFF9'/%3E %3Cpath d='M63.6728 26.9276C65.4006 26.5547 67.1284 26.7281 68.4607 27.5347C73.859 30.8129 83.5123 34.9151 95.8217 32.7296C98.0137 32.3393 99.7587 33.4234 99.7501 35.262L99.604 67.8797C99.5266 84.5919 68.3662 104.808 63.3375 105.883C58.3003 106.967 27.2517 100.09 27.3204 83.3777L27.4666 50.7599C27.4666 48.9214 29.2287 47.0914 31.4207 46.5364C43.7301 43.4403 53.4436 35.1839 58.8762 29.5814C60.2172 28.2025 61.945 27.2832 63.6728 26.9189V26.9276Z' stroke='black' stroke-miterlimit='10'/%3E %3Cpath d='M87.3964 40.0835C89.684 39.9382 91.596 41.7656 91.5864 44.0577L91.4992 64.8312C91.4449 77.6296 68.1615 93.115 64.4033 93.942C60.6379 94.769 37.4449 89.5037 37.4991 76.7053L37.5969 54.1856C37.6035 52.6712 38.4579 51.2949 39.8348 50.6642C44.4308 48.5589 55.3177 43.894 64.6456 42.3659C71.8553 41.1848 81.8223 40.4376 87.3964 40.0835Z' fill='%231F2B1F'/%3E %3Cpath d='M77.373 56.4517C78.0059 56.3225 78.642 56.3856 79.123 56.6712C80.0882 57.2393 80.0819 58.4748 79.1104 59.4338L64.1447 74.1996C63.6605 74.6776 63.0244 74.9932 62.3883 75.1225C61.6098 75.2788 60.9769 75.2187 60.4959 74.9361L52.3342 70.1324C51.369 69.5672 51.3753 68.3287 52.3469 67.3698C52.8342 66.8888 53.4672 66.5702 54.1033 66.4439C54.7394 66.3177 55.3723 66.3778 55.8533 66.6634L62.3377 70.4781L75.6166 57.3776C76.1039 56.8966 76.7369 56.578 77.373 56.4517Z' fill='%23B9F641'/%3E%3C/g%3E%3C/svg%3E")
+            }
 
-                                  while ($trans = mysqli_fetch_assoc($query_fetch) and $count < $limit) {
-                                      // Determine transaction type and amount display
-                                      $is_credit = ($trans['type'] == 'credit');
-                                      $type_class = $is_credit ? 'credit' : 'debit';
-                                      $sign = $is_credit ? '+' : '-';
-                                  ?>
-                                <a href="generate_pdf.php?id=<?php echo htmlspecialchars($trans['tranx_id']); ?>" target="_blank" class="transaction-link">
-                                      <div class="transaction-card <?php echo $type_class; ?>">
-                                          <div class="icon-container">
-                                              <?php if ($is_credit): ?>
-                                                  <i class="fa-solid fa-circle-arrow-left transaction-icon"></i>
-                                              <?php else: ?>
-                                                  <i class="fa-solid fa-circle-arrow-right transaction-icon"></i>
-                                              <?php endif; ?>
-                                          </div>
-                                          <div class="transaction-details">
-                                              <div class="transaction-type">
-                                                  <?php echo $is_credit ? 'Received' : 'Transfer'; ?>
-                                              </div>
-                                              <div class="transaction-info">
-                                                  <div class="details-text"><?php echo htmlspecialchars($trans['details']); ?></div>
-                                                  <div class="fees-text">
-                                                      Fees: $<?php echo $trans['fees']; ?>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="transaction-amount-container">
-                                            <div class="transaction-amount-coin">
-                                                  <?php echo $sign . ' ' . number_format($trans['amount']/get_btc_current_price_usd(), 8, '.', ',') . ' ' . htmlspecialchars($trans['coin']); ?>
-                                              </div>
-                                              <div class="transaction-amount-dollar">
-                                                  <?php echo $sign . ' $' . number_format($trans['amount'], 2, '.', ','); ?>
-                                              </div>
-                                              
-                                          </div>
-                                      </div>
-                                </a>
-                                  <?php
-                                      $count++;
-                                  }
-                                  ?>
-                              </div>
-                          </div>
-                      </div>
-                    <div class="mt-3">
-                        <a href="accounthistory.php" style="font-size:0.8rem !important">View all transactions<i class="far fa-arrow-right ml-2"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--end of recent transactions-->
-    <div class="row">
-        <div class="col-12">
-            <div class="card shadow-none">
-                <div class="card-body">
-                    <h5 class="text-primary h5 mb-3">Featured Coins & Indices</h5>
-                    <div class="tradingview-widget-container">
-                        <div class="tradingview-widget-container__widget"></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-                        {
-                            "symbols": [
-                                { "proName": "BINANCE:BTCUSDT", "title": "Bitcoin" },
-                                { "proName": "BINANCE:ETHUSDT", "title": "Ethereum" },
-                                { "proName": "BINANCE:SOLUSDT", "title": "Solana" },
-                                { "proName": "BINANCE:DOGEUSDT", "title": "Dogecoin" },
-                                { "proName": "BINANCE:XRPUSDT", "title": "XRP" },
-                                { "proName": "BINANCE:BNBUSDT", "title": "BNB" },
-                                { "proName": "NASDAQ:TSLA", "title": "Tesla" },
-                                { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" },
-                                { "proName": "FX_IDC:EURUSD", "title": "EUR/USD" },
-                                { "proName": "OANDA:XAUUSD", "title": "Gold" }
-                            ],
-                            "showSymbolLogo": true,
-                            "isTransparent": false,
-                            "displayMode": "adaptive",
-                            "colorTheme": "dark",
-                            "locale": "en"
-                        }
-                        </script>
-                    </div>
-                    </div>
-            </div>
-        </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col-12">
-            <div class="card shadow-none">
-                <div class="card-body">
-                    <div class="nk-block-head-content mb-4">
-                        <h5 class="text-primary h5">Crypto Market</h5>
-                    </div>
-                    <ul class="nav nav-pills mb-3" id="crypto-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="hot-tab" data-toggle="pill" href="#hot" role="tab" aria-controls="hot" aria-selected="true">🔥 Hot</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="gainers-tab" data-toggle="pill" href="#gainers" role="tab" aria-controls="gainers" aria-selected="false">🚀 Gainers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="losers-tab" data-toggle="pill" href="#losers" role="tab" aria-controls="losers" aria-selected="false">🔻 Losers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="new-tab" data-toggle="pill" href="#new" role="tab" aria-controls="new" aria-selected="false">✨ New Listings</a>
-                        </li>
-                    </ul>
+            :where(.i-bx-icon\:homeindex-reason2) {
+                display: inline-block;
+                width: 1em;
+                height: 1em;
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' width='120' height='120'%3E%3Cg fill='none'%3E%3Ccircle opacity='0.1' cx='60' cy='60' r='60' fill='%23808080'/%3E %3Cpath d='M108.832 54.1696C109.863 55.6893 108.566 57.4099 105.944 58.0015L32.3091 74.615C29.6876 75.2066 26.7134 74.4522 25.6876 72.9271L5.18243 42.647C4.15121 41.1273 5.44838 39.4067 8.06987 38.8151L81.7049 22.2016C84.3264 21.61 87.3007 22.3644 88.3265 23.8895L108.832 54.1696Z' fill='%231F2B1F' stroke='black' stroke-miterlimit='10'/%3E %3Cpath d='M38.0234 38.5764L51.8799 35.4502L53.9803 38.5493L40.1239 41.6755L38.0234 38.5764Z' fill='%2300C605'/%3E %3Cpath d='M15.7822 43.5913L34.8545 39.2927L36.9549 42.3918L17.8772 46.6958L15.7822 43.5913Z' fill='%2300C605'/%3E %3Cpath d='M50.4053 97.8113C52.7609 99.1681 56.609 99.1681 58.9645 97.8113L114.624 65.675C116.458 64.6166 116.458 62.8798 114.624 61.8214L79.106 41.3162C76.7505 39.9594 72.9024 39.9594 70.5468 41.3162L15.8321 72.9043C13.4765 74.2612 13.4765 76.4865 15.8321 77.8434L50.4053 97.8058V97.8113Z' fill='%23C3F53A'/%3E %3Cpath d='M115.676 62.7605C115.448 62.4186 115.095 62.1038 114.623 61.827L79.1054 41.3219C76.7498 39.965 72.9017 39.965 70.5462 41.3219L33.4111 62.7605H115.676Z' fill='white'/%3E %3Cpath d='M35.3613 89.1276L44.1485 94.2024L107.422 57.6697L98.6353 52.595L35.3613 89.1276Z' fill='%231F2B1F'/%3E %3Cpath d='M81.0264 62.7607H98.6061L107.42 57.6697L98.6332 52.595L81.0264 62.7607Z' fill='%23294C14'/%3E %3Cpath d='M50.4053 97.8113C52.7609 99.1681 56.609 99.1681 58.9645 97.8113L114.624 65.675C116.458 64.6166 116.458 62.8798 114.624 61.8214L79.106 41.3162C76.7505 39.9594 72.9024 39.9594 70.5468 41.3162L15.8321 72.9043C13.4765 74.2612 13.4765 76.4865 15.8321 77.8434L50.4053 97.8058V97.8113Z' stroke='black' stroke-miterlimit='10'/%3E%3C/g%3E%3C/svg%3E")
+            }
 
-                    <div class="tab-content" id="crypto-tabs-content">
-                        <div class="tab-pane fade show active" id="hot" role="tabpanel" aria-labelledby="hot-tab">
-                            <div class="table-responsive">
-                                <table class="table table-hover crypto-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Coin</th>
-                                            <th>Symbol</th>
-                                            <th>Trade</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php 
-                                        $trending_coins = get_trending_coins();
-                                        foreach ($trending_coins as $coin): 
-                                            $coin_id = $coin['item']['id'];
-                                            $symbol = strtoupper($coin['item']['symbol']);
-                                            $name = $coin['item']['name'];
-                                        ?>
-                                        <tr>
-                                            <td><?php echo htmlspecialchars($name); ?></td>
-                                            <td><?php echo htmlspecialchars($symbol); ?></td>
-                                            <td>
-                                                <button class="btn btn-sm btn-primary trade-btn" data-symbol="<?php echo htmlspecialchars($symbol); ?>" data-coin-id="<?php echo htmlspecialchars($coin_id); ?>">Trade</button>
-                                            </td>
-                                        </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+            :where(.i-bx-icon\:homeindex-reason3) {
+                display: inline-block;
+                width: 1em;
+                height: 1em;
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' width='120' height='120'%3E%3Cg fill='none'%3E%3Ccircle opacity='0.1' cx='60' cy='60' r='60' fill='%23808080'/%3E %3Ccircle cx='60.2757' cy='60.077' r='37.5033' fill='%23C3F53A' stroke='black'/%3E %3Cpath d='M51.3691 96.0014C67.5034 92.0147 79.4661 77.4429 79.4661 60.077C79.4661 42.7111 67.5034 28.1393 51.3691 24.1526C54.2218 23.4477 57.205 23.0737 60.2754 23.0737C80.7118 23.0737 97.2787 39.6407 97.2787 60.077C97.2787 80.5133 80.7118 97.0803 60.2754 97.0803C57.205 97.0803 54.2218 96.7063 51.3691 96.0014Z' fill='%2300C605'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M59.412 52.9857C59.4076 52.9928 59.401 52.999 59.3965 53.006C59.3908 52.9378 59.3836 52.8697 59.3765 52.802L59.3742 52.7797C59.3805 52.831 59.3946 52.9032 59.412 52.9857ZM60.5505 51.8525C60.4307 51.968 60.3045 52.0767 60.1787 52.1851C59.8954 52.4291 59.6142 52.6714 59.412 52.9857C59.4459 53.1481 59.4967 53.3622 59.5532 53.6003C59.7422 54.3965 59.9949 55.4615 59.8951 55.7595C59.5455 56.7992 58.927 55.6786 58.5284 54.9564C58.439 54.7943 58.3606 54.6524 58.2988 54.5593C57.4237 53.241 55.8883 53.5853 54.5079 53.8949C54.0612 53.995 53.6308 54.0915 53.2442 54.1269C51.2218 54.3118 49.2408 56.9361 50.4884 59.0661C51.0872 60.0877 52.0946 60.4833 53.2502 60.2468C53.7509 60.1443 54.0811 59.7508 54.3998 59.3708C54.7357 58.9704 55.0589 58.5851 55.5558 58.5716C56.8514 58.5371 56.2816 59.4767 55.8162 60.2441C55.6423 60.5309 55.483 60.7936 55.4411 60.9725C55.3051 61.5537 55.6309 61.6314 56.206 61.7685L56.2898 61.7886C56.4852 61.8353 56.715 61.8072 56.9455 61.7791C57.2609 61.7407 57.5777 61.7021 57.8096 61.8547C57.9117 61.9222 57.9706 62.1114 58.0274 62.2941C58.1113 62.5636 58.1907 62.8188 58.398 62.6471C57.7135 63.2143 57.8734 64.5595 58.5752 65.0455C59.0385 65.3669 59.5508 65.3197 60.0615 65.2727C60.4084 65.2408 60.7546 65.2089 61.0842 65.2927C62.036 65.5355 62.1176 65.4329 62.3617 65.1262C62.512 64.9373 62.7239 64.671 63.2388 64.3602C63.8228 64.0083 64.0941 64.1498 64.3774 64.2976C64.5363 64.3804 64.6991 64.4654 64.923 64.4663C65.0918 64.467 65.236 64.3705 65.3933 64.2654C65.6311 64.1064 65.8986 63.9275 66.3254 64.0346C66.5856 64.1002 66.775 64.2267 66.9675 64.3553C67.2026 64.5123 67.4424 64.6724 67.8217 64.7289C67.9689 64.7506 68.1185 64.7209 68.2661 64.6916C68.4024 64.6646 68.537 64.6379 68.6666 64.6522C69.8154 64.7798 70.722 65.4533 71.6252 66.1243C71.7253 66.1986 71.8253 66.273 71.9256 66.3465C72.4862 66.7568 72.9187 66.8333 73.4395 66.9256C73.6888 66.9697 73.9582 67.0174 74.2716 67.107C74.9788 67.3085 76.2839 68.3319 76.2171 69.2304C76.2116 69.3041 76.0784 69.5142 75.9256 69.7551C75.7454 70.0393 75.538 70.3663 75.4808 70.5633C75.4808 70.5633 75.4786 70.5626 75.4769 70.5623C75.4756 70.5621 75.4742 70.5619 75.4729 70.5615L75.4752 70.5622C75.4772 70.5628 75.4791 70.5633 75.4802 70.5643C75.4256 70.7527 75.5081 70.8238 75.8921 70.6158C75.8595 70.6106 75.8136 70.6102 75.7635 70.6097C75.6605 70.6088 75.5398 70.6077 75.4802 70.5643L75.4808 70.5633C75.6038 70.6484 76.225 70.5457 76.7259 70.4628C76.9619 70.4238 77.1713 70.3892 77.2892 70.3807C77.182 70.5055 76.4965 70.9927 76.342 70.8792C76.3222 70.8516 76.311 70.8261 76.311 70.8039C76.311 70.8402 76.3221 70.8646 76.342 70.8792C76.4366 71.0119 76.7279 71.1946 76.9199 71.315C76.9822 71.3542 77.034 71.3867 77.0653 71.4089C77.4098 70.2906 77.9248 70.5884 78.5473 70.9484C78.7328 71.0557 78.9277 71.1684 79.1306 71.2509C79.5969 71.4408 80.13 71.5192 80.659 71.5969C80.9824 71.6445 81.3043 71.6918 81.6084 71.7642C82.2888 71.9262 83.7891 72.3855 84.2933 72.9413C84.9001 73.6104 84.4806 74.6974 84.0316 75.3632C83.7909 75.7207 83.5001 75.9881 83.2155 76.2498C82.8056 76.6268 82.4084 76.992 82.1921 77.598C82.0271 78.0617 82.0267 78.528 82.0263 79.0103C82.026 79.3745 82.0256 79.7478 81.9545 80.1359C81.8049 80.9526 81.6751 81.0316 81.3703 81.2172C81.2193 81.3092 81.0254 81.4272 80.7649 81.674C80.4738 81.9501 80.4366 82.0836 80.4097 82.1806C80.3753 82.3041 80.3575 82.3685 79.8528 82.5925C79.5837 82.712 79.3241 82.7855 79.0758 82.8557C78.4888 83.0218 77.9644 83.1702 77.5241 83.8678C77.5363 83.8374 77.5474 83.8069 77.5576 83.7761C77.5683 83.7437 77.5781 83.711 77.587 83.6775C77.4196 83.9117 77.3052 84.3013 77.212 84.6188C77.158 84.8027 77.1111 84.9624 77.0651 85.0536C76.7956 85.5948 76.4388 85.9654 76.0295 86.3907C75.959 86.4639 75.8871 86.5387 75.8137 86.6162C75.7614 86.6714 75.5921 86.8909 75.3715 87.1769C74.7844 87.9381 73.834 89.1703 73.7601 89.0299C73.6998 88.914 73.3721 88.9587 73.03 89.0053C72.6302 89.0598 72.2107 89.1169 72.1751 88.9239C72.2005 89.0624 72.1997 89.1158 72.225 89.15C72.2548 89.1902 72.3205 89.2038 72.5067 89.2976C72.1874 91.2738 71.3514 91.5687 69.4104 91.5886C69.517 92.1949 69.2009 92.337 68.8531 92.4932C68.656 92.5818 68.4489 92.6749 68.3026 92.8595C68.1581 93.0417 68.0598 93.4255 67.9677 93.7847C67.9091 94.0134 67.8531 94.2321 67.7893 94.3824C67.7473 94.4818 67.5951 94.704 67.4302 94.9447C67.1929 95.2909 66.9292 95.6757 66.9292 95.7893C66.9284 95.9607 67.1672 96.2091 67.3993 96.4506L67.4235 96.4758C66.0551 96.7463 64.6599 96.9351 63.2428 97.05C63.508 96.716 63.5719 96.4223 62.7269 96.3821C62.8415 96.0706 63.0345 95.8271 63.2262 95.585C63.4127 95.3497 63.598 95.1158 63.7089 94.8224C63.7647 94.6758 63.7672 94.5755 63.7698 94.4735C63.7721 94.3802 63.7745 94.2855 63.8176 94.1526C64.0379 93.4683 64.0331 93.4557 63.9491 93.235C63.9152 93.146 63.8684 93.0231 63.8184 92.8089C63.5154 91.5121 63.7419 90.9143 64.0736 90.0387C64.189 89.7339 64.3171 89.3955 64.4402 88.9824C64.732 88.0013 64.8336 86.8469 64.9346 85.6989C65.0029 84.9224 65.0709 84.1489 65.1974 83.4341C65.3461 82.5863 65.5898 80.8223 65.2952 80.0209C65.0676 79.4018 64.3093 78.8729 63.6397 78.4058C63.3332 78.192 63.0453 77.9912 62.8354 77.8007C62.0683 77.1019 61.5925 76.3576 61.0656 75.5333C60.9423 75.3405 60.8163 75.1434 60.6832 74.9415C60.5929 74.8045 60.4994 74.6682 60.4056 74.5314C60.1289 74.1278 59.8494 73.7203 59.6416 73.2809C59.2852 72.5277 59.3557 72.4937 59.4911 72.4285C59.5819 72.3848 59.7019 72.327 59.7421 72.029C59.7779 71.7613 59.7751 71.5042 59.7723 71.2479C59.7676 70.8174 59.763 70.3892 59.9416 69.9171C60.0926 69.5181 60.352 69.1911 60.6097 68.8664C60.8896 68.5135 61.1674 68.1633 61.302 67.7261C61.5346 66.9788 61.3577 66.0393 60.5898 65.79C60.3582 65.7145 60.1137 65.7741 59.8698 65.8334C59.6631 65.8837 59.4569 65.934 59.2596 65.9016C58.66 65.8044 57.9812 65.3569 57.5107 64.999C57.1974 64.7603 56.9775 64.4505 56.7573 64.1402C56.5158 63.8 56.274 63.4592 55.9082 63.2111C55.5559 62.9733 55.2648 62.9642 54.9523 62.9544C54.7454 62.9479 54.5291 62.9411 54.2795 62.8674C53.9126 62.7593 53.6245 62.4577 53.3491 62.1694C53.1341 61.9443 52.9269 61.7274 52.6958 61.6167C52.2426 61.3999 51.9027 61.4858 51.538 61.5779C51.2664 61.6465 50.9809 61.7186 50.6245 61.6718C50.1567 61.6106 49.527 61.2481 48.9621 60.9229C48.6696 60.7546 48.3945 60.5963 48.1683 60.4949C46.8193 59.8912 45.9979 59.2249 45.4584 57.8562C45.1134 56.9795 44.6504 56.4521 44.1077 55.834C43.9239 55.6246 43.7308 55.4047 43.5301 55.1573C43.3342 54.9157 43.1711 54.6829 43.0185 54.465C42.5452 53.7896 42.173 53.2583 41.2365 53.0587C41.0912 53.0271 41.5396 54.0985 41.5859 54.1844C41.8788 54.7267 42.269 55.2378 42.6543 55.7427C42.8512 56.0006 43.0468 56.2569 43.2275 56.5148C44.0139 57.6384 43.6787 57.8492 42.8787 56.7628C42.5902 56.3707 42.287 55.9794 41.9823 55.586C41.3209 54.7322 40.6521 53.8688 40.1088 52.9677C39.998 52.7839 39.9359 52.6241 39.8768 52.4718C39.776 52.212 39.6836 51.9741 39.3716 51.6762C39.1232 51.4391 38.835 51.2652 38.5478 51.0919C38.2823 50.9317 38.0177 50.7721 37.7864 50.5635C36.0541 49.006 35.7392 46.9269 35.9368 44.7066C35.9599 44.445 36.0089 44.2023 36.0566 43.9662C36.1407 43.5491 36.2207 43.1525 36.1471 42.7083C36.0519 42.1306 35.7108 41.6531 35.2847 41.2275C35.216 41.1182 35.0956 40.929 34.9898 40.7628C34.8839 40.5964 34.7927 40.4532 34.7827 40.436C34.7137 40.3214 34.6474 40.2071 34.5816 40.0937C34.2722 39.5607 33.9739 39.0466 33.4588 38.6049C33.1004 38.2962 32.173 37.5747 31.2998 36.9703C35.2229 32.0784 40.3562 28.2017 46.2451 25.7947C46.2918 26.0908 46.4191 26.3862 46.6096 26.6691C47.0065 27.2576 47.3881 27.3255 48.0334 27.4403C48.1753 27.4655 48.3299 27.493 48.5003 27.5289C48.3991 28.6257 47.1168 28.6343 46.2489 28.5155C46.1074 28.496 45.9649 28.4729 45.8221 28.4496C44.9188 28.3026 44.0003 28.153 43.2254 28.9369C43.3089 28.9871 43.4169 29.0617 43.5379 29.1454C44.1357 29.5585 45.0512 30.1912 44.9009 29.1828C45.8933 29.1331 46.8527 29.1036 47.8237 29.2222C47.9366 29.2361 48.1265 29.2828 48.3479 29.3372C48.8893 29.4702 49.6187 29.6494 49.8694 29.5078C49.9512 29.4616 50.0359 29.2184 50.1218 28.9718C50.1916 28.7714 50.2622 28.5687 50.3326 28.4679C50.2056 28.4686 50.0745 28.4396 49.9431 28.4105C49.788 28.3763 49.6326 28.3419 49.4834 28.3562C49.9984 27.6969 50.5119 27.9801 51.1165 28.3134C51.2666 28.3961 51.4224 28.482 51.5852 28.5573C50.6844 29.1047 51.2186 30.4164 52.0994 29.3506C52.8228 28.4741 51.9223 27.8388 51.0037 27.3281C51.9301 26.1698 52.5012 26.0652 53.3729 27.3726C53.4871 26.7311 53.9224 26.8043 54.4383 26.891C54.5708 26.9133 54.7086 26.9365 54.8477 26.9487V26.747C54.7072 26.7504 54.5623 26.7143 54.4175 26.6782C54.2534 26.6374 54.0895 26.5966 53.932 26.613C54.1938 26.1955 54.2936 25.8997 54.3698 25.6737C54.4954 25.3014 54.557 25.1187 55.1736 24.8942C55.4604 24.7898 55.9404 24.7587 56.4486 24.7257C57.3382 24.668 58.3142 24.6047 58.4907 24.1327C58.0459 24.2192 57.575 24.2871 57.0962 24.3561C55.8792 24.5315 54.611 24.7144 53.5911 25.2283C53.4225 25.3133 53.2449 25.4487 53.0634 25.5872C52.5855 25.9518 52.08 26.3374 51.6365 25.8783C51.0092 25.2283 52.085 24.1832 52.6356 23.8646H52.5038C54.9962 23.3346 57.5775 23.05 60.2258 23.05C61.937 23.05 63.6187 23.1767 65.2695 23.4021C64.9592 23.565 64.9421 23.6992 64.9245 23.8369C64.9098 23.9527 64.8947 24.071 64.7046 24.211C64.0299 24.7072 62.9111 25.1336 62.0099 25.477C61.8499 25.538 61.6967 25.5964 61.5541 25.6521C61.8635 25.6513 62.2861 25.7256 62.7527 25.8076C64.0984 26.0441 65.8096 26.3449 66.2254 25.0933L65.862 25.0374C65.5955 24.9964 65.3292 24.9553 65.0626 24.9144C65.7869 24.4342 66.5948 24.0456 67.4429 23.7608C75.0969 25.2767 81.9049 29.1582 87.0838 34.6047C87.0465 34.604 87.0097 34.603 86.9739 34.604L86.8275 34.6083C85.4622 34.6489 84.4869 34.6778 83.3674 35.4503C83.2184 35.5533 83.0847 35.6669 82.9524 35.7793C82.6699 36.0193 82.3941 36.2536 81.9904 36.3668C81.7378 36.4379 81.4757 36.4456 81.2135 36.4533C80.9241 36.4618 80.6346 36.4703 80.358 36.5641C79.5352 36.8433 79.1246 37.7637 78.7208 38.6687C78.1909 39.8566 77.6726 41.0181 76.2497 40.6688C75.15 40.399 74.3534 39.1676 73.7701 38.266C73.7288 38.2021 73.6885 38.14 73.6494 38.0799C73.5322 37.9005 73.3934 37.728 73.2559 37.5572C72.7808 36.9667 72.3206 36.3949 72.8186 35.619C72.6622 35.6591 72.5002 35.6534 72.3393 35.6477C72.1989 35.6428 72.0593 35.6379 71.9249 35.6634C72.16 35.1475 72.7187 34.9598 73.1867 34.8026C73.5185 34.6912 73.8047 34.595 73.8976 34.4081C74.3606 33.4711 72.9979 33.2303 72.1814 33.086C72.0137 33.0564 71.869 33.0308 71.7679 33.0041C72.1886 32.5559 72.487 32.7238 72.8051 32.9028C73.0277 33.028 73.26 33.1587 73.5505 33.0875C74.2286 32.9206 73.1926 32.0277 72.7859 31.9274C72.7562 31.92 72.6341 31.9429 72.4699 31.9736C71.8254 32.0942 70.5326 32.336 71.6341 31.3505C69.9278 30.2631 68.2224 29.1761 66.5158 28.0878C66.2878 29.0484 67.8531 29.6797 68.9262 30.1124C69.2047 30.2248 69.45 30.3237 69.6222 30.4116C69.4925 30.9112 68.7152 31.6386 68.1201 31.4256C67.884 31.341 67.7877 31.1274 67.6922 30.9153C67.5607 30.6238 67.4307 30.3352 66.9406 30.3892C66.5842 31.2178 67.0926 31.4149 67.6057 31.6138C67.9625 31.7521 68.3216 31.8913 68.3934 32.2444C68.5533 33.034 67.9949 32.9187 67.5883 32.8349C67.4897 32.8145 67.4001 32.796 67.3317 32.7927C67.311 32.7916 67.2549 32.7489 67.1818 32.6933C66.9615 32.5256 66.5871 32.2406 66.5606 32.6244C66.5392 32.9321 66.8071 33.023 67.0863 33.1177C67.3578 33.2098 67.64 33.3055 67.6777 33.6077C66.4533 33.6572 65.8105 33.2297 64.8346 32.5807L64.7453 32.5213C63.6422 31.7894 63.0334 31.7919 61.7985 31.7969C61.6918 31.7974 61.5804 31.7978 61.4635 31.7978C61.5974 31.7428 61.7468 31.6922 61.9003 31.6401C62.2503 31.5214 62.6221 31.3952 62.8831 31.1933C63.0882 31.0347 63.8931 30.2526 63.9462 30.0779C64.1311 29.4654 64.0072 29.3887 63.5669 29.116C63.4656 29.0532 63.3476 28.9802 63.2128 28.8878C63.0356 28.7666 62.8481 28.6188 62.653 28.4651C62.1422 28.0627 61.5799 27.6195 61.0178 27.5073C59.4914 27.2027 59.3657 27.976 59.2292 28.8157C59.114 29.5239 58.9913 30.2793 58.014 30.475C57.9251 30.4718 57.8222 30.4653 57.7114 30.4583C57.2063 30.4265 56.5365 30.3841 56.2753 30.5982C56.1636 30.6894 56.1028 30.9173 56.039 31.1563C55.9744 31.3981 55.9068 31.6513 55.7805 31.7855C55.5082 32.0756 55.1547 32.2244 54.7994 32.374C54.571 32.47 54.3419 32.5664 54.1332 32.7009C53.6125 33.0366 52.4642 33.8979 52.1584 34.4822C51.2485 36.2201 53.4619 36.9906 55.0806 37.5542C55.4675 37.6888 55.8204 37.8117 56.0885 37.9331C56.2956 38.0268 56.6337 38.132 57.0063 38.2478C57.7644 38.4835 58.6651 38.7635 58.8943 39.0821C59.089 39.353 59.0471 39.6167 59.0078 39.8648C58.9544 40.2012 58.9056 40.509 59.4566 40.7671C59.7624 40.91 60.393 40.9392 60.6565 40.6431C60.917 40.3495 60.7959 40.1943 60.6381 39.9922C60.5366 39.8623 60.4201 39.7129 60.38 39.495C60.2441 38.7613 60.3544 38.729 60.6104 38.6542C60.7285 38.6197 60.8777 38.5761 61.0481 38.4503C61.9891 37.7556 61.9433 37.6192 61.6625 36.7832C61.6152 36.6426 61.5613 36.4821 61.5044 36.2959C61.4786 36.2116 61.4429 36.1061 61.4022 35.9858C61.1521 35.2475 60.7131 33.9514 61.2372 33.5694C61.8091 33.1522 62.8472 33.4981 63.6114 33.7527C63.9093 33.8519 64.1656 33.9373 64.3365 33.9583C64.8378 34.0197 65.1861 34.5288 65.4837 34.9639C65.607 35.1442 65.7217 35.3118 65.8349 35.4295C65.8649 35.4607 65.8976 35.4959 65.9328 35.5337C66.1987 35.82 66.6031 36.2554 66.9992 36.2013C67.4191 36.1438 67.4877 35.9038 67.5581 35.6576C67.607 35.4864 67.6568 35.3123 67.8261 35.1946C68.8369 34.4937 69.1683 35.3011 69.554 36.2406C69.591 36.3307 69.6285 36.422 69.6671 36.5134C70.0823 37.4935 70.4754 37.8573 71.2145 38.486C71.2662 38.5301 71.3444 38.5914 71.4393 38.6657C71.9739 39.0845 73.0408 39.9202 72.9202 40.4669C72.824 40.9006 71.1055 41.5584 70.6459 41.704C70.1054 41.8751 69.4126 41.846 68.7102 41.8164C67.2295 41.7541 65.706 41.69 65.4764 43.4965C65.655 43.43 65.9239 43.268 66.2316 43.0826C67.0468 42.5916 68.1344 41.9364 68.538 42.4574C68.6808 42.6408 68.5989 42.8713 68.5193 43.0955C68.4576 43.2693 68.3972 43.4393 68.4439 43.5805C68.7181 44.4184 69.3139 44.2798 69.9768 44.1256C70.081 44.1014 70.1867 44.0768 70.2932 44.0556C70.2815 44.0629 70.2697 44.07 70.2579 44.0769C70.2163 44.0981 70.1728 44.1204 70.1271 44.1439C70.1619 44.1283 70.1955 44.1116 70.2285 44.0935C70.2383 44.0881 70.2481 44.0826 70.2579 44.0769C70.7365 43.8327 70.9478 43.732 71.1038 43.5761C71.2517 43.4284 71.3499 43.2311 71.5789 42.8151C71.6324 42.7178 71.6946 42.5745 71.7622 42.419C71.8972 42.1079 72.0536 41.7477 72.2044 41.6085C72.8548 41.0104 73.0457 41.2556 73.372 41.6745C73.4364 41.7573 73.5062 41.8469 73.5858 41.9381C73.7121 42.0838 74.905 43.8011 74.4804 43.7154C73.0928 43.4372 71.7605 43.4744 70.6097 44.2331C70.4119 44.3637 70.2173 44.5079 70.0206 44.6538C69.5578 44.9967 69.0833 45.3485 68.5276 45.5525C68.3378 45.6219 66.9323 45.755 67.0984 45.5154C67.2223 45.337 67.5008 45.1893 67.7874 45.0373C68.0619 44.8917 68.344 44.7421 68.5052 44.5576C67.7663 44.2534 67.1268 44.7389 66.5295 45.1924C66.3887 45.2993 66.2503 45.4044 66.1135 45.4969C65.653 45.7147 65.4063 46.0463 65.1397 46.4046C64.9657 46.6386 64.7831 46.8839 64.5271 47.1163C64.402 47.2297 64.2277 47.3015 64.0481 47.3755C63.8214 47.4689 63.5863 47.5657 63.4312 47.7541C63.2946 47.9201 63.2187 48.1343 63.1437 48.3457C63.0708 48.5514 62.9988 48.7543 62.8729 48.9076C62.7939 49.0038 62.6603 49.0318 62.5196 49.0614C62.3415 49.0988 62.152 49.1387 62.0475 49.322C61.9073 49.5687 62.0023 49.8052 62.0888 50.0205C62.1525 50.1793 62.2116 50.3265 62.1682 50.4576C62.047 50.8208 61.5571 51.1483 61.1152 51.4438C60.8838 51.5985 60.6656 51.7444 60.5203 51.882C60.5304 51.8722 60.5405 51.8624 60.5505 51.8525ZM60.6656 51.7371C60.628 51.7765 60.5897 51.8148 60.5505 51.8525C60.5892 51.8146 60.6276 51.7759 60.6656 51.7371ZM58.014 30.475C58.009 30.4762 58.0046 30.4782 57.9992 30.4786H58.1215C58.0994 30.4786 58.0734 30.4778 58.0472 30.4766L58.014 30.475ZM93.9133 49.1254C93.852 49.1741 93.7884 49.2247 93.7514 49.3037C93.6538 49.5108 93.6907 49.7953 93.7259 50.0673C93.7456 50.219 93.7647 50.3669 93.7597 50.4952C93.7553 50.606 93.7422 50.714 93.7293 50.8196C93.6929 51.1198 93.6587 51.4012 93.8329 51.677C94.0535 52.0261 94.419 52.3868 94.7295 52.6563L94.7462 52.6709C95.0463 52.932 95.3581 53.2034 95.7755 53.1873C95.8959 53.1832 96.4827 53.096 96.5728 53.0249C96.5808 53.0183 96.5862 53.0087 96.5916 52.9991C96.5952 52.9926 96.5988 52.9862 96.6032 52.9809C96.2452 51.1513 95.7528 49.3694 95.1351 47.6459C95.097 47.7161 95.0508 47.785 94.9678 47.8596C94.8829 47.9359 94.7906 47.9906 94.6986 48.0451C94.5676 48.1228 94.437 48.2003 94.3287 48.3394C94.2316 48.4629 94.1992 48.5718 94.1643 48.6891C94.1373 48.7797 94.1088 48.8754 94.0478 48.9867C94.0171 49.0429 93.9661 49.0835 93.9133 49.1254ZM92.1512 66.2288C92.6627 67.0381 93.5113 67.8756 94.2306 68.5005L94.2429 68.5112C94.7924 68.9896 95.3593 69.4833 96.0475 69.6607C96.8607 66.6139 97.2998 63.416 97.2998 60.1167C97.2998 58.2098 97.1542 56.3352 96.8747 54.5049C96.3597 54.8726 95.8157 55.5756 95.5843 55.9973C95.4781 56.1907 95.4092 56.3591 95.3455 56.5146C95.2194 56.8226 95.1142 57.0798 94.7821 57.3788C94.5847 57.5563 94.3704 57.6835 94.1567 57.8104C93.8539 57.9901 93.5522 58.1691 93.3012 58.49C93.0764 58.7771 93.0011 59.0295 92.9201 59.3013C92.8572 59.512 92.791 59.7342 92.6489 59.9931C92.5781 60.1227 92.4603 60.2165 92.3382 60.3138C92.1965 60.4267 92.0491 60.5442 91.9619 60.7276C91.7355 61.2073 91.8211 61.8656 91.903 62.4953C91.9488 62.8478 91.9935 63.1914 91.9816 63.4897C91.9713 63.7465 91.9408 63.9965 91.9111 64.2411C91.8263 64.9377 91.7469 65.5901 92.1512 66.2288Z' fill='%231F2B1F'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M101.525 38.0622C99.5991 37.4745 97.0785 37.2628 94.0382 37.4715C93.2118 37.5282 92.4958 36.9042 92.4391 36.0777C92.3823 35.2512 93.0064 34.5352 93.8328 34.4785C97.0882 34.2551 100.005 34.4619 102.401 35.1928C104.806 35.9269 106.781 37.2238 107.94 39.2306C109.429 41.8097 109.229 44.95 108.018 48.1653C106.802 51.3936 104.49 54.9264 101.356 58.5483C95.0792 65.8032 85.2786 73.6758 73.4552 80.5021C61.6318 87.3283 49.9137 91.8796 40.4922 93.6881C35.7888 94.591 31.5732 94.827 28.1694 94.2659C24.7793 93.7071 21.96 92.3097 20.471 89.7306C18.7662 86.7779 19.2692 83.0987 20.9933 79.3652C21.3406 78.6131 22.2319 78.2849 22.984 78.6323C23.7361 78.9796 24.0642 79.8708 23.7169 80.6229C22.1551 84.0051 22.0857 86.5275 23.069 88.2306C23.9272 89.7169 25.7189 90.8215 28.6573 91.3059C31.582 91.788 35.4125 91.6085 39.9266 90.7419C48.94 89.0117 60.3423 84.6087 71.9552 77.904C83.5682 71.1992 93.0824 63.5261 99.0875 56.5854C102.095 53.1093 104.166 49.8818 105.211 47.1078C106.26 44.3209 106.2 42.2169 105.341 40.7306C104.671 39.5688 103.441 38.6467 101.525 38.0622Z' fill='%23FFC657'/%3E%3C/g%3E%3C/svg%3E")
+            }
 
-                        <div class="tab-pane fade" id="gainers" role="tabpanel" aria-labelledby="gainers-tab">
-                            <div class="table-responsive">
-                                <table class="table table-hover crypto-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Coin</th>
-                                            <th>Price</th>
-                                            <th>Change (24h)</th>
-                                            <th>Trade</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php 
-                                        $gainer_loser_data = get_top_gainers_losers('24h');
-                                        foreach ($gainer_loser_data['gainers'] as $coin):
-                                            $symbol = strtoupper($coin['symbol']);
-                                            $change_24h = number_format($coin['price_change_percentage_24h'], 2);
-                                            $change_class = $change_24h >= 0 ? 'text-success' : 'text-danger';
-                                            $change_sign = $change_24h >= 0 ? '+' : '';
-                                        ?>
-                                        <tr>
-                                            <td><?php echo htmlspecialchars($coin['name']); ?></td>
-                                            <td>$<?php echo number_format($coin['current_price'], 2); ?></td>
-                                            <td class="<?php echo $change_class; ?>"><?php echo $change_sign . $change_24h; ?>%</td>
-                                            <td>
-                                                <button class="btn btn-sm btn-primary trade-btn" data-symbol="<?php echo htmlspecialchars($symbol); ?>" data-coin-id="<?php echo htmlspecialchars($coin['id']); ?>">Trade</button>
-                                            </td>
-                                        </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="losers" role="tabpanel" aria-labelledby="losers-tab">
-                            <div class="table-responsive">
-                                <table class="table table-hover crypto-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Coin</th>
-                                            <th>Price</th>
-                                            <th>Change (24h)</th>
-                                            <th>Trade</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php 
-                                        $gainer_loser_data = get_top_gainers_losers('24h');
-                                        foreach ($gainer_loser_data['losers'] as $coin):
-                                            $symbol = strtoupper($coin['symbol']);
-                                            $change_24h = number_format($coin['price_change_percentage_24h'], 2);
-                                            $change_class = $change_24h >= 0 ? 'text-success' : 'text-danger';
-                                            $change_sign = $change_24h >= 0 ? '+' : '';
-                                        ?>
-                                        <tr>
-                                            <td><?php echo htmlspecialchars($coin['name']); ?></td>
-                                            <td>$<?php echo number_format($coin['current_price'], 2); ?></td>
-                                            <td class="<?php echo $change_class; ?>"><?php echo $change_sign . $change_24h; ?>%</td>
-                                            <td>
-                                                <button class="btn btn-sm btn-primary trade-btn" data-symbol="<?php echo htmlspecialchars($symbol); ?>" data-coin-id="<?php echo htmlspecialchars($coin['id']); ?>">Trade</button>
-                                            </td>
-                                        </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="new" role="tabpanel" aria-labelledby="new-tab">
-                            <div class="table-responsive">
-                                <table class="table table-hover crypto-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Coin</th>
-                                            <th>Symbol</th>
-                                            <th>Trade</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php 
-                                        $new_listings = get_new_listings();
-                                        foreach ($new_listings as $coin): 
-                                            $coin_id = $coin['id'];
-                                            $symbol = strtoupper($coin['symbol']);
-                                            $name = $coin['name'];
-                                        ?>
-                                        <tr>
-                                            <td><?php echo htmlspecialchars($name); ?></td>
-                                            <td><?php echo htmlspecialchars($symbol); ?></td>
-                                            <td>
-                                                <button class="btn btn-sm btn-primary trade-btn" data-symbol="<?php echo htmlspecialchars($symbol); ?>" data-coin-id="<?php echo htmlspecialchars($coin_id); ?>">Trade</button>
-                                            </td>
-                                        </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-<div class="row mt-4 d-none" id="trade-view-section">
-    <div class="col-12">
-        <div class="card shadow-none">
-            <div class="card-body">
-                <div class="nk-block-head-content mb-4">
-                    <h5 class="text-primary h5" id="trade-view-title">Trade BTC</h5>
-                </div>
-                <div id="chart-container" style="height: 500px;">
-                    </div>
-                <div class="d-flex justify-content-center mt-4">
-                    <button class="btn btn-success mr-2">Buy</button>
-                    <button class="btn btn-danger">Sell</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const tradeButtons = document.querySelectorAll('.trade-btn');
-        const tradeViewSection = document.getElementById('trade-view-section');
-        const chartContainer = document.getElementById('chart-container');
-        const tradeViewTitle = document.getElementById('trade-view-title');
-
-        function loadTradeView(symbol) {
-            tradeViewTitle.innerText = `Trade ${symbol}`;
-            tradeViewSection.classList.remove('d-none');
-            
-            // 1. Clear the container and remove any old script tags
-            chartContainer.innerHTML = '';
-            
-            // 2. Create the main container for the widget
-            const tradingViewContainer = document.createElement('div');
-            tradingViewContainer.className = 'tradingview-widget-container';
-            tradingViewContainer.style.height = '100%';
-
-            // 3. Create the placeholder div for the chart
-            const chartPlaceholder = document.createElement('div');
-            chartPlaceholder.id = 'tradingview_chart_placeholder';
-            chartPlaceholder.style.height = '100%';
-
-            tradingViewContainer.appendChild(chartPlaceholder);
-            chartContainer.appendChild(tradingViewContainer);
-
-            // 4. Create and append the TradingView main script
-            const script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.src = 'https://s3.tradingview.com/tv.js';
-            script.async = true;
-
-            // 5. This is the crucial part: Wait for the main script to load
-            script.onload = () => {
-                // Now that tv.js is loaded, create the widget instance
-                if (typeof TradingView !== 'undefined' && TradingView.widget) {
-                    new TradingView.widget(
-                        {
-                            "autosize": true,
-                            "symbol": `BINANCE:${symbol}USDT`, // Use a specific exchange and base pair
-                            "interval": "D",
-                            "timezone": "Etc/UTC",
-                            "theme": "dark",
-                            "style": "1",
-                            "locale": "en",
-                            "toolbar_bg": "#f1f3f6",
-                            "enable_publishing": false,
-                            "withdateranges": true,
-                            "range": "1M",
-                            "allow_symbol_change": true,
-                            "container_id": "tradingview_chart_placeholder"
-                        }
-                    );
-                }
-            };
-
-            // 6. Append the script to the chart container
-            chartContainer.appendChild(script);
-        }
-
-        tradeButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const symbol = this.getAttribute('data-symbol');
-                loadTradeView(symbol);
-                tradeViewSection.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    });
-</script>
-    <div class="row mt-4">
-        <div class="col-12">
-            <div class="card shadow-none">
-                <div class="card-body">
-                    <h5 class="text-primary h5 mb-3">Bitcoin Chart</h5>
-                    <div class="tradingview-widget-container">
-                        <div id="tradingview_1a2c3d4e5f" style="height: 450px;"></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-                        <script type="text/javascript">
-                            new TradingView.widget(
+            :where(.i-bx-icon\:homeindex-reason4) {
+                display: inline-block;
+                width: 1em;
+                height: 1em;
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' width='120' height='120'%3E%3Cdefs%3E%3Cfilter id='filter0_i_3295_25562' x='71.2842' y='78.7539' width='11.709' height='9.82056' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E %3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E %3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E %3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E %3CfeOffset dy='-5'/%3E %3CfeComposite in2='hardAlpha' operator='arithmetic' k2='-1' k3='1'/%3E %3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0'/%3E %3CfeBlend mode='normal' in2='shape' result='effect1_innerShadow_3295_25562'/%3E %3C/filter%3E%3C/defs%3E%3Cg fill='none'%3E%3Ccircle opacity='0.1' cx='60' cy='60' r='60' fill='%23808080'/%3E %3Cmask id='mask0_3295_25562' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='120' height='120'%3E %3Ccircle cx='60' cy='60' r='60' fill='%23C3F53A'/%3E %3C/mask%3E %3Cg mask='url(%23mask0_3295_25562)'%3E %3Cpath d='M75.2621 86.5133L75.4719 86.9642L75.9239 86.7569C88.4327 81.0197 97.1222 68.3858 97.1222 53.7213C97.1222 33.6591 80.8586 17.3955 60.7965 17.3955C40.7343 17.3955 24.4707 33.6591 24.4707 53.7213C24.4707 55.7229 24.6326 57.6871 24.9442 59.6013L25.0576 60.2979L25.6772 59.9599L28.2552 58.5537L28.5566 58.3893L28.5115 58.049C28.3236 56.6333 28.2265 55.1888 28.2265 53.7213C28.2265 35.7334 42.8086 21.1513 60.7965 21.1513C78.7843 21.1513 93.3664 35.7334 93.3664 53.7213C93.3664 66.8739 85.5702 78.2066 74.3448 83.3484L73.8875 83.5578L74.0996 84.0139L75.2621 86.5133Z' fill='%23FFC657' stroke='black'/%3E %3Cpath d='M28.875 72.1342C31.8266 72.1342 34.4325 70.2983 36.2767 67.4677C38.1239 64.6325 39.2501 60.7453 39.2501 56.4771C39.2501 52.2089 38.1239 48.3218 36.2767 45.4865C34.4325 42.6559 31.8266 40.8201 28.875 40.8201C25.9235 40.8201 23.3176 42.6559 21.4734 45.4865C19.6262 48.3218 18.5 52.2089 18.5 56.4771C18.5 60.7453 19.6262 64.6325 21.4734 67.4677C23.3176 70.2983 25.9235 72.1342 28.875 72.1342Z' fill='%23FFC657' stroke='black'/%3E %3Cpath d='M31.4023 71.7342C33.3681 71.7342 35.1151 69.9858 36.365 67.2362C37.6189 64.4775 38.3918 60.6735 38.3918 56.4771C38.3918 52.2807 37.6189 48.4767 36.365 45.7181C35.1151 42.9685 33.3681 41.2201 31.4023 41.2201C29.4364 41.2201 27.6894 42.9685 26.4396 45.7181C25.1856 48.4767 24.4127 52.2807 24.4127 56.4771C24.4127 60.6735 25.1856 64.4775 26.4396 67.2362C27.6894 69.9858 29.4364 71.7342 31.4023 71.7342Z' fill='%23FFC657' stroke='black' stroke-width='0.2'/%3E %3Cellipse cx='33.2379' cy='56.4769' rx='5.05235' ry='13.7791' fill='%23CF8E0F'/%3E %3Cg filter='url(%23filter0_i_3295_25562)'%3E %3Crect x='69.9297' y='82.8594' width='12.1598' height='7.91141' rx='3.9557' transform='rotate(-26.6787 69.9297 82.8594)' fill='%231F2B1F'/%3E %3C/g%3E %3Crect x='70.601' y='83.0817' width='11.1598' height='6.91141' rx='3.4557' transform='rotate(-26.6787 70.601 83.0817)' stroke='black'/%3E %3Cpath d='M53.4469 69.2969H52.9469V69.7969V80.9658C52.9469 86.8723 49.59 92.2655 44.2903 94.8733L32.9463 100.455C27.4758 103.147 24.0107 108.714 24.0107 114.811V121.205C24.0107 121.98 24.4566 122.685 25.1562 123.018C47.9985 133.871 74.5117 133.871 97.354 123.018C98.0537 122.685 98.4995 121.98 98.4995 121.205V114.811C98.4995 108.714 95.0344 103.147 89.5639 100.455L78.2199 94.8733C72.9202 92.2655 69.5633 86.8723 69.5633 80.9658V69.7969V69.2969H69.0633H53.4469Z' fill='%23C3F53A' stroke='black'/%3E %3Ccircle cx='61.0259' cy='53.4915' r='27.8286' fill='%23C3F53A' stroke='black'/%3E %3Cmask id='mask1_3295_25562' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='33' y='26' width='56' height='55'%3E %3Ccircle cx='61.0259' cy='53.4915' r='26.8286' fill='%23C3F53A' stroke='black'/%3E %3C/mask%3E %3Cg mask='url(%23mask1_3295_25562)'%3E %3Cpath d='M88.3723 34.9565C92.1521 49.0627 81.4058 64.1985 64.3699 68.7632C47.3339 73.328 30.4595 65.5932 26.6798 51.487C22.9 37.3808 34.9845 93.4833 68.5814 84.481C99.4277 76.2158 84.5926 20.8503 88.3723 34.9565Z' fill='%2300C605'/%3E %3C/g%3E %3Cmask id='mask2_3295_25562' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='24' y='69' width='74' height='62'%3E %3Cpath d='M24.5107 114.811C24.5107 108.904 27.8676 103.511 33.1671 100.904L44.511 95.3217C49.9817 92.6298 53.4469 87.0626 53.4469 80.9655V69.7966H69.0633V80.9655C69.0633 87.0626 72.5285 92.6298 77.9992 95.3217L89.3432 100.904C94.6427 103.511 97.9995 108.904 97.9995 114.811V121.205C97.9995 121.787 97.6647 122.316 97.1395 122.566C74.4329 133.355 48.0773 133.355 25.3708 122.566C24.8455 122.316 24.5107 121.787 24.5107 121.205V114.811Z' fill='%23C3F53A'/%3E %3C/mask%3E %3Cg mask='url(%23mask2_3295_25562)'%3E %3Cpath d='M58.2694 99.4218L46.0978 91.8433L20.6064 101.489V125.372L54.3653 130.654L59.6473 131.924V121.076L54.3653 114.875L58.2694 99.4218Z' fill='%231F2B1F'/%3E %3Cpath d='M56.8913 87.9391C53.2169 87.9391 49.6531 89.4701 49.5 90.2356H44.7197V73.7007H75.4931V94.1397C70.8235 92.0729 60.5657 87.9391 56.8913 87.9391Z' fill='%2300C605'/%3E %3Cpath d='M60.9849 99.4666L74.0831 91.8433L101.674 101.546V125.571L65.1348 130.884H59.4178L59.4178 121.152L65.1348 114.942L60.9849 99.4666Z' fill='%231F2B1F'/%3E %3Cpath d='M59.3673 131.056C93.801 127.172 98.406 107.889 93.225 101.03H109.482V124.15C62.8401 137.567 24.9337 134.94 59.3673 131.056Z' fill='black'/%3E %3C/g%3E %3Ccircle cx='61.0259' cy='53.4915' r='27.8286' stroke='black'/%3E %3C/g%3E%3C/g%3E%3C/svg%3E")
+            }
+        </style>
+        <link rel="modulepreload" as="script" crossorigin href="https://static.bitunix.com/web/bitunix-assets/web/entry-DzmUqaZP.js">
+        <link rel="modulepreload" as="script" crossorigin href="https://static.bitunix.com/web/bitunix-assets/shared/vendor-B0I5CANI.js">
+        <link rel="modulepreload" as="script" crossorigin href="https://static.bitunix.com/web/bitunix-assets/web/index-Wp69NDjb.js">
+        <link rel="dns-prefetch" href="https://bitunix-public.oss-ap-northeast-1.aliyuncs.com">
+        <link rel="dns-prefetch" href="https://static.bitunix.com">
+        <link rel="dns-prefetch" href="https://img.bitunix.com">
+        <meta property="og:title" content="Crypto Derivatives Exchange | Buy, Sell & Trade Cryptocurrency | Bitunix">
+        <meta property="og:description" content="Trade crypto easily with Bitunix. Buy BTC, ETH, and altcoins, access futures with up to 125x leverage, and explore tools like Earn, Convert, and Copy Trading.">
+        <meta name="twitter:title" content="Crypto Derivatives Exchange | Buy, Sell & Trade Cryptocurrency | Bitunix">
+        <meta name="twitter:description" content="Bitunix - a leading crypto derivatives exchange that makes your trading easy. Buy, sell, trade BTC & altcoins, and get easy access to the futures market">
+        <meta name="keywords" content="Bitunix,Bitunix Official Site,Crypto Exchange,Cryptocurrency Exchange,Bitcoin Exchange">
+        <meta name="description" content="Bitunix - a leading crypto derivatives exchange that makes your trading easy. Buy, sell, trade BTC & altcoins, and get easy access to the futures market">
+        <meta property="og:site_name" content="Bitunix">
+        <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@Bitunix">
+        <meta name="twitter:creator" content="@Bitunix">
+        <meta name="twitter:image" content="https://static.bitunix.com/banner/share-banner-1200.png">
+        <meta property="og:image" content="https://static.bitunix.com/banner/share-banner-1200.png">
+        <meta name="naver-site-verification" content="bade34e7a205ba36257d55a90bc4abf68c5941ae">
+        <meta name="yandex-verification" content="90e818486429e1d5">
+        <meta name="wot-verification" content="3d17542faad091ae1b46">
+        <link hid="i18n-xd" rel="alternate" href="https://www.bitunix.com" hreflang="x-default">
+        <link hid="i18n-xd" rel="alternate" href="https://www.bitunix.com" hreflang="x-default">
+        <link hid="i18n-alt-de" rel="alternate" href="https://www.bitunix.com/de-de" hreflang="de">
+        <link hid="i18n-alt-de-de" rel="alternate" href="https://www.bitunix.com/de-de" hreflang="de-de">
+        <link hid="i18n-alt-en" rel="alternate" href="https://www.bitunix.com" hreflang="en">
+        <link hid="i18n-alt-en-us" rel="alternate" href="https://www.bitunix.com" hreflang="en-us">
+        <link hid="i18n-alt-es" rel="alternate" href="https://www.bitunix.com/es-es" hreflang="es">
+        <link hid="i18n-alt-es-es" rel="alternate" href="https://www.bitunix.com/es-es" hreflang="es-es">
+        <link hid="i18n-alt-fa" rel="alternate" href="https://www.bitunix.com/fa-ir" hreflang="fa">
+        <link hid="i18n-alt-fa-ir" rel="alternate" href="https://www.bitunix.com/fa-ir" hreflang="fa-ir">
+        <link hid="i18n-alt-fr" rel="alternate" href="https://www.bitunix.com/fr-fr" hreflang="fr">
+        <link hid="i18n-alt-fr-fr" rel="alternate" href="https://www.bitunix.com/fr-fr" hreflang="fr-fr">
+        <link hid="i18n-alt-hi" rel="alternate" href="https://www.bitunix.com/hi-in" hreflang="hi">
+        <link hid="i18n-alt-hi-in" rel="alternate" href="https://www.bitunix.com/hi-in" hreflang="hi-in">
+        <link hid="i18n-alt-id" rel="alternate" href="https://www.bitunix.com/id-id" hreflang="id">
+        <link hid="i18n-alt-id-id" rel="alternate" href="https://www.bitunix.com/id-id" hreflang="id-id">
+        <link hid="i18n-alt-it" rel="alternate" href="https://www.bitunix.com/it-it" hreflang="it">
+        <link hid="i18n-alt-it-it" rel="alternate" href="https://www.bitunix.com/it-it" hreflang="it-it">
+        <link hid="i18n-alt-ja" rel="alternate" href="https://www.bitunix.com/ja-jp" hreflang="ja">
+        <link hid="i18n-alt-ja-jp" rel="alternate" href="https://www.bitunix.com/ja-jp" hreflang="ja-jp">
+        <link hid="i18n-alt-pl" rel="alternate" href="https://www.bitunix.com/pl-pl" hreflang="pl">
+        <link hid="i18n-alt-pl-pl" rel="alternate" href="https://www.bitunix.com/pl-pl" hreflang="pl-pl">
+        <link hid="i18n-alt-pt" rel="alternate" href="https://www.bitunix.com/pt-br" hreflang="pt">
+        <link hid="i18n-alt-pt-br" rel="alternate" href="https://www.bitunix.com/pt-br" hreflang="pt-br">
+        <link hid="i18n-alt-pt-pt" rel="alternate" href="https://www.bitunix.com/pt-pt" hreflang="pt-pt">
+        <link hid="i18n-alt-ru" rel="alternate" href="https://www.bitunix.com/ru-ru" hreflang="ru">
+        <link hid="i18n-alt-ru-ru" rel="alternate" href="https://www.bitunix.com/ru-ru" hreflang="ru-ru">
+        <link hid="i18n-alt-uz" rel="alternate" href="https://www.bitunix.com/uz-uz" hreflang="uz">
+        <link hid="i18n-alt-uz-uz" rel="alternate" href="https://www.bitunix.com/uz-uz" hreflang="uz-uz">
+        <link hid="i18n-alt-vi" rel="alternate" href="https://www.bitunix.com/vi-vn" hreflang="vi">
+        <link hid="i18n-alt-vi-vn" rel="alternate" href="https://www.bitunix.com/vi-vn" hreflang="vi-vn">
+        <link hid="i18n-alt-zh" rel="alternate" href="https://www.bitunix.com/zh-tw" hreflang="zh">
+        <link hid="i18n-alt-zh-tw" rel="alternate" href="https://www.bitunix.com/zh-tw" hreflang="zh-tw">
+        <link hid="i18n-can" rel="canonical" href="https://www.bitunix.com">
+        <meta hid="i18n-og-url" property="og:url" content="https://www.bitunix.com">
+        <meta hid="i18n-og" property="og:locale" content="en_us">
+        <meta hid="i18n-og-alt-de-de" property="og:locale:alternate" content="de_de">
+        <meta hid="i18n-og-alt-es-es" property="og:locale:alternate" content="es_es">
+        <meta hid="i18n-og-alt-fa-ir" property="og:locale:alternate" content="fa_ir">
+        <meta hid="i18n-og-alt-fr-fr" property="og:locale:alternate" content="fr_fr">
+        <meta hid="i18n-og-alt-hi-in" property="og:locale:alternate" content="hi_in">
+        <meta hid="i18n-og-alt-id-id" property="og:locale:alternate" content="id_id">
+        <meta hid="i18n-og-alt-it-it" property="og:locale:alternate" content="it_it">
+        <meta hid="i18n-og-alt-ja-jp" property="og:locale:alternate" content="ja_jp">
+        <meta hid="i18n-og-alt-pl-pl" property="og:locale:alternate" content="pl_pl">
+        <meta hid="i18n-og-alt-pt-br" property="og:locale:alternate" content="pt_br">
+        <meta hid="i18n-og-alt-pt-pt" property="og:locale:alternate" content="pt_pt">
+        <meta hid="i18n-og-alt-ru-ru" property="og:locale:alternate" content="ru_ru">
+        <meta hid="i18n-og-alt-uz-uz" property="og:locale:alternate" content="uz_uz">
+        <meta hid="i18n-og-alt-vi-vn" property="og:locale:alternate" content="vi_vn">
+        <meta hid="i18n-og-alt-zh-tw" property="og:locale:alternate" content="zh_tw">
+        <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+        <meta name="google-site-verification" content="R7xdP2ugY9wzh6QGvQk_anoU_GMudaREOeaRHFqyklc">
+        <link rel="icon" href="/favicon.ico">
+        <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png">
+        <noscript>Chat with us, powered by LiveChat</noscript>
+        <link rel="manifest" href="/manifest.webmanifest">
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "WebPage",
+                "name": "banner",
+                "mainEntity": [
+                    {
+                        "@type": "ImageGallery",
+                        "image": [
+                        ]
+                    },
+                    {
+                        "@type": "ItemList",
+                        "itemListElement": [
                             {
-                                "autosize": true,
-                                "symbol": "BINANCE:BTCUSDT",
-                                "interval": "D",
-                                "timezone": "Etc/UTC",
-                                "theme": "dark",
-                                "style": "1",
-                                "locale": "en",
-                                "toolbar_bg": "#f1f3f6",
-                                "enable_publishing": false,
-                                "withdateranges": true,
-                                "range": "1M",
-                                "hide_side_toolbar": false,
-                                "allow_symbol_change": true,
-                                "container_id": "tradingview_1a2c3d4e5f"
-                            });
-                        </script>
-                    </div>
-                    </div>
-            </div>
-        </div>
-    </div>
-     <!--Tesla Chart-->
-    <div class="row">
-        <div class="col-12">
-            <div class="card shadow-none">
-                <div class="card-body">
-                    <!-- TradingView Widget BEGIN -->
-                    <div class="tradingview-widget-container">
-                      <div class="tradingview-widget-container__widget"></div>
-                      <div class="tradingview-widget-copyright"><a href="" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on Octavat</span></a></div>
-                      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-                      {
-                      "symbols": [
-                        {
-                          "proName": "FOREXCOM:SPXUSD",
-                          "title": "S&P 500 Index"
-                        },
-                        {
-                          "proName": "FOREXCOM:NSXUSD",
-                          "title": "US 100 Cash CFD"
-                        },
-                        {
-                          "proName": "FX_IDC:EURUSD",
-                          "title": "EUR to USD"
-                        },
-                        {
-                          "proName": "BITSTAMP:BTCUSD",
-                          "title": "Bitcoin"
-                        },
-                        {
-                          "proName": "BITSTAMP:ETHUSD",
-                          "title": "Ethereum"
-                        },
-                        {
-                          "proName": "OANDA:XAUUSD",
-                          "title": "GOLD"
-                        },
-                        {
-                          "proName": "BINANCE:SOLUSDT",
-                          "title": "Solana"
-                        },
-                        {
-                          "proName": "BYBIT:LTCUSDT",
-                          "title": "Litecoin"
-                        },
-                        {
-                          "proName": "BINANCE:DOGEUSDT",
-                          "title": "Dogecoin"
-                        }
-                      ],
-                      "colorTheme": "dark",
-                      "locale": "en",
-                      "largeChartUrl": "",
-                      "isTransparent": false,
-                      "showSymbolLogo": true,
-                      "displayMode": "adaptive"
-                    }
-                      </script>
-                    </div>
-                    <!-- TradingView Widget END -->
-              	</div>
-            </div>
-        </div>
-         <div class="col-6">
-              <!-- TradingView Widget BEGIN -->
-              <div class="tradingview-widget-container">
-                <div class="tradingview-widget-container__widget"></div>
-                <div class="tradingview-widget-copyright"><a href="" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on Octavat</span></a></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-                {
-                "symbol": "BITSTAMP:ETHUSD",
-                "chartOnly": false,
-                "dateRange": "12M",
-                "noTimeScale": false,
-                "colorTheme": "dark",
-                "isTransparent": false,
-                "locale": "en",
-                "width": "100%",
-                "autosize": true,
-                "height": "100%"
-              }
-                </script>
-              </div>
-              <!-- TradingView Widget END -->
-         </div>
-     	 <div class="col-6">
-              <!-- TradingView Widget BEGIN -->
-              <div class="tradingview-widget-container">
-                <div class="tradingview-widget-container__widget"></div>
-                <div class="tradingview-widget-copyright"><a href="" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on Octavat</span></a></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-                {
-                "symbol": "BINANCE:SOLUSDT",
-                "chartOnly": false,
-                "dateRange": "12M",
-                "noTimeScale": false,
-                "colorTheme": "dark",
-                "isTransparent": false,
-                "locale": "en",
-                "width": "100%",
-                "autosize": true,
-                "height": "100%"
-              }
-                </script>
-              </div>
-              <!-- TradingView Widget END -->
-         </div>
-    </div>
-    <!---->
-    <!--Active investments-->
-    <div class="row">
-        <div class="col-12">
-            <div class="card shadow-none">
-                <div class="card-body">
-                    <!-- TradingView Widget BEGIN -->
-                    <div class="tradingview-widget-container">
-                      <div class="tradingview-widget-container__widget"></div>
-                      <div class="tradingview-widget-copyright"><a href="" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on Octavat</span></a></div>
-                      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-                      {
-                      "colorTheme": "dark",
-                      "dateRange": "12M",
-                      "locale": "en",
-                      "largeChartUrl": "",
-                      "isTransparent": false,
-                      "showFloatingTooltip": false,
-                      "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
-                      "plotLineColorFalling": "rgba(41, 98, 255, 1)",
-                      "gridLineColor": "rgba(240, 243, 250, 0)",
-                      "scaleFontColor": "#DBDBDB",
-                      "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
-                      "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
-                      "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
-                      "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
-                      "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
-                      "tabs": [
-                        {
-                          "title": "Forex",
-                          "symbols": [
-                            {
-                              "s": "BINANCE:BTCUSDT",
-                              "d": "BTCUSDT",
-                              "base-currency-logoid": "crypto/XTVCBTC",
-                              "currency-logoid": "crypto/XTVCUSDT"
-                            },
-                            {
-                              "s": "BINANCE:ETHUSDT",
-                              "d": "ETHUSDT",
-                              "base-currency-logoid": "crypto/XTVCETH",
-                              "currency-logoid": "crypto/XTVCUSDT"
-                            },
-                            {
-                              "s": "BINANCE:LTCUSDT",
-                              "d": "LTCUSDT",
-                              "base-currency-logoid": "crypto/XTVCLTC",
-                              "currency-logoid": "crypto/XTVCUSDT"
-                            },
-                            {
-                              "s": "OANDA:XAUUSD",
-                              "d": "XAUUSD",
-                              "logoid": "metal/gold",
-                              "currency-logoid": "country/US"
-                            },
-                            {
-                              "s": "OANDA:EURUSD",
-                              "d": "EURUSD",
-                              "base-currency-logoid": "country/EU",
-                              "currency-logoid": "country/US"
-                            },
-                            {
-                              "s": "NASDAQ:TSLA",
-                              "d": "TSLA",
-                              "logoid": "tesla",
-                              "currency-logoid": "country/US"
-                            },
-                            {
-                              "s": "AMEX:SPY",
-                              "d": "SPY",
-                              "logoid": "spdr-sandp500-etf-tr",
-                              "currency-logoid": "country/US"
-                            },
-                            {
-                              "s": "FX:GBPUSD",
-                              "d": "GBPUSD",
-                              "base-currency-logoid": "country/GB",
-                              "currency-logoid": "country/US"
-                            },
-                            {
-                              "s": "FX:USDJPY",
-                              "d": "USDJPY",
-                              "base-currency-logoid": "country/US",
-                              "currency-logoid": "country/JP"
-                            }
-                          ],
-                          "originalTitle": "Forex"
-                        },
-                        {
-                          "title": "Indices",
-                          "symbols": [
-                            {
-                              "s": "FOREXCOM:SPXUSD",
-                              "d": "S&P 500 Index"
-                            },
-                            {
-                              "s": "FOREXCOM:NSXUSD",
-                              "d": "US 100 Cash CFD"
-                            },
-                            {
-                              "s": "FOREXCOM:DJI",
-                              "d": "Dow Jones Industrial Average Index"
-                            },
-                            {
-                              "s": "INDEX:NKY",
-                              "d": "Japan 225"
-                            },
-                            {
-                              "s": "INDEX:DEU40",
-                              "d": "DAX Index"
-                            },
-                            {
-                              "s": "FOREXCOM:UKXGBP",
-                              "d": "FTSE 100 Index"
-                            }
-                          ],
-                          "originalTitle": "Indices"
-                        },
-                        {
-                          "title": "Futures",
-                          "symbols": [
-                            {
-                              "s": "BMFBOVESPA:ISP1!",
-                              "d": "S&P 500"
-                            },
-                            {
-                              "s": "BMFBOVESPA:EUR1!",
-                              "d": "Euro"
-                            },
-                            {
-                              "s": "CMCMARKETS:GOLD",
-                              "d": "Gold"
-                            },
-                            {
-                              "s": "PYTH:WTI3!",
-                              "d": "WTI Crude Oil"
-                            },
-                            {
-                              "s": "BMFBOVESPA:CCM1!",
-                              "d": "Corn"
-                            }
-                          ],
-                          "originalTitle": "Futures"
-                        },
-                        {
-                          "title": "Bonds",
-                          "symbols": [
-                            {
-                              "s": "EUREX:FGBL1!",
-                              "d": "Euro Bund"
-                            },
-                            {
-                              "s": "EUREX:FBTP1!",
-                              "d": "Euro BTP"
-                            },
-                            {
-                              "s": "EUREX:FGBM1!",
-                              "d": "Euro BOBL"
-                            }
-                          ],
-                          "originalTitle": "Bonds"
-                        }
-                      ],
-                      "support_host": "https://www.tradingview.com",
-                      "backgroundColor": "#131722",
-                      "width": "100%",
-                      "height": "550",
-                      "showSymbolLogo": true,
-                      "showChart": true
-                    }
-                      </script>
-                    </div>
-                    <!-- TradingView Widget END -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!---->
-    
-    
-    
-    <!--Crypto-->
-	<div class="row">
-        <div class="col-sm-6 col-lg-6">
-            <div class="p-3 card shadow-none border">
-                <div class="row p-2">
-                    <div class="col-12 p-0">
-                        <div class="nk-block-head-content">
-                            <h5 class="text-primary h5 mb-3">Market Overview</h5>
-                        </div>
-                    </div>
-                    <div class="col-12 border rounded">
-                        <!-- TradingView Widget BEGIN -->
-                        <div class="tradingview-widget-container">
-                          <div class="tradingview-widget-container__widget"></div>
-                          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-                          {
-                          "colorTheme": "dark",
-                          "dateRange": "12M",
-                          "showChart": false,
-                          "locale": "en",
-                          "largeChartUrl": "",
-                          "isTransparent": true,
-                          "showSymbolLogo": true,
-                          "showFloatingTooltip": false,
-                          "width": "100%",
-                          "height": 380,
-                          "tabs": [
-                            {
-                              "title": "Crypto",
-                              "symbols": [
-                                {
-                                  "s": "BINANCE:BTCUSDT"
-                                },
-                                {
-                                  "s": "BINANCE:ETHUSDT"
-                                },
-                                {
-                                  "s": "CRYPTOCAP:USDT.D"
-                                },
-                                {
-                                  "s": "BINANCE:BNBUSDT"
-                                },
-                                {
-                                  "s": "CRYPTOCAP:USDC"
-                                },
-                                {
-                                  "s": "BINANCE:XRPUSDT"
+                                "@type": "ListItem",
+                                "position": 1,
+                                "item": {
+                                    "@type": "Article",
+                                    "@id": "https://support.bitunix.com/hc/articles/50328950455321",
+                                    "name": "Bitunix to Launch AIOT/USDT in Perpetual Futures",
+                                    "description": "Bitunix to Launch AIOT/USDT in Perpetual Futures"
                                 }
-                              ],
-                              "originalTitle": "Indices"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "item": {
+                                    "@type": "Article",
+                                    "@id": "https://support.bitunix.com/hc/articles/50303116048281",
+                                    "name": "Limited-Time Offer｜Withdraw USD1 or USDT via BSC Network with Zero Fees!",
+                                    "description": "Limited-Time Offer｜Withdraw USD1 or USDT via BSC Network with Zero Fees!"
+                                }
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 3,
+                                "item": {
+                                    "@type": "Article",
+                                    "@id": "https://support.bitunix.com/hc/articles/50295045445145",
+                                    "name": "Bitunix to Launch BAS/USDT in Perpetual Futures",
+                                    "description": "Bitunix to Launch BAS/USDT in Perpetual Futures"
+                                }
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 4,
+                                "item": {
+                                    "@type": "Article",
+                                    "@id": "https://support.bitunix.com/hc/articles/50245003420313",
+                                    "name": "World Liberty Financial (WLFI) Gets Listed on Bitunix!",
+                                    "description": "World Liberty Financial (WLFI) Gets Listed on Bitunix!"
+                                }
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 5,
+                                "item": {
+                                    "@type": "Article",
+                                    "@id": "https://support.bitunix.com/hc/articles/50279059251353",
+                                    "name": "Bitunix to Delist LEVER/USDT From Futures Market (09-03-2025)",
+                                    "description": "Bitunix to Delist LEVER/USDT From Futures Market (09-03-2025)"
+                                }
                             }
-                          ]
-                        }
-                          </script>
+                        ]
+                    }
+                ]
+            }</script>
+        <script type="module" src="https://static.bitunix.com/web/bitunix-assets/web/entry-DzmUqaZP.js" crossorigin></script>
+    </head>
+    <body arco-theme="dark" head-theme class="" style="">
+        <div id="__nuxt">
+            <!--[-->
+            <!--[-->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!--]-->
+            <!--[-->
+            <!---->
+            <!---->
+            <!---->
+            <!--[-->
+            <div class="nuxt-loading-indicator" style="position:fixed;top:0;right:0;left:0;pointer-events:none;width:auto;height:3px;opacity:0;background:var(--color-fill-bitgreen);background-size:Infinity% auto;transform:scaleX(0%);transform-origin:left;transition:transform 0.1s, height 0.4s, opacity 0.4s;z-index:999999;"></div>
+            <!--[-->
+            <!---->
+            <!--]-->
+            <!---->
+            <span></span>
+            <div class="bitunix-layout" data-v-3bcacaac>
+                <span data-v-3bcacaac></span>
+                <header class="header-wrapper-main flex-row-between-center color-bg-head-0 sticky" style="top:0;" mode="normal" data-v-3bcacaac data-v-1ca86065>
+                    <div class="overflow-layout h-100% flex items-center" data-v-1ca86065>
+                        <!---->
+                        <a aria-current="page" href="/" class="router-link-active router-link-exact-active" data-v-1ca86065>
+                            <div class="hover-opacity-80 w-140 h-100% cursor-pointer flex-center max-md:justify-start max-md:ml-15" data-v-1ca86065>
+                                <span class="iconify i-bx-icon:bitunix-logo mb-4" aria-hidden="true" style="width:106px;height:32px;color:var(--color-bg-head-button-new);" data-v-1ca86065></span>
+                            </div>
+                            <!---->
+                        </a>
+                        <div class="item-container relative flex max-md:hidden" data-v-1ca86065>
+                            <!---->
+                            <nav class="item-box overflow-layout nav-layout h-100% flex color-text-head-1 cursor-pointer" data-v-1ca86065>
+                            <!--[-->
+                            <!--]-->
+                            </nav>
+                            <!---->
                         </div>
-                        <!-- TradingView Widget END -->
                     </div>
+                    <span data-v-1ca86065></span>
+                </header>
+                <div id="partial-container" class="max-md:pb-84 client-page" data-v-3bcacaac>
+                    <section class="bx-color-bg-fg relative" data-v-3bcacaac>
+                        <!--[-->
+                        <!--[-->
+                        <div>
+                            <div class="home-index-wrapper color-bg-0" data-v-723dc3ee>
+                                <section class="flex-center bg-#000" data-v-723dc3ee>
+                                    <div class="banner-wrapper py-80 w-1200 flex justify-between max-xl:px-15 max-xl:w-100%" data-v-723dc3ee data-v-03c5dad0>
+                                        <div class="left-section mt-70 w-800" data-v-03c5dad0>
+                                            <p class="c-#B9F641 fs-24 fm-medium place-content-center" data-v-03c5dad0>Better Liquidity, Better Trading</p>
+                                            <h1 class="m-0 p-0 c-#fff fs-60 fm-bold leh-78 mt-12 max-lg:fs-48 max-lg:leh-56" data-v-03c5dad0>
+                                                Global Crypto <br data-v-03c5dad0>Derivatives Exchange 
+                                            </h1>
+                                            <button class="horse-lamp-button mt-64" data-v-03c5dad0>
+                                                <span data-v-03c5dad0>
+                                                    <span class="container" style="transform:;" data-v-03c5dad0>
+                                                        <span class="primary" data-v-03c5dad0></span>
+                                                        <span class="complimentary" data-v-03c5dad0></span>
+                                                    </span>
+                                                </span>
+                                                <span data-v-03c5dad0>Trade Now</span>
+                                            </button>
+                                        </div>
+                                        <div class="right-section w-240" data-v-03c5dad0>
+                                            <video class="outLine" width="240" type="video/mp4" src="https://static.bitunix.com/web/videos/homeindex-video.mp4" autoplay muted loop poster="https://static.bitunix.com/web/bitunix-assets/web/b9e648-d2lkdG.BOoBqRf8.webp" data-v-03c5dad0></video>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="mt-30 flex-center" data-v-723dc3ee>
+                                    <div class="home-carousel-wrapper w-1200 max-xl:px-15 max-xl:w-100%" data-v-723dc3ee data-v-bbc02186>
+                                        <header class="carousel-bar flex-row-between-center initialed" data-v-bbc02186>
+                                            <section class="broadcast" data-v-bbc02186>
+                                                <span class="bx-icon-warp" data-icon-name="notice-s" style="display:inline-flex;justify-content:center;align-items:center;width:20;height:20;" data-v-09ba8165 data-v-bbc02186>
+                                                    <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                </span>
+                                                <div class="text-wrapper" data-v-bbc02186>
+                                                    <div class="inner-transition inner-wrapper" style="transform:translateY(-0px);" data-v-bbc02186>
+                                                        <!--[-->
+                                                        <a target="_blank" href="https://support.bitunix.com/hc/articles/50328950455321" class="text" data-v-bbc02186>Bitunix to Launch AIOT/USDT in Perpetual Futures</a>
+                                                        <a target="_blank" href="https://support.bitunix.com/hc/articles/50303116048281" class="text" data-v-bbc02186>Limited-Time Offer｜Withdraw USD1 or USDT via BSC Network with Zero Fees!</a>
+                                                        <a target="_blank" href="https://support.bitunix.com/hc/articles/50295045445145" class="text" data-v-bbc02186>Bitunix to Launch BAS/USDT in Perpetual Futures</a>
+                                                        <a target="_blank" href="https://support.bitunix.com/hc/articles/50245003420313" class="text" data-v-bbc02186>World Liberty Financial (WLFI) Gets Listed on Bitunix!</a>
+                                                        <a target="_blank" href="https://support.bitunix.com/hc/articles/50279059251353" class="text" data-v-bbc02186>Bitunix to Delist LEVER/USDT From Futures Market (09-03-2025)</a>
+                                                        <!--]-->
+                                                        <a target="_blank" href="https://support.bitunix.com/hc/articles/50328950455321" class="text" data-v-bbc02186>Bitunix to Launch AIOT/USDT in Perpetual Futures</a>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                            <a href="https://support.bitunix.com/hc/en-us/categories/13760946490649" target="__blank" class="more" data-v-bbc02186>
+                                                View More 
+                                                <span class="bx-icon-warp" data-icon-name="arrow-right-s" style="display:inline-flex;justify-content:center;align-items:center;width:12;height:12;" data-v-09ba8165 data-v-bbc02186>
+                                                    <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                </span>
+                                            </a>
+                                        </header>
+                                        <section class="content mt-30 initialed" data-v-bbc02186>
+                                            <div class="carousel" role="region" aria-label="Image carousel" dir="ltr" data-v-bbc02186 style="--6d692aff:0;" data-v-a160e8e8>
+                                                <div class="carousel-wrapper" style="transform:translateX(-NaN%);" data-v-a160e8e8>
+                                                <!--[-->
+                                                <!--]-->
+                                                </div>
+                                            </div>
+                                            <!---->
+                                        </section>
+                                    </div>
+                                </section>
+                                <section class="mt-180 flex-center" data-v-723dc3ee>
+                                    <div class="home-tendency-wrapper w-1200 max-xl:px-15 max-xl:w-100%" data-v-723dc3ee data-v-8c6e920e>
+                                        <header class="header-bar initialed" data-v-8c6e920e>
+                                            <h2 class="fs-54 fm-bold color-text-1 max-lg:fs-42" data-v-8c6e920e>Trending Cryptocurrencies</h2>
+                                            <a href="/markets/overview" class="" data-v-8c6e920e>
+                                                <div class="more" data-v-8c6e920e>
+                                                    View More 
+                                                    <span class="bx-icon-warp" data-icon-name="arrow-right-s" style="display:inline-flex;justify-content:center;align-items:center;width:12;height:12;" data-v-09ba8165 data-v-8c6e920e>
+                                                        <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </header>
+                                        <div class="tendency-content mt-56 initialed" data-v-8c6e920e>
+                                            <section class="nav-bar" data-v-8c6e920e>
+                                                <!--[-->
+                                                <div class="nav-item active" data-v-8c6e920e>Popular Futures</div>
+                                                <div class="nav-item" data-v-8c6e920e>Popular Spot</div>
+                                                <div class="nav-item" data-v-8c6e920e>Gainers </div>
+                                                <!--]-->
+                                            </section>
+                                            <table class="tendency-table-wrapper min-h-520px" data-v-8c6e920e data-v-6559d5ed>
+                                                <thead data-v-6559d5ed>
+                                                    <tr class="table-header" data-v-6559d5ed>
+                                                        <!--[-->
+                                                        <th class="column bx-color-text-2" style="width:18%;" data-v-6559d5ed>Trading Pairs</th>
+                                                        <th class="column bx-color-text-2" style="width:15%;" data-v-6559d5ed>Last Traded Price</th>
+                                                        <th class="column bx-color-text-2" style="width:10%;" data-v-6559d5ed>24H Change</th>
+                                                        <th class="column bx-color-text-2" style="width:15%;" data-v-6559d5ed>24H High</th>
+                                                        <th class="column bx-color-text-2" style="width:14%;" data-v-6559d5ed>24H Trading Volume</th>
+                                                        <th class="column bx-color-text-2" style="width:18%;" data-v-6559d5ed>Chart</th>
+                                                        <!--]-->
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="table-body" data-v-6559d5ed>
+                                                    <tr data-v-6559d5ed>
+                                                        <td data-v-6559d5ed>
+                                                            <span data-v-6559d5ed></span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="mt-180 flex-center" data-v-723dc3ee>
+                                    <div class="wrapper w-1200 max-xl:px-15 max-xl:w-100%" data-v-723dc3ee data-v-20b565fe>
+                                        <h2 class="text-center color-text-1 fs-50 fm-bold mb-90" data-v-20b565fe>
+                                            <span class="p p-1">Who is using</span>
+                                            <span class="p p-2">Bitunix</span>
+                                        </h2>
+                                        <nav style="display:none;" data-v-20b565fe>
+                                            <ul data-v-20b565fe>
+                                                <!--[-->
+                                                <li data-v-20b565fe>
+                                                    <a href="https://www.youtube.com/@TradeTravelChill" target="_blank" data-v-20b565fe>
+                                                        <img src="https://static.bitunix.com/web/bitunix-assets/web/img11.DbjwRqz9.webp" width="128" fit="cover" alt="Trade Travel Chill " loading="lazy" data-v-20b565fe>
+                                                        <span title="Trade Travel Chill " data-v-20b565fe>Trade Travel Chill </span>
+                                                    </a>
+                                                </li>
+                                                <li data-v-20b565fe>
+                                                    <a href="https://twitter.com/OracleFastMoney" target="_blank" data-v-20b565fe>
+                                                        <img src="https://static.bitunix.com/web/bitunix-assets/web/img4.Gr_taFuM.webp" width="128" fit="cover" alt="ORACLE FAST MONEY TRADER" loading="lazy" data-v-20b565fe>
+                                                        <span title="ORACLE FAST MONEY TRADER" data-v-20b565fe>ORACLE FAST MONEY TRADER</span>
+                                                    </a>
+                                                </li>
+                                                <li data-v-20b565fe>
+                                                    <a href="https://www.youtube.com/c/CrashTrading" target="_blank" data-v-20b565fe>
+                                                        <img src="https://static.bitunix.com/web/bitunix-assets/web/img1.DvgDhnyN.webp" width="128" fit="cover" alt="Crash Trading" loading="lazy" data-v-20b565fe>
+                                                        <span title="Crash Trading" data-v-20b565fe>Crash Trading</span>
+                                                    </a>
+                                                </li>
+                                                <li data-v-20b565fe>
+                                                    <a href="https://www.youtube.com/@investtradewithjaxx" target="_blank" data-v-20b565fe>
+                                                        <img src="https://static.bitunix.com/web/bitunix-assets/web/img2.BpLDGvNN.webp" width="128" fit="cover" alt="Invest &amp; Trade With Jaxx" loading="lazy" data-v-20b565fe>
+                                                        <span title="Invest &amp; Trade With Jaxx" data-v-20b565fe>Invest &amp;Trade With Jaxx</span>
+                                                    </a>
+                                                </li>
+                                                <li data-v-20b565fe>
+                                                    <a href="https://www.instagram.com/crypto_mars_global/" target="_blank" data-v-20b565fe>
+                                                        <img src="data:image/webp;base64,UklGRmIDAABXRUJQVlA4IFYDAAAwFACdASqAAIAAPp1On0y0LLEjopmacLATiWkKFqQW43y+jeCPko8hyLqJv8/xH7U/+H3k7k39U4iO5D4u2gB4j2ix6oGiqzoTzavN3vGzbvicmpRBip5z0WIs7RvWgRl4ikupcjXyhztiOy93BIVYPVtdBRBhvNfb03HsJ5Qg3A8Nk+l/j0Qn6sgBLiKvq2qcjK/IPA6lkb+AD6Kq/0etjV5u95NXDGqoAAD+/1boBm/4JiPRNvvPlLPgHJ+LFA+ybxu56j9Ryyy6t+96nn2WHRMqZivXqHEPELnKxi4yzSTFxnmI7Nk/N6fxrNFcLIX+kSFh9F4f4P4y1mTDB436FDP7irvRAEkawLIsbv9dfgeDy8gXKJexfpCMk9c6OMikMXHFoGUu4KXp6QP7OogihqLtH0qA4j9lZy73sLj9UB5DUOZ6aE7ivF4IHuoVCA5ROfY7TjNJQl9qjr8lm4s4ewuow6jV54+tTHQw52Xfevb3wMs1nD3WQNKajS8lAA2tkuFhUzNtoE2EVp1lBWO5bK7HV7/dMW9yHNyFPnyItpiYUH/o6PqkXz8h3f16BsTxANz5ys3SBzyPwjdIOo++S49D1ph+zwgGhvaGEVLvg9XO8baauDX0dOk4ytNHf3R0IXDAnzWHt432+irjnHw2f9iwpdE4mlVuUEqHGwPPRLo6WEiaj7syBih4btt2ychbHqQo/gL8DmR+W+DVlSZ3cpznM/k++dEbaW0T+SlflZJiBvvP1+VmkDNjxAQU6+kXsytcFoj4p/nR+64oC3pCYUAGPJog4civuzYCbK9I2IkLOVdDroX5nhx7h2j+x+q+n/53zGNfy7NrG+a9w2xZl2Rw8pAK+o9qcU9WHBVQQWrzjD02pkaXppOW2I2xbg7eLH6SCqZzjw8UUVzuPumPAZE9fupOd173DPKPQi3dHZg9s1ZNGx3AUiYF8cncYfiQaxVoQP3R2pAyy/NXW3zlwbrRI0twqp49bddZO3Q7hdJiQW+ZUHWy0+RqwBSUaIuki15U0L7wzA3LBZrrWv6/mik9LwTKwJkOUQEiZjWd6JmngOV9p9NLAMgSWZCn+n/HG/nETRA3TicSlu/dbTY8MLi3mUphN6UvLKZZvUp6AAAAAAAAAA==" width="128" fit="cover" alt="Mars" loading="lazy" data-v-20b565fe>
+                                                        <span title="Mars" data-v-20b565fe>Mars</span>
+                                                    </a>
+                                                </li>
+                                                <li data-v-20b565fe>
+                                                    <a href="https://www.youtube.com/live/QXEPzsOzaBg?si=Vbl1G5s03P35A-Nx" target="_blank" data-v-20b565fe>
+                                                        <img src="https://static.bitunix.com/web/bitunix-assets/web/img8.DIBCIyXd.webp" width="128" fit="cover" alt="1336 Crypto Club" loading="lazy" data-v-20b565fe>
+                                                        <span title="1336 Crypto Club" data-v-20b565fe>1336 Crypto Club</span>
+                                                    </a>
+                                                </li>
+                                                <li data-v-20b565fe>
+                                                    <a href="https://www.youtube.com/@tigerbro_smc/streams" target="_blank" data-v-20b565fe>
+                                                        <img src="https://static.bitunix.com/web/bitunix-assets/web/img9.mPII1sxk.webp" width="128" fit="cover" alt="Tiger Crypto" loading="lazy" data-v-20b565fe>
+                                                        <span title="Tiger Crypto" data-v-20b565fe>Tiger Crypto</span>
+                                                    </a>
+                                                </li>
+                                                <li data-v-20b565fe>
+                                                    <a href="https://youtube.com/@crypto_trader_kai?si=36qDfYRdrATAQngp" target="_blank" data-v-20b565fe>
+                                                        <img src="https://static.bitunix.com/web/bitunix-assets/web/img10.-AzxT7h7.webp" width="128" fit="cover" alt="Crypto_Kai" loading="lazy" data-v-20b565fe>
+                                                        <span title="Crypto_Kai" data-v-20b565fe>Crypto_Kai</span>
+                                                    </a>
+                                                </li>
+                                                <li data-v-20b565fe>
+                                                    <a href="https://www.tiktok.com/@investwithrex" target="_blank" data-v-20b565fe>
+                                                        <img src="https://static.bitunix.com/web/bitunix-assets/web/img6.LPRiO1kS.webp" width="128" fit="cover" alt="investwithrex" loading="lazy" data-v-20b565fe>
+                                                        <span title="investwithrex" data-v-20b565fe>investwithrex</span>
+                                                    </a>
+                                                </li>
+                                                <li data-v-20b565fe>
+                                                    <a href="https://twitter.com/AltCryptoGems" target="_blank" data-v-20b565fe>
+                                                        <img src="https://static.bitunix.com/web/bitunix-assets/web/img7.CNHN5ij5.webp" width="128" fit="cover" alt="AltCryptoGems" loading="lazy" data-v-20b565fe>
+                                                        <span title="AltCryptoGems" data-v-20b565fe>AltCryptoGems</span>
+                                                    </a>
+                                                </li>
+                                                <li data-v-20b565fe>
+                                                    <a href="https://www.youtube.com/channel/UCRRuHsFTpKyT4B2w15ch-_A" target="_blank" data-v-20b565fe>
+                                                        <img src="https://static.bitunix.com/web/bitunix-assets/web/img12.DuOL1vU_.webp" width="128" fit="cover" alt="TrippaTrading" loading="lazy" data-v-20b565fe>
+                                                        <span title="TrippaTrading" data-v-20b565fe>TrippaTrading</span>
+                                                    </a>
+                                                </li>
+                                                <li data-v-20b565fe>
+                                                    <a href="https://youtube.com/@smcsniperking?si=niGQwIG3JOC-ggsM" target="_blank" data-v-20b565fe>
+                                                        <img src="https://static.bitunix.com/web/bitunix-assets/web/img14.C1Gzjq2p.webp" width="128" fit="cover" alt="加密狙擊王" loading="lazy" data-v-20b565fe>
+                                                        <span title="加密狙擊王" data-v-20b565fe>加密狙擊王</span>
+                                                    </a>
+                                                </li>
+                                                <li data-v-20b565fe>
+                                                    <a href="https://www.youtube.com/@PandaSMC_Crypto" target="_blank" data-v-20b565fe>
+                                                        <img src="https://static.bitunix.com/web/bitunix-assets/web/img19.B5NUbLUz.webp" width="128" fit="cover" alt="panda_crypto" loading="lazy" data-v-20b565fe>
+                                                        <span title="panda_crypto" data-v-20b565fe>panda_crypto</span>
+                                                    </a>
+                                                </li>
+                                                <li data-v-20b565fe>
+                                                    <a href="https://youtube.com/@smalleyes_cryptosmc?si=M-NKSWrO2HXFW9Iq" target="_blank" data-v-20b565fe>
+                                                        <img src="https://static.bitunix.com/web/bitunix-assets/web/img20.BsB-agTL.webp" width="128" fit="cover" alt="Smalleyes_SMT" loading="lazy" data-v-20b565fe>
+                                                        <span title="Smalleyes_SMT" data-v-20b565fe>Smalleyes_SMT</span>
+                                                    </a>
+                                                </li>
+                                                <li data-v-20b565fe>
+                                                    <a href="https://www.youtube.com/@cryptoegg" target="_blank" data-v-20b565fe>
+                                                        <img src="https://static.bitunix.com/web/bitunix-assets/web/img15.DA3az6aS.webp" width="128" fit="cover" alt="蛋仔" loading="lazy" data-v-20b565fe>
+                                                        <span title="蛋仔" data-v-20b565fe>蛋仔</span>
+                                                    </a>
+                                                </li>
+                                                <li data-v-20b565fe>
+                                                    <a href="https://youtube.com/@oni_bro_?si=aknJU4C7d9idFq7l" target="_blank" data-v-20b565fe>
+                                                        <img src="https://static.bitunix.com/web/bitunix-assets/web/img16.BXHKxkC6.webp" width="128" fit="cover" alt="歐尼哥" loading="lazy" data-v-20b565fe>
+                                                        <span title="歐尼哥" data-v-20b565fe>歐尼哥</span>
+                                                    </a>
+                                                </li>
+                                                <!--]-->
+                                            </ul>
+                                        </nav>
+                                        <div class="carousel" role="region" aria-label="Image carousel" dir="ltr" data-v-20b565fe style="--6d692aff:4;" data-v-a160e8e8>
+                                            <div class="carousel-wrapper" style="transform:translateX(-0%);" data-v-a160e8e8>
+                                                <!--[-->
+                                                <div style="padding:0px;" class="active slide-item" data-v-a160e8e8>
+                                                    <div class="skeleton" style="width:calc(100% - 0px);height:calc(100% - 0px);" data-v-a160e8e8></div>
+                                                    <!--[-->
+                                                    <div class="card-wrapper w-290 max-xl:w-100%" data-v-20b565fe>
+                                                        <a href="https://www.youtube.com/@TradeTravelChill" target="_blank" class="slide-card" data-v-20b565fe>
+                                                            <div class="top-header" data-v-20b565fe>
+                                                                <img data-lazy-src="https://static.bitunix.com/web/bitunix-assets/web/img11.DbjwRqz9.webp" class="slide-img me-12" width="128" fit="cover" alt="Trade Travel Chill " data-v-20b565fe>
+                                                                <span class="name" title="Trade Travel Chill " data-v-20b565fe>Trade Travel Chill </span>
+                                                            </div>
+                                                            <div class="content" data-v-20b565fe>
+                                                                <p class="inner-content" title="Crypto Trader and Educator. Learn how to trade crypto, generate profits, protect your gains, change your life and live the Trade Travel Chill lifestyle!" data-v-20b565fe>Crypto Trader and Educator. Learn how to trade crypto, generate profits, protect your gains, change your life and live the Trade Travel Chill lifestyle!</p>
+                                                            </div>
+                                                            <span class="fans" data-v-20b565fe>Followers: 37.8K</span>
+                                                            <span class="bx-icon-warp icon icon" data-icon-name="icon-goto-s" style="display:inline-flex;justify-content:center;align-items:center;width:24;height:24;" data-v-09ba8165 data-v-20b565fe>
+                                                                <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                            </span>
+                                                            <div class="block" data-v-20b565fe></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--]-->
+                                                </div>
+                                                <div style="padding:0px;" class="active slide-item" data-v-a160e8e8>
+                                                    <div class="skeleton" style="width:calc(100% - 0px);height:calc(100% - 0px);" data-v-a160e8e8></div>
+                                                    <!--[-->
+                                                    <div class="card-wrapper w-290 max-xl:w-100%" data-v-20b565fe>
+                                                        <a href="https://twitter.com/OracleFastMoney" target="_blank" class="slide-card" data-v-20b565fe>
+                                                            <div class="top-header" data-v-20b565fe>
+                                                                <img data-lazy-src="https://static.bitunix.com/web/bitunix-assets/web/img4.Gr_taFuM.webp" class="slide-img me-12" width="128" fit="cover" alt="ORACLE FAST MONEY TRADER" data-v-20b565fe>
+                                                                <span class="name" title="ORACLE FAST MONEY TRADER" data-v-20b565fe>ORACLE FAST MONEY TRADER</span>
+                                                            </div>
+                                                            <div class="content" data-v-20b565fe>
+                                                                <p class="inner-content" title=" &quot;Trading is a war and Bitunix is an epic place for War On The 1 Minute Chart&quot;" data-v-20b565fe>&quot;Trading is a war and Bitunix is an epic place for War On The 1 Minute Chart &quot;</p>
+                                                            </div>
+                                                            <span class="fans" data-v-20b565fe>Followers: 55K</span>
+                                                            <span class="bx-icon-warp icon icon" data-icon-name="icon-goto-s" style="display:inline-flex;justify-content:center;align-items:center;width:24;height:24;" data-v-09ba8165 data-v-20b565fe>
+                                                                <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                            </span>
+                                                            <div class="block" data-v-20b565fe></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--]-->
+                                                </div>
+                                                <div style="padding:0px;" class="active slide-item" data-v-a160e8e8>
+                                                    <div class="skeleton" style="width:calc(100% - 0px);height:calc(100% - 0px);" data-v-a160e8e8></div>
+                                                    <!--[-->
+                                                    <div class="card-wrapper w-290 max-xl:w-100%" data-v-20b565fe>
+                                                        <a href="https://www.youtube.com/c/CrashTrading" target="_blank" class="slide-card" data-v-20b565fe>
+                                                            <div class="top-header" data-v-20b565fe>
+                                                                <img data-lazy-src="https://static.bitunix.com/web/bitunix-assets/web/img1.DvgDhnyN.webp" class="slide-img me-12" width="128" fit="cover" alt="Crash Trading" data-v-20b565fe>
+                                                                <span class="name" title="Crash Trading" data-v-20b565fe>Crash Trading</span>
+                                                            </div>
+                                                            <div class="content" data-v-20b565fe>
+                                                                <p class="inner-content" title="Hundreds of exchanges I have used, Bitunix is one of the last real exchanges left in the game." data-v-20b565fe>Hundreds of exchanges I have used, Bitunix is one of the last real exchanges left in the game.</p>
+                                                            </div>
+                                                            <span class="fans" data-v-20b565fe>Followers: 51.8K</span>
+                                                            <span class="bx-icon-warp icon icon" data-icon-name="icon-goto-s" style="display:inline-flex;justify-content:center;align-items:center;width:24;height:24;" data-v-09ba8165 data-v-20b565fe>
+                                                                <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                            </span>
+                                                            <div class="block" data-v-20b565fe></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--]-->
+                                                </div>
+                                                <div style="padding:0px;" class="active slide-item" data-v-a160e8e8>
+                                                    <div class="skeleton" style="width:calc(100% - 0px);height:calc(100% - 0px);" data-v-a160e8e8></div>
+                                                    <!--[-->
+                                                    <div class="card-wrapper w-290 max-xl:w-100%" data-v-20b565fe>
+                                                        <a href="https://www.youtube.com/@investtradewithjaxx" target="_blank" class="slide-card" data-v-20b565fe>
+                                                            <div class="top-header" data-v-20b565fe>
+                                                                <img data-lazy-src="https://static.bitunix.com/web/bitunix-assets/web/img2.BpLDGvNN.webp" class="slide-img me-12" width="128" fit="cover" alt="Invest &amp; Trade With Jaxx" data-v-20b565fe>
+                                                                <span class="name" title="Invest &amp; Trade With Jaxx" data-v-20b565fe>Invest &amp;Trade With Jaxx</span>
+                                                            </div>
+                                                            <div class="content" data-v-20b565fe>
+                                                                <p class="inner-content" title="I appreciate how Bitunix has managed to strike the perfect balance between advanced features and user-friendliness." data-v-20b565fe>I appreciate how Bitunix has managed to strike the perfect balance between advanced features and user-friendliness.</p>
+                                                            </div>
+                                                            <span class="fans" data-v-20b565fe>Followers: 49.3K</span>
+                                                            <span class="bx-icon-warp icon icon" data-icon-name="icon-goto-s" style="display:inline-flex;justify-content:center;align-items:center;width:24;height:24;" data-v-09ba8165 data-v-20b565fe>
+                                                                <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                            </span>
+                                                            <div class="block" data-v-20b565fe></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--]-->
+                                                </div>
+                                                <div style="padding:0px;" class="slide-item" data-v-a160e8e8>
+                                                    <div class="skeleton" style="width:calc(100% - 0px);height:calc(100% - 0px);" data-v-a160e8e8></div>
+                                                    <!--[-->
+                                                    <div class="card-wrapper w-290 max-xl:w-100%" data-v-20b565fe>
+                                                        <a href="https://www.instagram.com/crypto_mars_global/" target="_blank" class="slide-card" data-v-20b565fe>
+                                                            <div class="top-header" data-v-20b565fe>
+                                                                <img data-lazy-src="data:image/webp;base64,UklGRmIDAABXRUJQVlA4IFYDAAAwFACdASqAAIAAPp1On0y0LLEjopmacLATiWkKFqQW43y+jeCPko8hyLqJv8/xH7U/+H3k7k39U4iO5D4u2gB4j2ix6oGiqzoTzavN3vGzbvicmpRBip5z0WIs7RvWgRl4ikupcjXyhztiOy93BIVYPVtdBRBhvNfb03HsJ5Qg3A8Nk+l/j0Qn6sgBLiKvq2qcjK/IPA6lkb+AD6Kq/0etjV5u95NXDGqoAAD+/1boBm/4JiPRNvvPlLPgHJ+LFA+ybxu56j9Ryyy6t+96nn2WHRMqZivXqHEPELnKxi4yzSTFxnmI7Nk/N6fxrNFcLIX+kSFh9F4f4P4y1mTDB436FDP7irvRAEkawLIsbv9dfgeDy8gXKJexfpCMk9c6OMikMXHFoGUu4KXp6QP7OogihqLtH0qA4j9lZy73sLj9UB5DUOZ6aE7ivF4IHuoVCA5ROfY7TjNJQl9qjr8lm4s4ewuow6jV54+tTHQw52Xfevb3wMs1nD3WQNKajS8lAA2tkuFhUzNtoE2EVp1lBWO5bK7HV7/dMW9yHNyFPnyItpiYUH/o6PqkXz8h3f16BsTxANz5ys3SBzyPwjdIOo++S49D1ph+zwgGhvaGEVLvg9XO8baauDX0dOk4ytNHf3R0IXDAnzWHt432+irjnHw2f9iwpdE4mlVuUEqHGwPPRLo6WEiaj7syBih4btt2ychbHqQo/gL8DmR+W+DVlSZ3cpznM/k++dEbaW0T+SlflZJiBvvP1+VmkDNjxAQU6+kXsytcFoj4p/nR+64oC3pCYUAGPJog4civuzYCbK9I2IkLOVdDroX5nhx7h2j+x+q+n/53zGNfy7NrG+a9w2xZl2Rw8pAK+o9qcU9WHBVQQWrzjD02pkaXppOW2I2xbg7eLH6SCqZzjw8UUVzuPumPAZE9fupOd173DPKPQi3dHZg9s1ZNGx3AUiYF8cncYfiQaxVoQP3R2pAyy/NXW3zlwbrRI0twqp49bddZO3Q7hdJiQW+ZUHWy0+RqwBSUaIuki15U0L7wzA3LBZrrWv6/mik9LwTKwJkOUQEiZjWd6JmngOV9p9NLAMgSWZCn+n/HG/nETRA3TicSlu/dbTY8MLi3mUphN6UvLKZZvUp6AAAAAAAAAA==" class="slide-img me-12" width="128" fit="cover" alt="Mars" data-v-20b565fe>
+                                                                <span class="name" title="Mars" data-v-20b565fe>Mars</span>
+                                                            </div>
+                                                            <div class="content" data-v-20b565fe>
+                                                                <p class="inner-content" title="For futures traders, slippage and matching speed are key. Bitunix stays stable with minimal slippage even during big market moves, allowing me to place orders with confidence and exit positions precisely. The intuitive interface is easy to use, so even beginners can trade quickly. With comprehensive fund management and robust security measures, I feel very assured using it long-term. To me, Bitunix is a trustworthy and ideal trading platform." data-v-20b565fe>For futures traders, slippage and matching speed are key. Bitunix stays stable with minimal slippage even during big market moves, allowing me to place orders with confidence and exit positions precisely. The intuitive interface is easy to use, so even beginners can trade quickly. With comprehensive fund management and robust security measures, I feel very assured using it long-term. To me, Bitunix is a trustworthy and ideal trading platform.</p>
+                                                            </div>
+                                                            <span class="fans" data-v-20b565fe>Followers: 14K</span>
+                                                            <span class="bx-icon-warp icon icon" data-icon-name="icon-goto-s" style="display:inline-flex;justify-content:center;align-items:center;width:24;height:24;" data-v-09ba8165 data-v-20b565fe>
+                                                                <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                            </span>
+                                                            <div class="block" data-v-20b565fe></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--]-->
+                                                </div>
+                                                <div style="padding:0px;" class="slide-item" data-v-a160e8e8>
+                                                    <div class="skeleton" style="width:calc(100% - 0px);height:calc(100% - 0px);" data-v-a160e8e8></div>
+                                                    <!--[-->
+                                                    <div class="card-wrapper w-290 max-xl:w-100%" data-v-20b565fe>
+                                                        <a href="https://www.youtube.com/live/QXEPzsOzaBg?si=Vbl1G5s03P35A-Nx" target="_blank" class="slide-card" data-v-20b565fe>
+                                                            <div class="top-header" data-v-20b565fe>
+                                                                <img data-lazy-src="https://static.bitunix.com/web/bitunix-assets/web/img8.DIBCIyXd.webp" class="slide-img me-12" width="128" fit="cover" alt="1336 Crypto Club" data-v-20b565fe>
+                                                                <span class="name" title="1336 Crypto Club" data-v-20b565fe>1336 Crypto Club</span>
+                                                            </div>
+                                                            <div class="content" data-v-20b565fe>
+                                                                <p class="inner-content" title="Bitunix&#39;s friendly customer service brings a friendly environment for cryptocurrencies and the platform provides traders with a good trading depth and liquidity and a friendly experience for novice and professional traders." data-v-20b565fe>Bitunix &#39;s friendly customer service brings a friendly environment for cryptocurrencies and the platform provides traders with a good trading depth and liquidity and a friendly experience for novice and professional traders.</p>
+                                                            </div>
+                                                            <span class="fans" data-v-20b565fe>Followers: 10K</span>
+                                                            <span class="bx-icon-warp icon icon" data-icon-name="icon-goto-s" style="display:inline-flex;justify-content:center;align-items:center;width:24;height:24;" data-v-09ba8165 data-v-20b565fe>
+                                                                <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                            </span>
+                                                            <div class="block" data-v-20b565fe></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--]-->
+                                                </div>
+                                                <div style="padding:0px;" class="slide-item" data-v-a160e8e8>
+                                                    <div class="skeleton" style="width:calc(100% - 0px);height:calc(100% - 0px);" data-v-a160e8e8></div>
+                                                    <!--[-->
+                                                    <div class="card-wrapper w-290 max-xl:w-100%" data-v-20b565fe>
+                                                        <a href="https://www.youtube.com/@tigerbro_smc/streams" target="_blank" class="slide-card" data-v-20b565fe>
+                                                            <div class="top-header" data-v-20b565fe>
+                                                                <img data-lazy-src="https://static.bitunix.com/web/bitunix-assets/web/img9.mPII1sxk.webp" class="slide-img me-12" width="128" fit="cover" alt="Tiger Crypto" data-v-20b565fe>
+                                                                <span class="name" title="Tiger Crypto" data-v-20b565fe>Tiger Crypto</span>
+                                                            </div>
+                                                            <div class="content" data-v-20b565fe>
+                                                                <p class="inner-content" title="Bitunix is very suitable for &quot;futures traders&quot;. The depth of futures market is deep enough, the slippage is minimized among all exchanges, the operation is smooth and fluent, and has a U.S. and Canadian license, which is highly recommended by me Tiger." data-v-20b565fe>Bitunix is very suitable for &quot;futures traders &quot;. The depth of futures market is deep enough, the slippage is minimized among all exchanges, the operation is smooth and fluent, and has a U.S. and Canadian license, which is highly recommended by me Tiger.</p>
+                                                            </div>
+                                                            <span class="fans" data-v-20b565fe>Followers: 10K</span>
+                                                            <span class="bx-icon-warp icon icon" data-icon-name="icon-goto-s" style="display:inline-flex;justify-content:center;align-items:center;width:24;height:24;" data-v-09ba8165 data-v-20b565fe>
+                                                                <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                            </span>
+                                                            <div class="block" data-v-20b565fe></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--]-->
+                                                </div>
+                                                <div style="padding:0px;" class="slide-item" data-v-a160e8e8>
+                                                    <div class="skeleton" style="width:calc(100% - 0px);height:calc(100% - 0px);" data-v-a160e8e8></div>
+                                                    <!--[-->
+                                                    <div class="card-wrapper w-290 max-xl:w-100%" data-v-20b565fe>
+                                                        <a href="https://youtube.com/@crypto_trader_kai?si=36qDfYRdrATAQngp" target="_blank" class="slide-card" data-v-20b565fe>
+                                                            <div class="top-header" data-v-20b565fe>
+                                                                <img data-lazy-src="https://static.bitunix.com/web/bitunix-assets/web/img10.-AzxT7h7.webp" class="slide-img me-12" width="128" fit="cover" alt="Crypto_Kai" data-v-20b565fe>
+                                                                <span class="name" title="Crypto_Kai" data-v-20b565fe>Crypto_Kai</span>
+                                                            </div>
+                                                            <div class="content" data-v-20b565fe>
+                                                                <p class="inner-content" title="As a professional full-time trader, choosing a trading environment with sufficient market depth and order quantity is definitely a priority, so that losses can be avoided in case of extreme market conditions because of serious losses caused by slippage. Bitunix also has a complete license and funds custody, for users to use the security is definitely an additional layer of protection. Live free, trade happy! I am Crypto Kai!" data-v-20b565fe>As a professional full-time trader, choosing a trading environment with sufficient market depth and order quantity is definitely a priority, so that losses can be avoided in case of extreme market conditions because of serious losses caused by slippage. Bitunix also has a complete license and funds custody, for users to use the security is definitely an additional layer of protection. Live free, trade happy! I am Crypto Kai!</p>
+                                                            </div>
+                                                            <span class="fans" data-v-20b565fe>Followers: 6.42K</span>
+                                                            <span class="bx-icon-warp icon icon" data-icon-name="icon-goto-s" style="display:inline-flex;justify-content:center;align-items:center;width:24;height:24;" data-v-09ba8165 data-v-20b565fe>
+                                                                <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                            </span>
+                                                            <div class="block" data-v-20b565fe></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--]-->
+                                                </div>
+                                                <div style="padding:0px;" class="slide-item" data-v-a160e8e8>
+                                                    <div class="skeleton" style="width:calc(100% - 0px);height:calc(100% - 0px);" data-v-a160e8e8></div>
+                                                    <!--[-->
+                                                    <div class="card-wrapper w-290 max-xl:w-100%" data-v-20b565fe>
+                                                        <a href="https://www.tiktok.com/@investwithrex" target="_blank" class="slide-card" data-v-20b565fe>
+                                                            <div class="top-header" data-v-20b565fe>
+                                                                <img data-lazy-src="https://static.bitunix.com/web/bitunix-assets/web/img6.LPRiO1kS.webp" class="slide-img me-12" width="128" fit="cover" alt="investwithrex" data-v-20b565fe>
+                                                                <span class="name" title="investwithrex" data-v-20b565fe>investwithrex</span>
+                                                            </div>
+                                                            <div class="content" data-v-20b565fe>
+                                                                <p class="inner-content" title="Every trade is a lesson, every loss a tuition" data-v-20b565fe>Every trade is a lesson, every loss a tuition</p>
+                                                            </div>
+                                                            <span class="fans" data-v-20b565fe>Followers: 67.9K</span>
+                                                            <span class="bx-icon-warp icon icon" data-icon-name="icon-goto-s" style="display:inline-flex;justify-content:center;align-items:center;width:24;height:24;" data-v-09ba8165 data-v-20b565fe>
+                                                                <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                            </span>
+                                                            <div class="block" data-v-20b565fe></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--]-->
+                                                </div>
+                                                <div style="padding:0px;" class="slide-item" data-v-a160e8e8>
+                                                    <div class="skeleton" style="width:calc(100% - 0px);height:calc(100% - 0px);" data-v-a160e8e8></div>
+                                                    <!--[-->
+                                                    <div class="card-wrapper w-290 max-xl:w-100%" data-v-20b565fe>
+                                                        <a href="https://twitter.com/AltCryptoGems" target="_blank" class="slide-card" data-v-20b565fe>
+                                                            <div class="top-header" data-v-20b565fe>
+                                                                <img data-lazy-src="https://static.bitunix.com/web/bitunix-assets/web/img7.CNHN5ij5.webp" class="slide-img me-12" width="128" fit="cover" alt="AltCryptoGems" data-v-20b565fe>
+                                                                <span class="name" title="AltCryptoGems" data-v-20b565fe>AltCryptoGems</span>
+                                                            </div>
+                                                            <div class="content" data-v-20b565fe>
+                                                                <p class="inner-content" title="The exchange with one of the smoothest user interfaces, spot on marketing and having the ideal balance for professional traders as well as new, enthusiastic, crypto traders." data-v-20b565fe>The exchange with one of the smoothest user interfaces, spot on marketing and having the ideal balance for professional traders as well as new, enthusiastic, crypto traders.</p>
+                                                            </div>
+                                                            <span class="fans" data-v-20b565fe>Followers: 314K</span>
+                                                            <span class="bx-icon-warp icon icon" data-icon-name="icon-goto-s" style="display:inline-flex;justify-content:center;align-items:center;width:24;height:24;" data-v-09ba8165 data-v-20b565fe>
+                                                                <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                            </span>
+                                                            <div class="block" data-v-20b565fe></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--]-->
+                                                </div>
+                                                <div style="padding:0px;" class="slide-item" data-v-a160e8e8>
+                                                    <div class="skeleton" style="width:calc(100% - 0px);height:calc(100% - 0px);" data-v-a160e8e8></div>
+                                                    <!--[-->
+                                                    <div class="card-wrapper w-290 max-xl:w-100%" data-v-20b565fe>
+                                                        <a href="https://www.youtube.com/channel/UCRRuHsFTpKyT4B2w15ch-_A" target="_blank" class="slide-card" data-v-20b565fe>
+                                                            <div class="top-header" data-v-20b565fe>
+                                                                <img data-lazy-src="https://static.bitunix.com/web/bitunix-assets/web/img12.DuOL1vU_.webp" class="slide-img me-12" width="128" fit="cover" alt="TrippaTrading" data-v-20b565fe>
+                                                                <span class="name" title="TrippaTrading" data-v-20b565fe>TrippaTrading</span>
+                                                            </div>
+                                                            <div class="content" data-v-20b565fe>
+                                                                <p class="inner-content" title="I like the fact that Bitunix is completely focused on trading and can therefore provide a good trading experience for anyone who wants to trade in a professional environment." data-v-20b565fe>I like the fact that Bitunix is completely focused on trading and can therefore provide a good trading experience for anyone who wants to trade in a professional environment.</p>
+                                                            </div>
+                                                            <span class="fans" data-v-20b565fe>Followers: 17.1K</span>
+                                                            <span class="bx-icon-warp icon icon" data-icon-name="icon-goto-s" style="display:inline-flex;justify-content:center;align-items:center;width:24;height:24;" data-v-09ba8165 data-v-20b565fe>
+                                                                <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                            </span>
+                                                            <div class="block" data-v-20b565fe></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--]-->
+                                                </div>
+                                                <div style="padding:0px;" class="slide-item" data-v-a160e8e8>
+                                                    <div class="skeleton" style="width:calc(100% - 0px);height:calc(100% - 0px);" data-v-a160e8e8></div>
+                                                    <!--[-->
+                                                    <div class="card-wrapper w-290 max-xl:w-100%" data-v-20b565fe>
+                                                        <a href="https://youtube.com/@smcsniperking?si=niGQwIG3JOC-ggsM" target="_blank" class="slide-card" data-v-20b565fe>
+                                                            <div class="top-header" data-v-20b565fe>
+                                                                <img data-lazy-src="https://static.bitunix.com/web/bitunix-assets/web/img14.C1Gzjq2p.webp" class="slide-img me-12" width="128" fit="cover" alt="加密狙擊王" data-v-20b565fe>
+                                                                <span class="name" title="加密狙擊王" data-v-20b565fe>加密狙擊王</span>
+                                                            </div>
+                                                            <div class="content" data-v-20b565fe>
+                                                                <p class="inner-content" title="I chose Bitunix because it&#39;s professional, safe, secure, smooth and efficient, and perfectly supports me to hit every opportunity!" data-v-20b565fe>I chose Bitunix because it &#39;s professional, safe, secure, smooth and efficient, and perfectly supports me to hit every opportunity!</p>
+                                                            </div>
+                                                            <span class="fans" data-v-20b565fe>Followers: 1.65K</span>
+                                                            <span class="bx-icon-warp icon icon" data-icon-name="icon-goto-s" style="display:inline-flex;justify-content:center;align-items:center;width:24;height:24;" data-v-09ba8165 data-v-20b565fe>
+                                                                <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                            </span>
+                                                            <div class="block" data-v-20b565fe></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--]-->
+                                                </div>
+                                                <div style="padding:0px;" class="slide-item" data-v-a160e8e8>
+                                                    <div class="skeleton" style="width:calc(100% - 0px);height:calc(100% - 0px);" data-v-a160e8e8></div>
+                                                    <!--[-->
+                                                    <div class="card-wrapper w-290 max-xl:w-100%" data-v-20b565fe>
+                                                        <a href="https://www.youtube.com/@PandaSMC_Crypto" target="_blank" class="slide-card" data-v-20b565fe>
+                                                            <div class="top-header" data-v-20b565fe>
+                                                                <img data-lazy-src="https://static.bitunix.com/web/bitunix-assets/web/img19.B5NUbLUz.webp" class="slide-img me-12" width="128" fit="cover" alt="panda_crypto" data-v-20b565fe>
+                                                                <span class="name" title="panda_crypto" data-v-20b565fe>panda_crypto</span>
+                                                            </div>
+                                                            <div class="content" data-v-20b565fe>
+                                                                <p class="inner-content" title="As a futures trader focused on structure and risk control, Bitunix gives me a smooth and reliable experience. From fast order execution to clear funding rates and tight slippage, I can focus on strategy, not platform issues.
+Whether backtesting, live trading, or leading my community, Bitunix is my trusted battleground." data-v-20b565fe>As a futures trader focused on structure and risk control, Bitunix gives me a smooth and reliable experience. From fast order execution to clear funding rates and tight slippage, I can focus on strategy, not platform issues.
+Whether backtesting, live trading, or leading my community, Bitunix is my trusted battleground.</p>
+                                                            </div>
+                                                            <span class="fans" data-v-20b565fe>Followers: 2K</span>
+                                                            <span class="bx-icon-warp icon icon" data-icon-name="icon-goto-s" style="display:inline-flex;justify-content:center;align-items:center;width:24;height:24;" data-v-09ba8165 data-v-20b565fe>
+                                                                <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                            </span>
+                                                            <div class="block" data-v-20b565fe></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--]-->
+                                                </div>
+                                                <div style="padding:0px;" class="slide-item" data-v-a160e8e8>
+                                                    <div class="skeleton" style="width:calc(100% - 0px);height:calc(100% - 0px);" data-v-a160e8e8></div>
+                                                    <!--[-->
+                                                    <div class="card-wrapper w-290 max-xl:w-100%" data-v-20b565fe>
+                                                        <a href="https://youtube.com/@smalleyes_cryptosmc?si=M-NKSWrO2HXFW9Iq" target="_blank" class="slide-card" data-v-20b565fe>
+                                                            <div class="top-header" data-v-20b565fe>
+                                                                <img data-lazy-src="https://static.bitunix.com/web/bitunix-assets/web/img20.BsB-agTL.webp" class="slide-img me-12" width="128" fit="cover" alt="Smalleyes_SMT" data-v-20b565fe>
+                                                                <span class="name" title="Smalleyes_SMT" data-v-20b565fe>Smalleyes_SMT</span>
+                                                            </div>
+                                                            <div class="content" data-v-20b565fe>
+                                                                <p class="inner-content" title="Trading isn’t about luck or getting rich overnight.
+ We choose Bitunix for its stable depth and fast capital efficiency—key to executing precise entry and exit plans with minimal slippage and delay.
+Every trade is backed by logic and risk control.
+Over time, disciplined execution and risk management make trading simple and secure." data-v-20b565fe>Trading isn’t about luck or getting rich overnight.
+ We choose Bitunix for its stable depth and fast capital efficiency—key to executing precise entry and exit plans with minimal slippage and delay.
+Every trade is backed by logic and risk control.
+Over time, disciplined execution and risk management make trading simple and secure.</p>
+                                                            </div>
+                                                            <span class="fans" data-v-20b565fe>Followers: 8.3K</span>
+                                                            <span class="bx-icon-warp icon icon" data-icon-name="icon-goto-s" style="display:inline-flex;justify-content:center;align-items:center;width:24;height:24;" data-v-09ba8165 data-v-20b565fe>
+                                                                <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                            </span>
+                                                            <div class="block" data-v-20b565fe></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--]-->
+                                                </div>
+                                                <div style="padding:0px;" class="slide-item" data-v-a160e8e8>
+                                                    <div class="skeleton" style="width:calc(100% - 0px);height:calc(100% - 0px);" data-v-a160e8e8></div>
+                                                    <!--[-->
+                                                    <div class="card-wrapper w-290 max-xl:w-100%" data-v-20b565fe>
+                                                        <a href="https://www.youtube.com/@cryptoegg" target="_blank" class="slide-card" data-v-20b565fe>
+                                                            <div class="top-header" data-v-20b565fe>
+                                                                <img data-lazy-src="https://static.bitunix.com/web/bitunix-assets/web/img15.DA3az6aS.webp" class="slide-img me-12" width="128" fit="cover" alt="蛋仔" data-v-20b565fe>
+                                                                <span class="name" title="蛋仔" data-v-20b565fe>蛋仔</span>
+                                                            </div>
+                                                            <div class="content" data-v-20b565fe>
+                                                                <p class="inner-content" title="Bitunix is my preferred cryptocurrency trading platform! It is easy to use for new traders with its clear instructions, while professional traders can enjoy accurate data analysis and a wide range of tools. Whether you want to trade spot or futures, Bitunix is a secure and efficient platform that meets your needs!" data-v-20b565fe>Bitunix is my preferred cryptocurrency trading platform! It is easy to use for new traders with its clear instructions, while professional traders can enjoy accurate data analysis and a wide range of tools. Whether you want to trade spot or futures, Bitunix is a secure and efficient platform that meets your needs!</p>
+                                                            </div>
+                                                            <span class="fans" data-v-20b565fe>Followers: 3.79K</span>
+                                                            <span class="bx-icon-warp icon icon" data-icon-name="icon-goto-s" style="display:inline-flex;justify-content:center;align-items:center;width:24;height:24;" data-v-09ba8165 data-v-20b565fe>
+                                                                <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                            </span>
+                                                            <div class="block" data-v-20b565fe></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--]-->
+                                                </div>
+                                                <div style="padding:0px;" class="slide-item" data-v-a160e8e8>
+                                                    <div class="skeleton" style="width:calc(100% - 0px);height:calc(100% - 0px);" data-v-a160e8e8></div>
+                                                    <!--[-->
+                                                    <div class="card-wrapper w-290 max-xl:w-100%" data-v-20b565fe>
+                                                        <a href="https://youtube.com/@oni_bro_?si=aknJU4C7d9idFq7l" target="_blank" class="slide-card" data-v-20b565fe>
+                                                            <div class="top-header" data-v-20b565fe>
+                                                                <img data-lazy-src="https://static.bitunix.com/web/bitunix-assets/web/img16.BXHKxkC6.webp" class="slide-img me-12" width="128" fit="cover" alt="歐尼哥" data-v-20b565fe>
+                                                                <span class="name" title="歐尼哥" data-v-20b565fe>歐尼哥</span>
+                                                            </div>
+                                                            <div class="content" data-v-20b565fe>
+                                                                <p class="inner-content" title="In addition to the safety and reliability of Bitunix, the learning atmosphere is also rare in the industry, no matter you are a newcomer or a veteran, you can find your own opportunity for improvement here!" data-v-20b565fe>In addition to the safety and reliability of Bitunix, the learning atmosphere is also rare in the industry, no matter you are a newcomer or a veteran, you can find your own opportunity for improvement here!</p>
+                                                            </div>
+                                                            <span class="fans" data-v-20b565fe>Followers: 27K</span>
+                                                            <span class="bx-icon-warp icon icon" data-icon-name="icon-goto-s" style="display:inline-flex;justify-content:center;align-items:center;width:24;height:24;" data-v-09ba8165 data-v-20b565fe>
+                                                                <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                            </span>
+                                                            <div class="block" data-v-20b565fe></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--]-->
+                                                </div>
+                                                <!--]-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="mt-180 flex-center color-bg-7" data-v-723dc3ee>
+                                    <span data-v-723dc3ee></span>
+                                </section>
+                                <section class="flex-center" data-v-723dc3ee>
+                                    <div class="home-reason-wrapper w-1200 pt-150 min-h-1024 max-xl:px-15 max-xl:w-100%" data-v-723dc3ee data-v-0b1e0617>
+                                        <div class="center-container" data-v-0b1e0617>
+                                            <h2 class="title color-text-1 fs-54 fm-bold text-center initialed" data-v-0b1e0617>Why Bitunix?</h2>
+                                            <div class="card-container mt-100 initialed" data-v-0b1e0617>
+                                                <div class="card-wrapper" data-v-0b1e0617>
+                                                    <div class="card" data-v-0b1e0617>
+                                                        <span class="iconify i-bx-icon:homeindex-reason1 icon" aria-hidden="true" style="width:px;height:px;" data-v-0b1e0617></span>
+                                                        <div class="label" data-v-0b1e0617>Secure</div>
+                                                        <div class="desc" data-v-0b1e0617>We offer industry-leading secure cryptocurrency trading platform, maintaining a robust reserve fund that exceeds 1:1 ratio against user holdings.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-wrapper" data-v-0b1e0617>
+                                                    <div class="card" data-v-0b1e0617>
+                                                        <span class="iconify i-bx-icon:homeindex-reason2 icon" aria-hidden="true" style="width:px;height:px;" data-v-0b1e0617></span>
+                                                        <div class="label" data-v-0b1e0617>Seamless</div>
+                                                        <div class="desc" data-v-0b1e0617>Enjoy the benefits of efficient and real-time online trading. Start your crypto journey with just $10 investment.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-wrapper" data-v-0b1e0617>
+                                                    <div class="card" data-v-0b1e0617>
+                                                        <span class="iconify i-bx-icon:homeindex-reason3 icon" aria-hidden="true" style="width:px;height:px;" data-v-0b1e0617></span>
+                                                        <div class="label" data-v-0b1e0617>Insights </div>
+                                                        <div class="desc" data-v-0b1e0617>Get real-time updates and sharp insights about the cryptocurrency market.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-wrapper" data-v-0b1e0617>
+                                                    <div class="card" data-v-0b1e0617>
+                                                        <span class="iconify i-bx-icon:homeindex-reason4 icon" aria-hidden="true" style="width:px;height:px;" data-v-0b1e0617></span>
+                                                        <div class="label" data-v-0b1e0617>Service</div>
+                                                        <div class="desc" data-v-0b1e0617>Experience unparalleled assistance with multilingual 24/7 customer support. Ensuring a seamless and satisfying trading experience.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="color-bg-7 flex-center" data-v-723dc3ee>
+                                    <div class="home-guide-wrapper max-w-1200 pt-150 pb-170 max-xl:px-15 max-xl:w-100%" data-v-723dc3ee data-v-9ed307ac>
+                                        <h2 class="fs-54 fm-bold color-text-1 text-center mb-100" data-v-9ed307ac>Begin Your Cryptocurrency Journey Effortlessly</h2>
+                                        <div class="container" data-v-9ed307ac>
+                                            <div class="nav-img flex-center" data-v-9ed307ac>
+                                                <img class="img-item object-contain w-355 max-lg:w-280" src="https://static.bitunix.com/web/bitunix-assets/web/homeindex-guide-banner1.m_Z7Mkpl.svg" loading="lazy" quality="100" alt="Bitunix" data-v-9ed307ac>
+                                            </div>
+                                            <div class="nav-menu" data-v-9ed307ac>
+                                                <!--[-->
+                                                <div class="nav-item homeindex-nav-item max-lg:pl-15! max-lg:pr-15! active" data-v-9ed307ac>
+                                                    <div class="flex items-center" data-v-9ed307ac>
+                                                        <p class="step-icon-wrapper flex-center me-48" data-v-9ed307ac>
+                                                            <span class="iconify i-bx-icon:homeindex-guide-icon1 step-icon" aria-hidden="true" style="width:80px;height:80px;" data-v-9ed307ac></span>
+                                                        </p>
+                                                        <span class="step-text" data-v-9ed307ac>Create your Bitunix account</span>
+                                                    </div>
+                                                    <span class="bx-icon-warp arrow-icon hidden arrow-icon hidden" data-icon-name="icon-arrow-right-s" style="display:inline-flex;justify-content:center;align-items:center;width:48;height:84;" data-v-09ba8165 data-v-9ed307ac>
+                                                        <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                    </span>
+                                                </div>
+                                                <div class="nav-item homeindex-nav-item max-lg:pl-15! max-lg:pr-15!" data-v-9ed307ac>
+                                                    <div class="flex items-center" data-v-9ed307ac>
+                                                        <p class="step-icon-wrapper flex-center me-48" data-v-9ed307ac>
+                                                            <span class="iconify i-bx-icon:homeindex-guide-icon2 step-icon" aria-hidden="true" style="width:80px;height:80px;" data-v-9ed307ac></span>
+                                                        </p>
+                                                        <span class="step-text" data-v-9ed307ac>Deposit funds</span>
+                                                    </div>
+                                                    <span class="bx-icon-warp arrow-icon hidden arrow-icon hidden" data-icon-name="icon-arrow-right-s" style="display:inline-flex;justify-content:center;align-items:center;width:48;height:84;" data-v-09ba8165 data-v-9ed307ac>
+                                                        <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                    </span>
+                                                </div>
+                                                <div class="nav-item homeindex-nav-item max-lg:pl-15! max-lg:pr-15!" data-v-9ed307ac>
+                                                    <div class="flex items-center" data-v-9ed307ac>
+                                                        <p class="step-icon-wrapper flex-center me-48" data-v-9ed307ac>
+                                                            <span class="iconify i-bx-icon:homeindex-guide-icon4 step-icon" aria-hidden="true" style="width:80px;height:80px;" data-v-9ed307ac></span>
+                                                        </p>
+                                                        <span class="step-text" data-v-9ed307ac>Start trading</span>
+                                                    </div>
+                                                    <span class="bx-icon-warp arrow-icon hidden arrow-icon hidden" data-icon-name="icon-arrow-right-s" style="display:inline-flex;justify-content:center;align-items:center;width:48;height:84;" data-v-09ba8165 data-v-9ed307ac>
+                                                        <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                    </span>
+                                                </div>
+                                                <!--]-->
+                                            </div>
+                                        </div>
+                                        <div class="btn-wrapper text-center mt-80" data-v-9ed307ac>
+                                            <button class="arco-btn arco-btn-new-primary arco-btn-shape-square arco-btn-size-medium arco-btn-status-normal h-56 px-48" type="button" data-v-9ed307ac>
+                                            <!--v-if-->
+                                            <!--[-->
+                                            Get Started
+                                            <!--]-->
+                                            </button>
+                                        </div>
+                                        <span class="bx-icon-homeindex-guide-icon1 bx-icon-homeindex-guide-icon2 bx-icon-homeindex-guide-icon4" style="display:none;" data-v-9ed307ac></span>
+                                    </div>
+                                </section>
+                                <section class="flex-center" data-v-723dc3ee>
+                                    <div class="wrapper w-1200 pt-150 pb-210 max-xl:px-15 max-xl:w-100%" data-v-723dc3ee data-v-7fb0232e>
+                                        <h2 class="color-text-1 fs-54 text-center fm-bold" data-v-7fb0232e>Reviews of Bitunix from Worldwide Media</h2>
+                                        <nav style="display:none;" data-v-7fb0232e>
+                                            <ul data-v-7fb0232e>
+                                                <!--[-->
+                                                <li data-v-7fb0232e>
+                                                    <a href="https://www.benzinga.com/markets/cryptocurrency/23/11/35567154/bitunix-records-all-time-highest-trading-volume-in-october" target="_blank" data-v-7fb0232e>
+                                                        <img src="https://static.bitunix.com/web/bitunix-assets/web/6e8a0b.Lurgeqxe.webp" width="570" fit="cover" alt="Bitunix Records All-Time Highest Trading Volume In October" loading="lazy" data-v-7fb0232e>
+                                                        <span data-v-7fb0232e>Bitunix Records All-Time Highest Trading Volume In October</span>
+                                                    </a>
+                                                </li>
+                                                <li data-v-7fb0232e>
+                                                    <a href="https://thenewscrypto.com/bitunix-exchange-now-supports-visa-and-mastercard-payments/" target="_blank" data-v-7fb0232e>
+                                                        <img src="https://static.bitunix.com/web/bitunix-assets/web/677a03.BuIMQxH7.webp" width="570" fit="cover" alt="Bitunix Exchange Now Supports Visa and Mastercard Payments" loading="lazy" data-v-7fb0232e>
+                                                        <span data-v-7fb0232e>Bitunix Exchange Now Supports Visa and Mastercard Payments</span>
+                                                    </a>
+                                                </li>
+                                                <li data-v-7fb0232e>
+                                                    <a href="https://finance.yahoo.com/news/slater-says-bitunix-prioritizes-compliance-131500720.html" target="_blank" data-v-7fb0232e>
+                                                        <img src="https://static.bitunix.com/web/bitunix-assets/web/ed4f68.hmrVgcCw.webp" width="570" fit="cover" alt=" Slater Says &quot;Bitunix Prioritizes Compliance and User Education&quot;" loading="lazy" data-v-7fb0232e>
+                                                        <span data-v-7fb0232e>Slater Says &quot;Bitunix Prioritizes Compliance and User Education &quot;</span>
+                                                    </a>
+                                                </li>
+                                                <li data-v-7fb0232e>
+                                                    <a href="https://www.newsbtc.com/press-releases/bitunix-at-blockchain-economy-summit-dubai-2023-highlights-of-first-exhibit/" target="_blank" data-v-7fb0232e>
+                                                        <img src="https://static.bitunix.com/web/bitunix-assets/web/90ffda.DO_ESgMr.webp" width="570" fit="cover" alt="Bitunix at Blockchain Economy Summit Dubai 2023: Highlights of First Exhibit" loading="lazy" data-v-7fb0232e>
+                                                        <span data-v-7fb0232e>Bitunix at Blockchain Economy Summit Dubai 2023: Highlights of First Exhibit</span>
+                                                    </a>
+                                                </li>
+                                                <li data-v-7fb0232e>
+                                                    <a href="https://finance.yahoo.com/news/bitunix-moonpay-join-forces-seamless-120900313.html" target="_blank" data-v-7fb0232e>
+                                                        <img src="https://static.bitunix.com/web/bitunix-assets/web/ed4f68.hmrVgcCw.webp" width="570" fit="cover" alt="Bitunix and MoonPay Join Forces for Seamless Crypto Trading" loading="lazy" data-v-7fb0232e>
+                                                        <span data-v-7fb0232e>Bitunix and MoonPay Join Forces for Seamless Crypto Trading</span>
+                                                    </a>
+                                                </li>
+                                                <!--]-->
+                                            </ul>
+                                        </nav>
+                                        <div class="carousel" role="region" aria-label="Image carousel" dir="ltr" data-v-7fb0232e style="--6d692aff:4;" data-v-a160e8e8>
+                                            <div class="carousel-wrapper" style="transform:translateX(-0%);" data-v-a160e8e8>
+                                                <!--[-->
+                                                <div style="padding:0px;" class="active slide-item" data-v-a160e8e8>
+                                                    <div class="skeleton" style="width:calc(100% - 0px);height:calc(100% - 0px);" data-v-a160e8e8></div>
+                                                    <!--[-->
+                                                    <div class="card-wrapper w-285 max-xl:w-100%" data-v-7fb0232e>
+                                                        <a href="https://www.benzinga.com/markets/cryptocurrency/23/11/35567154/bitunix-records-all-time-highest-trading-volume-in-october" target="_blank" class="slide-card" data-v-7fb0232e>
+                                                            <img class="slide-img" width="570" data-lazy-src="https://static.bitunix.com/web/bitunix-assets/web/6e8a0b.Lurgeqxe.webp" alt="Bitunix Records All-Time Highest Trading Volume In October" loading="lazy" data-v-7fb0232e>
+                                                            <div class="content" data-v-7fb0232e>
+                                                                <p class="inner-content" data-v-7fb0232e>Bitunix Records All-Time Highest Trading Volume In October</p>
+                                                            </div>
+                                                            <span class="detail" data-v-7fb0232e>Details</span>
+                                                            <span class="bx-icon-warp icon icon" data-icon-name="icon-goto-s" style="display:inline-flex;justify-content:center;align-items:center;width:24;height:24;" data-v-09ba8165 data-v-7fb0232e>
+                                                                <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                            </span>
+                                                            <div class="block" data-v-7fb0232e></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--]-->
+                                                </div>
+                                                <div style="padding:0px;" class="active slide-item" data-v-a160e8e8>
+                                                    <div class="skeleton" style="width:calc(100% - 0px);height:calc(100% - 0px);" data-v-a160e8e8></div>
+                                                    <!--[-->
+                                                    <div class="card-wrapper w-285 max-xl:w-100%" data-v-7fb0232e>
+                                                        <a href="https://thenewscrypto.com/bitunix-exchange-now-supports-visa-and-mastercard-payments/" target="_blank" class="slide-card" data-v-7fb0232e>
+                                                            <img class="slide-img" width="570" data-lazy-src="https://static.bitunix.com/web/bitunix-assets/web/677a03.BuIMQxH7.webp" alt="Bitunix Exchange Now Supports Visa and Mastercard Payments" loading="lazy" data-v-7fb0232e>
+                                                            <div class="content" data-v-7fb0232e>
+                                                                <p class="inner-content" data-v-7fb0232e>Bitunix Exchange Now Supports Visa and Mastercard Payments</p>
+                                                            </div>
+                                                            <span class="detail" data-v-7fb0232e>Details</span>
+                                                            <span class="bx-icon-warp icon icon" data-icon-name="icon-goto-s" style="display:inline-flex;justify-content:center;align-items:center;width:24;height:24;" data-v-09ba8165 data-v-7fb0232e>
+                                                                <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                            </span>
+                                                            <div class="block" data-v-7fb0232e></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--]-->
+                                                </div>
+                                                <div style="padding:0px;" class="active slide-item" data-v-a160e8e8>
+                                                    <div class="skeleton" style="width:calc(100% - 0px);height:calc(100% - 0px);" data-v-a160e8e8></div>
+                                                    <!--[-->
+                                                    <div class="card-wrapper w-285 max-xl:w-100%" data-v-7fb0232e>
+                                                        <a href="https://finance.yahoo.com/news/slater-says-bitunix-prioritizes-compliance-131500720.html" target="_blank" class="slide-card" data-v-7fb0232e>
+                                                            <img class="slide-img" width="570" data-lazy-src="https://static.bitunix.com/web/bitunix-assets/web/ed4f68.hmrVgcCw.webp" alt=" Slater Says &quot;Bitunix Prioritizes Compliance and User Education&quot;" loading="lazy" data-v-7fb0232e>
+                                                            <div class="content" data-v-7fb0232e>
+                                                                <p class="inner-content" data-v-7fb0232e>Slater Says &quot;Bitunix Prioritizes Compliance and User Education &quot;</p>
+                                                            </div>
+                                                            <span class="detail" data-v-7fb0232e>Details</span>
+                                                            <span class="bx-icon-warp icon icon" data-icon-name="icon-goto-s" style="display:inline-flex;justify-content:center;align-items:center;width:24;height:24;" data-v-09ba8165 data-v-7fb0232e>
+                                                                <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                            </span>
+                                                            <div class="block" data-v-7fb0232e></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--]-->
+                                                </div>
+                                                <div style="padding:0px;" class="active slide-item" data-v-a160e8e8>
+                                                    <div class="skeleton" style="width:calc(100% - 0px);height:calc(100% - 0px);" data-v-a160e8e8></div>
+                                                    <!--[-->
+                                                    <div class="card-wrapper w-285 max-xl:w-100%" data-v-7fb0232e>
+                                                        <a href="https://www.newsbtc.com/press-releases/bitunix-at-blockchain-economy-summit-dubai-2023-highlights-of-first-exhibit/" target="_blank" class="slide-card" data-v-7fb0232e>
+                                                            <img class="slide-img" width="570" data-lazy-src="https://static.bitunix.com/web/bitunix-assets/web/90ffda.DO_ESgMr.webp" alt="Bitunix at Blockchain Economy Summit Dubai 2023: Highlights of First Exhibit" loading="lazy" data-v-7fb0232e>
+                                                            <div class="content" data-v-7fb0232e>
+                                                                <p class="inner-content" data-v-7fb0232e>Bitunix at Blockchain Economy Summit Dubai 2023: Highlights of First Exhibit</p>
+                                                            </div>
+                                                            <span class="detail" data-v-7fb0232e>Details</span>
+                                                            <span class="bx-icon-warp icon icon" data-icon-name="icon-goto-s" style="display:inline-flex;justify-content:center;align-items:center;width:24;height:24;" data-v-09ba8165 data-v-7fb0232e>
+                                                                <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                            </span>
+                                                            <div class="block" data-v-7fb0232e></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--]-->
+                                                </div>
+                                                <div style="padding:0px;" class="slide-item" data-v-a160e8e8>
+                                                    <div class="skeleton" style="width:calc(100% - 0px);height:calc(100% - 0px);" data-v-a160e8e8></div>
+                                                    <!--[-->
+                                                    <div class="card-wrapper w-285 max-xl:w-100%" data-v-7fb0232e>
+                                                        <a href="https://finance.yahoo.com/news/bitunix-moonpay-join-forces-seamless-120900313.html" target="_blank" class="slide-card" data-v-7fb0232e>
+                                                            <img class="slide-img" width="570" data-lazy-src="https://static.bitunix.com/web/bitunix-assets/web/ed4f68.hmrVgcCw.webp" alt="Bitunix and MoonPay Join Forces for Seamless Crypto Trading" loading="lazy" data-v-7fb0232e>
+                                                            <div class="content" data-v-7fb0232e>
+                                                                <p class="inner-content" data-v-7fb0232e>Bitunix and MoonPay Join Forces for Seamless Crypto Trading</p>
+                                                            </div>
+                                                            <span class="detail" data-v-7fb0232e>Details</span>
+                                                            <span class="bx-icon-warp icon icon" data-icon-name="icon-goto-s" style="display:inline-flex;justify-content:center;align-items:center;width:24;height:24;" data-v-09ba8165 data-v-7fb0232e>
+                                                                <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                                            </span>
+                                                            <div class="block" data-v-7fb0232e></div>
+                                                        </a>
+                                                    </div>
+                                                    <!--]-->
+                                                </div>
+                                                <!--]-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <div id="download" class="home-download-wrapper" bx-theme="dark" data-v-723dc3ee data-v-11b2f934>
+                                    <div class="container max-xl:px-15 max-xl:w-100%" data-v-11b2f934>
+                                        <div class="left-section" data-v-11b2f934>
+                                            <div class="title-wrapper initialed" data-v-11b2f934>
+                                                <div class="title" data-v-11b2f934>Your Crypto Exchange, 
+Anytime, Anywhere:</div>
+                                                <div class="title" data-v-11b2f934>Start Trading Today!</div>
+                                            </div>
+                                            <aside style="display:none;" data-v-11b2f934>
+                                                <ul data-v-11b2f934>
+                                                    <li data-v-11b2f934>
+                                                        <a href="https://apps.apple.com/app/id6446243957?platform=iphone" target="_blank" title="App Store" data-v-11b2f934>App Store </a>
+                                                    </li>
+                                                    <li data-v-11b2f934>
+                                                        <a href="https://testflight.apple.com/join/riLL6dc0" target="_blank" title="Bitunix Beta" data-v-11b2f934>Bitunix Beta </a>
+                                                    </li>
+                                                    <li data-v-11b2f934>
+                                                        <a href="https://download.bitunix.com/bitunix.apk" target="_blank" title="Android APK" data-v-11b2f934>Android APK </a>
+                                                    </li>
+                                                </ul>
+                                            </aside>
+                                            <span data-v-11b2f934></span>
+                                        </div>
+                                        <img class="equipment" src="https://static.bitunix.com/web/bitunix-assets/web/6418be.CfgW9mL6.webp" loading="lazy" alt="Download App" data-v-11b2f934>
+                                    </div>
+                                </div>
+                            </div>
+                            <span></span>
+                        </div>
+                        <!--]-->
+                        <!--]-->
+                        <!---->
+                    </section>
+                    <footer class="footer-wrapper color-bg-7 pt-70" data-v-3bcacaac data-v-31a318b3>
+                        <div class="main-content max-w-1200 pb-76" data-v-31a318b3>
+                            <div class="logo-wrapper" data-v-31a318b3>
+                                <div data-v-31a318b3>
+                                    <a aria-current="page" href="/" class="router-link-active router-link-exact-active" data-v-31a318b3>
+                                        <span class="bx-icon-warp" data-icon-name="icon-logo-new-s" style="display:inline-flex;justify-content:center;align-items:center;width:106;height:32;" data-v-09ba8165 data-v-31a318b3>
+                                            <span class="bx-icon-fallback" data-v-09ba8165></span>
+                                        </span>
+                                    </a>
+                                    <p class="fs-14 color-text-1 mt-16 slogon" data-v-31a318b3>Better Liquidity, Better Trading</p>
+                                </div>
+                                <div class="inner-content footer-sns-list" data-v-31a318b3>
+                                    <!--[-->
+                                    <!--[-->
+                                    <a class="single-img" href="https://x.com/BitunixOfficial" target="_blank" data-v-31a318b3>
+                                        <img class="url-icon" loading="lazy" src="https://img.bitunix.com/cms/official_info_icon/Twitter.png?x-oss-process=image/resize,w_36,h_36,q_80/format,webp" alt="Twitter - Global" data-v-31a318b3>
+                                    </a>
+                                    <!--]-->
+                                    <!--[-->
+                                    <!--[-->
+                                    <!--[-->
+                                    <!--[-->
+                                    <!--[-->
+                                    <img class="url-icon" loading="lazy" src="https://img.bitunix.com/cms/official_info_icon/Telegram.png?x-oss-process=image/resize,w_36,h_36,q_80/format,webp" alt data-v-31a318b3>
+                                    <!--]-->
+                                    <!--]-->
+                                    <!--]-->
+                                    <!---->
+                                    <!--]-->
+                                    <!--]-->
+                                    <!--[-->
+                                    <a class="single-img" href="https://www.linkedin.com/company/bitunix-innovation-limited" target="_blank" data-v-31a318b3>
+                                        <img class="url-icon" loading="lazy" src="https://img.bitunix.com/cms/official_info_icon/Linkedln.png?x-oss-process=image/resize,w_36,h_36,q_80/format,webp" alt="Linkedin" data-v-31a318b3>
+                                    </a>
+                                    <!--]-->
+                                    <!--[-->
+                                    <a class="single-img" href="https://medium.com/@bitunix" target="_blank" data-v-31a318b3>
+                                        <img class="url-icon" loading="lazy" src="https://img.bitunix.com/cms/official_info_icon/Medium.png?x-oss-process=image/resize,w_36,h_36,q_80/format,webp" alt="Medium" data-v-31a318b3>
+                                    </a>
+                                    <!--]-->
+                                    <!--[-->
+                                    <a class="single-img" href="https://www.facebook.com/profile.php?id=100087631631562" target="_blank" data-v-31a318b3>
+                                        <img class="url-icon" loading="lazy" src="https://img.bitunix.com/cms/official_info_icon/Facebook.png?x-oss-process=image/resize,w_36,h_36,q_80/format,webp" alt="Facebook" data-v-31a318b3>
+                                    </a>
+                                    <!--]-->
+                                    <!--[-->
+                                    <a class="single-img" href="https://www.instagram.com/bitunixofficial/" target="_blank" data-v-31a318b3>
+                                        <img class="url-icon" loading="lazy" src="https://img.bitunix.com/cms/official_info_icon/Instagram.png?x-oss-process=image/resize,w_36,h_36,q_80/format,webp" alt="Instagram" data-v-31a318b3>
+                                    </a>
+                                    <!--]-->
+                                    <!--]-->
+                                </div>
+                            </div>
+                            <div class="index-wrapper" data-v-31a318b3>
+                                <!--[-->
+                                <!--[-->
+                                <dl class="list-container" data-v-31a318b3>
+                                    <dt class="title fm-medium" data-v-31a318b3>About</dt>
+                                    <dd class="links" data-v-31a318b3>
+                                        <!--[-->
+                                        <a href="/about-us" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>About Bitunix</a>
+                                        <a href="https://support.bitunix.com/hc/en-us/categories/13760946490649-Announcements" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>Announcements</a>
+                                        <a href="/proof-of-reserve" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>Proof of Reserves</a>
+                                        <a href="https://blog.bitunix.com/" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>Blog</a>
+                                        <!--]-->
+                                    </dd>
+                                </dl>
+                                <!--]-->
+                                <!--[-->
+                                <dl class="list-container" data-v-31a318b3>
+                                    <dt class="title fm-medium" data-v-31a318b3>Laws</dt>
+                                    <dd class="links" data-v-31a318b3>
+                                        <!--[-->
+                                        <a href="https://support.bitunix.com/hc/en-us/articles/13764887860633" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>User Agreement</a>
+                                        <a href="https://support.bitunix.com/hc/en-us/articles/13765835594905" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>Privacy Policy</a>
+                                        <a href="https://support.bitunix.com/hc/en-us/articles/24131564171673" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>Legal Statement</a>
+                                        <a href="https://support.bitunix.com/hc/en-us/articles/17884487049241" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>AML Policies</a>
+                                        <a href="https://support.bitunix.com/hc/en-us/articles/13771827304729" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>Risk Disclosure</a>
+                                        <a href="https://support.bitunix.com/hc/en-us/articles/45355339326617" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>Regulatory &amp;Law Enforcement</a>
+                                        <!--]-->
+                                    </dd>
+                                </dl>
+                                <!--]-->
+                                <!--[-->
+                                <dl class="list-container" data-v-31a318b3>
+                                    <dt class="title fm-medium" data-v-31a318b3>Services</dt>
+                                    <dd class="links" data-v-31a318b3>
+                                        <!--[-->
+                                        <a href="/service/handling-fee" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>Fees</a>
+                                        <a href="/activity/bitunix-plan" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>VIP Service</a>
+                                        <a href="https://openapidoc.bitunix.com/" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>APIs</a>
+                                        <a href="https://bo326r679x.larksuite.com/share/base/form/shrusXsDjXF0uIKiQJw3x9uwcug?ccm_open_type=form_v2_link_share" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>Listing Application</a>
+                                        <a href="/taxes-api" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>Tax Report</a>
+                                        <!--]-->
+                                    </dd>
+                                </dl>
+                                <!--]-->
+                                <!--[-->
+                                <dl class="list-container" data-v-31a318b3>
+                                    <dt class="title fm-medium" data-v-31a318b3>Support</dt>
+                                    <dd class="links" data-v-31a318b3>
+                                        <!--[-->
+                                        <a href="https://support.bitunix.com/hc/en-us" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>Help Center</a>
+                                        <a href="/official-certification" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>Official Verification</a>
+                                        <a href="/service/feedback" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>Feedback &amp;Suggestions</a>
+                                        <a href="https://support.bitunix.com/hc/en-us/articles/24011236456217" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>Contact Bitunix</a>
+                                        <a href="https://forms.helpdesk.com/?licenseID=1849927295&amp;contactFormID=efb73530-f4b3-4040-80a4-c89d6235b397" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>Submit Request</a>
+                                        <!--]-->
+                                    </dd>
+                                </dl>
+                                <!--]-->
+                                <!--[-->
+                                <dl class="list-container" data-v-31a318b3>
+                                    <dt class="title fm-medium" data-v-31a318b3>Partners</dt>
+                                    <dd class="links" data-v-31a318b3>
+                                        <!--[-->
+                                        <a href="/referral" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>Referral</a>
+                                        <a href="/ads-posting/affiliate" rel="noopener noreferrer" target="_blank" class="item" data-v-31a318b3>Affiliate</a>
+                                        <!--]-->
+                                    </dd>
+                                </dl>
+                                <!--]-->
+                                <!--]-->
+                            </div>
+                        </div>
+                        <div class="fs-12 brd-top-color-border-1 text-center color-text-1 py-25" data-v-31a318b3>© 2022 - 2025 Bitunix.com. All rights reserved </div>
+                    </footer>
                 </div>
+                <!---->
+                <!--[-->
+                <span></span>
+                <!--]-->
             </div>
-        </div>  
-        <div class="col-sm-6 col-lg-6">
-            <div class="p-3 card shadow-none border ">
-                <div class="row p-2">
-                    <div class="col-12 p-0">
-                        <div class="nk-block-head-content">
-                            <h5 class="text-primary h5 mb-3">Market News</h5>
-                        </div>
-                    </div>
-                    <div class="col-12 border rounded">
-                        <!-- TradingView Widget BEGIN -->
-                        <div class="tradingview-widget-container">
-                          <div class="tradingview-widget-container__widget"></div>
-                          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
-                          {
-                          "feedMode": "market",
-                          "market": "stock",
-                          "colorTheme": "dark",
-                          "isTransparent": true,
-                          "displayMode": "regular",
-                          "width": "100%",
-                          "height": 380,
-                          "locale": "en"
-                        }
-                          </script>
-                        </div>
-                        <!-- TradingView Widget END -->
-                    </div>
-                </div>
-            </div>
-        </div>  
-    </div>
-    <!---->
-    
-    <div class="row">
-        <div class="col-12">
-            <div class="card shadow-none">
-                <div class="card-body">
-                    <h5 class="text-black">Refer Us & Earn</h5>
-                    <p>Use the below link to invite your friends.</p>
-                    <div class="mb-3 input-group">
-                        <input type="text" class="form-control myInput readonly"
-                            value="https://octavat.com/register?ref=<?php echo $user['email']; ?>" id="reflink" readonly style="border: 1px solid rgba(255,255,255,0.2);">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-primary" onclick="myFunction()" type="button" style="padding:5px 12px; color: rgba(255,255,255,0.2);background: #2D2D2D;border: 1px solid rgba(255,255,255,0.2);">
-                                <i class="fas fa-copy"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!--]-->
+            <!--]-->
+            <!--]-->
         </div>
-    </div>
-
-            </div>
-   <?php include('footer.php'); ?>
+        <div id="teleports"></div>
+        <script type="application/json" data-nuxt-data="nuxt-app" data-ssr="true" id="__NUXT_DATA__">
+            [
+                [
+                    "ShallowReactive",
+                    1
+                ],
+                {
+                    "data": 2,
+                    "state": 199,
+                    "once": 250,
+                    "_errors": 251,
+                    "serverRendered": 122,
+                    "path": 204,
+                    "pinia": 253
+                },
+                [
+                    "ShallowReactive",
+                    3
+                ],
+                {
+                    "footerList": 4,
+                    "mediaList": 123,
+                    "$xJmcxP1_1V": 173
+                },
+                {
+                    "code": 5,
+                    "msg": 6,
+                    "data": 7,
+                    "success": 122
+                },
+                "0",
+                "Success",
+                [
+                    8,
+                    35,
+                    64,
+                    87,
+                    111
+                ],
+                {
+                    "id": 9,
+                    "parentId": 10,
+                    "name": 11,
+                    "sort": 9,
+                    "url": 12,
+                    "clientType": 12,
+                    "children": 13
+                },
+                1,
+                0,
+                "About",
+                null,
+                [
+                    14,
+                    19,
+                    25,
+                    30
+                ],
+                {
+                    "id": 15,
+                    "parentId": 9,
+                    "name": 16,
+                    "sort": 9,
+                    "url": 17,
+                    "clientType": 18,
+                    "children": 12
+                },
+                9,
+                "About Bitunix",
+                "/about-us",
+                "Web",
+                {
+                    "id": 20,
+                    "parentId": 9,
+                    "name": 21,
+                    "sort": 22,
+                    "url": 23,
+                    "clientType": 24,
+                    "children": 12
+                },
+                57,
+                "Announcements",
+                2,
+                "https://support.bitunix.com/hc/en-us/categories/13760946490649-Announcements",
+                "web",
+                {
+                    "id": 26,
+                    "parentId": 9,
+                    "name": 27,
+                    "sort": 28,
+                    "url": 29,
+                    "clientType": 24,
+                    "children": 12
+                },
+                426,
+                "Proof of Reserves",
+                3,
+                "/proof-of-reserve",
+                {
+                    "id": 31,
+                    "parentId": 9,
+                    "name": 32,
+                    "sort": 33,
+                    "url": 34,
+                    "clientType": 24,
+                    "children": 12
+                },
+                232,
+                "Blog",
+                6,
+                "https://blog.bitunix.com/",
+                {
+                    "id": 22,
+                    "parentId": 10,
+                    "name": 36,
+                    "sort": 22,
+                    "url": 12,
+                    "clientType": 12,
+                    "children": 37
+                },
+                "Laws",
+                [
+                    38,
+                    42,
+                    46,
+                    50,
+                    55,
+                    60
+                ],
+                {
+                    "id": 39,
+                    "parentId": 22,
+                    "name": 40,
+                    "sort": 9,
+                    "url": 41,
+                    "clientType": 18,
+                    "children": 12
+                },
+                11,
+                "User Agreement",
+                "https://support.bitunix.com/hc/en-us/articles/13764887860633",
+                {
+                    "id": 43,
+                    "parentId": 22,
+                    "name": 44,
+                    "sort": 22,
+                    "url": 45,
+                    "clientType": 18,
+                    "children": 12
+                },
+                13,
+                "Privacy Policy",
+                "https://support.bitunix.com/hc/en-us/articles/13765835594905",
+                {
+                    "id": 47,
+                    "parentId": 22,
+                    "name": 48,
+                    "sort": 28,
+                    "url": 49,
+                    "clientType": 18,
+                    "children": 12
+                },
+                15,
+                "Legal Statement",
+                "https://support.bitunix.com/hc/en-us/articles/24131564171673",
+                {
+                    "id": 51,
+                    "parentId": 22,
+                    "name": 52,
+                    "sort": 53,
+                    "url": 54,
+                    "clientType": 24,
+                    "children": 12
+                },
+                63,
+                "AML Policies",
+                4,
+                "https://support.bitunix.com/hc/en-us/articles/17884487049241",
+                {
+                    "id": 56,
+                    "parentId": 22,
+                    "name": 57,
+                    "sort": 58,
+                    "url": 59,
+                    "clientType": 24,
+                    "children": 12
+                },
+                43,
+                "Risk Disclosure",
+                5,
+                "https://support.bitunix.com/hc/en-us/articles/13771827304729",
+                {
+                    "id": 61,
+                    "parentId": 22,
+                    "name": 62,
+                    "sort": 33,
+                    "url": 63,
+                    "clientType": 24,
+                    "children": 12
+                },
+                549,
+                "Regulatory & Law Enforcement",
+                "https://support.bitunix.com/hc/en-us/articles/45355339326617",
+                {
+                    "id": 28,
+                    "parentId": 10,
+                    "name": 65,
+                    "sort": 28,
+                    "url": 12,
+                    "clientType": 12,
+                    "children": 66
+                },
+                "Services",
+                [
+                    67,
+                    71,
+                    75,
+                    79,
+                    83
+                ],
+                {
+                    "id": 68,
+                    "parentId": 28,
+                    "name": 69,
+                    "sort": 9,
+                    "url": 70,
+                    "clientType": 18,
+                    "children": 12
+                },
+                16,
+                "Fees",
+                "/service/handling-fee",
+                {
+                    "id": 72,
+                    "parentId": 28,
+                    "name": 73,
+                    "sort": 22,
+                    "url": 74,
+                    "clientType": 18,
+                    "children": 12
+                },
+                22,
+                "VIP Service",
+                "/activity/bitunix-plan",
+                {
+                    "id": 76,
+                    "parentId": 28,
+                    "name": 77,
+                    "sort": 28,
+                    "url": 78,
+                    "clientType": 24,
+                    "children": 12
+                },
+                650,
+                "APIs",
+                "https://openapidoc.bitunix.com/",
+                {
+                    "id": 80,
+                    "parentId": 28,
+                    "name": 81,
+                    "sort": 53,
+                    "url": 82,
+                    "clientType": 18,
+                    "children": 12
+                },
+                20,
+                "Listing Application",
+                "https://bo326r679x.larksuite.com/share/base/form/shrusXsDjXF0uIKiQJw3x9uwcug?ccm_open_type=form_v2_link_share",
+                {
+                    "id": 84,
+                    "parentId": 28,
+                    "name": 85,
+                    "sort": 58,
+                    "url": 86,
+                    "clientType": 24,
+                    "children": 12
+                },
+                669,
+                "Tax Report",
+                "/taxes-api",
+                {
+                    "id": 88,
+                    "parentId": 10,
+                    "name": 89,
+                    "sort": 53,
+                    "url": 12,
+                    "clientType": 12,
+                    "children": 90
+                },
+                54,
+                "Support",
+                [
+                    91,
+                    95,
+                    99,
+                    103,
+                    107
+                ],
+                {
+                    "id": 92,
+                    "parentId": 88,
+                    "name": 93,
+                    "sort": 9,
+                    "url": 94,
+                    "clientType": 24,
+                    "children": 12
+                },
+                55,
+                "Help Center",
+                "https://support.bitunix.com/hc/en-us",
+                {
+                    "id": 96,
+                    "parentId": 88,
+                    "name": 97,
+                    "sort": 22,
+                    "url": 98,
+                    "clientType": 24,
+                    "children": 12
+                },
+                257,
+                "Official Verification",
+                "/official-certification",
+                {
+                    "id": 100,
+                    "parentId": 88,
+                    "name": 101,
+                    "sort": 28,
+                    "url": 102,
+                    "clientType": 24,
+                    "children": 12
+                },
+                471,
+                "Feedback & Suggestions",
+                "/service/feedback",
+                {
+                    "id": 104,
+                    "parentId": 88,
+                    "name": 105,
+                    "sort": 53,
+                    "url": 106,
+                    "clientType": 24,
+                    "children": 12
+                },
+                59,
+                "Contact Bitunix",
+                "https://support.bitunix.com/hc/en-us/articles/24011236456217",
+                {
+                    "id": 108,
+                    "parentId": 88,
+                    "name": 109,
+                    "sort": 33,
+                    "url": 110,
+                    "clientType": 24,
+                    "children": 12
+                },
+                667,
+                "Submit Request",
+                "https://forms.helpdesk.com/?licenseID=1849927295&contactFormID=efb73530-f4b3-4040-80a4-c89d6235b397",
+                {
+                    "id": 53,
+                    "parentId": 10,
+                    "name": 112,
+                    "sort": 58,
+                    "url": 12,
+                    "clientType": 12,
+                    "children": 113
+                },
+                "Partners",
+                [
+                    114,
+                    118
+                ],
+                {
+                    "id": 115,
+                    "parentId": 53,
+                    "name": 116,
+                    "sort": 9,
+                    "url": 117,
+                    "clientType": 18,
+                    "children": 12
+                },
+                24,
+                "Referral",
+                "/referral",
+                {
+                    "id": 119,
+                    "parentId": 53,
+                    "name": 120,
+                    "sort": 22,
+                    "url": 121,
+                    "clientType": 24,
+                    "children": 12
+                },
+                680,
+                "Affiliate",
+                "/ads-posting/affiliate",
+                true,
+                {
+                    "code": 5,
+                    "msg": 6,
+                    "data": 124,
+                    "success": 122
+                },
+                [
+                    125,
+                    133,
+                    144,
+                    152,
+                    159,
+                    166
+                ],
+                {
+                    "sort": 9,
+                    "type": 126,
+                    "blackIcon": 127,
+                    "whiteIcon": 128,
+                    "list": 129
+                },
+                "Twitter",
+                "https://img.bitunix.com/cms/official_info_icon/Twitter.png",
+                "https://img.bitunix.com/cms/official_info_icon/Twitter-w.png",
+                [
+                    130
+                ],
+                {
+                    "sort": 9,
+                    "notes": 131,
+                    "address": 132
+                },
+                "Twitter - Global",
+                "https://x.com/BitunixOfficial",
+                {
+                    "sort": 22,
+                    "type": 134,
+                    "blackIcon": 135,
+                    "whiteIcon": 136,
+                    "list": 137
+                },
+                "Telegram",
+                "https://img.bitunix.com/cms/official_info_icon/Telegram.png",
+                "https://img.bitunix.com/cms/official_info_icon/Telegram-w.png",
+                [
+                    138,
+                    141
+                ],
+                {
+                    "sort": 22,
+                    "notes": 139,
+                    "address": 140
+                },
+                "Telegram - Global",
+                "https://t.me/bitunixglobal",
+                {
+                    "sort": 28,
+                    "notes": 142,
+                    "address": 143
+                },
+                "Announcement Channel",
+                "https://t.me/Bitunixglobalofficial",
+                {
+                    "sort": 53,
+                    "type": 145,
+                    "blackIcon": 146,
+                    "whiteIcon": 147,
+                    "list": 148
+                },
+                "LinkedIn",
+                "https://img.bitunix.com/cms/official_info_icon/Linkedln.png",
+                "https://img.bitunix.com/cms/official_info_icon/Linkedln-w.png",
+                [
+                    149
+                ],
+                {
+                    "sort": 53,
+                    "notes": 150,
+                    "address": 151
+                },
+                "Linkedin",
+                "https://www.linkedin.com/company/bitunix-innovation-limited",
+                {
+                    "sort": 53,
+                    "type": 153,
+                    "blackIcon": 154,
+                    "whiteIcon": 155,
+                    "list": 156
+                },
+                "Medium",
+                "https://img.bitunix.com/cms/official_info_icon/Medium.png",
+                "https://img.bitunix.com/cms/official_info_icon/Medium-w.png",
+                [
+                    157
+                ],
+                {
+                    "sort": 53,
+                    "notes": 153,
+                    "address": 158
+                },
+                "https://medium.com/@bitunix",
+                {
+                    "sort": 58,
+                    "type": 160,
+                    "blackIcon": 161,
+                    "whiteIcon": 162,
+                    "list": 163
+                },
+                "Facebook",
+                "https://img.bitunix.com/cms/official_info_icon/Facebook.png",
+                "https://img.bitunix.com/cms/official_info_icon/Facebook-w.png",
+                [
+                    164
+                ],
+                {
+                    "sort": 58,
+                    "notes": 160,
+                    "address": 165
+                },
+                "https://www.facebook.com/profile.php?id=100087631631562",
+                {
+                    "sort": 33,
+                    "type": 167,
+                    "blackIcon": 168,
+                    "whiteIcon": 169,
+                    "list": 170
+                },
+                "Instagram",
+                "https://img.bitunix.com/cms/official_info_icon/Instagram.png",
+                "https://img.bitunix.com/cms/official_info_icon/Instagram-w.png",
+                [
+                    171
+                ],
+                {
+                    "sort": 33,
+                    "notes": 167,
+                    "address": 172
+                },
+                "https://www.instagram.com/bitunixofficial/",
+                [
+                    174,
+                    179,
+                    184,
+                    189,
+                    194
+                ],
+                {
+                    "id": 175,
+                    "title": 176,
+                    "detailUrl": 177,
+                    "publishTime": 178
+                },
+                9533,
+                "Bitunix to Launch AIOT/USDT in Perpetual Futures",
+                "https://support.bitunix.com/hc/articles/50328950455321",
+                "2025-09-02T05:06:59Z",
+                {
+                    "id": 180,
+                    "title": 181,
+                    "detailUrl": 182,
+                    "publishTime": 183
+                },
+                9517,
+                "Limited-Time Offer｜Withdraw USD1 or USDT via BSC Network with Zero Fees!",
+                "https://support.bitunix.com/hc/articles/50303116048281",
+                "2025-09-01T09:04:46Z",
+                {
+                    "id": 185,
+                    "title": 186,
+                    "detailUrl": 187,
+                    "publishTime": 188
+                },
+                9501,
+                "Bitunix to Launch BAS/USDT in Perpetual Futures",
+                "https://support.bitunix.com/hc/articles/50295045445145",
+                "2025-09-01T04:45:12Z",
+                {
+                    "id": 190,
+                    "title": 191,
+                    "detailUrl": 192,
+                    "publishTime": 193
+                },
+                9485,
+                "World Liberty Financial (WLFI) Gets Listed on Bitunix!",
+                "https://support.bitunix.com/hc/articles/50245003420313",
+                "2025-09-01T03:07:37Z",
+                {
+                    "id": 195,
+                    "title": 196,
+                    "detailUrl": 197,
+                    "publishTime": 198
+                },
+                9477,
+                "Bitunix to Delist LEVER/USDT From Futures Market (09-03-2025)",
+                "https://support.bitunix.com/hc/articles/50279059251353",
+                "2025-08-31T14:27:23Z",
+                [
+                    "Reactive",
+                    200
+                ],
+                {
+                    "$snuxt-i18n-meta": 201,
+                    "$s__host": 202,
+                    "$snuxt_page_rules": 203,
+                    "$sroute-init-redirect": 122,
+                    "$sroute-init-meta": 242,
+                    "$sbackend-locales": 244
+                },
+                {
+                },
+                "www.bitunix.com",
+                [
+                    204,
+                    205,
+                    86,
+                    206,
+                    207,
+                    208,
+                    209,
+                    210,
+                    211,
+                    212,
+                    17,
+                    213,
+                    214,
+                    215,
+                    216,
+                    217,
+                    218,
+                    219,
+                    220,
+                    221,
+                    222,
+                    223,
+                    224,
+                    225,
+                    226,
+                    227,
+                    228,
+                    229,
+                    230,
+                    231,
+                    232,
+                    233,
+                    234,
+                    235,
+                    29,
+                    236,
+                    237,
+                    238,
+                    239,
+                    98,
+                    240,
+                    241
+                ],
+                "/",
+                "/services",
+                "/p2p/*",
+                "/login",
+                "/feedback/*",
+                "/market",
+                "/order/*",
+                "/assets/*",
+                "/register/*",
+                "/app-test",
+                "/callback",
+                "/delete-account",
+                "/download",
+                "/feedback",
+                "/register",
+                "/crypto/*",
+                "/markets/*",
+                "/social-media",
+                "/app-test/*",
+                "/coin-price/*",
+                "/how-to-buy/*",
+                "/questionnaire",
+                "/deposit-middle",
+                "/flash-exchange",
+                "/questionnaire/*",
+                "/reset-security",
+                "/account/*",
+                "/auto-investment",
+                "/platform/*",
+                "/spot-trade/*",
+                "/tripartite-coin",
+                "/auto-investment/*",
+                "/risk-permissions",
+                "/service/*",
+                "/coin-introduce/*",
+                "/copy-trading/*",
+                "/proof-of-reserve/*",
+                "/__cache__/*",
+                {
+                    "title": 243,
+                    "titleTemplate": -1
+                },
+                "Crypto Derivatives Exchange | Buy, Sell & Trade Cryptocurrency | Bitunix",
+                [
+                    245,
+                    246,
+                    247,
+                    248,
+                    249
+                ],
+                "zh-cn",
+                "ko-kr",
+                "th-th",
+                "tr-tr",
+                "uk-ua",
+                [
+                    "Set"
+                ],
+                [
+                    "ShallowReactive",
+                    252
+                ],
+                {
+                    "$LE1pPDn0AH": -1,
+                    "primaryNavigations": -1,
+                    "secondaryNavigations": -1,
+                    "footerList": -1,
+                    "mediaList": -1,
+                    "$xJmcxP1_1V": -1,
+                    "$l6MeUYNcrv": -1
+                },
+                {
+                    "referrer": 254,
+                    "user": 257,
+                    "app": 272,
+                    "market": 285,
+                    "rate": 301,
+                    "bonusTrading": 309,
+                    "FUTURE_BASE_STORE": 310
+                },
+                {
+                    "stack": 255,
+                    "external": 256,
+                    "currentPath": 256
+                },
+                [
+                ],
+                "",
+                {
+                    "id": -1,
+                    "avatar": 258,
+                    "accountType": -1,
+                    "nickName": -1,
+                    "userAccount": -1,
+                    "email": -1,
+                    "bindEmailStatus": -1,
+                    "bindPhoneStatus": -1,
+                    "googleAuthenticatorKey": -1,
+                    "mobileNumber": -1,
+                    "antiPhishingCode": -1,
+                    "antiPhishingCodeContent": -1,
+                    "capitalPword": -1,
+                    "googleAuthenticatorStatus": -1,
+                    "emailAuthenticatorStatus": -1,
+                    "mobileAuthenticatorStatus": -1,
+                    "countryCode": -1,
+                    "loginPword": -1,
+                    "authLevel": -1,
+                    "authLevelText": -1,
+                    "KycStatus": 259,
+                    "c2cNick": -1,
+                    "tokenExpireHour": -1,
+                    "styleSetting": 10,
+                    "colorSetting": 10,
+                    "contractOpened": 9,
+                    "hideZeroVal": 261,
+                    "policyUrl": 256,
+                    "language": 256,
+                    "inviteCodeData": 262,
+                    "rateInformation": 263,
+                    "regTime": 256,
+                    "tempUserToken": 256,
+                    "isPartnerUser": 261,
+                    "thirdInfo": 264,
+                    "thirdEmail": 256,
+                    "thirdEmailBoundLimit": 261,
+                    "isKYCL2Authing": 261,
+                    "partnerAvatar": 256,
+                    "partnerNickName": 256,
+                    "p2pOrderId": 256,
+                    "p2pShowInfo": 265,
+                    "p2pSelectObj": 266,
+                    "p2pPayList": 10,
+                    "inviteInfo": 267,
+                    "showFinancial": 268,
+                    "kycLevel": 256,
+                    "jyToken": 256,
+                    "permission": 270,
+                    "riskPermissions": 271,
+                    "inviteCode": 256
+                },
+                "https://static.bitunix.com/web/bitunix-assets/web/defaultAvatar.CIqIfbzx.svg",
+                {
+                    "lv1": 260,
+                    "lv2": 260
+                },
+                "no_auth",
+                false,
+                {
+                    "inviteCode": 256,
+                    "link": 256,
+                    "shareRatio": 10,
+                    "myRatio": 10
+                },
+                {
+                    "vipLevel": 10,
+                    "spotMakerRate": 256,
+                    "spotTakerRate": 256,
+                    "futureMakerRate": 256,
+                    "futureTakerRate": 256,
+                    "prizeVipLevel": 10,
+                    "prizeVipexpireTime": 256,
+                    "originalVipLevel": 10
+                },
+                {
+                    "thirdAuthType": 256,
+                    "thirdToken": 256
+                },
+                {
+                    "buyPrivilege": 122,
+                    "sellPrivilege": 122,
+                    "showFlag": 122
+                },
+                {
+                },
+                {
+                    "rebateCode": 256,
+                    "vipCode": 12,
+                    "welfareInvitationLink": 256,
+                    "partnerInvitationLink": 12
+                },
+                {
+                    "display": 122,
+                    "msg": 269,
+                    "earnPermission": 261,
+                    "dualPermission": 261,
+                    "tokenSplashPermission": 261
+                },
+                "enabled",
+                {
+                },
+                {
+                },
+                {
+                    "title": 273,
+                    "h1": 273,
+                    "loading": 261,
+                    "toPath": 204,
+                    "toQuery": 274,
+                    "areaList": 275,
+                    "areaCodeByIp": -1,
+                    "default_c2c_nick_freeze": -1,
+                    "freezeExpiryDate": -1,
+                    "publicInfo": 276,
+                    "publicMsg": -1,
+                    "indexHeaderTitle": -1,
+                    "switch": -1,
+                    "urls": -1,
+                    "limitCountryList": -1,
+                    "HIT": -1,
+                    "klineColor": -1,
+                    "lan": -1,
+                    "coinsymbol_introduce_names": -1,
+                    "update_safe_withdraw": -1,
+                    "seo": -1,
+                    "user_day_withdraw_value_limit_no_auth": -1,
+                    "user_day_withdraw_value_limit_lv1": -1,
+                    "user_day_withdraw_value_limit_lv2": -1,
+                    "assets_showInfo": 122,
+                    "pageSize": 80,
+                    "scrollDistance": 10,
+                    "isHideLayout": 277,
+                    "hasSecurityTips": 261,
+                    "lockTime": 278,
+                    "globalUseChildToken": 261,
+                    "childFastToken": 256,
+                    "copyTrading": 261,
+                    "isCustomLayout": 261,
+                    "layoutStrategy": 279,
+                    "isResetLayout": 261,
+                    "fullScreen": 261,
+                    "settingVisible": 261,
+                    "settingActiveKey": 280,
+                    "layoutAlertType": 281,
+                    "floatingShow": 261,
+                    "floatingLayoutDrag": 261,
+                    "isFetchLayout": 261,
+                    "currentLayoutRow": 282,
+                    "resLayoutData": 283,
+                    "layoutList": 284,
+                    "compCloseTrigger": 261,
+                    "stepLayoutData": -1,
+                    "activityMusicTrigger": 122,
+                    "hideCopyTrading": 12,
+                    "isBonusTrading": 261,
+                    "futuresContentTopDymHeight": 10,
+                    "baseModuleActiveLocker": 261,
+                    "isAppGuideShow": 122,
+                    "enableFixedInvest": 261,
+                    "enableNewStrategy": 261
+                },
+                "bitunix",
+                {
+                },
+                [
+                ],
+                {
+                },
+                {
+                    "isHideTheHead": 261,
+                    "isHideTheFoot": 261
+                },
+                {
+                    "loginPasswordWithdrawLockTime": 10,
+                    "capitalPasswordWithdrawLockTime": 10,
+                    "safeSetWithdrawLockTime": 10
+                },
+                "pro_right",
+                "interface",
+                "notify",
+                {
+                },
+                [
+                ],
+                [
+                ],
+                {
+                    "defaultCoin": 286,
+                    "coinSymbolList": 287,
+                    "symbolList": 288,
+                    "commonMarketSpotSymbols": 289,
+                    "commonMarketSpotSymbolsObj": 290,
+                    "fiatList": -1,
+                    "symbolClass": 291,
+                    "userSelectedSymbol": 292,
+                    "selectedSpotSymbol": 293,
+                    "symbolName": 294,
+                    "coinSymbolSort": 295,
+                    "preferences": 296,
+                    "currentQuote": 297,
+                    "futureSymbolList": 298,
+                    "futureCoinSymbolList": 299,
+                    "_currentFutureOperateCoinSymbol": 300,
+                    "currentSymbolLatestPrice": 5,
+                    "loadingSpotCoin": 261
+                },
+                {
+                    "base": 256,
+                    "quote": 256,
+                    "name": 256
+                },
+                [
+                ],
+                [
+                ],
+                [
+                ],
+                {
+                },
+                {
+                },
+                [
+                ],
+                [
+                ],
+                [
+                ],
+                [
+                ],
+                {
+                    "coin": 297,
+                    "rate": 10
+                },
+                "USDT",
+                [
+                ],
+                [
+                ],
+                "BTCUSDT",
+                {
+                    "rateList": 302,
+                    "quoteSymbol": 303,
+                    "symbolMap": 304,
+                    "legalTenderList": 305,
+                    "fiatList": 306
+                },
+                [
+                ],
+                "USD",
+                {
+                },
+                [
+                ],
+                [
+                    307
+                ],
+                {
+                    "precision": 22,
+                    "moneySymbol": 308,
+                    "countryCoin": 303
+                },
+                "$",
+                {
+                    "uid": 256,
+                    "token": 256,
+                    "maxLeverage": 10,
+                    "withdrawShould": 10,
+                    "maxWithdrawAmount": 10,
+                    "existActiveBonus": 261,
+                    "expireTime": 10,
+                    "faceAmount": 10,
+                    "threshold": 10,
+                    "shouldSwitchToken": 122,
+                    "finishedInitAccount": 122
+                },
+                {
+                    "symbols": 311,
+                    "commonMarketFuturesSymbols": 312,
+                    "commonMarketFuturesSymbolsObj": 313,
+                    "copyTradingSymbols": 314,
+                    "bonusTradingSymbols": 315,
+                    "userSymbolConfig": 316,
+                    "isInitSymbols": 261
+                },
+                [
+                ],
+                [
+                ],
+                {
+                },
+                [
+                ],
+                [
+                ],
+                [
+                ]
+            ]</script>
+        <script>
+            window.__NUXT__ = {};
+            window.__NUXT__.config = {
+                public: {
+                    localeVersion: 1756804849,
+                    appDomain: "https://www.bitunix.com",
+                    apiDomain: "https://api.bitunix.com",
+                    trackApi: "https://trackingweb.bitunix.com/api/collect",
+                    imgDomain: "https://img.bitunix.com",
+                    sentryDSN: "https://5ad59e5fb8579ddf26774b46def607ba@www.bitunix.com/sentry/4",
+                    cdnURL: "https://static.bitunix.com/web",
+                    appEnv: "pro",
+                    buildTime: "2025-09-02 17:20:49",
+                    iconFontUrl: "//at.alicdn.com/t/c/font_4198489_41nn0g71kcl.js",
+                    appName: "web",
+                    debug: false,
+                    locales: ["de-de", "en-us", "es-es", "fa-ir", "fr-fr", "hi-in", "id-id", "it-it", "ja-jp", "ko-kr", "pl-pl", "pt-br", "pt-pt", "ru-ru", "th-th", "tr-tr", "uk-ua", "uz-uz", "vi-vn", "zh-tw"],
+                    piniaPluginPersistedstate: {},
+                    i18n: {
+                        baseUrl: "https://www.bitunix.com",
+                        defaultLocale: "en-us",
+                        defaultDirection: "ltr",
+                        strategy: "prefix_except_default",
+                        lazy: false,
+                        rootRedirect: "",
+                        routesNameSeparator: "___",
+                        defaultLocaleRouteNameSuffix: "default",
+                        skipSettingLocaleOnNavigate: false,
+                        differentDomains: false,
+                        trailingSlash: false,
+                        locales: [{
+                            code: "de-de",
+                            language: "de-de",
+                            dir: "ltr",
+                            files: []
+                        }, {
+                            code: "en-us",
+                            language: "en-us",
+                            dir: "ltr",
+                            files: []
+                        }, {
+                            code: "es-es",
+                            language: "es-es",
+                            dir: "ltr",
+                            files: []
+                        }, {
+                            code: "fa-ir",
+                            language: "fa-ir",
+                            dir: "rtl",
+                            files: []
+                        }, {
+                            code: "fr-fr",
+                            language: "fr-fr",
+                            dir: "ltr",
+                            files: []
+                        }, {
+                            code: "hi-in",
+                            language: "hi-in",
+                            dir: "ltr",
+                            files: []
+                        }, {
+                            code: "id-id",
+                            language: "id-id",
+                            dir: "ltr",
+                            files: []
+                        }, {
+                            code: "it-it",
+                            language: "it-it",
+                            dir: "ltr",
+                            files: []
+                        }, {
+                            code: "ja-jp",
+                            language: "ja-jp",
+                            dir: "ltr",
+                            files: []
+                        }, {
+                            code: "ko-kr",
+                            language: "ko-kr",
+                            dir: "ltr",
+                            files: []
+                        }, {
+                            code: "pl-pl",
+                            language: "pl-pl",
+                            dir: "ltr",
+                            files: []
+                        }, {
+                            code: "pt-br",
+                            language: "pt-br",
+                            dir: "ltr",
+                            files: []
+                        }, {
+                            code: "pt-pt",
+                            language: "pt-pt",
+                            dir: "ltr",
+                            files: []
+                        }, {
+                            code: "ru-ru",
+                            language: "ru-ru",
+                            dir: "ltr",
+                            files: []
+                        }, {
+                            code: "th-th",
+                            language: "th-th",
+                            dir: "ltr",
+                            files: []
+                        }, {
+                            code: "tr-tr",
+                            language: "tr-tr",
+                            dir: "ltr",
+                            files: []
+                        }, {
+                            code: "uk-ua",
+                            language: "uk-ua",
+                            dir: "ltr",
+                            files: []
+                        }, {
+                            code: "uz-uz",
+                            language: "uz-uz",
+                            dir: "ltr",
+                            files: []
+                        }, {
+                            code: "vi-vn",
+                            language: "vi-vn",
+                            dir: "ltr",
+                            files: []
+                        }, {
+                            code: "zh-tw",
+                            language: "zh-tw",
+                            dir: "ltr",
+                            files: []
+                        }],
+                        detectBrowserLanguage: false,
+                        experimental: {
+                            localeDetector: "",
+                            switchLocalePathLinkSSR: false,
+                            autoImportTranslationFunctions: false,
+                            typedPages: true,
+                            typedOptionsAndMessages: false,
+                            generatedLocaleFilePathFormat: "absolute",
+                            alternateLinkCanonicalQueries: false,
+                            hmr: true
+                        },
+                        multiDomainLocales: false,
+                        domainLocales: {
+                            "de-de": {
+                                domain: ""
+                            },
+                            "en-us": {
+                                domain: ""
+                            },
+                            "es-es": {
+                                domain: ""
+                            },
+                            "fa-ir": {
+                                domain: ""
+                            },
+                            "fr-fr": {
+                                domain: ""
+                            },
+                            "hi-in": {
+                                domain: ""
+                            },
+                            "id-id": {
+                                domain: ""
+                            },
+                            "it-it": {
+                                domain: ""
+                            },
+                            "ja-jp": {
+                                domain: ""
+                            },
+                            "ko-kr": {
+                                domain: ""
+                            },
+                            "pl-pl": {
+                                domain: ""
+                            },
+                            "pt-br": {
+                                domain: ""
+                            },
+                            "pt-pt": {
+                                domain: ""
+                            },
+                            "ru-ru": {
+                                domain: ""
+                            },
+                            "th-th": {
+                                domain: ""
+                            },
+                            "tr-tr": {
+                                domain: ""
+                            },
+                            "uk-ua": {
+                                domain: ""
+                            },
+                            "uz-uz": {
+                                domain: ""
+                            },
+                            "vi-vn": {
+                                domain: ""
+                            },
+                            "zh-tw": {
+                                domain: ""
+                            }
+                        }
+                    }
+                },
+                app: {
+                    baseURL: "/",
+                    buildId: "079aa682-b7ed-45e5-b02e-5a4bcbc14a29",
+                    buildAssetsDir: "bitunix-assets",
+                    cdnURL: "https://static.bitunix.com/web"
+                }
+            }
+        </script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "Crypto Derivatives Exchange | Buy, Sell & Trade Cryptocurrency | Bitunix",
+                "url": "https://www.bitunix.com/",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Crypto Derivatives Exchange | Buy, Sell & Trade Cryptocurrency | Bitunix",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://img.bitunix.com/front-images/logo.png",
+                        "width": "",
+                        "height": ""
+                    }
+                },
+                "description": "Bitunix - a leading crypto derivatives exchange that makes your trading easy. Buy, sell, trade BTC & altcoins, and get easy access to the futures market",
+                "image": {
+                    "@type": "ImageObject",
+                    "url": "https://img.bitunix.com/front-images/banner.png"
+                },
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://www.bitunix.com/"
+                },
+                "sameAs": [
+                    "https://www.facebook.com/people/Bitunixofficial/100087631631562/",
+                    "https://twitter.com/bitunix",
+                    "https://www.linkedin.com/company/bitunix-innovation-limited/",
+                    "https://www.youtube.com/@bitunix.official",
+                    "https://t.me/bitunixglobal",
+                    "https://apps.apple.com/app/id6446243957?platform=iphone",
+                    "https://play.google.com/store/apps/details?id=io.bitunix.android"
+                ]
+            }</script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "SiteNavigationElement",
+                        "name": "Log in",
+                        "url": "https://www.bitunix.com/login"
+                    },
+                    {
+                        "@type": "SiteNavigationElement",
+                        "name": "Sign up",
+                        "url": "https://www.bitunix.com/register"
+                    },
+                    {
+                        "@type": "SiteNavigationElement",
+                        "name": "Buy Crypto",
+                        "url": "https://www.bitunix.com/p2p/third-party"
+                    },
+                    {
+                        "@type": "SiteNavigationElement",
+                        "name": "Markets",
+                        "url": "https://www.bitunix.com/market"
+                    },
+                    {
+                        "@type": "SiteNavigationElement",
+                        "name": "Futures",
+                        "url": "https://www.bitunix.com/contract-trade/BTCUSDT"
+                    },
+                    {
+                        "@type": "SiteNavigationElement",
+                        "name": "Spot",
+                        "url": "https://www.bitunix.com/spot-trade/BTCUSDT"
+                    },
+                    {
+                        "@type": "SiteNavigationElement",
+                        "name": "Welcome Bonus",
+                        "url": "https://www.bitunix.com/activity/newborn-zone"
+                    }
+                ]
+            }</script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "How to calculate the handling fee?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "\u003Cp>Handling fees can be found here:\u003Ca href='https://www.bitunix.com/service/handling-fee' target='_self'> https://www.bitunix.com/service/handling-fee\u003C/a>\u003C/p>"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How to increase my daily withdrawal limit?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "\u003Cp>If you need a higher daily withdrawal limit, after obtaining KYC2 Advanced ID Verification, submit a ticket providing the following information: your Bitunix UID, the name of the currency you want to increase the withdrawal limit of, and your desired limit.\u003C/p>"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": " It says the phone number was already taken when I tried to link my phone number to my account. Why?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "\u003Cp>One phone number can only be linked to one account or used as username. If the said phone number is not linked to your own Bitunix account, we recommend that you link another phone number that is also yours to your account. If the said phone number is linked to your own Bitunix account, you need to unlink it from that account first.\u003C/p>"
+                        }
+                    }
+                ]
+            }</script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "name": "Bitunix: Crypto Derivatives Exchange | Buy, Sell & Trade BTC & Altcoins",
+                "url": "https://www.bitunix.com/",
+                "description": "Bitunix - leading crypto derivatives exchange that makes trading easy. Buy, sell, trade BTC & altcoins, and get easy access to the futures trading.",
+                "inLanguage": "en",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Bitunix",
+                    "url": "https://www.bitunix.com/",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://img.bitunix.com/front-images/logo.png"
+                    }
+                },
+                "mainEntity": [
+                    {
+                        "@type": "ItemList",
+                        "name": "Popular Futures",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "item": {
+                                    "@type": "FinancialProduct",
+                                    "name": "ETHUSDT",
+                                    "description": "ETHUSDT Perpetual Futures Contract",
+                                    "priceCurrency": "USD",
+                                    "url": "https://www.bitunix.com/contract-trade/ETHUSDT"
+                                }
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "item": {
+                                    "@type": "FinancialProduct",
+                                    "name": "BTCUSDT",
+                                    "description": "BTCUSDT Perpetual Futures Contract",
+                                    "priceCurrency": "USD",
+                                    "url": "https://www.bitunix.com/contract-trade/BTCUSDT"
+                                }
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 3,
+                                "item": {
+                                    "@type": "FinancialProduct",
+                                    "name": "SOLUSDT",
+                                    "description": "SOLUSDT Perpetual Futures Contract",
+                                    "priceCurrency": "USD",
+                                    "url": "https://www.bitunix.com/contract-trade/SOLUSDT"
+                                }
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 4,
+                                "item": {
+                                    "@type": "FinancialProduct",
+                                    "name": "WLFIUSDT",
+                                    "description": "WLFIUSDT Perpetual Futures Contract",
+                                    "priceCurrency": "USD",
+                                    "url": "https://www.bitunix.com/contract-trade/WLFIUSDT"
+                                }
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 5,
+                                "item": {
+                                    "@type": "FinancialProduct",
+                                    "name": "XRPUSDT",
+                                    "description": "XRPUSDT Perpetual Futures Contract",
+                                    "priceCurrency": "USD",
+                                    "url": "https://www.bitunix.com/contract-trade/XRPUSDT"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "@type": "ItemList",
+                        "name": "Popular Spot",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "item": {
+                                    "@type": "FinancialProduct",
+                                    "name": "BTCUSDT",
+                                    "description": "BTCUSDT Spot Trade",
+                                    "priceCurrency": "USD",
+                                    "url": "https://www.bitunix.com/spot-trade/BTCUSDT"
+                                }
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "item": {
+                                    "@type": "FinancialProduct",
+                                    "name": "ETHUSDT",
+                                    "description": "ETHUSDT Spot Trade",
+                                    "priceCurrency": "USD",
+                                    "url": "https://www.bitunix.com/spot-trade/ETHUSDT"
+                                }
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 3,
+                                "item": {
+                                    "@type": "FinancialProduct",
+                                    "name": "WLFIUSDT",
+                                    "description": "WLFIUSDT Spot Trade",
+                                    "priceCurrency": "USD",
+                                    "url": "https://www.bitunix.com/spot-trade/WLFIUSDT"
+                                }
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 4,
+                                "item": {
+                                    "@type": "FinancialProduct",
+                                    "name": "SOLUSDT",
+                                    "description": "SOLUSDT Spot Trade",
+                                    "priceCurrency": "USD",
+                                    "url": "https://www.bitunix.com/spot-trade/SOLUSDT"
+                                }
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 5,
+                                "item": {
+                                    "@type": "FinancialProduct",
+                                    "name": "USDCUSDT",
+                                    "description": "USDCUSDT Spot Trade",
+                                    "priceCurrency": "USD",
+                                    "url": "https://www.bitunix.com/spot-trade/USDCUSDT"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "@type": "Organization",
+                        "name": "Bitunix",
+                        "url": "https://www.bitunix.com/",
+                        "sameAs": [
+                            "https://x.com/BitunixOfficial",
+                            "https://t.me/bitunixglobal"
+                        ]
+                    }
+                ],
+                "about": {
+                    "@type": "Organization",
+                    "name": "Bitunix",
+                    "description": "Bitunix is a global crypto platform specializing in spot and futures trading. Known for its user-friendly interface, robust security, efficient fund management, and support for both beginner and professional traders, Bitunix offers deep liquidity, speedy matching, and reliable risk management tools to ensure smooth trading experiences worldwide."
+                }
+            }</script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org/",
+                "@type": "VideoObject",
+                "name": "Crypto Derivatives Exchange | Buy, Sell & Trade Cryptocurrency | Bitunix",
+                "description": "Bitunix - a leading crypto derivatives exchange that makes your trading easy. Buy, sell, trade BTC & altcoins, and get easy access to the futures market",
+                "thumbnailUrl": [
+                    "https://static.bitunix.com/web/bitunix-assets/web/b9e648-d2lkdG.BOoBqRf8.webp"
+                ],
+                "contentUrl": "https://static.bitunix.com/web/videos/homeindex-video.mp4",
+                "uploadDate": "2025-09-02T10:03:49.038Z"
+            }</script>
+        <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"978d04a99e57d2f2","version":"2025.8.0","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"d88463e91d5341859ba043714ffb4aeb","b":1}' crossorigin="anonymous"></script>
+    </body>
+</html>
