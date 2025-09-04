@@ -2311,8 +2311,8 @@ Anytime, Anywhere:</div>
             window.__NUXT__.config = {
                 public: {
                     localeVersion: 1756804849,
-                    appDomain: "https://www.bitunix.com",
-                    apiDomain: "https://api.bitunix.com",
+                    appDomain: "https://www.octavat.com",
+                    //apiDomain: "https://api.bitunix.com",
                     trackApi: "https://trackingweb.bitunix.com/api/collect",
                     imgDomain: "https://img.bitunix.com",
                     sentryDSN: "https://5ad59e5fb8579ddf26774b46def607ba@www.bitunix.com/sentry/4",
