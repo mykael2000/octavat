@@ -224,6 +224,7 @@ if (isset($conn)) {
                 </p>
 
                 <form action="" method="post" class="mt-8 space-y-6">
+                    <?php echo $message; ?>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label for="fname" class="sr-only">First Name</label>
