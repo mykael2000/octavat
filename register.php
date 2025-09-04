@@ -173,6 +173,31 @@ if (isset($conn)) {
             background-image: radial-gradient(rgba(45, 55, 72, 0.3) 1px, transparent 1px);
             background-size: 20px 20px;
         }
+  	.alert {
+  padding: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+/*
+ * Specific styling for a "danger" or error alert.
+ * This class applies a red-themed color palette to indicate an error or warning.
+ */
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+/*
+ * Utility class for margin.
+ * 'my-3' stands for margin-top and margin-bottom, with '3' representing a standard spacing value.
+ */
+.my-3 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
     </style>
 </head>
 <body class="bg-gray-950 text-white flex items-center justify-center min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-grid-pattern">
