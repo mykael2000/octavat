@@ -2317,7 +2317,7 @@ Anytime, Anywhere:</div>
                     "name": "Crypto Derivatives Exchange | Buy, Sell & Trade Cryptocurrency | Bitunix",
                     "logo": {
                         "@type": "ImageObject",
-                        "url": "https://img.bitunix.com/front-images/logo.png",
+                        "url": "https://octavat.com/logo.png",
                         "width": "",
                         "height": ""
                     }
