@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitunix - Trade with Confidence</title>
+    <title>Octavat - Trade with Confidence</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +38,7 @@
                     <svg class="w-6 h-6 text-green-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
-                    <span>Bitunix</span>
+                    <span>Octavat</span>
                 </a>
                 <ul class="hidden md:flex space-x-6 text-sm font-medium text-gray-400">
                     <li><a href="#" class="hover:text-green-accent transition-colors">Buy Crypto <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full ml-1">NEW</span></a></li>
@@ -95,7 +95,10 @@
         </div>
         <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center md:justify-end">
             <!-- Placeholder for Mobile App Screenshot -->
-            <img src="https://placehold.co/400x500/1e1e1e/60e336?text=Mobile+App+Preview" alt="Mobile App Preview" class="rounded-lg shadow-lg">
+             <video class="rounded-lg shadow-lg" width="640" height="360" autoplay muted loop>
+                <source src="homeindex-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </main>
 
@@ -214,7 +217,7 @@
                         <svg class="w-6 h-6 text-green-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
-                        <span>Bitunix</span>
+                        <span>Octavat</span>
                     </div>
                     <p class="text-sm">Connect with us:</p>
                     <div class="flex space-x-4 mt-2">
@@ -229,7 +232,7 @@
                 <div class="col-span-1">
                     <h5 class="font-bold text-lg text-white mb-2">Company</h5>
                     <ul class="text-sm space-y-2">
-                        <li><a href="#" class="hover:text-green-accent">About Bitunix</a></li>
+                        <li><a href="#" class="hover:text-green-accent">About Octavat</a></li>
                         <li><a href="#" class="hover:text-green-accent">Announcement</a></li>
                         <li><a href="#" class="hover:text-green-accent">Blog</a></li>
                         <li><a href="#" class="hover:text-green-accent">Privacy Policy</a></li>
@@ -264,12 +267,12 @@
                         <li><a href="#" class="hover:text-green-accent">Tax Report</a></li>
                         <li><a href="#" class="hover:text-green-accent">Official Verification</a></li>
                         <li><a href="#" class="hover:text-green-accent">Feedback & Suggestions</a></li>
-                        <li><a href="#" class="hover:text-green-accent">Contact Bitunix</a></li>
+                        <li><a href="#" class="hover:text-green-accent">Contact Octavat</a></li>
                     </ul>
                 </div>
             </div>
             <div class="text-center mt-12 text-sm text-gray-500">
-                &copy; 2022 - 2025 Bitunix.com. All rights reserved.
+                &copy; 2022 - 2025 Octavat.com. All rights reserved.
             </div>
         </div>
     </footer>
