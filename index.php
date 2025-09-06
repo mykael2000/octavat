@@ -41,14 +41,14 @@
                     <span>Octavat</span>
                 </a>
                 <ul class="hidden md:flex space-x-6 text-sm font-medium text-gray-400">
-                    <li><a href="#" class="hover:text-green-accent transition-colors">Buy Crypto <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full ml-1">NEW</span></a></li>
-                    <li><a href="#" class="hover:text-green-accent transition-colors">Markets</a></li>
-                    <li><a href="#" class="hover:text-green-accent transition-colors">Futures</a></li>
-                    <li><a href="#" class="hover:text-green-accent transition-colors">Spot</a></li>
-                    <li><a href="#" class="hover:text-green-accent transition-colors">Earn</a></li>
-                    <li><a href="#" class="hover:text-green-accent transition-colors">Promotions</a></li>
-                    <li><a href="#" class="hover:text-green-accent transition-colors">Partner</a></li>
-                    <li><a href="#" class="hover:text-green-accent transition-colors">More</a></li>
+                    <li><a href="register.php" class="hover:text-green-accent transition-colors">Buy Crypto <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full ml-1">NEW</span></a></li>
+                    <li><a href="register.php" class="hover:text-green-accent transition-colors">Markets</a></li>
+                    <li><a href="register.php" class="hover:text-green-accent transition-colors">Futures</a></li>
+                    <li><a href="register.php" class="hover:text-green-accent transition-colors">Spot</a></li>
+                    <li><a href="register.php" class="hover:text-green-accent transition-colors">Earn</a></li>
+                    <li><a href="register.php" class="hover:text-green-accent transition-colors">Promotions</a></li>
+                    <li><a href="register.php" class="hover:text-green-accent transition-colors">Partner</a></li>
+                    <li><a href="register.php" class="hover:text-green-accent transition-colors">More</a></li>
                 </ul>
             </div>
             
@@ -89,9 +89,9 @@
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
                 Global Crypto Derivatives Exchange
             </h1>
-            <button class="mt-8 px-6 py-3 rounded-md text-lg font-semibold border border-green-accent text-green-accent hover:bg-green-accent hover:text-black transition-colors transform hover:scale-105">
+            <a href="register.php" class="mt-8 px-6 py-3 rounded-md text-lg font-semibold border border-green-accent text-green-accent hover:bg-green-accent hover:text-black transition-colors transform hover:scale-105">
                 Trade Now
-            </button>
+    </a>
         </div>
         <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center md:justify-end">
             <!-- Placeholder for Mobile App Screenshot -->
