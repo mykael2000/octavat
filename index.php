@@ -95,7 +95,7 @@
         </div>
         <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center md:justify-end">
             <!-- Placeholder for Mobile App Screenshot -->
-             <video class="rounded-lg shadow-lg" width="640" height="360" autoplay muted loop>
+             <video class="rounded-lg shadow-lg" width="440" height="260" autoplay muted loop>
                 <source src="homeindex-video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
