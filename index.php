@@ -89,13 +89,15 @@
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
                 Global Crypto Derivatives Exchange
             </h1>
+            <br>
+            <br>
             <a href="register.php" class="mt-8 px-6 py-3 rounded-md text-lg font-semibold border border-green-accent text-green-accent hover:bg-green-accent hover:text-black transition-colors transform hover:scale-105">
                 Trade Now
     </a>
         </div>
         <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center md:justify-end">
             <!-- Placeholder for Mobile App Screenshot -->
-             <video class="rounded-lg shadow-lg" width="340" height="160" autoplay muted loop>
+             <video class="rounded-lg shadow-lg" width="440" height="260" autoplay muted loop>
                 <source src="homeindex-video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
