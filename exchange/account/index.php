@@ -64,6 +64,77 @@ include('function.php');
                     <h1 class="text-xl font-bold mb-1 text-white">Assets Overview</h1>
                     <p class="text-gray-400">Welcome to your crypto dashboard. Here you can see a summary of all your accounts and assets.</p>
                 </div>
+                 <!-- Live Crypto Charts -->
+                <div class="mb-8">
+                    <h2 class="text-xl font-bold mb-4 text-white">Live Charts</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- BTC Chart -->
+                        <div class="bg-[#1f2125] rounded-lg p-2 shadow-lg">
+                            <div class="tradingview-widget-container" style="height:250px;">
+                                <div class="tradingview-widget-container__widget"></div>
+                                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-chart.js" async>
+                                {
+                                    "symbol": "BINANCE:BTCUSDT",
+                                    "width": "100%",
+                                    "height": "100%",
+                                    "locale": "en",
+                                    "dateRange": "12M",
+                                    "colorTheme": "dark",
+                                    "isTransparent": false,
+                                    "autosize": true,
+                                    "showMarketStatus": false,
+                                    "chartType": "area",
+                                    "container_id": "tradingview_BTC"
+                                }
+                                </script>
+                            </div>
+                        </div>
+
+                        <!-- ETH Chart -->
+                        <div class="bg-[#1f2125] rounded-lg p-2 shadow-lg">
+                            <div class="tradingview-widget-container" style="height:250px;">
+                                <div class="tradingview-widget-container__widget"></div>
+                                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-chart.js" async>
+                                {
+                                    "symbol": "BINANCE:ETHUSDT",
+                                    "width": "100%",
+                                    "height": "100%",
+                                    "locale": "en",
+                                    "dateRange": "12M",
+                                    "colorTheme": "dark",
+                                    "isTransparent": false,
+                                    "autosize": true,
+                                    "showMarketStatus": false,
+                                    "chartType": "area",
+                                    "container_id": "tradingview_ETH"
+                                }
+                                </script>
+                            </div>
+                        </div>
+
+                        <!-- SOL Chart -->
+                        <div class="bg-[#1f2125] rounded-lg p-2 shadow-lg">
+                            <div class="tradingview-widget-container" style="height:250px;">
+                                <div class="tradingview-widget-container__widget"></div>
+                                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-chart.js" async>
+                                {
+                                    "symbol": "BINANCE:SOLUSDT",
+                                    "width": "100%",
+                                    "height": "100%",
+                                    "locale": "en",
+                                    "dateRange": "12M",
+                                    "colorTheme": "dark",
+                                    "isTransparent": false,
+                                    "autosize": true,
+                                    "showMarketStatus": false,
+                                    "chartType": "area",
+                                    "container_id": "tradingview_SOL"
+                                }
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Spot Account Content -->
