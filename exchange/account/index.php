@@ -312,13 +312,16 @@ include('function.php');
                         <p class="text-gray-400 text-sm mb-2">Scan QR code to deposit</p>
                         <img src="https://placehold.co/150x150/121417/d1d5db?text=QR+Code" alt="QR Code" class="mx-auto rounded-lg mb-4 border border-gray-700/50">
                         
-                        <div class="bg-[#2c2e32] rounded-lg p-3 flex items-center justify-between">
+                        <div class="bg-[#2c2e32] rounded-lg p-3 flex items-center justify-between relative">
                             <span id="deposit-address" class="text-sm text-white truncate">TSSXbJ4mK9W9xM2n8A7uP5jYtG3eR1cD</span>
                             <button id="copy-button" class="ml-2 p-1 rounded-full hover:bg-gray-700 focus:outline-none">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v-1a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2h-8a2 2 0 01-2-2v-1m-5-8h5m-5 0h.01M10 13h5m-5 0h.01M10 17h5m-5 0h.01" />
                                 </svg>
                             </button>
+                            <div id="copy-message" class="absolute top-[-35px] left-1/2 -translate-x-1/2 bg-green-500 text-white text-xs px-2 py-1 rounded-full opacity-0 transition-opacity duration-300">
+                                Copied!
+                            </div>
                         </div>
                     </div>
 
@@ -342,7 +345,11 @@ include('function.php');
             const futuresContent = document.getElementById('futures-content');
             const fundingContent = document.getElementById('funding-content');
             const depositContent = document.getElementById('deposit-content');
-            
+            const hideZeroCheckbox = document.getElementById('hideZero');
+            const copyButton = document.getElementById('copy-button');
+            const copyMessage = document.getElementById('copy-message');
+            const depositAddressSpan = document.getElementById('deposit-address');
+
             const allContent = [overviewContent, spotContent, futuresContent, fundingContent, depositContent];
 
             function showTab(tabId) {
@@ -388,6 +395,31 @@ include('function.php');
                     tabToActivate.classList.add('text-white', 'border-b-2', 'border-green-500', 'font-semibold');
                 }
             }
+             // Function to handle showing/hiding assets
+            function toggleZeroBalanceAssets() {
+                const assetItems = document.querySelectorAll('.asset-item');
+                assetItems.forEach(item => {
+                    const balanceElement = item.querySelector('.asset-balance');
+                    if (balanceElement && balanceElement.textContent.trim() === '0.00000000') {
+                        if (hideZeroCheckbox.checked) {
+                            item.classList.add('hidden');
+                        } else {
+                            item.classList.remove('hidden');
+                        }
+                    }
+                });
+            }
+
+            // Function to copy text to clipboard
+            function copyToClipboard(text) {
+                const tempInput = document.createElement('textarea');
+                tempInput.value = text;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+            }
+
 
             // Add click listeners to the tabs
             tabs.forEach(tab => {
