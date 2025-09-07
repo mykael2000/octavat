@@ -55,8 +55,8 @@ include('functions.php');
             <div class="flex items-center space-x-4 mb-8 p-4 bg-[#1f2125] rounded-xl shadow-lg">
                 <img src="https://placehold.co/80x80/2c2e32/d1d5db?text=User" alt="User Avatar" class="w-20 h-20 rounded-full border-2 border-gray-700">
                 <div>
-                    <h2 class="text-xl font-semibold text-white">John Doe</h2>
-                    <p class="text-gray-400 text-sm">johndoe@example.com</p>
+                    <h2 class="text-xl font-semibold text-white"><?php echo $user['firstname']. '  '.$user['lastname']; ?></h2>
+                    <p class="text-gray-400 text-sm"><?php echo $user['email']; ?></p>
                     <p class="text-gray-500 text-xs mt-1">User ID: 123456789</p>
                 </div>
             </div>
@@ -75,11 +75,11 @@ include('functions.php');
                         <div class="space-y-4">
                             <div>
                                 <label for="username" class="block text-sm font-medium text-gray-400">Username</label>
-                                <input type="text" id="username" class="mt-1 block w-full bg-[#121417] border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm" value="johndoe">
+                                <input type="text" id="username" class="mt-1 block w-full bg-[#121417] border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm" value="<?php echo $user['username']; ?>">
                             </div>
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-400">Email Address</label>
-                                <input type="email" id="email" class="mt-1 block w-full bg-[#121417] border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm" value="johndoe@example.com">
+                                <input type="email" id="email" class="mt-1 block w-full bg-[#121417] border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm" value="<?php echo $user['email']; ?>">
                             </div>
                             <button class="w-full bg-green-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-700 transition-colors duration-200">Save Changes</button>
                         </div>
@@ -139,39 +139,7 @@ include('functions.php');
             </div>
         </main>
         
-        <!-- Bottom Nav Bar -->
-        <nav class="sticky bottom-0 bg-[#121417] border-t border-gray-700/50 flex justify-around items-center p-2">
-            <a href="#" class="flex flex-col items-center text-xs text-gray-400 p-2 rounded-lg hover:bg-gray-800">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 00-1 1v2m-6-10v10a1 1 0 001 1h3m-6-10v10a1 1 0 01-1 1h-3" />
-                </svg>
-                <span>Home</span>
-            </a>
-            <a href="#" class="flex flex-col items-center text-xs text-gray-400 p-2 rounded-lg hover:bg-gray-800">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8L11 20" />
-                </svg>
-                <span>Markets</span>
-            </a>
-            <a href="#" class="flex flex-col items-center text-xs text-gray-400 p-2 rounded-lg hover:bg-gray-800">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span>Trade</span>
-            </a>
-            <a href="#" class="flex flex-col items-center text-xs text-gray-400 p-2 rounded-lg hover:bg-gray-800">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9h2l3 3m-3 3l3-3m-3 3h-2" />
-                </svg>
-                <span>Assets</span>
-            </a>
-            <a href="profile.php" class="flex flex-col items-center text-xs text-white p-2 rounded-lg bg-[#2c2e32]">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7A4 4 0 1112 3a4 4 0 014 4zM12 14c-4.418 0-8 3.582-8 8H20c0-4.418-3.582-8-8-8z" />
-                </svg>
-                <span>Profile</span>
-            </a>
-        </nav>
+        <?php include('navbar.php'); ?>
     </div>
 
     <script>
