@@ -107,7 +107,7 @@ include('function.php');
                             <!-- TradingView Widget BEGIN -->
                             <div class="tradingview-widget-container">
                             <div class="tradingview-widget-container__widget"></div>
-                            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BINANCE-BTCUSDT/?exchange=BINANCE" rel="noopener nofollow" target="_blank"><span class="blue-text">BTCUSDT chart by TradingView</span></a></div>
+                            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BINANCE-BTCUSDT/?exchange=BINANCE" rel="noopener nofollow" target="_blank"><span class="blue-text">BTCUSDT chart by Octavat</span></a></div>
                             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
                             {
                             "symbol": "BINANCE:BTCUSDT",
@@ -131,7 +131,7 @@ include('function.php');
                             <!-- TradingView Widget BEGIN -->
                             <div class="tradingview-widget-container">
                             <div class="tradingview-widget-container__widget"></div>
-                            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BINANCE-ETHUSDT/?exchange=BINANCE" rel="noopener nofollow" target="_blank"><span class="blue-text">ETHUSDT chart by TradingView</span></a></div>
+                            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BINANCE-ETHUSDT/?exchange=BINANCE" rel="noopener nofollow" target="_blank"><span class="blue-text">ETHUSDT chart by Octavat</span></a></div>
                             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
                             {
                             "symbol": "BINANCE:ETHUSDT",
@@ -155,7 +155,7 @@ include('function.php');
                            <!-- TradingView Widget BEGIN -->
                             <div class="tradingview-widget-container">
                             <div class="tradingview-widget-container__widget"></div>
-                            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BINANCE-SOLUSDT/?exchange=BINANCE" rel="noopener nofollow" target="_blank"><span class="blue-text">SOLUSDT chart by TradingView</span></a></div>
+                            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BINANCE-SOLUSDT/?exchange=BINANCE" rel="noopener nofollow" target="_blank"><span class="blue-text">SOLUSDT chart by Octavat</span></a></div>
                             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
                             {
                             "symbol": "BINANCE:SOLUSDT",
