@@ -32,19 +32,20 @@ include('function.php');
         <!-- Top Nav Bar -->
         <header class="p-4 flex items-center justify-between bg-[#121417] border-b border-gray-700/50">
             <div class="flex items-center space-x-2">
+                <a href="profile.php" class="p-2 rounded-full hover:bg-gray-800 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7A4 4 0 1112 3a4 4 0 014 4zM12 14c-4.418 0-8 3.582-8 8H20c0-4.418-3.582-8-8-8z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="flex items-center space-x-2">
                 <button class="p-2 rounded-full hover:bg-gray-800 focus:outline-none">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                     </svg>
                 </button>
             </div>
-            <div class="flex items-center space-x-2">
-                <button class="p-2 rounded-full hover:bg-gray-800 focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 0a6.002 6.002 0 010 8.485m0-8.485l3.536-3.536m-3.536 3.536a6.002 6.002 0 00-8.485 0M10.828 12L7.293 8.464m3.535 3.536l-3.535 3.536m0 0a6.002 6.002 0 018.485 0" />
-                    </svg>
-                </button>
-            </div>
+            
         </header>
 
         <!-- Main Content -->
@@ -165,7 +166,7 @@ include('function.php');
                         <!-- TradingView Widget BEGIN -->
                         <div class="tradingview-widget-container">
                         <div class="tradingview-widget-container__widget"></div>
-                        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/crypto-coins-screener/" rel="noopener nofollow" target="_blank"><span class="blue-text">Cryptocurrency market by TradingView</span></a></div>
+                        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/crypto-coins-screener/" rel="noopener nofollow" target="_blank"><span class="blue-text">Cryptocurrency market by Octavat</span></a></div>
                         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
                         {
                         "defaultColumn": "overview",
