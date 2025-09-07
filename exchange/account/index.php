@@ -55,6 +55,7 @@ include('functions.php');
                 <button id="spot-tab" class="text-white px-2 py-1 rounded-full border-b-2 border-green-500 font-semibold transition-colors duration-200">Spot Account</button>
                 <button id="futures-tab" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Futures Account</button>
                 <button id="funding-tab" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Funding Account</button>
+                <button id="deposit-tab" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Deposit</button>
             </div>
             
             <!-- Overview Content (Initially hidden) -->
@@ -189,7 +190,7 @@ include('functions.php');
             <!-- Futures Account Content (Initially hidden) -->
             <div id="futures-content" class="hidden">
                 <div class="mb-6">
-                    <h1 class="text-xl font-bold mb-1 text-white">Deposit</h1>
+                    <h1 class="text-xl font-bold mb-1 text-white">Futures Account</h1>
                     <div class="flex items-center text-gray-400 text-sm mb-2">
                         <span class="mr-1">Total Assets (USD)</span>
                     </div>
@@ -224,7 +225,7 @@ include('functions.php');
                     </button>
                     <button class="flex flex-col items-center p-3 rounded-lg hover:bg-[#1f2125]">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                         </svg>
                         <span class="text-sm">Transfer</span>
                     </button>
@@ -248,6 +249,83 @@ include('functions.php');
                             <div class="text-xs text-gray-400 mb-1">Staking Rewards</div>
                             <div class="text-green-500 font-bold">$1.25 <span class="ml-1">+0.10%</span></div>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Deposit History Section -->
+                <div class="mt-8">
+                    <h2 class="text-xl font-bold mb-4 text-white">Deposit History</h2>
+                    <div class="bg-[#1f2125] rounded-lg p-4">
+                        <div class="flex justify-between items-center py-2 border-b border-gray-700/50 text-sm text-gray-400 font-semibold">
+                            <span>Date</span>
+                            <span>Coin</span>
+                            <span>Amount</span>
+                            <span>Status</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-gray-700/50">
+                            <span class="text-sm text-gray-400">2024-10-26</span>
+                            <span class="text-sm text-white">USDT</span>
+                            <span class="text-sm text-white">100.00</span>
+                            <span class="text-sm text-green-500">Completed</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2">
+                            <span class="text-sm text-gray-400">2024-10-25</span>
+                            <span class="text-sm text-white">BTC</span>
+                            <span class="text-sm text-white">0.001</span>
+                            <span class="text-sm text-green-500">Completed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deposit Content (New Section) -->
+            <div id="deposit-content" class="hidden">
+                <div class="mb-6">
+                    <h1 class="text-xl font-bold mb-1 text-white">Deposit</h1>
+                    <p class="text-sm text-gray-400">Select the coin and network to get your deposit address.</p>
+                </div>
+
+                <!-- Deposit Form -->
+                <div class="bg-[#1f2125] rounded-lg p-6 space-y-4">
+                    <!-- Coin Selection -->
+                    <div>
+                        <label for="coin-select" class="block text-sm font-medium text-gray-400 mb-2">Select Coin</label>
+                        <select id="coin-select" class="w-full bg-[#2c2e32] text-white rounded-lg p-3 border-none focus:ring-1 focus:ring-green-500 focus:outline-none">
+                            <option value="USDT">USDT - Tether</option>
+                            <option value="BTC">BTC - Bitcoin</option>
+                            <option value="ETH">ETH - Ethereum</option>
+                        </select>
+                    </div>
+
+                    <!-- Network Selection -->
+                    <div>
+                        <label for="network-select" class="block text-sm font-medium text-gray-400 mb-2">Select Network</label>
+                        <select id="network-select" class="w-full bg-[#2c2e32] text-white rounded-lg p-3 border-none focus:ring-1 focus:ring-green-500 focus:outline-none">
+                            <option value="TRC20">TRC20</option>
+                            <option value="ERC20">ERC20</option>
+                            <option value="BEP20">BEP20</option>
+                        </select>
+                    </div>
+
+                    <!-- Deposit Address -->
+                    <div class="text-center">
+                        <p class="text-gray-400 text-sm mb-2">Scan QR code to deposit</p>
+                        <img src="https://placehold.co/150x150/121417/d1d5db?text=QR+Code" alt="QR Code" class="mx-auto rounded-lg mb-4 border border-gray-700/50">
+                        
+                        <div class="bg-[#2c2e32] rounded-lg p-3 flex items-center justify-between">
+                            <span id="deposit-address" class="text-sm text-white truncate">TSSXbJ4mK9W9xM2n8A7uP5jYtG3eR1cD</span>
+                            <button id="copy-button" class="ml-2 p-1 rounded-full hover:bg-gray-700 focus:outline-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v-1a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2h-8a2 2 0 01-2-2v-1m-5-8h5m-5 0h.01M10 13h5m-5 0h.01M10 17h5m-5 0h.01" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Warning -->
+                    <div class="bg-yellow-900/30 text-yellow-300 rounded-lg p-4 text-sm mt-4">
+                        <p class="font-bold mb-1">Warning:</p>
+                        <p>Only send USDT on the selected network to this address. Sending other coins or using a different network may result in permanent loss of funds.</p>
                     </div>
                 </div>
             </div>
@@ -279,7 +357,7 @@ include('functions.php');
                 </svg>
                 <span>Assets</span>
             </a>
-           <a href="profile.php" class="flex flex-col items-center text-xs text-gray-400 p-2 rounded-lg hover:bg-gray-800">
+            <a href="profile.php" class="flex flex-col items-center text-xs text-gray-400 p-2 rounded-lg hover:bg-gray-800">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7A4 4 0 1112 3a4 4 0 014 4zM12 14c-4.418 0-8 3.582-8 8H20c0-4.418-3.582-8-8-8z" />
                 </svg>
@@ -295,8 +373,9 @@ include('functions.php');
             const spotContent = document.getElementById('spot-content');
             const futuresContent = document.getElementById('futures-content');
             const fundingContent = document.getElementById('funding-content');
+            const depositContent = document.getElementById('deposit-content');
             
-            const allContent = [overviewContent, spotContent, futuresContent, fundingContent];
+            const allContent = [overviewContent, spotContent, futuresContent, fundingContent, depositContent];
 
             function showTab(tabId) {
                 // Hide all content sections
@@ -309,22 +388,36 @@ include('functions.php');
                 });
 
                 // Show the selected content and activate the tab
-                if (tabId === 'overview-tab') {
-                    overviewContent.classList.remove('hidden');
-                    document.getElementById('overview-tab').classList.remove('text-gray-400');
-                    document.getElementById('overview-tab').classList.add('text-white', 'border-b-2', 'border-green-500', 'font-semibold');
-                } else if (tabId === 'spot-tab') {
-                    spotContent.classList.remove('hidden');
-                    document.getElementById('spot-tab').classList.remove('text-gray-400');
-                    document.getElementById('spot-tab').classList.add('text-white', 'border-b-2', 'border-green-500', 'font-semibold');
-                } else if (tabId === 'futures-tab') {
-                    futuresContent.classList.remove('hidden');
-                    document.getElementById('futures-tab').classList.remove('text-gray-400');
-                    document.getElementById('futures-tab').classList.add('text-white', 'border-b-2', 'border-green-500', 'font-semibold');
-                } else if (tabId === 'funding-tab') {
-                    fundingContent.classList.remove('hidden');
-                    document.getElementById('funding-tab').classList.remove('text-gray-400');
-                    document.getElementById('funding-tab').classList.add('text-white', 'border-b-2', 'border-green-500', 'font-semibold');
+                let contentToShow;
+                let tabToActivate;
+
+                switch(tabId) {
+                    case 'overview-tab':
+                        contentToShow = overviewContent;
+                        tabToActivate = document.getElementById('overview-tab');
+                        break;
+                    case 'spot-tab':
+                        contentToShow = spotContent;
+                        tabToActivate = document.getElementById('spot-tab');
+                        break;
+                    case 'futures-tab':
+                        contentToShow = futuresContent;
+                        tabToActivate = document.getElementById('futures-tab');
+                        break;
+                    case 'funding-tab':
+                        contentToShow = fundingContent;
+                        tabToActivate = document.getElementById('funding-tab');
+                        break;
+                    case 'deposit-tab':
+                        contentToShow = depositContent;
+                        tabToActivate = document.getElementById('deposit-tab');
+                        break;
+                }
+
+                if (contentToShow && tabToActivate) {
+                    contentToShow.classList.remove('hidden');
+                    tabToActivate.classList.remove('text-gray-400');
+                    tabToActivate.classList.add('text-white', 'border-b-2', 'border-green-500', 'font-semibold');
                 }
             }
 
