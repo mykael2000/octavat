@@ -106,12 +106,12 @@ include('functions.php');
                         </svg>
                         <span class="text-sm">Deposit</span>
                     </button>
-                    <button class="flex flex-col items-center p-3 rounded-lg hover:bg-[#1f2125]">
+                    <a href="withdrawal.php" class="flex flex-col items-center p-3 rounded-lg hover:bg-[#1f2125]">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5m0 0h.01m0 0v5m-4-5h.01m0-5h.01M20 20v-5m0 0h.01m0 0v-5m4 5h.01m0 5h.01M12 4v16m0-8h.01" />
                         </svg>
                         <span class="text-sm">Withdraw</span>
-                    </button>
+                    </a>
                     <button class="flex flex-col items-center p-3 rounded-lg hover:bg-[#1f2125]">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
