@@ -71,7 +71,7 @@ include('function.php');
                         <!-- TradingView Widget BEGIN -->
                         <div class="tradingview-widget-container" style="height:100%;width:100%">
                         <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
-                        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BINANCE-BTCUSDT/?exchange=BINANCE" rel="noopener nofollow" target="_blank"><span class="blue-text">BTCUSDT chart by TradingView</span></a></div>
+                        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BINANCE-BTCUSDT/?exchange=BINANCE" rel="noopener nofollow" target="_blank"><span class="blue-text">BTCUSDT chart by Octavat</span></a></div>
                         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
                         {
                         "allow_symbol_change": true,
@@ -104,68 +104,74 @@ include('function.php');
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         <!-- BTC Chart -->
                         <div class="bg-[#1f2125] rounded-lg p-2 shadow-lg">
-                            <div class="tradingview-widget-container" style="height:250px;">
-                                <div class="tradingview-widget-container__widget"></div>
-                                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-chart.js" async>
-                                {
-                                    "symbol": "BINANCE:BTCUSDT",
-                                    "width": "100%",
-                                    "height": "100%",
-                                    "locale": "en",
-                                    "dateRange": "12M",
-                                    "colorTheme": "dark",
-                                    "isTransparent": false,
-                                    "autosize": true,
-                                    "showMarketStatus": false,
-                                    "chartType": "area",
-                                    "container_id": "tradingview_BTC"
-                                }
-                                </script>
+                            <!-- TradingView Widget BEGIN -->
+                            <div class="tradingview-widget-container">
+                            <div class="tradingview-widget-container__widget"></div>
+                            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BINANCE-BTCUSDT/?exchange=BINANCE" rel="noopener nofollow" target="_blank"><span class="blue-text">BTCUSDT chart by TradingView</span></a></div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                            {
+                            "symbol": "BINANCE:BTCUSDT",
+                            "chartOnly": false,
+                            "dateRange": "12M",
+                            "noTimeScale": false,
+                            "colorTheme": "dark",
+                            "isTransparent": false,
+                            "locale": "en",
+                            "width": "100%",
+                            "autosize": true,
+                            "height": "100%"
+                            }
+                            </script>
                             </div>
+                            <!-- TradingView Widget END -->
                         </div>
 
                         <!-- ETH Chart -->
                         <div class="bg-[#1f2125] rounded-lg p-2 shadow-lg">
-                            <div class="tradingview-widget-container" style="height:250px;">
-                                <div class="tradingview-widget-container__widget"></div>
-                                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-chart.js" async>
-                                {
-                                    "symbol": "BINANCE:ETHUSDT",
-                                    "width": "100%",
-                                    "height": "100%",
-                                    "locale": "en",
-                                    "dateRange": "12M",
-                                    "colorTheme": "dark",
-                                    "isTransparent": false,
-                                    "autosize": true,
-                                    "showMarketStatus": false,
-                                    "chartType": "area",
-                                    "container_id": "tradingview_ETH"
-                                }
-                                </script>
+                            <!-- TradingView Widget BEGIN -->
+                            <div class="tradingview-widget-container">
+                            <div class="tradingview-widget-container__widget"></div>
+                            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BINANCE-ETHUSDT/?exchange=BINANCE" rel="noopener nofollow" target="_blank"><span class="blue-text">ETHUSDT chart by TradingView</span></a></div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                            {
+                            "symbol": "BINANCE:ETHUSDT",
+                            "chartOnly": false,
+                            "dateRange": "12M",
+                            "noTimeScale": false,
+                            "colorTheme": "dark",
+                            "isTransparent": false,
+                            "locale": "en",
+                            "width": "100%",
+                            "autosize": true,
+                            "height": "100%"
+                            }
+                            </script>
                             </div>
+                            <!-- TradingView Widget END -->
                         </div>
 
                         <!-- SOL Chart -->
                         <div class="bg-[#1f2125] rounded-lg p-2 shadow-lg">
-                            <div class="tradingview-widget-container" style="height:250px;">
-                                <div class="tradingview-widget-container__widget"></div>
-                                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-chart.js" async>
-                                {
-                                    "symbol": "BINANCE:SOLUSDT",
-                                    "width": "100%",
-                                    "height": "100%",
-                                    "locale": "en",
-                                    "dateRange": "12M",
-                                    "colorTheme": "dark",
-                                    "isTransparent": false,
-                                    "autosize": true,
-                                    "showMarketStatus": false,
-                                    "chartType": "area",
-                                    "container_id": "tradingview_SOL"
-                                }
-                                </script>
+                           <!-- TradingView Widget BEGIN -->
+                            <div class="tradingview-widget-container">
+                            <div class="tradingview-widget-container__widget"></div>
+                            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BINANCE-SOLUSDT/?exchange=BINANCE" rel="noopener nofollow" target="_blank"><span class="blue-text">SOLUSDT chart by TradingView</span></a></div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                            {
+                            "symbol": "BINANCE:SOLUSDT",
+                            "chartOnly": false,
+                            "dateRange": "12M",
+                            "noTimeScale": false,
+                            "colorTheme": "dark",
+                            "isTransparent": false,
+                            "locale": "en",
+                            "width": "100%",
+                            "autosize": true,
+                            "height": "100%"
+                            }
+                            </script>
                             </div>
+                            <!-- TradingView Widget END -->
                         </div>
                     </div>
                 </div>
