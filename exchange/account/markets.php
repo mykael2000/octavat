@@ -161,6 +161,26 @@ include('function.php');
                             <!-- TradingView Widget END -->
                         </div>
                     </div>
+                    <div style="height: 600px" class="container">
+                        <!-- TradingView Widget BEGIN -->
+                        <div class="tradingview-widget-container">
+                        <div class="tradingview-widget-container__widget"></div>
+                        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/crypto-coins-screener/" rel="noopener nofollow" target="_blank"><span class="blue-text">Cryptocurrency market by TradingView</span></a></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+                        {
+                        "defaultColumn": "overview",
+                        "screener_type": "crypto_mkt",
+                        "displayCurrency": "USD",
+                        "colorTheme": "dark",
+                        "isTransparent": false,
+                        "locale": "en",
+                        "width": "100%",
+                        "height": "100%"
+                        }
+                        </script>
+                        </div>
+                        <!-- TradingView Widget END -->
+                    </div>
                 </div>
         </main>
         
