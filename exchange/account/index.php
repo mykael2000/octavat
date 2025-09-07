@@ -54,7 +54,6 @@ include('function.php');
                 <button id="overview-tab" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Overview</button>
                 <button id="spot-tab" class="text-white px-2 py-1 rounded-full border-b-2 border-green-500 font-semibold transition-colors duration-200">Spot Account</button>
                 <button id="futures-tab" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Futures Account</button>
-                <button id="funding-tab" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Funding Account</button>
                 <button id="deposit-tab" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Deposit</button>
             </div>
             
