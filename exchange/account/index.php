@@ -343,52 +343,6 @@ include('function.php');
                 </div>
             </div>
 
-            <!-- Funding Account Content (Initially hidden) -->
-            <div id="funding-content" class="hidden">
-                <div class="mb-6">
-                    <h1 class="text-xl font-bold mb-1 text-white">Funding Account</h1>
-                    <div class="flex items-center text-gray-400 text-sm mb-2">
-                        <span class="mr-1">Total Assets</span>
-                    </div>
-                    <div class="flex items-center mb-1">
-                        <span class="text-3xl font-bold text-white">1,250.00</span>
-                        <span class="text-lg font-bold text-gray-400 ml-2">USDT</span>
-                    </div>
-                    <div class="text-sm text-gray-400">≈ $1,250.00</div>
-                    <div class="flex justify-between items-center mt-4 border-t border-gray-700/50 pt-4">
-                        <div>
-                            <div class="text-xs text-gray-400 mb-1">Staking Rewards</div>
-                            <div class="text-green-500 font-bold">$1.25 <span class="ml-1">+0.10%</span></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Deposit History Section -->
-                <div class="mt-8">
-                    <h2 class="text-xl font-bold mb-4 text-white">Deposit History</h2>
-                    <div class="bg-[#1f2125] rounded-lg p-4">
-                        <div class="flex justify-between items-center py-2 border-b border-gray-700/50 text-sm text-gray-400 font-semibold">
-                            <span>Date</span>
-                            <span>Coin</span>
-                            <span>Amount</span>
-                            <span>Status</span>
-                        </div>
-                        <div class="flex justify-between items-center py-2 border-b border-gray-700/50">
-                            <span class="text-sm text-gray-400">2024-10-26</span>
-                            <span class="text-sm text-white">USDT</span>
-                            <span class="text-sm text-white">100.00</span>
-                            <span class="text-sm text-green-500">Completed</span>
-                        </div>
-                        <div class="flex justify-between items-center py-2">
-                            <span class="text-sm text-gray-400">2024-10-25</span>
-                            <span class="text-sm text-white">BTC</span>
-                            <span class="text-sm text-white">0.001</span>
-                            <span class="text-sm text-green-500">Completed</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- Deposit Content (New Section) -->
             <div id="deposit-content" class="hidden">
                 <div class="mb-6">
@@ -442,6 +396,30 @@ include('function.php');
                         <p>Only send USDT on the selected network to this address. Sending other coins or using a different network may result in permanent loss of funds.</p>
                     </div>
                 </div>
+                <!-- Deposit History Section -->
+                <div class="mt-8">
+                    <h2 class="text-xl font-bold mb-4 text-white">Deposit History</h2>
+                    <div class="bg-[#1f2125] rounded-lg p-4">
+                        <div class="flex justify-between items-center py-2 border-b border-gray-700/50 text-sm text-gray-400 font-semibold">
+                            <span>Date</span>
+                            <span>Coin</span>
+                            <span>Amount</span>
+                            <span>Status</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-gray-700/50">
+                            <span class="text-sm text-gray-400">2024-10-26</span>
+                            <span class="text-sm text-white">USDT</span>
+                            <span class="text-sm text-white">100.00</span>
+                            <span class="text-sm text-green-500">Completed</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2">
+                            <span class="text-sm text-gray-400">2024-10-25</span>
+                            <span class="text-sm text-white">BTC</span>
+                            <span class="text-sm text-white">0.001</span>
+                            <span class="text-sm text-green-500">Completed</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
         
@@ -454,14 +432,14 @@ include('function.php');
             const overviewContent = document.getElementById('overview-content');
             const spotContent = document.getElementById('spot-content');
             const futuresContent = document.getElementById('futures-content');
-            const fundingContent = document.getElementById('funding-content');
+           
             const depositContent = document.getElementById('deposit-content');
             const hideZeroCheckbox = document.getElementById('hideZero');
             const copyButton = document.getElementById('copy-button');
             const copyMessage = document.getElementById('copy-message');
             const depositAddressSpan = document.getElementById('deposit-address');
 
-            const allContent = [overviewContent, spotContent, futuresContent, fundingContent, depositContent];
+            const allContent = [overviewContent, spotContent, futuresContent, depositContent];
 
             function showTab(tabId) {
                 // Hide all content sections
@@ -489,10 +467,6 @@ include('function.php');
                     case 'futures-tab':
                         contentToShow = futuresContent;
                         tabToActivate = document.getElementById('futures-tab');
-                        break;
-                    case 'funding-tab':
-                        contentToShow = fundingContent;
-                        tabToActivate = document.getElementById('funding-tab');
                         break;
                     case 'deposit-tab':
                         contentToShow = depositContent;
