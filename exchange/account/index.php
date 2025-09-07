@@ -51,130 +51,15 @@ include('function.php');
         <main class="flex-1 p-4 overflow-y-auto no-scrollbar">
             <!-- Nav tabs -->
             <div class="flex items-center space-x-4 mb-4 text-sm font-medium border-b border-gray-700/50 pb-2 overflow-x-auto no-scrollbar">
-                <button id="overview-tab" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Overview</button>
-                <button id="spot-tab" class="text-white px-2 py-1 rounded-full border-b-2 border-green-500 font-semibold transition-colors duration-200">Spot Account</button>
-                <button id="futures-tab" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Futures Account</button>
+                
+                <button id="spot-tab" class="text-white px-2 py-1 rounded-full border-b-2 border-green-500 font-semibold transition-colors duration-200">Assets Overview</button>
+                <button id="futures-tab" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Trading Account</button>
                 <button id="deposit-tab" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Deposit</button>
+                <a href="withdrawal.php" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Withdrawal</a>
+                <button id="" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">New Listing</button>
             </div>
             
-            <!-- Overview Content (Initially hidden) -->
-            <div id="overview-content" class="hidden">
-                <div class="mb-6">
-                    <h1 class="text-xl font-bold mb-1 text-white">Assets Overview</h1>
-                    <p class="text-gray-400">Welcome to your crypto dashboard. Here you can see a summary of all your accounts and assets.</p>
-                </div>
-                 <!-- Live Crypto Charts -->
-                <div class="mb-8">
-                    <h2 class="text-xl font-bold mb-4 text-white">Live Charts</h2>
-                    <div style="height: 600px" class="container">
-                        <!-- TradingView Widget BEGIN -->
-                        <div class="tradingview-widget-container" style="height:100%;width:100%">
-                        <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
-                        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BINANCE-BTCUSDT/?exchange=BINANCE" rel="noopener nofollow" target="_blank"><span class="blue-text">BTCUSDT chart by Octavat</span></a></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                        {
-                        "allow_symbol_change": true,
-                        "calendar": false,
-                        "details": false,
-                        "hide_side_toolbar": true,
-                        "hide_top_toolbar": false,
-                        "hide_legend": false,
-                        "hide_volume": false,
-                        "hotlist": false,
-                        "interval": "D",
-                        "locale": "en",
-                        "save_image": true,
-                        "style": "1",
-                        "symbol": "BINANCE:BTCUSDT",
-                        "theme": "dark",
-                        "timezone": "Etc/UTC",
-                        "backgroundColor": "#0F0F0F",
-                        "gridColor": "rgba(242, 242, 242, 0.06)",
-                        "watchlist": [],
-                        "withdateranges": false,
-                        "compareSymbols": [],
-                        "studies": [],
-                        "autosize": true
-                        }
-                        </script>
-                        </div>
-                        <!-- TradingView Widget END -->
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <!-- BTC Chart -->
-                        <div class="bg-[#1f2125] rounded-lg p-2 shadow-lg">
-                            <!-- TradingView Widget BEGIN -->
-                            <div class="tradingview-widget-container">
-                            <div class="tradingview-widget-container__widget"></div>
-                            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BINANCE-BTCUSDT/?exchange=BINANCE" rel="noopener nofollow" target="_blank"><span class="blue-text">BTCUSDT chart by Octavat</span></a></div>
-                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-                            {
-                            "symbol": "BINANCE:BTCUSDT",
-                            "chartOnly": false,
-                            "dateRange": "12M",
-                            "noTimeScale": false,
-                            "colorTheme": "dark",
-                            "isTransparent": false,
-                            "locale": "en",
-                            "width": "100%",
-                            "autosize": true,
-                            "height": "100%"
-                            }
-                            </script>
-                            </div>
-                            <!-- TradingView Widget END -->
-                        </div>
-
-                        <!-- ETH Chart -->
-                        <div class="bg-[#1f2125] rounded-lg p-2 shadow-lg">
-                            <!-- TradingView Widget BEGIN -->
-                            <div class="tradingview-widget-container">
-                            <div class="tradingview-widget-container__widget"></div>
-                            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BINANCE-ETHUSDT/?exchange=BINANCE" rel="noopener nofollow" target="_blank"><span class="blue-text">ETHUSDT chart by Octavat</span></a></div>
-                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-                            {
-                            "symbol": "BINANCE:ETHUSDT",
-                            "chartOnly": false,
-                            "dateRange": "12M",
-                            "noTimeScale": false,
-                            "colorTheme": "dark",
-                            "isTransparent": false,
-                            "locale": "en",
-                            "width": "100%",
-                            "autosize": true,
-                            "height": "100%"
-                            }
-                            </script>
-                            </div>
-                            <!-- TradingView Widget END -->
-                        </div>
-
-                        <!-- SOL Chart -->
-                        <div class="bg-[#1f2125] rounded-lg p-2 shadow-lg">
-                           <!-- TradingView Widget BEGIN -->
-                            <div class="tradingview-widget-container">
-                            <div class="tradingview-widget-container__widget"></div>
-                            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BINANCE-SOLUSDT/?exchange=BINANCE" rel="noopener nofollow" target="_blank"><span class="blue-text">SOLUSDT chart by Octavat</span></a></div>
-                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-                            {
-                            "symbol": "BINANCE:SOLUSDT",
-                            "chartOnly": false,
-                            "dateRange": "12M",
-                            "noTimeScale": false,
-                            "colorTheme": "dark",
-                            "isTransparent": false,
-                            "locale": "en",
-                            "width": "100%",
-                            "autosize": true,
-                            "height": "100%"
-                            }
-                            </script>
-                            </div>
-                            <!-- TradingView Widget END -->
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
 
             <!-- Spot Account Content -->
             <div id="spot-content">
@@ -428,7 +313,7 @@ include('function.php');
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const tabs = document.querySelectorAll('.flex.items-center.space-x-4 button');
-            const overviewContent = document.getElementById('overview-content');
+           
             const spotContent = document.getElementById('spot-content');
             const futuresContent = document.getElementById('futures-content');
            
@@ -438,7 +323,7 @@ include('function.php');
             const copyMessage = document.getElementById('copy-message');
             const depositAddressSpan = document.getElementById('deposit-address');
 
-            const allContent = [overviewContent, spotContent, futuresContent, depositContent];
+            const allContent = [spotContent, futuresContent, depositContent];
 
             function showTab(tabId) {
                 // Hide all content sections
@@ -455,10 +340,6 @@ include('function.php');
                 let tabToActivate;
 
                 switch(tabId) {
-                    case 'overview-tab':
-                        contentToShow = overviewContent;
-                        tabToActivate = document.getElementById('overview-tab');
-                        break;
                     case 'spot-tab':
                         contentToShow = spotContent;
                         tabToActivate = document.getElementById('spot-tab');
