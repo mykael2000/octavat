@@ -6,7 +6,7 @@ session_start();
 ob_start();
 
 if (!isset($_SESSION["user_id"])) {
-    header("location: ../login.html"); 
+    header("location: ../../login.php"); 
     exit();
 }
 
@@ -23,7 +23,7 @@ if ($result->num_rows == 1) {
 
 
 if(empty($user_email)){
-    header("location: ../login.html"); 
+    header("location: ../../login.php"); 
     exit();
 }
 
