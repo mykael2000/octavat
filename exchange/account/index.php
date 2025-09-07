@@ -67,7 +67,7 @@ include('function.php');
                  <!-- Live Crypto Charts -->
                 <div class="mb-8">
                     <h2 class="text-xl font-bold mb-4 text-white">Live Charts</h2>
-                    <div>
+                    <div style="height: 600px" class="container">
                         <!-- TradingView Widget BEGIN -->
                         <div class="tradingview-widget-container" style="height:100%;width:100%">
                         <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
