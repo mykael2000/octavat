@@ -103,9 +103,6 @@ include('function.php');
 
                 <div class="mt-auto pt-4 border-t border-gray-700/50 w-full text-center px-4">
                     <a href="logout.php" class="inline-flex items-center justify-center w-full space-x-2 p-2 rounded-lg hover:bg-red-500/20 text-red-400 font-semibold">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 10a1 1 0 112 0v4a1 1 0 11-2 0v-4z" clip-rule="evenodd" />
-                        </svg>
                         <span>Log out</span>
                     </a>
                 </div>
