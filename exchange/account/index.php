@@ -50,34 +50,53 @@ include('function.php');
                 <ul class="space-y-4 text-gray-300 font-medium">
                     <li>
                         <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                            </svg>
                             <span>Dashboard</span>
                         </a>
                     </li>
                     <li>
                         <a href="deposit.php" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 10V7a1 1 0 012 0v3a1 1 0 01-2 0zm0 4a1 1 0 112 0 1 1 0 01-2 0z" />
-                            </svg>
                             <span>Deposit</span>
                         </a>
                     </li>
                     <li>
                         <a href="withdrawal.php" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9 10V7a1 1 0 012 0v3a1 1 0 01-2 0zm0 4a1 1 0 112 0 1 1 0 01-2 0z" />
-                            </svg>
                             <span>Withdrawal</span>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.707-8.707a1 1 0 00-1.414-1.414L3 11.586V13a1 1 0 001 1h16a1 1 0 100-2H5a1 1 0 01-1-1v-1.586l1.293-1.293a1 1 0 00-1.414-1.414zM16 11.586V13a1 1 0 001 1h1a1 1 0 001-1v-1.586l1.293-1.293a1 1 0 00-1.414-1.414L16 11.586z" clip-rule="evenodd" />
-                            </svg>
-                            <span>History</span>
+
+                            <span>Transaction History</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
+
+                            <span>My Rewards</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
+
+                            <span>Security</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
+
+                            <span>Verification</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
+
+                            <span>Referral Hub</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
+
+                            <span>Settings</span>
                         </a>
                     </li>
                 </ul>
@@ -87,7 +106,7 @@ include('function.php');
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 10a1 1 0 112 0v4a1 1 0 11-2 0v-4z" clip-rule="evenodd" />
                         </svg>
-                        <span>Logout</span>
+                        <span>Log out</span>
                     </a>
                 </div>
             </div>
