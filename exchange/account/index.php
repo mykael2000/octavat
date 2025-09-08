@@ -174,20 +174,6 @@ include('function.php');
                         <span class="mr-1">Total Assets (USD)</span>
                     </div>
                     <div class="flex items-center mb-1">
-                        <span class="text-3xl font-bold text-white">450.75</span>
-                        <span class="text-lg font-bold text-gray-400 ml-2">USD</span>
-                    </div>
-                    <div class="text-sm text-gray-400">≈ $450.75</div>
-                    <div class="flex justify-between items-center mt-4 border-t border-gray-700/50 pt-4">
-                        <div>
-                            <div class="text-xs text-gray-400 mb-1">Today's PnL</div>
-                            <div class="text-red-500 font-bold">-$12.50 <span class="ml-1">-2.78%</span></div>
-                        </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0v-8m0 8L11 4" />
-                        </svg>
-                    </div>
-                    <div class="flex items-center mb-1">
                         <span class="text-3xl font-bold text-white">0.00</span>
                         <span class="text-lg font-bold text-gray-400 ml-2">USDT</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
