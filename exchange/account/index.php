@@ -29,6 +29,64 @@ include('function.php');
 </head>
 <body class="bg-[#121417] text-gray-300">
     <div class="min-h-screen flex flex-col">
+        <nav id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-[#121414] border-r border-gray-700/50 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="p-4 flex flex-col h-full">
+                <div class="flex items-center space-x-3 mb-8">
+                    <img src="https://placehold.co/40x40/4a5568/d1d5db" alt="User Profile" class="rounded-full">
+                    <div>
+                        <div class="font-bold text-white">John Doe</div>
+                        <div class="text-sm text-gray-400">View Profile</div>
+                    </div>
+                </div>
+
+                <ul class="space-y-4 text-gray-300 font-medium">
+                    <li>
+                        <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                            </svg>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="deposit.php" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 10V7a1 1 0 012 0v3a1 1 0 01-2 0zm0 4a1 1 0 112 0 1 1 0 01-2 0z" />
+                            </svg>
+                            <span>Deposit</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="withdrawal.php" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9 10V7a1 1 0 012 0v3a1 1 0 01-2 0zm0 4a1 1 0 112 0 1 1 0 01-2 0z" />
+                            </svg>
+                            <span>Withdrawal</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.707-8.707a1 1 0 00-1.414-1.414L3 11.586V13a1 1 0 001 1h16a1 1 0 100-2H5a1 1 0 01-1-1v-1.586l1.293-1.293a1 1 0 00-1.414-1.414zM16 11.586V13a1 1 0 001 1h1a1 1 0 001-1v-1.586l1.293-1.293a1 1 0 00-1.414-1.414L16 11.586z" clip-rule="evenodd" />
+                            </svg>
+                            <span>History</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="mt-auto pt-4 border-t border-gray-700/50">
+                    <a href="logout.php" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-red-500/20 text-red-400 font-semibold">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 10a1 1 0 112 0v4a1 1 0 11-2 0v-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+
         <!-- Top Nav Bar -->
         <header class="p-4 flex items-center justify-between bg-[#121417] border-b border-gray-700/50">
             <div class="flex items-center space-x-2">
@@ -402,6 +460,20 @@ include('function.php');
             // Initially show the Spot Account content
             showTab('spot-tab');
         });
+
+        // --- Hamburger Menu Script ---
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        function toggleMenu() {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        }
+
+        // Event listeners for the menu button and overlay
+        menuBtn.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
     </script>
 </body>
 </html>
