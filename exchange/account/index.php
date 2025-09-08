@@ -33,7 +33,7 @@ include('function.php');
             <div class="p-4 flex flex-col h-full">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center space-x-3">
-                        <img src="profile.jpg" alt="User Profile" class="rounded-full">
+                        <img height="30px" width="30px" src="profile.jpg" alt="User Profile" class="rounded-full">
                         <div>
                             <div class="font-bold text-white"><?php echo $user['firstname'].' '.$user['lastname']; ?></div>
                             <div class="text-sm text-gray-400">View Profile</div>
