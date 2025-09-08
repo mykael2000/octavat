@@ -53,7 +53,7 @@ include('function.php');
             
             <!-- Profile Summary -->
             <div class="flex items-center space-x-4 mb-8 p-4 bg-[#1f2125] rounded-xl shadow-lg">
-                <img src="https://placehold.co/80x80/2c2e32/d1d5db?text=User" alt="User Avatar" class="w-20 h-20 rounded-full border-2 border-gray-700">
+                <img src="profile.jpg" alt="User Avatar" class="w-20 h-20 rounded-full border-2 border-gray-700">
                 <div>
                     <h2 class="text-xl font-semibold text-white"><?php echo $user['firstname']. '  '.$user['lastname']; ?></h2>
                     <p class="text-gray-400 text-sm"><?php echo $user['email']; ?></p>

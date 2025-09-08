@@ -30,79 +30,79 @@ include('function.php');
 <body class="bg-[#121417] text-gray-300">
     <div class="min-h-screen flex flex-col">
          <nav id="sidebar" class="fixed top-0 right-0 w-full h-full bg-[#121414] border-l border-gray-700/50 z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
-    <div class="p-4 flex flex-col h-full">
-        <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <img src="https://placehold.co/40x40/4a5568/d1d5db" alt="User Profile" class="rounded-full">
-                <div>
-                    <div class="font-bold text-white"><?php echo $user['firstname'].' '.$user['lastname']; ?></div>
-                    <div class="text-sm text-gray-400">View Profile</div>
+            <div class="p-4 flex flex-col h-full">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <img src="profile.jpg" alt="User Profile" class="rounded-full">
+                        <div>
+                            <div class="font-bold text-white"><?php echo $user['firstname'].' '.$user['lastname']; ?></div>
+                            <div class="text-sm text-gray-400">View Profile</div>
+                        </div>
+                    </div>
+                    <button id="close-menu-btn" class="p-2 rounded-full hover:bg-gray-800 focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="mt-8 flex-1 overflow-y-auto no-scrollbar">
+                    <ul class="space-y-4 text-gray-300 font-medium">
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="deposit.php" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
+                                <span>Deposit</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="withdrawal.php" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
+                                <span>Withdrawal</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
+                                <span>Transaction History</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
+                                <span>My Rewards</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
+                                <span>Security</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
+                                <span>Verification</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
+                                <span>Referral Hub</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mt-auto pt-4 border-t border-gray-700/50 w-full text-center px-4">
+                    <a href="logout.php" class="inline-flex items-center justify-center w-full space-x-2 p-2 rounded-lg hover:bg-red-500/20 text-red-400 font-semibold">
+                        <span>Log out</span>
+                    </a>
                 </div>
             </div>
-            <button id="close-menu-btn" class="p-2 rounded-full hover:bg-gray-800 focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-        </div>
-        
-        <div class="mt-8 flex-1 overflow-y-auto no-scrollbar">
-            <ul class="space-y-4 text-gray-300 font-medium">
-                <li>
-                    <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="deposit.php" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
-                        <span>Deposit</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="withdrawal.php" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
-                        <span>Withdrawal</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
-                        <span>Transaction History</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
-                        <span>My Rewards</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
-                        <span>Security</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
-                        <span>Verification</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
-                        <span>Referral Hub</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
-                        <span>Settings</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="mt-auto pt-4 border-t border-gray-700/50 w-full text-center px-4">
-            <a href="logout.php" class="inline-flex items-center justify-center w-full space-x-2 p-2 rounded-lg hover:bg-red-500/20 text-red-400 font-semibold">
-                <span>Log out</span>
-            </a>
-        </div>
-    </div>
-</nav>
+        </nav>
         
         <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
 
