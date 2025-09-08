@@ -29,8 +29,16 @@ include('function.php');
 </head>
 <body class="bg-[#121417] text-gray-300">
     <div class="min-h-screen flex flex-col">
-        <nav id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-[#121414] border-r border-gray-700/50 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+         <nav id="sidebar" class="fixed top-0 right-0 w-full h-full bg-[#121414] border-l border-gray-700/50 z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
             <div class="p-4 flex flex-col h-full">
+                 <div class="flex justify-end mb-8">
+                    <button id="close-menu-btn" class="p-2 rounded-full hover:bg-gray-800 focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
                 <div class="flex items-center space-x-3 mb-8">
                     <img src="https://placehold.co/40x40/4a5568/d1d5db" alt="User Profile" class="rounded-full">
                     <div>
@@ -87,7 +95,6 @@ include('function.php');
         
         <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
 
-        <!-- Top Nav Bar -->
         <header class="p-4 flex items-center justify-between bg-[#121417] border-b border-gray-700/50">
             <div class="flex items-center space-x-2">
                 <a href="profile.php" class="p-2 rounded-full hover:bg-gray-800 focus:outline-none">
