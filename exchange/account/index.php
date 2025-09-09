@@ -30,9 +30,7 @@ include('function.php');
 <body class="bg-[#121417] text-gray-300">
     <div class="min-h-screen flex flex-col">
         <?php include('topnav.php'); ?>
-        <!-- Main Content -->
         <main class="flex-1 p-4 overflow-y-auto no-scrollbar">
-            <!-- Nav tabs -->
             <div class="flex items-center space-x-4 mb-4 text-sm font-medium border-b border-gray-700/50 pb-2 overflow-x-auto no-scrollbar">
                 
                 <button id="spot-tab" class="text-white px-2 py-1 rounded-full border-b-2 border-green-500 font-semibold transition-colors duration-200">Assets Overview</button>
@@ -43,11 +41,9 @@ include('function.php');
                 
             </div>
             
-           
+            
 
-            <!-- Spot Account Content -->
             <div id="spot-content">
-                <!-- Account Summary -->
                 <div class="mb-6">
                     <h1 class="text-xl font-bold mb-1 text-white">Total Balance</h1>
                     <div class="flex items-center text-gray-400 text-sm mb-2">
@@ -77,7 +73,6 @@ include('function.php');
                     </div>
                 </div>
 
-                <!-- Action Buttons -->
                 <div class="flex justify-around mb-6 text-center">
                     <button class="flex flex-col items-center p-3 rounded-lg hover:bg-[#1f2125]">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -99,7 +94,6 @@ include('function.php');
                     </button>
                 </div>
 
-                <!-- Search Bar -->
                 <div class="mb-6 relative">
                     <input type="text" placeholder="Search" class="w-full bg-[#1f2125] text-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-1 focus:ring-green-500 pr-10">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 absolute right-3 top-1/2 transform -translate-y-1/2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -107,7 +101,6 @@ include('function.php');
                     </svg>
                 </div>
 
-                <!-- Asset List Header -->
                 <div class="flex items-center justify-between mb-4 text-sm text-gray-400 border-b border-gray-700/50 pb-2">
                     <div class="flex items-center space-x-2">
                         <input type="checkbox" id="hideZero" class="form-checkbox h-4 w-4 text-green-500 bg-gray-800 rounded focus:ring-green-500">
@@ -117,9 +110,7 @@ include('function.php');
                     <div class="text-right">Total</div>
                 </div>
 
-                <!-- Asset List (Repeating Block) -->
                 <div class="space-y-4">
-                    <!-- BTC -->
                     <div class="flex items-center justify-between py-2 border-b border-gray-700/50">
                         <div class="flex items-center">
                             <img src="https://placehold.co/32x32/ff9900/ffffff?text=BTC" alt="Bitcoin logo" class="w-8 h-8 rounded-full mr-3">
@@ -134,7 +125,6 @@ include('function.php');
                         </div>
                     </div>
 
-                    <!-- USDT -->
                     <div class="flex items-center justify-between py-2 border-b border-gray-700/50">
                         <div class="flex items-center">
                             <img src="https://placehold.co/32x32/26a17b/ffffff?text=USDT" alt="Tether logo" class="w-8 h-8 rounded-full mr-3">
@@ -149,7 +139,6 @@ include('function.php');
                         </div>
                     </div>
 
-                    <!-- ETH -->
                     <div class="flex items-center justify-between py-2 border-b border-gray-700/50">
                         <div class="flex items-center">
                             <img src="https://placehold.co/32x32/3c3c3d/ffffff?text=ETH" alt="Ethereum logo" class="w-8 h-8 rounded-full mr-3">
@@ -166,7 +155,6 @@ include('function.php');
                 </div>
             </div>
 
-            <!-- Futures Account Content (Initially hidden) -->
             <div id="futures-content" class="hidden">
                 <div class="mb-6">
                     <h1 class="text-xl font-bold mb-1 text-white">Trading Account</h1>
@@ -213,18 +201,76 @@ include('function.php');
                         <span class="text-sm">Transfer</span>
                     </button>
                 </div>
+                
+                <div class="mt-8">
+                    <h2 class="text-xl font-bold mb-4 text-white">Investment Plans</h2>
+                    <div class="space-y-4">
+                        <div class="bg-[#1f2125] rounded-lg p-6 shadow-md border border-gray-700/50">
+                            <h3 class="text-lg font-bold text-white mb-2">Basic Plan</h3>
+                            <p class="text-sm text-gray-400 mb-4">A great starting point for new investors.</p>
+                            <div class="grid grid-cols-2 gap-4 text-sm mb-4">
+                                <div class="text-gray-400">Min. Deposit: <span class="text-white font-semibold">$50</span></div>
+                                <div class="text-gray-400">Profit Rate: <span class="text-green-500 font-semibold">1% daily</span></div>
+                                <div class="text-gray-400">Duration: <span class="text-white font-semibold">7 days</span></div>
+                                <div class="text-gray-400">Withdrawal: <span class="text-white font-semibold">After plan ends</span></div>
+                            </div>
+                            <button class="w-full bg-green-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-700 transition-colors">
+                                Invest Now
+                            </button>
+                        </div>
+
+                        <div class="bg-[#1f2125] rounded-lg p-6 shadow-md border border-gray-700/50">
+                            <h3 class="text-lg font-bold text-white mb-2">Standard Plan</h3>
+                            <p class="text-sm text-gray-400 mb-4">Balanced risk and reward for steady growth.</p>
+                            <div class="grid grid-cols-2 gap-4 text-sm mb-4">
+                                <div class="text-gray-400">Min. Deposit: <span class="text-white font-semibold">$500</span></div>
+                                <div class="text-gray-400">Profit Rate: <span class="text-green-500 font-semibold">1.5% daily</span></div>
+                                <div class="text-gray-400">Duration: <span class="text-white font-semibold">14 days</span></div>
+                                <div class="text-gray-400">Withdrawal: <span class="text-white font-semibold">After plan ends</span></div>
+                            </div>
+                            <button class="w-full bg-green-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-700 transition-colors">
+                                Invest Now
+                            </button>
+                        </div>
+                        
+                        <div class="bg-[#1f2125] rounded-lg p-6 shadow-md border border-gray-700/50">
+                            <h3 class="text-lg font-bold text-white mb-2">Premium Plan</h3>
+                            <p class="text-sm text-gray-400 mb-4">Optimized for experienced investors.</p>
+                            <div class="grid grid-cols-2 gap-4 text-sm mb-4">
+                                <div class="text-gray-400">Min. Deposit: <span class="text-white font-semibold">$2,000</span></div>
+                                <div class="text-gray-400">Profit Rate: <span class="text-green-500 font-semibold">2.5% daily</span></div>
+                                <div class="text-gray-400">Duration: <span class="text-white font-semibold">30 days</span></div>
+                                <div class="text-gray-400">Withdrawal: <span class="text-white font-semibold">After plan ends</span></div>
+                            </div>
+                            <button class="w-full bg-green-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-700 transition-colors">
+                                Invest Now
+                            </button>
+                        </div>
+                        
+                        <div class="bg-[#1f2125] rounded-lg p-6 shadow-md border border-gray-700/50">
+                            <h3 class="text-lg font-bold text-white mb-2">VIP Plan</h3>
+                            <p class="text-sm text-gray-400 mb-4">Exclusive access for high-volume traders.</p>
+                            <div class="grid grid-cols-2 gap-4 text-sm mb-4">
+                                <div class="text-gray-400">Min. Deposit: <span class="text-white font-semibold">$10,000</span></div>
+                                <div class="text-gray-400">Profit Rate: <span class="text-green-500 font-semibold">4% daily</span></div>
+                                <div class="text-gray-400">Duration: <span class="text-white font-semibold">90 days</span></div>
+                                <div class="text-gray-400">Withdrawal: <span class="text-white font-semibold">After plan ends</span></div>
+                            </div>
+                            <button class="w-full bg-green-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-700 transition-colors">
+                                Invest Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Deposit Content (New Section) -->
             <div id="deposit-content" class="hidden">
                 <div class="mb-6">
                     <h1 class="text-xl font-bold mb-1 text-white">Deposit</h1>
                     <p class="text-sm text-gray-400">Select the coin and network to get your deposit address.</p>
                 </div>
 
-                <!-- Deposit Form -->
                 <div class="bg-[#1f2125] rounded-lg p-6 space-y-4">
-                    <!-- Coin Selection -->
                     <div>
                         <label for="coin-select" class="block text-sm font-medium text-gray-400 mb-2">Select Coin</label>
                         <select id="coin-select" class="w-full bg-[#2c2e32] text-white rounded-lg p-3 border-none focus:ring-1 focus:ring-green-500 focus:outline-none">
@@ -234,7 +280,6 @@ include('function.php');
                         </select>
                     </div>
 
-                    <!-- Network Selection -->
                     <div>
                         <label for="network-select" class="block text-sm font-medium text-gray-400 mb-2">Select Network</label>
                         <select id="network-select" class="w-full bg-[#2c2e32] text-white rounded-lg p-3 border-none focus:ring-1 focus:ring-green-500 focus:outline-none">
@@ -244,7 +289,6 @@ include('function.php');
                         </select>
                     </div>
 
-                    <!-- Deposit Address -->
                     <div class="text-center">
                         <p class="text-gray-400 text-sm mb-2">Scan QR code to deposit</p>
                         <img src="https://placehold.co/150x150/121417/d1d5db?text=QR+Code" alt="QR Code" class="mx-auto rounded-lg mb-4 border border-gray-700/50">
@@ -262,13 +306,11 @@ include('function.php');
                         </div>
                     </div>
 
-                    <!-- Warning -->
                     <div class="bg-yellow-900/30 text-yellow-300 rounded-lg p-4 text-sm mt-4">
                         <p class="font-bold mb-1">Warning:</p>
                         <p>Only send USDT on the selected network to this address. Sending other coins or using a different network may result in permanent loss of funds.</p>
                     </div>
                 </div>
-                <!-- Deposit History Section -->
                 <div class="mt-8">
                     <h2 class="text-xl font-bold mb-4 text-white">Deposit History</h2>
                     <div class="bg-[#1f2125] rounded-lg p-4">
@@ -295,16 +337,16 @@ include('function.php');
             </div>
         </main>
         
-       <?php include('navbar.php'); ?>
+        <?php include('navbar.php'); ?>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const tabs = document.querySelectorAll('.flex.items-center.space-x-4 button');
-           
+            
             const spotContent = document.getElementById('spot-content');
             const futuresContent = document.getElementById('futures-content');
-           
+            
             const depositContent = document.getElementById('deposit-content');
             const hideZeroCheckbox = document.getElementById('hideZero');
             const copyButton = document.getElementById('copy-button');
