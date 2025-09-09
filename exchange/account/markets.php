@@ -268,6 +268,6 @@ include('function.php');
        <?php include('navbar.php'); ?>
     </div>
 
-     <script src="topNavFooter.js"></script>
+     <script src="js/topNavFooter.js"></script>
 </body>
 </html>

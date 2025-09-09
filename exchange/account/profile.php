@@ -232,6 +232,6 @@ include('function.php');
             arrow.classList.toggle('rotate-180');
         }
     </script>
-     <script src="topNavFooter.js"></script>
+     <script src="js/topNavFooter.js"></script>
 </body>
 </html>
