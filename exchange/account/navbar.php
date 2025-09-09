@@ -25,7 +25,9 @@
                 <span>Assets</span>
             </a>
             <a href="profile.php" class="flex flex-col items-center text-xs text-gray-400 p-2 rounded-lg hover:bg-gray-800">
-                <img class="rounded-full" src="profile.jpg" height="30px" width="30px">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7A4 4 0 1112 3a4 4 0 014 4zM12 14c-4.418 0-8 3.582-8 8H20c0-4.418-3.582-8-8-8z" />
+                </svg>
                 <span>Profile</span>
             </a>
         </nav>
