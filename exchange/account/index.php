@@ -445,6 +445,6 @@ include('function.php');
             showTab('spot-tab');
         });
     </script>
-   <script src="topNavFooter.js"></script>
+   <script src="js/topNavFooter.js"></script>
 </body>
 </html>
