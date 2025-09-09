@@ -83,7 +83,7 @@
 <header class="p-4 flex items-center justify-between bg-[#121417] border-b border-gray-700/50">
     <div class="flex items-center space-x-2">
         <a href="profile.php" class="p-2 rounded-full hover:bg-gray-800 focus:outline-none">
-            <img src="profile.jpg" height="30px" width="30px">
+            <img src="profile.jpg" height="30px" width="30px" class="rounded-full">
         </a>
     </div>
     <div class="flex items-center space-x-2">

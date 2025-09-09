@@ -25,7 +25,7 @@
                 <span>Assets</span>
             </a>
             <a href="profile.php" class="flex flex-col items-center text-xs text-gray-400 p-2 rounded-lg hover:bg-gray-800">
-                <img src="profile.jpg" height="30px" width="30px">
+                <img class="rounded-full" src="profile.jpg" height="30px" width="30px">
                 <span>Profile</span>
             </a>
         </nav>
