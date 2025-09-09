@@ -220,10 +220,11 @@ include('function.php');
                             <h3 class="text-lg font-bold text-white mb-2">Basic Plan</h3>
                             <p class="text-sm text-gray-400 mb-4">A great starting point for new investors.</p>
                             <div class="grid grid-cols-2 gap-4 text-sm mb-4">
-                                <div class="text-gray-400">Min. Deposit: <span class="text-white font-semibold">$50</span></div>
-                                <div class="text-gray-400">Profit Rate: <span class="text-green-500 font-semibold">1% daily</span></div>
-                                <div class="text-gray-400">Duration: <span class="text-white font-semibold">7 days</span></div>
-                                <div class="text-gray-400">Withdrawal: <span class="text-white font-semibold">After plan ends</span></div>
+                                <div class="text-gray-400">Min. Deposit: <span class="text-white font-semibold">$699</span></div>
+                                <div class="text-gray-400">Max. Deposit: <span class="text-white font-semibold">$9,999</span></div>
+                                <div class="text-gray-400">Profit Rate: <span class="text-green-500 font-semibold">19%</span></div>
+                                <!-- <div class="text-gray-400">Duration: <span class="text-white font-semibold">7 days</span></div> -->
+                                <div class="text-gray-400">Withdrawal: <span class="text-white font-semibold">Daily</span></div>
                             </div>
                             <button class="w-full bg-green-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-700 transition-colors">
                                 Invest Now
@@ -234,10 +235,11 @@ include('function.php');
                             <h3 class="text-lg font-bold text-white mb-2">Standard Plan</h3>
                             <p class="text-sm text-gray-400 mb-4">Balanced risk and reward for steady growth.</p>
                             <div class="grid grid-cols-2 gap-4 text-sm mb-4">
-                                <div class="text-gray-400">Min. Deposit: <span class="text-white font-semibold">$500</span></div>
-                                <div class="text-gray-400">Profit Rate: <span class="text-green-500 font-semibold">1.5% daily</span></div>
-                                <div class="text-gray-400">Duration: <span class="text-white font-semibold">14 days</span></div>
-                                <div class="text-gray-400">Withdrawal: <span class="text-white font-semibold">After plan ends</span></div>
+                                <div class="text-gray-400">Min. Deposit: <span class="text-white font-semibold">$10,000</span></div>
+                                <div class="text-gray-400">Max. Deposit: <span class="text-white font-semibold">$79,999</span></div>
+                                <div class="text-gray-400">Profit Rate: <span class="text-green-500 font-semibold">23% </span></div>
+                                <!-- <div class="text-gray-400">Duration: <span class="text-white font-semibold">14 days</span></div> -->
+                                <div class="text-gray-400">Withdrawal: <span class="text-white font-semibold">Daily</span></div>
                             </div>
                             <button class="w-full bg-green-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-700 transition-colors">
                                 Invest Now
@@ -245,13 +247,14 @@ include('function.php');
                         </div>
                         
                         <div class="bg-[#1f2125] rounded-lg p-6 shadow-md border border-gray-700/50">
-                            <h3 class="text-lg font-bold text-white mb-2">Premium Plan</h3>
+                            <h3 class="text-lg font-bold text-white mb-2">Advanced Plan</h3>
                             <p class="text-sm text-gray-400 mb-4">Optimized for experienced investors.</p>
                             <div class="grid grid-cols-2 gap-4 text-sm mb-4">
-                                <div class="text-gray-400">Min. Deposit: <span class="text-white font-semibold">$2,000</span></div>
-                                <div class="text-gray-400">Profit Rate: <span class="text-green-500 font-semibold">2.5% daily</span></div>
-                                <div class="text-gray-400">Duration: <span class="text-white font-semibold">30 days</span></div>
-                                <div class="text-gray-400">Withdrawal: <span class="text-white font-semibold">After plan ends</span></div>
+                                <div class="text-gray-400">Min. Deposit: <span class="text-white font-semibold">$80,000</span></div>
+                                <div class="text-gray-400">Max. Deposit: <span class="text-white font-semibold">$299,999</span></div>
+                                <div class="text-gray-400">Profit Rate: <span class="text-green-500 font-semibold">32%</span></div>
+                                <!-- <div class="text-gray-400">Duration: <span class="text-white font-semibold">30 days</span></div> -->
+                                <div class="text-gray-400">Withdrawal: <span class="text-white font-semibold">Daily</span></div>
                             </div>
                             <button class="w-full bg-green-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-700 transition-colors">
                                 Invest Now
@@ -259,13 +262,14 @@ include('function.php');
                         </div>
                         
                         <div class="bg-[#1f2125] rounded-lg p-6 shadow-md border border-gray-700/50">
-                            <h3 class="text-lg font-bold text-white mb-2">VIP Plan</h3>
+                            <h3 class="text-lg font-bold text-white mb-2">Elite Plan</h3>
                             <p class="text-sm text-gray-400 mb-4">Exclusive access for high-volume traders.</p>
                             <div class="grid grid-cols-2 gap-4 text-sm mb-4">
-                                <div class="text-gray-400">Min. Deposit: <span class="text-white font-semibold">$10,000</span></div>
-                                <div class="text-gray-400">Profit Rate: <span class="text-green-500 font-semibold">4% daily</span></div>
-                                <div class="text-gray-400">Duration: <span class="text-white font-semibold">90 days</span></div>
-                                <div class="text-gray-400">Withdrawal: <span class="text-white font-semibold">After plan ends</span></div>
+                                <div class="text-gray-400">Min. Deposit: <span class="text-white font-semibold">$300,000</span></div>
+                                <div class="text-gray-400">Max. Deposit: <span class="text-white font-semibold">$6,000,000</span></div>
+                                <div class="text-gray-400">Profit Rate: <span class="text-green-500 font-semibold">42%</span></div>
+                                <!-- <div class="text-gray-400">Duration: <span class="text-white font-semibold">90 days</span></div> -->
+                                <div class="text-gray-400">Withdrawal: <span class="text-white font-semibold">Daily</span></div>
                             </div>
                             <button class="w-full bg-green-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-700 transition-colors">
                                 Invest Now
