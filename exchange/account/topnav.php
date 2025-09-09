@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="octavat.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
+                    <a href="../../octavat.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
                         <span>New Listing</span>
                     </a>
                 </li>
