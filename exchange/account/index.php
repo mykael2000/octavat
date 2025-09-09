@@ -224,7 +224,7 @@ include('function.php');
                                 <div class="text-gray-400">Max. Deposit: <span class="text-white font-semibold">$9,999</span></div>
                                 <div class="text-gray-400">Profit Rate: <span class="text-green-500 font-semibold">19%</span></div>
                                 <!-- <div class="text-gray-400">Duration: <span class="text-white font-semibold">7 days</span></div> -->
-                                <div class="text-gray-400">Withdrawal: <span class="text-white font-semibold">Daily</span></div>
+                                <!-- <div class="text-gray-400">Withdrawal: <span class="text-white font-semibold">Daily</span></div> -->
                             </div>
                             <button class="w-full bg-green-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-700 transition-colors">
                                 Invest Now
@@ -239,7 +239,7 @@ include('function.php');
                                 <div class="text-gray-400">Max. Deposit: <span class="text-white font-semibold">$79,999</span></div>
                                 <div class="text-gray-400">Profit Rate: <span class="text-green-500 font-semibold">23% </span></div>
                                 <!-- <div class="text-gray-400">Duration: <span class="text-white font-semibold">14 days</span></div> -->
-                                <div class="text-gray-400">Withdrawal: <span class="text-white font-semibold">Daily</span></div>
+                                <!-- <div class="text-gray-400">Withdrawal: <span class="text-white font-semibold">Daily</span></div> -->
                             </div>
                             <button class="w-full bg-green-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-700 transition-colors">
                                 Invest Now
@@ -254,7 +254,7 @@ include('function.php');
                                 <div class="text-gray-400">Max. Deposit: <span class="text-white font-semibold">$299,999</span></div>
                                 <div class="text-gray-400">Profit Rate: <span class="text-green-500 font-semibold">32%</span></div>
                                 <!-- <div class="text-gray-400">Duration: <span class="text-white font-semibold">30 days</span></div> -->
-                                <div class="text-gray-400">Withdrawal: <span class="text-white font-semibold">Daily</span></div>
+                                <!-- <div class="text-gray-400">Withdrawal: <span class="text-white font-semibold">Daily</span></div> -->
                             </div>
                             <button class="w-full bg-green-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-700 transition-colors">
                                 Invest Now
@@ -269,7 +269,7 @@ include('function.php');
                                 <div class="text-gray-400">Max. Deposit: <span class="text-white font-semibold">$6,000,000</span></div>
                                 <div class="text-gray-400">Profit Rate: <span class="text-green-500 font-semibold">42%</span></div>
                                 <!-- <div class="text-gray-400">Duration: <span class="text-white font-semibold">90 days</span></div> -->
-                                <div class="text-gray-400">Withdrawal: <span class="text-white font-semibold">Daily</span></div>
+                                <!-- <div class="text-gray-400">Withdrawal: <span class="text-white font-semibold">Daily</span></div> -->
                             </div>
                             <button class="w-full bg-green-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-700 transition-colors">
                                 Invest Now
