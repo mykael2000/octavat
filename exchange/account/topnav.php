@@ -33,6 +33,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="plans.php" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
+                        <span>Investment Plans</span>
+                    </a>
+                </li>
+                <li>
                     <a href="history.php" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#1f2125]">
                         <span>Transaction History</span>
                     </a>
