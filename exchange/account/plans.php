@@ -30,13 +30,6 @@ include('function.php');
     <div class="min-h-screen flex flex-col">
         <?php include('topnav.php'); ?>
         <main class="flex-1 p-4 overflow-y-auto no-scrollbar">
-            <div class="flex items-center space-x-4 mb-4 text-sm font-medium border-b border-gray-700/50 pb-2 overflow-x-auto no-scrollbar">
-                <a href="index.php" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Assets Overview</a>
-                <a href="trading_account.php" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Trading Account</a>
-                <button class="text-white px-2 py-1 rounded-full border-b-2 border-green-500 font-semibold transition-colors duration-200">Investment Plans</button>
-                <a href="deposit.php" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Deposit</a>
-                <a href="withdrawal.php" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Withdrawal</a>
-            </div>
             
             <div id="plans-content">
                 <div class="mb-6">
