@@ -42,13 +42,10 @@
                 </a>
                 <ul class="hidden md:flex space-x-6 text-sm font-medium text-gray-400">
                     <li><a href="register.php" class="hover:text-green-accent transition-colors">Buy Crypto <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full ml-1">NEW</span></a></li>
-                    <li><a href="register.php" class="hover:text-green-accent transition-colors">Markets</a></li>
-                    <li><a href="register.php" class="hover:text-green-accent transition-colors">Futures</a></li>
-                    <li><a href="register.php" class="hover:text-green-accent transition-colors">Spot</a></li>
-                    <li><a href="register.php" class="hover:text-green-accent transition-colors">Earn</a></li>
-                    <li><a href="register.php" class="hover:text-green-accent transition-colors">Promotions</a></li>
-                    <li><a href="register.php" class="hover:text-green-accent transition-colors">Partner</a></li>
-                    <li><a href="register.php" class="hover:text-green-accent transition-colors">More</a></li>
+                    <li><a href="plans.php" class="hover:text-green-accent transition-colors">Trading Plans</a></li>
+                    <li><a href="faq.php" class="hover:text-green-accent transition-colors">FAQ</a></li>
+                    <li><a href="about.php" class="hover:text-green-accent transition-colors">About Us</a></li>
+                    <li><a href="contact.php" class="hover:text-green-accent transition-colors">Contact Us</a></li>
                 </ul>
             </div>
             
@@ -97,10 +94,11 @@
         </div>
         <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center md:justify-end">
             <!-- Placeholder for Mobile App Screenshot -->
-             <video class="rounded-lg shadow-lg" width="340" height="260" autoplay muted loop>
+             <!-- <video class="rounded-lg shadow-lg" width="340" height="260" autoplay muted loop>
                 <source src="homeindex-video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
-            </video>
+            </video> -->
+            <img src="banner.png" alt="">
         </div>
     </main>
 
