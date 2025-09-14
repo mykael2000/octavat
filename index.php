@@ -41,11 +41,11 @@
                     <span>Octavat</span>
                 </a>
                 <ul class="hidden md:flex space-x-6 text-sm font-medium text-gray-400">
-                    <li><a href="register.php" class="hover:text-green-accent transition-colors">Buy Crypto <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full ml-1">NEW</span></a></li>
-                    <li><a href="plans.php" class="hover:text-green-accent transition-colors">Trading Plans</a></li>
-                    <li><a href="faq.php" class="hover:text-green-accent transition-colors">FAQ</a></li>
-                    <li><a href="about.php" class="hover:text-green-accent transition-colors">About Us</a></li>
-                    <li><a href="contact.php" class="hover:text-green-accent transition-colors">Contact Us</a></li>
+                    <li><a href="#trade-now" class="hover:text-green-accent transition-colors">Buy Crypto <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full ml-1">NEW</span></a></li>
+                    <li><a href="#trending-section" class="hover:text-green-accent transition-colors">Trading Plans</a></li>
+                    <li><a href="#faq" class="hover:text-green-accent transition-colors">FAQ</a></li>
+                    <li><a href="#about-us" class="hover:text-green-accent transition-colors">About Us</a></li>
+                    <li><a href="#contact-us" class="hover:text-green-accent transition-colors">Contact Us</a></li>
                 </ul>
             </div>
             
@@ -77,10 +77,21 @@
                 </button>
             </div>
         </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 py-4 bg-[#1c1c1c] transition-all duration-300 ease-in-out">
+            <ul class="flex flex-col space-y-4 text-lg font-medium text-gray-400">
+                <li><a href="#trade-now" class="block hover:text-green-accent transition-colors">Buy Crypto</a></li>
+                <li><a href="#trending-section" class="block hover:text-green-accent transition-colors">Trading Plans</a></li>
+                <li><a href="#faq" class="block hover:text-green-accent transition-colors">FAQ</a></li>
+                <li><a href="#about-us" class="block hover:text-green-accent transition-colors">About Us</a></li>
+                <li><a href="#contact-us" class="block hover:text-green-accent transition-colors">Contact Us</a></li>
+            </ul>
+        </div>
     </header>
 
     <!-- Hero Section -->
-    <main class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center justify-between">
+    <main id="trade-now" class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center justify-between">
         <div class="md:w-1/2 text-left space-y-4">
             <h3 class="text-2xl text-green-accent font-semibold">Better Liquidity, Better Trading</h3>
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
@@ -88,22 +99,18 @@
             </h1>
             <br>
             <br>
-            <a href="register.php" class="mt-8 px-6 py-3 rounded-md text-lg font-semibold border border-green-accent text-green-accent hover:bg-green-accent hover:text-black transition-colors transform hover:scale-105">
+            <a href="#trade-now" class="mt-8 px-6 py-3 rounded-md text-lg font-semibold border border-green-accent text-green-accent hover:bg-green-accent hover:text-black transition-colors transform hover:scale-105">
                 Trade Now
-    </a>
+            </a>
         </div>
         <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center md:justify-end">
             <!-- Placeholder for Mobile App Screenshot -->
-             <!-- <video class="rounded-lg shadow-lg" width="340" height="260" autoplay muted loop>
-                <source src="homeindex-video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video> -->
-            <img src="banner.png" alt="">
+            <img src="https://placehold.co/600x400/111111/60e336?text=Screenshot" alt="" class="rounded-lg shadow-lg">
         </div>
     </main>
 
     <!-- Trending Section -->
-    <section class="container mx-auto px-4 py-16">
+    <section id="trending-section" class="container mx-auto px-4 py-16">
         <div class="flex items-center justify-between mb-8">
             <h2 class="text-3xl font-bold">Trending Cryptocurrencies</h2>
             <a href="#" class="text-sm text-green-accent hover:underline">View More</a>
@@ -175,7 +182,7 @@
     </section>
     
     <!-- Token Grid Section -->
-    <section class="container mx-auto px-4 py-16">
+    <section id="build-portfolio" class="container mx-auto px-4 py-16">
         <h2 class="text-3xl font-bold text-center mb-12">Build Your Cryptocurrency Portfolio</h2>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             <!-- Example Tokens -->
@@ -206,6 +213,23 @@
             </div>
         </div>
     </section>
+
+    <!-- Placeholder Sections for Navigation -->
+    <section id="faq" class="container mx-auto px-4 py-16 hidden">
+        <h2 class="text-3xl font-bold">FAQ Section</h2>
+        <p class="mt-4 text-gray-400">Content for the FAQ section will go here.</p>
+    </section>
+
+    <section id="about-us" class="container mx-auto px-4 py-16 hidden">
+        <h2 class="text-3xl font-bold">About Us</h2>
+        <p class="mt-4 text-gray-400">Content for the About Us section will go here.</p>
+    </section>
+
+    <section id="contact-us" class="container mx-auto px-4 py-16 hidden">
+        <h2 class="text-3xl font-bold">Contact Us</h2>
+        <p class="mt-4 text-gray-400">Content for the Contact Us section will go here.</p>
+    </section>
+
 
     <!-- Footer -->
     <footer class="bg-black text-gray-400 py-12 border-t border-gray-800">
@@ -277,5 +301,31 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            // Toggle the mobile menu on button click
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Smooth scroll for internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Hide the mobile menu after clicking a link
+                    if (!mobileMenu.classList.contains('hidden')) {
+                         mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
