@@ -105,7 +105,7 @@
         </div>
         <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center md:justify-end">
             <!-- Placeholder for Mobile App Screenshot -->
-            <img src="https://placehold.co/600x400/111111/60e336?text=Screenshot" alt="" class="rounded-lg shadow-lg">
+            <img src="banner.png" alt="" class="rounded-lg shadow-lg">
         </div>
     </main>
 
