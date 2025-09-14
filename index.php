@@ -81,7 +81,7 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-4 py-4 bg-[#1c1c1c] transition-all duration-300 ease-in-out">
             <ul class="flex flex-col space-y-4 text-lg font-medium text-gray-400">
-                <li><a href="#trade-now" class="block hover:text-green-accent transition-colors">Buy Crypto</a></li>
+                <li><a href="#trade-now" class="block hover:text-green-accent transition-colors">Buy Crypto<span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full ml-1">NEW</span></a></li>
                 <li><a href="#trending-section" class="block hover:text-green-accent transition-colors">Trading Plans</a></li>
                 <li><a href="#faq" class="block hover:text-green-accent transition-colors">FAQ</a></li>
                 <li><a href="#about-us" class="block hover:text-green-accent transition-colors">About Us</a></li>
@@ -116,68 +116,29 @@
             <a href="#" class="text-sm text-green-accent hover:underline">View More</a>
         </div>
         <div class="flex items-center space-x-4 mb-8 border-b border-gray-800">
-            <button class="pb-2 text-white border-b-2 border-green-accent">Popular Futures</button>
-            <button class="pb-2 text-gray-400 hover:text-white transition-colors">Popular Spot</button>
-            <button class="pb-2 text-gray-400 hover:text-white transition-colors">Gainers</button>
+            <button class="pb-2 text-white border-b-2 border-green-accent">Popular</button>
+            <!-- <button class="pb-2 text-gray-400 hover:text-white transition-colors">Popular Spot</button>
+            <button class="pb-2 text-gray-400 hover:text-white transition-colors">Gainers</button> -->
         </div>
         <div class="overflow-x-auto rounded-lg shadow-xl border border-gray-800 bg-[#161616]">
-            <table class="w-full text-left text-sm whitespace-nowrap">
-                <thead class="uppercase tracking-wider text-gray-400">
-                    <tr class="bg-[#1c1c1c]">
-                        <th class="px-6 py-3 rounded-tl-lg">Trading Pairs</th>
-                        <th class="px-6 py-3">Last Traded Price</th>
-                        <th class="px-6 py-3">24H Change</th>
-                        <th class="px-6 py-3">24H High</th>
-                        <th class="px-6 py-3">24H Trading Volume</th>
-                        <th class="px-6 py-3">Chart</th>
-                        <th class="px-6 py-3 rounded-tr-lg"></th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-800">
-                    <!-- ETH/USDT -->
-                    <tr class="hover:bg-gray-900 transition-colors cursor-pointer">
-                        <td class="px-6 py-4 flex items-center">
-                            <img src="https://placehold.co/24x24/111827/ffffff?text=E" alt="ETH" class="rounded-full mr-3">
-                            <div>
-                                <div class="font-medium text-white">ETHUSDT</div>
-                                <div class="text-gray-400 text-xs">₮4,292.44</div>
-                            </div>
-                        </td>
-                        <td class="px-6 py-4">₮4,292.44</td>
-                        <td class="px-6 py-4 text-red-500">-3.54%</td>
-                        <td class="px-6 py-4">4,480.99</td>
-                        <td class="px-6 py-4">2.20B</td>
-                        <td class="px-6 py-4">
-                            <!-- Placeholder Chart -->
-                            <div class="w-24 h-8 bg-red-800 rounded-md"></div>
-                        </td>
-                        <td class="px-6 py-4">
-                            <button class="bg-green-accent text-black px-4 py-2 rounded-full font-semibold text-sm hover:bg-green-600 transition-colors">Trade</button>
-                        </td>
-                    </tr>
-                    <!-- BTC/USDT -->
-                    <tr class="hover:bg-gray-900 transition-colors cursor-pointer">
-                        <td class="px-6 py-4 flex items-center">
-                            <img src="https://placehold.co/24x24/111827/ffffff?text=B" alt="BTC" class="rounded-full mr-3">
-                            <div>
-                                <div class="font-medium text-white">BTCUSDT</div>
-                                <div class="text-gray-400 text-xs">₮110,530.4</div>
-                            </div>
-                        </td>
-                        <td class="px-6 py-4">₮110,530.4</td>
-                        <td class="px-6 py-4 text-red-500">-0.96%</td>
-                        <td class="px-6 py-4">112,136.8</td>
-                        <td class="px-6 py-4">1.17B</td>
-                        <td class="px-6 py-4">
-                            <!-- Placeholder Chart -->
-                            <div class="w-24 h-8 bg-red-800 rounded-md"></div>
-                        </td>
-                        <td class="px-6 py-4">
-                            <button class="bg-green-accent text-black px-4 py-2 rounded-full font-semibold text-sm hover:bg-green-600 transition-colors">Trade</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/crypto-coins-screener/" rel="noopener nofollow" target="_blank"><span class="blue-text">Cryptocurrency market by TradingView</span></a></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+            {
+            "defaultColumn": "overview",
+            "screener_type": "crypto_mkt",
+            "displayCurrency": "USD",
+            "colorTheme": "dark",
+            "isTransparent": false,
+            "locale": "en",
+            "width": "100%",
+            "height": 550
+            }
+            </script>
+            </div>
+            <!-- TradingView Widget END -->
         </div>
     </section>
     
