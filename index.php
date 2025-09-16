@@ -194,7 +194,7 @@
             <!-- <button class="pb-2 text-gray-400 hover:text-white transition-colors">Popular Spot</button>
             <button class="pb-2 text-gray-400 hover:text-white transition-colors">Gainers</button> -->
         </div>
-        <div class="overflow-x-auto rounded-lg shadow-xl border border-gray-800 bg-[#161616]">
+        <div style="height: 500px" class="overflow-x-auto rounded-lg shadow-xl border border-gray-800 bg-[#161616]">
             <!-- TradingView Widget BEGIN -->
             <div class="tradingview-widget-container">
             <div class="tradingview-widget-container__widget"></div>
