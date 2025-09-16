@@ -173,7 +173,7 @@
     </main>
 
     <section id="tapper-section" class="container mx-auto px-4">
-        <h2 class="text-2xl font-bold mb-4">Tap to Claim Your Free Token!</h2>
+        <h2 class="text-2xl font-bold mb-4">Tap to Claim Your Free Octavat Token!</h2>
         <div id="coin-container">
             <img id="coin-image" src="https://i.ibb.co/5sv13fP/coin-1.png" alt="Tappable Coin">
         </div>
