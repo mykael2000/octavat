@@ -404,36 +404,6 @@
                         <li><a href="#" class="hover:text-green-accent">AML Policies</a></li>
                     </ul>
                 </div>
-                <!-- Market Links -->
-                <div class="col-span-1">
-                    <h5 class="font-bold text-lg text-white mb-2">Market</h5>
-                    <ul class="text-sm space-y-2">
-                        <li><a href="#" class="hover:text-green-accent">BTC to USD</a></li>
-                        <li><a href="#" class="hover:text-green-accent">ETH to USD</a></li>
-                        <li><a href="#" class="hover:text-green-accent">SOL to USD</a></li>
-                        <li><a href="#" class="hover:text-green-accent">All Crypto Markets</a></li>
-                    </ul>
-                </div>
-                <!-- Trade Links -->
-                <div class="col-span-1">
-                    <h5 class="font-bold text-lg text-white mb-2">Trade</h5>
-                    <ul class="text-sm space-y-2">
-                        <li><a href="#" class="hover:text-green-accent">Spot</a></li>
-                        <li><a href="#" class="hover:text-green-accent">Futures</a></li>
-                        <li><a href="#" class="hover:text-green-accent">Easy Earn</a></li>
-                        <li><a href="#" class="hover:text-green-accent">Fees</a></li>
-                    </ul>
-                </div>
-                <!-- Support Links -->
-                <div class="col-span-1">
-                    <h5 class="font-bold text-lg text-white mb-2">Support</h5>
-                    <ul class="text-sm space-y-2">
-                        <li><a href="#" class="hover:text-green-accent">Tax Report</a></li>
-                        <li><a href="#" class="hover:text-green-accent">Official Verification</a></li>
-                        <li><a href="#" class="hover:text-green-accent">Feedback & Suggestions</a></li>
-                        <li><a href="#" class="hover:text-green-accent">Contact Octavat</a></li>
-                    </ul>
-                </div>
             </div>
             <div class="text-center mt-12 text-sm text-gray-500">
                 &copy; 2022 - 2025 Octavat.com. All rights reserved.
