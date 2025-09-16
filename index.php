@@ -25,6 +25,69 @@
         .ring-green-accent {
             --tw-ring-color: #60e336;
         }
+
+        /* Tapper specific styles */
+        #tapper-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 0;
+            background-color: #1c1c1c;
+            border-radius: 1rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #coin-container {
+            cursor: pointer;
+            transition: transform 0.1s ease-in-out;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        #coin-container:active {
+            transform: scale(0.95);
+        }
+        #coin-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #60e336;
+            box-shadow: 0 0 20px rgba(96, 227, 54, 0.7);
+        }
+
+        .tap-effect {
+            position: absolute;
+            font-size: 2em;
+            font-weight: bold;
+            color: white;
+            opacity: 0;
+            animation: fade-up 0.5s ease-out forwards;
+            pointer-events: none; /* Make sure it doesn't block clicks */
+        }
+        @keyframes fade-up {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-50px); opacity: 0; }
+        }
+
+        #countdown-timer {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #60e336;
+            margin-top: 2rem;
+            letter-spacing: 1px;
+        }
+        #timer-label {
+            font-size: 1.2em;
+            font-weight: 500;
+            color: #9ca3af;
+            margin-bottom: 0.5rem;
+        }
     </style>
 </head>
 <body class="bg-[#111111] text-white">
@@ -108,6 +171,17 @@
             <img src="banner.png" alt="" class="rounded-lg shadow-lg">
         </div>
     </main>
+
+    <section id="tapper-section" class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold mb-4">Tap to Claim Your Free Token!</h2>
+        <div id="coin-container">
+            <img id="coin-image" src="https://i.ibb.co/5sv13fP/coin-1.png" alt="Tappable Coin">
+        </div>
+        <div id="tap-count" class="mt-4 text-xl font-bold">Taps: <span id="taps">0</span></div>
+
+        <p id="timer-label" class="mt-12">Token Listing in:</p>
+        <div id="countdown-timer"></div>
+    </section>
 
     <!-- Trending Section -->
     <section id="trending-section" class="container mx-auto px-4 py-16">
