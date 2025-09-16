@@ -198,17 +198,122 @@
             <!-- TradingView Widget BEGIN -->
             <div class="tradingview-widget-container">
             <div class="tradingview-widget-container__widget"></div>
-            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/crypto-coins-screener/" rel="noopener nofollow" target="_blank"><span class="blue-text">Cryptocurrency market by TradingView</span></a></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Market data by TradingView</span></a></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
             {
-            "defaultColumn": "overview",
-            "screener_type": "crypto_mkt",
-            "displayCurrency": "USD",
             "colorTheme": "dark",
-            "isTransparent": false,
+            "dateRange": "12M",
             "locale": "en",
+            "largeChartUrl": "",
+            "isTransparent": false,
+            "showFloatingTooltip": false,
+            "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+            "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+            "gridLineColor": "rgba(240, 243, 250, 0)",
+            "scaleFontColor": "#DBDBDB",
+            "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+            "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+            "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+            "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+            "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+            "tabs": [
+                {
+                "title": "Futures",
+                "symbols": [
+                    {
+                    "s": "BINANCE:BTCUSDT",
+                    "d": "BTCUSDT",
+                    "base-currency-logoid": "crypto/XTVCBTC",
+                    "currency-logoid": "crypto/XTVCUSDT"
+                    },
+                    {
+                    "s": "BINANCE:ETHUSDT",
+                    "d": "ETHUSDT",
+                    "base-currency-logoid": "crypto/XTVCETH",
+                    "currency-logoid": "crypto/XTVCUSDT"
+                    },
+                    {
+                    "s": "BINANCE:SOLUSDT",
+                    "d": "SOLUSDT",
+                    "base-currency-logoid": "crypto/XTVCSOL",
+                    "currency-logoid": "crypto/XTVCUSDT"
+                    },
+                    {
+                    "s": "BINANCE:LTCUSDT",
+                    "d": "LTCUSDT",
+                    "base-currency-logoid": "crypto/XTVCLTC",
+                    "currency-logoid": "crypto/XTVCUSDT"
+                    },
+                    {
+                    "s": "FXOPEN:XAUUSD",
+                    "d": "XAUUSD",
+                    "logoid": "metal/gold",
+                    "currency-logoid": "country/US"
+                    },
+                    {
+                    "s": "BINANCE:ADAUSDT",
+                    "d": "ADAUSDT",
+                    "base-currency-logoid": "crypto/XTVCADA",
+                    "currency-logoid": "crypto/XTVCUSDT"
+                    }
+                ],
+                "originalTitle": "Futures"
+                },
+                {
+                "title": "Bonds",
+                "symbols": [
+                    {
+                    "s": "EUREX:FGBL1!",
+                    "d": "Euro Bund"
+                    },
+                    {
+                    "s": "EUREX:FBTP1!",
+                    "d": "Euro BTP"
+                    },
+                    {
+                    "s": "EUREX:FGBM1!",
+                    "d": "Euro BOBL"
+                    }
+                ],
+                "originalTitle": "Bonds"
+                },
+                {
+                "title": "Forex",
+                "symbols": [
+                    {
+                    "s": "FX:EURUSD",
+                    "d": "EUR to USD"
+                    },
+                    {
+                    "s": "FX:GBPUSD",
+                    "d": "GBP to USD"
+                    },
+                    {
+                    "s": "FX:USDJPY",
+                    "d": "USD to JPY"
+                    },
+                    {
+                    "s": "FX:USDCHF",
+                    "d": "USD to CHF"
+                    },
+                    {
+                    "s": "FX:AUDUSD",
+                    "d": "AUD to USD"
+                    },
+                    {
+                    "s": "FX:USDCAD",
+                    "d": "USD to CAD"
+                    }
+                ],
+                "originalTitle": "Forex"
+                }
+            ],
+            "support_host": "https://www.tradingview.com",
+            "backgroundColor": "#0f0f0f",
             "width": "100%",
-            "height": 550
+            "height": "100%",
+            "showSymbolLogo": true,
+            "showChart": true
             }
             </script>
             </div>
