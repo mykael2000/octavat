@@ -387,7 +387,7 @@
                     <div class="flex space-x-4 mt-2">
                         <!-- Social Icons -->
                         <a href="#"><img src="https://placehold.co/24x24/111111/ffffff?text=in" alt="LinkedIn" class="rounded"></a>
-                        <a href="#"><img src="https://placehold.co/24x24/111111/ffffff?text=T" alt="Twitter" class="rounded"></a>
+                        <a href="#"><img src="https://placehold.co/24x24/111111/ffffff?text=X" alt="Twitter" class="rounded"></a>
                         <a href="#"><img src="https://placehold.co/24x24/111111/ffffff?text=F" alt="Facebook" class="rounded"></a>
                     </div>
                 </div>
