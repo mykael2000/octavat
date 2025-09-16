@@ -2,568 +2,412 @@
 include("header.php");
 ?>
 
- <div class="hero overlay inner-page">
-        <img src="images/blob.svg" alt="" class="img-fluid blob">
-        <div class="container">
-            <div class="row align-items-center justify-content-center text-center pt-5">
-                <div class="col-lg-8">
-                    <h1 class="heading text-white mb-3" data-aos="fade-up"><span style="color: #0f0b85;">Frequently
-                            Asked Question (FAQ)</span></h1>
-                </div>
-                <div style="padding-top: 10%; z-index: 999999;" class="col-lg-4" data-aos="fade-up"
-                    data-aos-delay="300">
-                    <div class="img-wrap">
-                        <!-- <img width="60%" height="50%" src="images/screen-s1.png" alt="Image" class="img-fluid rounded"> -->
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="relative w-full overflow-hidden bg-gray-900 py-20 lg:py-40">
+  <img src="images/blob.svg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-20">
+  <div class="relative container mx-auto px-4">
+    <div class="flex flex-col items-center justify-center text-center">
+      <div class="w-full lg:w-3/4">
+        <h1 class="text-4xl lg:text-5xl font-bold text-white mb-6" data-aos="fade-up">
+          <span class="text-[#0f0b85]">Frequently Asked Questions (FAQ)</span>
+        </h1>
+      </div>
     </div>
+  </div>
+</div>
 
+<div class="py-12 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto">
+      <div id="faqAccordion" class="space-y-4">
 
-    <div class="section">
-        <div class="container">
-            <div class="row">
-                <!-- FAQ items -->
-                <div class="accordion" id="faqAccordion">
-
-                    <!-- FAQ Item 1 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading1">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse1" aria-expanded="true"
-                                    aria-controls="faqCollapse1">
-                                    Is Coinacko a registered company?
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse1" class="collapse show" aria-labelledby="faqHeading1"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-                                Yes, Coinacko is a registered and legitimate company. We are fully compliant with all
-                                necessary regulations.
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FAQ Item 2 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading2">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse2" aria-expanded="true"
-                                    aria-controls="faqCollapse2">
-                                    How does Coinacko earn profits for its members?
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse2" class="collapse" aria-labelledby="faqHeading2"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-                                Coinacko generates profits through strategic investments and trading in various cryptocurrency markets.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 3 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading3">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse3" aria-expanded="true"
-                                    aria-controls="faqCollapse3">
-                                    How can I register a new account?
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse3" class="collapse" aria-labelledby="faqHeading3"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-                                Registering a new account is easy! Simply visit our website and click on the "Sign Up"
-                                button. Follow the prompts to complete the registration process.
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FAQ Item 4 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading4">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse4" aria-expanded="true"
-                                    aria-controls="faqCollapse4">
-                                    What is the minimum and maximum amount for deposit?
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse4" class="collapse" aria-labelledby="faqHeading4"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-                                The minimum deposit amount is $699, while there is no maximum deposit amount.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 5 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading5">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse5" aria-expanded="true"
-                                    aria-controls="faqCollapse5">
-                                    What is the maximum amount for withdrawal?
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse5" class="collapse" aria-labelledby="faqHeading5"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-                                The maximum withdrawal amount is $5,000,000 per transaction.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 6 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading6">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse6" aria-expanded="true"
-                                    aria-controls="faqCollapse6">
-                                    How long does it take for my deposit to be added?
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse6" class="collapse" aria-labelledby="faqHeading6"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-                                Deposits are usually processed and added to your account instantly. However, in some
-                                cases,
-                                it might take up to 24 hours.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 7 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading7">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse7" aria-expanded="true"
-                                    aria-controls="faqCollapse7">
-                                    How do I request a withdrawal?
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse7" class="collapse" aria-labelledby="faqHeading7"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-                                To request a withdrawal, log in to your account and navigate to the "Withdraw" section.
-                                Follow the instructions to initiate the withdrawal process.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 8 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading8">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse8" aria-expanded="true"
-                                    aria-controls="faqCollapse8">
-                                    How efficient is the support?
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse8" class="collapse" aria-labelledby="faqHeading8"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-                                Our support team is highly responsive and available 24/7 to assist you with any queries
-                                or
-                                issues you may have.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 9 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading9">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse9" aria-expanded="true"
-                                    aria-controls="faqCollapse9">
-                                    How long does it take for my withdrawal to be sent?
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse9" class="collapse" aria-labelledby="faqHeading9"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-                                Withdrawal requests are typically processed within 6 hours maximum.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 10 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading10">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse10" aria-expanded="true"
-                                    aria-controls="faqCollapse10">
-                                    How can I change my Payment address?
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse10" class="collapse" aria-labelledby="faqHeading10"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-                                You can change your Payment address by logging in to your account, navigating to the
-                                "Settings" section, and updating your payment information.
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FAQ Item 11 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading11">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse11" aria-expanded="true"
-                                    aria-controls="faqCollapse11">
-                                    How can I change my account e-mail?
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse11" class="collapse" aria-labelledby="faqHeading11"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-                                To change your account email, please contact our support team. They will guide you
-                                through
-                                the verification process.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 12 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading12">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse12" aria-expanded="true"
-                                    aria-controls="faqCollapse12">
-                                    Do I need to make a deposit to refer new members?
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse12" class="collapse" aria-labelledby="faqHeading12"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-                                No, you do not need to make a deposit to refer new members. Our referral program is open
-                                to
-                                all registered users.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 13 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading13">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse13" aria-expanded="true"
-                                    aria-controls="faqCollapse13">
-                                    Is it possible to upgrade my plan?
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse13" class="collapse" aria-labelledby="faqHeading13"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-
-                                Yes, it is possible, all you need to do to upgrade your plan is to make an additional
-                                deposit that matches with the plan do you wantto upgrade to.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 14 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading14">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse14" aria-expanded="true"
-                                    aria-controls="faqCollapse14">
-                                    Can I register multiple accounts from the same computer?
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse14" class="collapse" aria-labelledby="faqHeading14"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-                                No, each individual is allowed only one account. Registering multiple accounts is
-                                against
-                                our terms of service.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 15 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading15">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse15" aria-expanded="true"
-                                    aria-controls="faqCollapse15">
-                                    How can I contact your support?
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse15" class="collapse" aria-labelledby="faqHeading15"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-                                You can contact our support team through the "Contact Us" page on our website, or you
-                                can
-                                send an email to support@coinacko.com.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 16 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading16">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse16" aria-expanded="true"
-                                    aria-controls="faqCollapse16">
-                                    What do I need to trade on Coinacko?
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse16" class="collapse" aria-labelledby="faqHeading16"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-                                To start trading on Coinacko, you need to create an account, make a deposit, and then
-                                you
-                                can use the trading platform to place trades.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 17 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading17">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse17" aria-expanded="true"
-                                    aria-controls="faqCollapse17">
-                                    How does trading work on Coinacko?
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse17" class="collapse" aria-labelledby="faqHeading17"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-                                Trading on Coinacko involves buying and selling various assets, such as cryptocurrencies
-                                and stocks, with the goal of making a profit based on price movements.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 18 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading18">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse18" aria-expanded="true"
-                                    aria-controls="faqCollapse18">
-                                    Does auto trading work?
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse18" class="collapse" aria-labelledby="faqHeading18"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-                                Auto trading systems works perfect, when you consider that the majority of trading being
-                                conducted on major cryptocurrencies exchanges is reportedly auto trading it is easy to
-                                see
-                                that it clearly works when done properly. In fact, auto trading is nothing more than
-                                turning
-                                a trading system, the entry, exit and money management rules used to trade markets, into
-                                a
-                                programmed system rather than following it manually. Auto trading can even be considered
-                                superior to manual trading since it completely removes emotions from trading.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 19 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading19">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse19" aria-expanded="true"
-                                    aria-controls="faqCollapse19">
-                                    Is it possible to upgrade my plan after payment?
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse19" class="collapse" aria-labelledby="faqHeading19"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-                                Yes and you won't lose any remaining time when you upgrade. All remaining time on your
-                                current active trade section will be converted to a credit towards the new deposit.
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FAQ Item 20 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading20">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse20" aria-expanded="true"
-                                    aria-controls="faqCollapse20">
-                                    Is auto trading legal?
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse20" class="collapse" aria-labelledby="faqHeading20"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-                                Auto trading in the currency markets, equity markets, commodity markets, and
-                                cryptocurrency
-                                markets is all completely legal. There have been no regulations or laws passed in any
-                                country that prohibit auto trading (that we’re aware of). However, whether or not auto
-                                trading is allowed in an account is a decision made by the individual broker. Many allow
-                                auto trading, but some prohibit it for their clients. When you’re trading with Coinacko
-                                you’re always free to use auto trading to enhance your trading and potential profits.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 21 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading21">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse21" aria-expanded="true"
-                                    aria-controls="faqCollapse21">
-                                    How to Deposit Crypto
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse21" class="collapse" aria-labelledby="faqHeading21"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-
-
-                                Before depositing, please make sure which coin you want for the transfer.
-
-                                For example, If you want to withdraw Bitcoin (BTC) from an external exchange to your
-                                Coinacko account. You need to select “Withdraw” and choose Bitcoin on external exchange
-                                then click on send on your external exchange.
-
-
-                                How to get the deposit address
-
-                                Web：
-
-                                Sign in on the Coinacko website, click Make A Deposit > then select the crypto and
-                                network to deposit.
-                                <br>
-                                Caution:
-                                <br>
-                                1. The assets could be lost due to depositing with the wrong address
-                                <br>
-                                2. Withdrawal fees are charged
-                                <br>
-                                3. After the transfer on the blockchain reaches certain confirmations, you will receive
-                                the assets.
-                                <br>
-                                Please note that the assets could be lost if you deposit with the wrong address .
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 22 -->
-                    <div class="card">
-                        <div class="card-header" id="faqHeading22">
-                            <h5 class="mb-0">
-                                <button style="background-color: #fff; color: black;" class="btn btn-link" type="button"
-                                    data-toggle="collapse" data-target="#faqCollapse22" aria-expanded="true"
-                                    aria-controls="faqCollapse22">
-                                    How to view Withdrawal status at Coinacko
-                                </button>
-                            </h5>
-                        </div>
-
-                        <div id="faqCollapse22" class="collapse" aria-labelledby="faqHeading22"
-                            data-parent="#faqAccordion">
-                            <div class="card-body">
-
-
-                                Regarding the withdrawal process, you can check the current status of the withdrawal
-                                through the following information:
-                                <br>
-                                Web: Coinacko home page > Withdraw > Check the order status in the withdrawal history
-                                <br>
-                                Withdrawal status and corresponding situation
-                                <br>
-                                Processing: Your withdrawal is still being reviewed, and we will process your withdrawal
-                                after the review is completed.
-                                If your withdrawal has been under review for more than 15 minutes, please contact
-                                Coinacko customer service, and we will process it for you as soon as possible.
-                                <br>
-                                2.
-                                Pending: We are preparing to execute your withdrawal.
-                                <br>
-                                If your withdrawal has been under process for more than one hour, please contact
-                                Coinacko customer service, and we will process it as soon as possible.
-                                <br>
-                                3. Completed: Your withdrawal has been processed, and you can check the status on the
-                                external exchange
-                                <br>
-                                If the Coinacko status shows success/completed, but you have not received the transfer,
-                                please contact the external exchange/wallet for further assistance.
-                                <br>
-                                If your withdrawal has exceeded the expected processing time mentioned above, please
-                                provide the following information and contact our live chat or email
-                                support@coinacko.com:
-                                <br>
-                                Coinacko account (mobile phone/email used for registration)
-                                Withdrawal currency name, withdrawal amount,
-                                Screenshot of the details of the withdrawal record
-                                We will check the progress of the withdrawal for you as soon as possible after receiving
-                                it.
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse1')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              Is Octavat a registered company?
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse1">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse1" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              Yes, Octavat is a registered and legitimate company. We are fully compliant with all necessary regulations.
             </div>
+          </div>
         </div>
-    </div> <!-- /.untree_co-section -->
 
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse2')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              How does Octavat earn profits for its members?
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse2">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse2" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              Octavat generates profits through strategic investments and trading in various cryptocurrency markets.
+            </div>
+          </div>
+        </div>
+        
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse3')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              How can I register a new account?
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse3">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse3" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              Registering a new account is easy! Simply visit our website and click on the "Sign Up" button. Follow the prompts to complete the registration process.
+            </div>
+          </div>
+        </div>
 
-<?php 
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse4')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              What is the minimum and maximum amount for deposit?
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse4">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse4" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              The minimum deposit amount is $699, while there is no maximum deposit amount.
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse5')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              What is the maximum amount for withdrawal?
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse5">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse5" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              The maximum withdrawal amount is $5,000,000 per transaction.
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse6')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              How long does it take for my deposit to be added?
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse6">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse6" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              Deposits are usually processed and added to your account instantly. However, in some cases, it might take up to 24 hours.
+            </div>
+          </div>
+        </div>
+        
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse7')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              How do I request a withdrawal?
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse7">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse7" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              To request a withdrawal, log in to your account and navigate to the "Withdraw" section. Follow the instructions to initiate the withdrawal process.
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse8')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              How efficient is the support?
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse8">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse8" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              Our support team is highly responsive and available 24/7 to assist you with any queries or issues you may have.
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse9')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              How long does it take for my withdrawal to be sent?
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse9">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse9" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              Withdrawal requests are typically processed within 6 hours maximum.
+            </div>
+          </div>
+        </div>
+        
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse10')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              How can I change my Payment address?
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse10">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse10" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              You can change your Payment address by logging in to your account, navigating to the "Settings" section, and updating your payment information.
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse11')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              How can I change my account e-mail?
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse11">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse11" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              To change your account email, please contact our support team. They will guide you through the verification process.
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse12')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              Do I need to make a deposit to refer new members?
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse12">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse12" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              No, you do not need to make a deposit to refer new members. Our referral program is open to all registered users.
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse13')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              Is it possible to upgrade my plan?
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse13">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse13" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              Yes, it is possible. All you need to do to upgrade your plan is to make an additional deposit that matches the plan you want to upgrade to.
+            </div>
+          </div>
+        </div>
+        
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse14')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              Can I register multiple accounts from the same computer?
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse14">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse14" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              No, each individual is allowed only one account. Registering multiple accounts is against our terms of service.
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse15')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              How can I contact your support?
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse15">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse15" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              You can contact our support team through the "Contact Us" page on our website, or you can send an email to support@octavat.com.
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse16')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              What do I need to trade on Octavat?
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse16">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse16" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              To start trading on Octavat, you need to create an account, make a deposit, and then you can use the trading platform to place trades.
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse17')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              How does trading work on Octavat?
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse17">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse17" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              Trading on Octavat involves buying and selling various assets, such as cryptocurrencies and stocks, with the goal of making a profit based on price movements.
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse18')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              Does auto trading work?
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse18">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse18" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              Auto trading systems work perfectly, as the majority of trading conducted on major cryptocurrency exchanges is reportedly auto trading. In fact, auto trading is nothing more than turning a trading system, the entry, exit, and money management rules used to trade markets, into a programmed system rather than following it manually. Auto trading can even be considered superior to manual trading since it completely removes emotions from trading.
+            </div>
+          </div>
+        </div>
+        
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse19')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              Is it possible to upgrade my plan after payment?
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse19">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse19" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              Yes, and you won't lose any remaining time when you upgrade. All remaining time on your current active trade section will be converted to a credit towards the new deposit.
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse20')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              Is auto trading legal?
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse20">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse20" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              Auto trading in the currency, equity, commodity, and cryptocurrency markets is all completely legal. There have been no regulations or laws passed in any country that prohibit auto trading (that we're aware of). However, whether or not auto trading is allowed in an account is a decision made by the individual broker. Many allow auto trading, but some prohibit it for their clients. When you're trading with Octavat, you're always free to use auto trading to enhance your trading and potential profits.
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse21')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              How to Deposit Crypto
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse21">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse21" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              <p>Before depositing, please make sure which coin you want for the transfer.</p>
+              <br>
+              <p>For example, If you want to withdraw Bitcoin (BTC) from an external exchange to your Octavat account. You need to select “Withdraw” and choose Bitcoin on the external exchange then click on send on your external exchange.</p>
+              <br>
+              <p><b>How to get the deposit address</b></p>
+              <p>Web: Sign in on the Octavat website, click Make A Deposit > then select the crypto and network to deposit.</p>
+              <br>
+              <p><b>Caution:</b></p>
+              <ul class="list-disc ml-6">
+                <li>The assets could be lost due to depositing with the wrong address.</li>
+                <li>Withdrawal fees are charged.</li>
+                <li>After the transfer on the blockchain reaches certain confirmations, you will receive the assets.</li>
+              </ul>
+              <br>
+              <p>Please note that the assets could be lost if you deposit with the wrong address.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="rounded-lg border border-gray-200">
+          <div class="p-4 cursor-pointer select-none" onclick="toggleAccordion('faqCollapse22')">
+            <h5 class="flex justify-between items-center text-lg font-semibold text-gray-800">
+              How to view Withdrawal status at Octavat
+              <span class="transform transition-transform duration-300" id="icon-faqCollapse22">+</span>
+            </h5>
+          </div>
+          <div id="faqCollapse22" class="hidden overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="p-4 border-t border-gray-200 text-gray-600">
+              <p>Regarding the withdrawal process, you can check the current status of the withdrawal through the following information:</p>
+              <br>
+              <p>Web: Octavat home page > Withdraw > Check the order status in the withdrawal history.</p>
+              <br>
+              <p><b>Withdrawal status and corresponding situation</b></p>
+              <br>
+              <p>1. <b>Processing:</b> Your withdrawal is still being reviewed, and we will process your withdrawal after the review is completed. If your withdrawal has been under review for more than 15 minutes, please contact Octavat customer service, and we will process it for you as soon as possible.</p>
+              <br>
+              <p>2. <b>Pending:</b> We are preparing to execute your withdrawal. If your withdrawal has been under process for more than one hour, please contact Octavat customer service, and we will process it as soon as possible.</p>
+              <br>
+              <p>3. <b>Completed:</b> Your withdrawal has been processed, and you can check the status on the external exchange.</p>
+              <br>
+              <p>If the Octavat status shows success/completed, but you have not received the transfer, please contact the external exchange/wallet for further assistance.</p>
+              <br>
+              <p>If your withdrawal has exceeded the expected processing time mentioned above, please provide the following information and contact our live chat or email support@octavat.com:</p>
+              <ul class="list-disc ml-6">
+                <li>Octavat account (mobile phone/email used for registration)</li>
+                <li>Withdrawal currency name, withdrawal amount</li>
+                <li>Screenshot of the details of the withdrawal record</li>
+              </ul>
+              <br>
+              <p>We will check the progress of the withdrawal for you as soon as possible after receiving it.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleAccordion(id) {
+    const content = document.getElementById(id);
+    const icon = document.getElementById(`icon-${id}`);
+    
+    if (content.classList.contains('hidden')) {
+      // Hide all other open accordions
+      document.querySelectorAll('#faqAccordion > div > div:nth-child(2)').forEach(item => {
+        if (item.id !== id && !item.classList.contains('hidden')) {
+          item.classList.add('hidden');
+          item.style.maxHeight = null;
+        }
+      });
+      document.querySelectorAll('#faqAccordion > div > div:first-child > h5 > span').forEach(item => {
+        if (item.id !== `icon-${id}`) {
+          item.classList.remove('rotate-45');
+        }
+      });
+
+      // Show the clicked accordion
+      content.classList.remove('hidden');
+      content.style.maxHeight = content.scrollHeight + 'px';
+      icon.classList.add('rotate-45');
+    } else {
+      // Hide the clicked accordion
+      content.classList.add('hidden');
+      content.style.maxHeight = null;
+      icon.classList.remove('rotate-45');
+    }
+  }
+
+  // Set the initial height for the first item to make it visible on load
+  document.addEventListener("DOMContentLoaded", function() {
+    const firstCollapse = document.getElementById('faqCollapse1');
+    firstCollapse.classList.remove('hidden');
+    firstCollapse.style.maxHeight = firstCollapse.scrollHeight + 'px';
+    document.getElementById('icon-faqCollapse1').classList.add('rotate-45');
+  });
+</script>
+
+<?php
 include("footer.php");
 ?>
