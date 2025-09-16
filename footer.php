@@ -26,7 +26,7 @@
                         <li><a href="about.php" class="hover:text-green-accent">About Us</a></li>
                         <li><a href="faq.php" class="hover:text-green-accent">FAQ</a></li>
                         <li><a href="terms.php" class="hover:text-green-accent">Terms</a></li>
-                        <li><a href="privacy.php" class="hover:text-green-accent">Privacy Policy</a></li>
+                        <li><a href="policy.php" class="hover:text-green-accent">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
