@@ -335,8 +335,7 @@
             </div>
         </div>
     </footer>
-
-    <script>
+        <script>
         document.addEventListener('DOMContentLoaded', () => {
             const menuToggle = document.getElementById('menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -356,11 +355,67 @@
                     
                     // Hide the mobile menu after clicking a link
                     if (!mobileMenu.classList.contains('hidden')) {
-                         mobileMenu.classList.add('hidden');
+                        mobileMenu.classList.add('hidden');
                     }
                 });
             });
+
+            // --- COIN TAPPER & TIMER LOGIC ---
+            const coin = document.getElementById('coin-container');
+            const tapsDisplay = document.getElementById('taps');
+            const countdownDisplay = document.getElementById('countdown-timer');
+            let taps = 0;
+
+            // Tapping logic
+            coin.addEventListener('click', (event) => {
+                taps++;
+                tapsDisplay.textContent = taps;
+                createTapEffect(event);
+            });
+
+            // Add a tap effect (like a number popping up)
+            function createTapEffect(event) {
+                const effect = document.createElement('div');
+                effect.textContent = '+1';
+                effect.className = 'tap-effect';
+                
+                // Position the effect where the tap occurred
+                effect.style.left = `${event.clientX}px`;
+                effect.style.top = `${event.clientY}px`;
+
+                document.body.appendChild(effect);
+                
+                // Remove the element after the animation finishes
+                setTimeout(() => {
+                    effect.remove();
+                }, 500);
+            }
+
+            // Timer Logic
+            // ** IMPORTANT: Set your token listing date here! **
+            // The format is 'Month Day, Year HH:MM:SS GMT+00:00'
+            // Example: 'January 1, 2026 12:00:00 GMT+00:00'
+            const listingDate = new Date('October 20, 2025 10:00:00 GMT+00:00').getTime();
+
+            const timer = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = listingDate - now;
+
+                if (distance < 0) {
+                    clearInterval(timer);
+                    countdownDisplay.innerHTML = "🎉 **LISTED!**";
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownDisplay.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }, 1000);
         });
     </script>
+    
 </body>
 </html>
