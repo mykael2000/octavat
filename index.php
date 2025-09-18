@@ -204,6 +204,78 @@ include("header.php");
     </section> -->
 
     <!-- Placeholder Sections for Navigation -->
+     <section id="why-bitunix" class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold mb-8">Why Bitunix?</h2>
+        <div class="space-y-8">
+            <div class="flex items-start space-x-4">
+                <img src="path_to_secure_icon.png" alt="Secure" class="w-12 h-12">
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Secure</h3>
+                    <p class="text-gray-400">We offer industry-leading secure cryptocurrency trading platform, maintaining a robust reserve fund that exceeds 1:1 ratio against user holdings.</p>
+                </div>
+            </div>
+            
+            <div class="flex items-start space-x-4">
+                <img src="path_to_seamless_icon.png" alt="Seamless" class="w-12 h-12">
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Seamless</h3>
+                    <p class="text-gray-400">Enjoy the benefits of efficient and real-time online trading. Start your crypto journey with just $10 investment.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start space-x-4">
+                <img src="path_to_insights_icon.png" alt="Insights" class="w-12 h-12">
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Insights</h3>
+                    <p class="text-gray-400">Get real-time updates and sharp insights about the cryptocurrency market.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start space-x-4">
+                <img src="path_to_service_icon.png" alt="Service" class="w-12 h-12">
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Service</h3>
+                    <p class="text-gray-400">Experience unparalleled assistance with multilingual 24/7 customer support. Ensuring a seamless and satisfying trading experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="getting-started" class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold mb-8">Begin Your Cryptocurrency Journey Effortlessly</h2>
+        <div class="space-y-4">
+            <div class="flex items-center justify-between p-4 bg-gray-900 rounded-lg border border-gray-800">
+                <div class="flex items-center space-x-4">
+                    <img src="path_to_create_account_icon.png" alt="Create Account" class="w-8 h-8">
+                    <span class="text-lg font-semibold">Create your Bitunix account</span>
+                </div>
+                <span class="text-3xl font-bold text-gray-700">1</span>
+                <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+            
+            <div class="flex items-center justify-between p-4 bg-gray-900 rounded-lg border border-gray-800">
+                <div class="flex items-center space-x-4">
+                    <img src="path_to_deposit_funds_icon.png" alt="Deposit Funds" class="w-8 h-8">
+                    <span class="text-lg font-semibold">Deposit funds</span>
+                </div>
+                <span class="text-3xl font-bold text-gray-700">2</span>
+                <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+            
+            <div class="flex items-center justify-between p-4 bg-gray-900 rounded-lg border border-gray-800">
+                <div class="flex items-center space-x-4">
+                    <img src="path_to_start_trading_icon.png" alt="Start Trading" class="w-8 h-8">
+                    <span class="text-lg font-semibold">Start trading</span>
+                </div>
+                <span class="text-3xl font-bold text-gray-700">3</span>
+                <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </div>
+        <div class="text-center mt-8">
+            <a href="#" class="inline-block px-8 py-4 text-lg font-semibold text-black bg-green-accent rounded-md hover:bg-green-700 transition-colors">
+                Get Started
+            </a>
+        </div>
+    </section>
     <section id="faq" class="container mx-auto px-4 py-16 hidden">
         <h2 class="text-3xl font-bold">FAQ Section</h2>
         <p class="mt-4 text-gray-400">Content for the FAQ section will go here.</p>
