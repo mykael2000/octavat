@@ -315,9 +315,9 @@ include("header.php");
                     </div>
 
                     <!-- Get Started Button -->
-                    <button class="w-full max-w-lg mt-8 py-4 bg-green-accent text-black font-bold rounded-full text-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <a href="register.php" class="w-full max-w-lg mt-8 py-4 bg-green-accent text-black font-bold rounded-full text-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
                         Get Started
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
