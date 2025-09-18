@@ -16,7 +16,7 @@
 
 <div class="relative z-0 py-16 bg-[#111111]">
     <div class="flex flex-col lg:flex-row items-stretch">
-        <div class="flex-1 p-8 md:p-16 bg-blue-950">
+        <div class="flex-1 p-8 md:p-16 bg-[#111111]">
             <h2 class="text-3xl lg:text-4xl font-bold text-white mb-3 text-center">Our Mission</h2>
             <p class="mb-5 text-gray-300 text-center">
                 Octavat’s mission is to create the financial infrastructure of the future. We build crypto-financial infrastructure based on cryptocurrency. Our suite of technologies enhances the Bitcoin ecosystem, making it easier for individuals and businesses with zero trading experience to successfully make a profit. The most robust and secure. Applying cutting-edge cryptography and security engineering.
@@ -33,7 +33,7 @@
             </div>
             
             <div class="col-span-1" data-aos="fade-up" data-aos-delay="0">
-                <div class="flex flex-col p-6 rounded-lg shadow-lg bg-gray-700 h-full">
+                <div class="flex flex-col p-6 rounded-lg shadow-lg bg-[#111111] h-full">
                     <div>
                         <h3 class="text-xl font-bold text-white mb-2">Don’t trust. Verify</h3>
                         <p class="text-gray-300">We believe in empowering individuals and businesses to take control of their own finances and reducing the need for trusted third parties.</p>
@@ -42,7 +42,7 @@
             </div>
 
             <div class="col-span-1" data-aos="fade-up" data-aos-delay="100">
-                <div class="flex flex-col p-6 rounded-lg shadow-lg bg-gray-700 h-full">
+                <div class="flex flex-col p-6 rounded-lg shadow-lg bg-[#111111] h-full">
                     <div>
                         <h3 class="text-xl font-bold text-white mb-2">Open finance for everyone.</h3>
                         <p class="text-gray-300">We build software that accelerates the adoption of Bitcoin and peer-to-peer finance for a fairer financial system that benefits everyone, not just a privileged few.</p>
@@ -51,7 +51,7 @@
             </div>
 
             <div class="col-span-1" data-aos="fade-up" data-aos-delay="100">
-                <div class="flex flex-col p-6 rounded-lg shadow-lg bg-gray-700 h-full">
+                <div class="flex flex-col p-6 rounded-lg shadow-lg bg-[#111111] h-full">
                     <div>
                         <h3 class="text-xl font-bold text-white mb-2">Advantages of Octavat Automatic Trading</h3>
                         <p class="text-gray-300">
@@ -62,7 +62,7 @@
             </div>
 
             <div class="col-span-1" data-aos="fade-up" data-aos-delay="100">
-                <div class="flex flex-col p-6 rounded-lg shadow-lg bg-gray-700 h-full">
+                <div class="flex flex-col p-6 rounded-lg shadow-lg bg-[#111111] h-full">
                     <div>
                         <h3 class="text-xl font-bold text-white mb-2">Automatic Trading Is Emotionless</h3>
                         <p class="text-gray-300">
@@ -73,7 +73,7 @@
             </div>
 
             <div class="col-span-1" data-aos="fade-up" data-aos-delay="100">
-                <div class="flex flex-col p-6 rounded-lg shadow-lg bg-gray-700 h-full">
+                <div class="flex flex-col p-6 rounded-lg shadow-lg bg-[#111111] h-full">
                     <div>
                         <h3 class="text-xl font-bold text-white mb-2">Discipline and Consistency</h3>
                         <p class="text-gray-300">
@@ -88,7 +88,7 @@
             </div>
 
             <div class="col-span-1" data-aos="fade-up" data-aos-delay="100">
-                <div class="flex flex-col p-6 rounded-lg shadow-lg bg-gray-700 h-full">
+                <div class="flex flex-col p-6 rounded-lg shadow-lg bg-[#111111] h-full">
                     <div>
                         <h3 class="text-xl font-bold text-white mb-2">Accessibility</h3>
                         <p class="text-gray-300">
@@ -99,7 +99,7 @@
             </div>
 
             <div class="col-span-1" data-aos="fade-up" data-aos-delay="100">
-                <div class="flex flex-col p-6 rounded-lg shadow-lg bg-gray-700 h-full">
+                <div class="flex flex-col p-6 rounded-lg shadow-lg bg-[#111111] h-full">
                     <div>
                         <h3 class="text-xl font-bold text-white mb-2">Order Entry Speed</h3>
                         <p class="text-gray-300">
