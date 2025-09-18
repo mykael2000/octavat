@@ -35,6 +35,18 @@
             </div>
         </div>
     </footer>
+     <script>
+        function scrollCarousel(direction) {
+            const carousel = document.getElementById('testimonial-carousel');
+            const scrollAmount = carousel.offsetWidth;
+            
+            if (direction === 'next') {
+                carousel.scrollLeft += scrollAmount;
+            } else {
+                carousel.scrollLeft -= scrollAmount;
+            }
+        }
+    </script>
         <script>
         document.addEventListener('DOMContentLoaded', () => {
             const menuToggle = document.getElementById('menu-toggle');

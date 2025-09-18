@@ -315,6 +315,60 @@ include("header.php");
             </div>
         </div>
     </section>
+     <!-- Testimonial Section -->
+    <div class="mt-24 container mx-auto p-4 md:p-8">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">What Our Customers Say</h2>
+        
+        <div class="relative">
+            <!-- Testimonial Carousel Container -->
+            <div id="testimonial-carousel" class="flex overflow-x-auto snap-x snap-mandatory pb-4 space-x-6 scroll-smooth">
+                <!-- Testimonial 1 -->
+                <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center bg-gray-900 p-8 rounded-2xl flex flex-col items-center text-center">
+                    <img src="https://placehold.co/100x100/111827/ffffff?text=User" alt="User Avatar" class="w-24 h-24 rounded-full mb-4 object-cover">
+                    <p class="text-gray-400 text-sm mb-4">"Bitunix has revolutionized my trading. The interface is intuitive, and the seamless service makes me feel secure with every trade. Highly recommended!"</p>
+                    <div class="mt-auto">
+                        <h4 class="font-bold text-white">Alex Chen</h4>
+                        <p class="text-gray-500 text-sm">34k Followers</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center bg-gray-900 p-8 rounded-2xl flex flex-col items-center text-center">
+                    <img src="https://placehold.co/100x100/111827/ffffff?text=User" alt="User Avatar" class="w-24 h-24 rounded-full mb-4 object-cover">
+                    <p class="text-gray-400 text-sm mb-4">"The insights provided by this platform are a game-changer. I feel much more confident in my investment decisions now. It’s an essential tool for any trader."</p>
+                    <div class="mt-auto">
+                        <h4 class="font-bold text-white">Jessica Lee</h4>
+                        <p class="text-gray-500 text-sm">51k Followers</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center bg-gray-900 p-8 rounded-2xl flex flex-col items-center text-center">
+                    <img src="https://placehold.co/100x100/111827/ffffff?text=User" alt="User Avatar" class="w-24 h-24 rounded-full mb-4 object-cover">
+                    <p class="text-gray-400 text-sm mb-4">"I've been on other platforms, but the security and customer support here are unmatched. It's a truly worry-free trading experience."</p>
+                    <div class="mt-auto">
+                        <h4 class="font-bold text-white">Carlos Rodriguez</h4>
+                        <p class="text-gray-500 text-sm">28k Followers</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel Navigation Buttons -->
+            <div class="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 flex justify-between px-4 hidden md:flex">
+                <button onclick="scrollCarousel('prev')" class="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-700 transition-colors duration-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button onclick="scrollCarousel('next')" class="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-700 transition-colors duration-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <section id="getting-started" class="container mx-auto px-4 py-16">
         <h2 class="text-3xl font-bold mb-8">Begin Your Cryptocurrency Journey Effortlessly</h2>
         <div class="space-y-4">
