@@ -21,7 +21,7 @@ include("header.php");
         </div>
     </main>
 
-    <section id="tapper-section" class="container mx-auto px-4">
+    <!-- <section id="tapper-section" class="container mx-auto px-4">
         <h2 class="text-center text-2xl font-bold mb-4">Tap to Claim Your Free Octavat Token!</h2>
         <div id="coin-container">
             <img height="50px" width="50px" id="coin-image" src="logo.png" alt="Tappable Coin">
@@ -30,7 +30,7 @@ include("header.php");
 
         <p id="timer-label" class="mt-12">Token Listing in:</p>
         <div id="countdown-timer"></div>
-    </section>
+    </section> -->
 
     <!-- Trending Section -->
     <section id="trending-section" class="container mx-auto px-4 py-16">
@@ -171,10 +171,10 @@ include("header.php");
     </section>
     
     <!-- Token Grid Section -->
-    <section id="build-portfolio" class="container mx-auto px-4 py-16">
+    <!-- <section id="build-portfolio" class="container mx-auto px-4 py-16">
         <h2 class="text-3xl font-bold text-center mb-12">Build Your Cryptocurrency Portfolio</h2>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            <!-- Example Tokens -->
+
             <div class="flex items-center justify-center p-4 rounded-full bg-[#1c1c1c] hover:bg-gray-800 transition-colors cursor-pointer">
                 <img src="https://placehold.co/32x32/111111/ffffff?text=ZRO" alt="ZRO" class="rounded-full mr-2">
                 <span class="text-white">ZRO</span>
@@ -187,7 +187,7 @@ include("header.php");
                 <img src="https://placehold.co/32x32/111111/ffffff?text=NAKA" alt="NAKA" class="rounded-full mr-2">
                 <span class="text-white">NAKA</span>
             </div>
-            <!-- ... More tokens as needed ... -->
+     
             <div class="flex items-center justify-center p-4 rounded-full bg-[#1c1c1c] hover:bg-gray-800 transition-colors cursor-pointer">
                 <img src="https://placehold.co/32x32/111111/ffffff?text=AGLA" alt="AGLA" class="rounded-full mr-2">
                 <span class="text-white">AGLA</span>
@@ -201,7 +201,7 @@ include("header.php");
                 <span class="text-white">RENDER</span>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Placeholder Sections for Navigation -->
     <section id="faq" class="container mx-auto px-4 py-16 hidden">
