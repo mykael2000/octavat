@@ -259,6 +259,8 @@ include("header.php");
                 </div>
             </div>
             <!-- New section: Get Started Steps -->
+        </div>
+        <div class="flex items-center justify-center min-h-screen p-8">
             <div class="mt-24 container mx-auto p-4 md:p-8">
                 <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Begin Your Cryptocurrency Journey Effortlessly</h2>
                 <div class="flex flex-col items-center justify-center">
