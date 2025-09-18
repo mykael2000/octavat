@@ -317,7 +317,7 @@ include("header.php");
     </section>
      <!-- Testimonial Section -->
     <div class="mt-24 container mx-auto p-4 md:p-8">
-        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">What Our Customers Say</h2>
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Who is using Octavat?</h2>
         
         <div class="relative">
             <!-- Testimonial Carousel Container -->
@@ -325,7 +325,7 @@ include("header.php");
                 <!-- Testimonial 1 -->
                 <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center bg-gray-900 p-8 rounded-2xl flex flex-col items-center text-center">
                     <img src="https://placehold.co/100x100/111827/ffffff?text=User" alt="User Avatar" class="w-24 h-24 rounded-full mb-4 object-cover">
-                    <p class="text-gray-400 text-sm mb-4">"Bitunix has revolutionized my trading. The interface is intuitive, and the seamless service makes me feel secure with every trade. Highly recommended!"</p>
+                    <p class="text-gray-400 text-sm mb-4">"Octavat has revolutionized my trading. The interface is intuitive, and the seamless service makes me feel secure with every trade. Highly recommended!"</p>
                     <div class="mt-auto">
                         <h4 class="font-bold text-white">Alex Chen</h4>
                         <p class="text-gray-500 text-sm">34k Followers</p>
