@@ -211,7 +211,7 @@ include("header.php");
                 <div class="flex flex-col space-y-8">
                     <!-- Feature 1: Secure -->
                     <div class="flex items-start space-x-6 p-6 rounded-xl bg-[#111111] border border-[#60e336]">
-                        <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#111111] flex items-center justify-center">
+                        <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#60e336] flex items-center justify-center">
                             <!-- Secure Icon -->
                             <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 14.053L2 22h20l-1.382-3.007z"></path>
@@ -225,7 +225,7 @@ include("header.php");
 
                     <!-- Feature 2: Seamless -->
                     <div class="flex items-start space-x-6 p-6 rounded-xl bg-[#111111] border border-[#60e336]">
-                        <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#111111] flex items-center justify-center">
+                        <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#60e336] flex items-center justify-center">
                             <!-- Seamless Icon -->
                             <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.414 9.457 5 8 5c-4 0-4 6-4 6v.475M12 6.253c1.168.836 2.543 1.253 4 1.253 4 0 4-6 4-6v-.475M12 6.253v13M12 6.253c1.168-.836 2.543-1.253 4-1.253 4 0 4 6 4 6v.475M12 6.253V4M8 10v4M16 10v4"></path>
@@ -239,7 +239,7 @@ include("header.php");
 
                     <!-- Feature 3: Insights -->
                     <div class="flex items-start space-x-6 p-6 rounded-xl bg-[#111111] border border-[#60e336]">
-                        <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#111111] flex items-center justify-center">
+                        <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#60e336] flex items-center justify-center">
                             <!-- Insights Icon -->
                             <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2h4a2 2 0 002-2v-1a2 2 0 012-2h.945M8 20.25v-1.125a.875.875 0 01.875-.875h6.25a.875.875 0 01.875.875v1.125m-6.25 0V18.5a1.5 1.5 0 011.5-1.5h3.5a1.5 1.5 0 011.5 1.5v1.75z"></path>
@@ -253,7 +253,7 @@ include("header.php");
 
                     <!-- Feature 4: Service -->
                     <div class="flex items-start space-x-6 p-6 rounded-xl bg-[#111111] border border-[#60e336]">
-                        <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#111111] flex items-center justify-center">
+                        <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#60e336] flex items-center justify-center">
                             <!-- Service Icon -->
                             <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.414 9.457 5 8 5c-4 0-4 6-4 6v.475M12 6.253c1.168.836 2.543 1.253 4 1.253 4 0 4-6 4-6v-.475M12 6.253v13M12 6.253c1.168-.836 2.543-1.253 4-1.253 4 0 4 6 4 6v.475M12 6.253V4M8 10v4M16 10v4"></path>
