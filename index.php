@@ -204,8 +204,8 @@ include("header.php");
     </section> -->
 
     <!-- Placeholder Sections for Navigation -->
-     <section id="why-bitunix" class="container mx-auto px-4 py-16">
-        <h2 class="text-3xl font-bold mb-8">Why Bitunix?</h2>
+     <section id="why-Octavat" class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold mb-8">Why Octavat?</h2>
         <div class="flex items-center justify-center min-h-screen p-8">
             <div class="container mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -274,7 +274,7 @@ include("header.php");
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                                 </svg>
                             </div>
-                            <span class="text-lg font-medium">Create your Bitunix account</span>
+                            <span class="text-lg font-medium">Create your Octavat account</span>
                         </div>
                         <div class="absolute right-4 top-1/2 -translate-y-1/2 text-5xl font-extrabold text-gray-700 opacity-20">1</div>
                     </div>
@@ -321,7 +321,7 @@ include("header.php");
             <div class="flex items-center justify-between p-4 bg-gray-900 rounded-lg border border-gray-800">
                 <div class="flex items-center space-x-4">
                     <img src="path_to_create_account_icon.png" alt="Create Account" class="w-8 h-8">
-                    <span class="text-lg font-semibold">Create your Bitunix account</span>
+                    <span class="text-lg font-semibold">Create your Octavat account</span>
                 </div>
                 <span class="text-3xl font-bold text-gray-700">1</span>
                 <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
