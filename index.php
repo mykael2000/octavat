@@ -210,7 +210,7 @@ include("header.php");
             <div class="container mx-auto">
                 <div class="flex flex-col space-y-8">
                     <!-- Feature 1: Secure -->
-                    <div class="flex items-start space-x-6 p-6 rounded-xl bg-gray-900 border border-emerald-500">
+                    <div class="flex items-start space-x-6 p-6 rounded-xl bg-black border border-[#0ac423]">
                         <div class="flex-shrink-0 w-16 h-16 rounded-full bg-emerald-800 flex items-center justify-center">
                             <!-- Secure Icon -->
                             <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
