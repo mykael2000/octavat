@@ -153,8 +153,8 @@
                 <li><a href="#trade-now" class="block hover:text-green-accent transition-colors">Buy Crypto<span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full ml-1">NEW</span></a></li>
                 <li><a href="#trending-section" class="block hover:text-green-accent transition-colors">Trading Plans</a></li>
                 <li><a href="faq.php" class="block hover:text-green-accent transition-colors">FAQ</a></li>
-                <li><a href="#about-us" class="block hover:text-green-accent transition-colors">About Us</a></li>
-                <li><a href="#contact-us" class="block hover:text-green-accent transition-colors">Contact Us</a></li>
+                <li><a href="about.php" class="block hover:text-green-accent transition-colors">About Us</a></li>
+                <li><a href="contact.php" class="block hover:text-green-accent transition-colors">Contact Us</a></li>
             </ul>
         </div>
     </header>

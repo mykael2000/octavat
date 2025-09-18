@@ -23,6 +23,7 @@
                 <div class="col-span-1">
                     <h5 class="font-bold text-lg text-white mb-2">Company</h5>
                     <ul class="text-sm space-y-2">
+                        <li><a href="contact.php" class="hover:text-green-accent">Contact Us</a></li>
                         <li><a href="about.php" class="hover:text-green-accent">About Us</a></li>
                         <li><a href="faq.php" class="hover:text-green-accent">FAQ</a></li>
                         <li><a href="terms.php" class="hover:text-green-accent">Terms</a></li>
