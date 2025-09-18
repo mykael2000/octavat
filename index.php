@@ -210,7 +210,7 @@ include("header.php");
             <div class="container mx-auto">
                 <div class="flex flex-col space-y-8">
                     <!-- Feature 1: Secure -->
-                    <div class="flex items-start space-x-6 p-6 rounded-xl bg-[#111111] border border-[#60e336]">
+                    <div class="flex items-center space-x-6 p-6 rounded-xl bg-[#111111] border border-[#60e336]">
                         <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#60e336] flex items-center justify-center">
                             <!-- Secure Icon -->
                             <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -224,7 +224,7 @@ include("header.php");
                     </div>
 
                     <!-- Feature 2: Seamless -->
-                    <div class="flex items-start space-x-6 p-6 rounded-xl bg-[#111111] border border-[#60e336]">
+                    <div class="flex items-center space-x-6 p-6 rounded-xl bg-[#111111] border border-[#60e336]">
                         <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#60e336] flex items-center justify-center">
                             <!-- Seamless Icon -->
                             <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -238,7 +238,7 @@ include("header.php");
                     </div>
 
                     <!-- Feature 3: Insights -->
-                    <div class="flex items-start space-x-6 p-6 rounded-xl bg-[#111111] border border-[#60e336]">
+                    <div class="flex items-center space-x-6 p-6 rounded-xl bg-[#111111] border border-[#60e336]">
                         <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#60e336] flex items-center justify-center">
                             <!-- Insights Icon -->
                             <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -252,7 +252,7 @@ include("header.php");
                     </div>
 
                     <!-- Feature 4: Service -->
-                    <div class="flex items-start space-x-6 p-6 rounded-xl bg-[#111111] border border-[#60e336]">
+                    <div class="flex items-center space-x-6 p-6 rounded-xl bg-[#111111] border border-[#60e336]">
                         <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#60e336] flex items-center justify-center">
                             <!-- Service Icon -->
                             <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
