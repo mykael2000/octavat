@@ -330,7 +330,7 @@ include("header.php");
             <!-- Testimonial Carousel Container -->
             <div id="testimonial-carousel" class="flex overflow-x-auto snap-x snap-mandatory pb-4 space-x-6 scroll-smooth">
                 <!-- Testimonial 1 -->
-                <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center bg-gray-900 p-8 rounded-2xl flex flex-col items-center text-center">
+                <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center bg-[#111111] p-8 rounded-2xl flex flex-col items-center text-center">
                     <img src="https://placehold.co/100x100/111827/ffffff?text=User" alt="User Avatar" class="w-24 h-24 rounded-full mb-4 object-cover">
                     <p class="text-gray-400 text-sm mb-4">"Octavat has revolutionized my trading. The interface is intuitive, and the seamless service makes me feel secure with every trade. Highly recommended!"</p>
                     <div class="mt-auto">
@@ -340,7 +340,7 @@ include("header.php");
                 </div>
 
                 <!-- Testimonial 2 -->
-                <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center bg-gray-900 p-8 rounded-2xl flex flex-col items-center text-center">
+                <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center bg-[#111111] p-8 rounded-2xl flex flex-col items-center text-center">
                     <img src="https://placehold.co/100x100/111827/ffffff?text=User" alt="User Avatar" class="w-24 h-24 rounded-full mb-4 object-cover">
                     <p class="text-gray-400 text-sm mb-4">"The insights provided by this platform are a game-changer. I feel much more confident in my investment decisions now. It’s an essential tool for any trader."</p>
                     <div class="mt-auto">
@@ -350,7 +350,7 @@ include("header.php");
                 </div>
 
                 <!-- Testimonial 3 -->
-                <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center bg-gray-900 p-8 rounded-2xl flex flex-col items-center text-center">
+                <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center bg-[#111111] p-8 rounded-2xl flex flex-col items-center text-center">
                     <img src="https://placehold.co/100x100/111827/ffffff?text=User" alt="User Avatar" class="w-24 h-24 rounded-full mb-4 object-cover">
                     <p class="text-gray-400 text-sm mb-4">"I've been on other platforms, but the security and customer support here are unmatched. It's a truly worry-free trading experience."</p>
                     <div class="mt-auto">
