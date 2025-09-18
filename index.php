@@ -210,7 +210,7 @@ include("header.php");
             <div class="container mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Card 1: Secure -->
-                    <div class="flex flex-col items-center text-center p-8 rounded-2xl bg-black border border-gray-800 transition-colors duration-300 hover:bg-emerald-900">
+                    <div class="flex flex-col items-center text-center p-8 rounded-2xl bg-black border border-gray-800 transition-colors duration-300 hover:bg-emerald-400">
                         <div class="w-24 h-24 mb-6 rounded-full bg-gray-900 flex items-center justify-center">
                             <!-- Secure Icon -->
                             <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -222,7 +222,7 @@ include("header.php");
                     </div>
 
                     <!-- Card 2: Seamless -->
-                    <div class="flex flex-col items-center text-center p-8 rounded-2xl bg-black border border-gray-800 transition-colors duration-300 hover:bg-emerald-900">
+                    <div class="flex flex-col items-center text-center p-8 rounded-2xl bg-black border border-gray-800 transition-colors duration-300 hover:bg-emerald-400">
                         <div class="w-24 h-24 mb-6 rounded-full bg-gray-900 flex items-center justify-center">
                             <!-- Seamless Icon -->
                             <svg class="w-12 h-12 text-green-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -234,7 +234,7 @@ include("header.php");
                     </div>
 
                     <!-- Card 3: Insights -->
-                    <div class="flex flex-col items-center text-center p-8 rounded-2xl bg-black border border-gray-800 transition-colors duration-300 hover:bg-emerald-900">
+                    <div class="flex flex-col items-center text-center p-8 rounded-2xl bg-black border border-gray-800 transition-colors duration-300 hover:bg-emerald-400">
                         <div class="w-24 h-24 mb-6 rounded-full bg-gray-900 flex items-center justify-center">
                             <!-- Insights Icon -->
                             <svg class="w-12 h-12 text-green-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -246,7 +246,7 @@ include("header.php");
                     </div>
 
                     <!-- Card 4: Service -->
-                    <div class="flex flex-col items-center text-center p-8 rounded-2xl bg-black border border-gray-800 transition-colors duration-300 hover:bg-emerald-900">
+                    <div class="flex flex-col items-center text-center p-8 rounded-2xl bg-black border border-gray-800 transition-colors duration-300 hover:bg-emerald-400">
                         <div class="w-24 h-24 mb-6 rounded-full bg-gray-900 flex items-center justify-center">
                             <!-- Service Icon -->
                             <svg class="w-12 h-12 text-green-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
