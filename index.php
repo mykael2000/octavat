@@ -205,7 +205,7 @@ include("header.php");
 
     <!-- Placeholder Sections for Navigation -->
      <section id="why-Octavat" class="container mx-auto px-4 py-16">
-        <h2 class="text-3xl font-bold mb-8">Why Octavat?</h2>
+        <h2 class="text-3xl font-bold mb-8 pl-4">Why Octavat?</h2>
         <div class="flex items-center justify-center min-h-screen p-8">
             <div class="container mx-auto">
                 <div class="flex flex-col space-y-8">
