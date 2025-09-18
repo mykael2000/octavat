@@ -204,124 +204,66 @@ include("header.php");
     </section> -->
 
     <!-- Placeholder Sections for Navigation -->
-     <section id="why-Octavat" class="container mx-auto px-4 py-16">
-        <h2 class="text-3xl font-bold mb-8 pl-4">Why Octavat?</h2>
-        <div class="flex items-center justify-center min-h-screen p-8">
-            <div class="container mx-auto">
-                <div class="flex flex-col space-y-8">
-                    <!-- Feature 1: Secure -->
-                    <div class="flex items-center space-x-6 p-6 rounded-xl bg-[#111111] border border-[#60e336]">
-                        <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#60e336] flex items-center justify-center">
-                            <!-- Secure Icon -->
-                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 14.053L2 22h20l-1.382-3.007z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-1">Secure</h3>
-                            <p class="text-gray-400 text-sm">We offer an industry-leading secure cryptocurrency trading platform, maintaining a robust reserve fund that exceeds a 1:1 ratio against user holdings.</p>
-                        </div>
+      <section id="why-Octavat" class="py-16">
+            <h2 class="text-3xl font-bold mb-8">Why Octavat?</h2>
+            <div class="flex flex-col space-y-8">
+                <!-- Feature 1: Secure -->
+                <div class="flex items-center space-x-6 p-6 rounded-xl bg-[#111111] border border-[#60e336]">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#60e336] flex items-center justify-center">
+                        <!-- Secure Icon -->
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 14.053L2 22h20l-1.382-3.007z"></path>
+                        </svg>
                     </div>
-
-                    <!-- Feature 2: Seamless -->
-                    <div class="flex items-center space-x-6 p-6 rounded-xl bg-[#111111] border border-[#60e336]">
-                        <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#60e336] flex items-center justify-center">
-                            <!-- Seamless Icon -->
-                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.414 9.457 5 8 5c-4 0-4 6-4 6v.475M12 6.253c1.168.836 2.543 1.253 4 1.253 4 0 4-6 4-6v-.475M12 6.253v13M12 6.253c1.168-.836 2.543-1.253 4-1.253 4 0 4 6 4 6v.475M12 6.253V4M8 10v4M16 10v4"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-1">Seamless</h3>
-                            <p class="text-gray-400 text-sm">Enjoy the benefits of efficient and real-time online trading. Start your crypto journey with just a $10 investment.</p>
-                        </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Secure</h3>
+                        <p class="text-gray-400 text-sm">We offer an industry-leading secure cryptocurrency trading platform, maintaining a robust reserve fund that exceeds a 1:1 ratio against user holdings.</p>
                     </div>
+                </div>
 
-                    <!-- Feature 3: Insights -->
-                    <div class="flex items-center space-x-6 p-6 rounded-xl bg-[#111111] border border-[#60e336]">
-                        <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#60e336] flex items-center justify-center">
-                            <!-- Insights Icon -->
-                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2h4a2 2 0 002-2v-1a2 2 0 012-2h.945M8 20.25v-1.125a.875.875 0 01.875-.875h6.25a.875.875 0 01.875.875v1.125m-6.25 0V18.5a1.5 1.5 0 011.5-1.5h3.5a1.5 1.5 0 011.5 1.5v1.75z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-1">Insights</h3>
-                            <p class="text-gray-400 text-sm">Get real-time updates and sharp insights about the cryptocurrency market.</p>
-                        </div>
+                <!-- Feature 2: Seamless -->
+                <div class="flex items-center space-x-6 p-6 rounded-xl bg-[#111111] border border-[#60e336]">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#60e336] flex items-center justify-center">
+                        <!-- Seamless Icon -->
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.414 9.457 5 8 5c-4 0-4 6-4 6v.475M12 6.253c1.168.836 2.543 1.253 4 1.253 4 0 4-6 4-6v-.475M12 6.253v13M12 6.253c1.168-.836 2.543-1.253 4-1.253 4 0 4 6 4 6v.475M12 6.253V4M8 10v4M16 10v4"></path>
+                        </svg>
                     </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Seamless</h3>
+                        <p class="text-gray-400 text-sm">Enjoy the benefits of efficient and real-time online trading. Start your crypto journey with just a $10 investment.</p>
+                    </div>
+                </div>
 
-                    <!-- Feature 4: Service -->
-                    <div class="flex items-center space-x-6 p-6 rounded-xl bg-[#111111] border border-[#60e336]">
-                        <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#60e336] flex items-center justify-center">
-                            <!-- Service Icon -->
-                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.414 9.457 5 8 5c-4 0-4 6-4 6v.475M12 6.253c1.168.836 2.543 1.253 4 1.253 4 0 4-6 4-6v-.475M12 6.253v13M12 6.253c1.168-.836 2.543-1.253 4-1.253 4 0 4 6 4 6v.475M12 6.253V4M8 10v4M16 10v4"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-1">Service</h3>
-                            <p class="text-gray-400 text-sm">Experience unparalleled assistance with multilingual 24/7 customer support. Ensuring a seamless and satisfying trading experience.</p>
-                        </div>
+                <!-- Feature 3: Insights -->
+                <div class="flex items-center space-x-6 p-6 rounded-xl bg-[#111111] border border-[#60e336]">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#60e336] flex items-center justify-center">
+                        <!-- Insights Icon -->
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2h4a2 2 0 002-2v-1a2 2 0 012-2h.945M8 20.25v-1.125a.875.875 0 01.875-.875h6.25a.875.875 0 01.875.875v1.125m-6.25 0V18.5a1.5 1.5 0 011.5-1.5h3.5a1.5 1.5 0 011.5 1.5v1.75z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Insights</h3>
+                        <p class="text-gray-400 text-sm">Get real-time updates and sharp insights about the cryptocurrency market.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 4: Service -->
+                <div class="flex items-center space-x-6 p-6 rounded-xl bg-[#111111] border border-[#60e336]">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#60e336] flex items-center justify-center">
+                        <!-- Service Icon -->
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.414 9.457 5 8 5c-4 0-4 6-4 6v.475M12 6.253c1.168.836 2.543 1.253 4 1.253 4 0 4-6 4-6v-.475M12 6.253v13M12 6.253c1.168-.836 2.543-1.253 4-1.253 4 0 4 6 4 6v.475M12 6.253V4M8 10v4M16 10v4"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Service</h3>
+                        <p class="text-gray-400 text-sm">Experience unparalleled assistance with multilingual 24/7 customer support. Ensuring a seamless and satisfying trading experience.</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="flex items-center justify-center min-h-screen p-8">
-            <div class="mt-24 container mx-auto p-4 md:p-8">
-                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Begin Your Cryptocurrency Journey Effortlessly</h2>
-                <div class="flex flex-col items-center justify-center">
-                    
-                    <!-- Step 1 -->
-                    <div class="relative w-full max-w-lg mb-6 p-4 rounded-xl bg-gray-900 flex items-center justify-between shadow-lg">
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 flex-shrink-0 rounded-full bg-gray-800 flex items-center justify-center mr-4">
-                                <!-- Icon for Create Account -->
-                                <svg class="w-6 h-6 text-green-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                                </svg>
-                            </div>
-                            <span class="text-lg font-medium">Create your Octavat account</span>
-                        </div>
-                        <div class="absolute right-4 top-1/2 -translate-y-1/2 text-5xl font-extrabold text-gray-700 opacity-20">1</div>
-                    </div>
-
-                    <!-- Step 2 -->
-                    <div class="relative w-full max-w-lg mb-6 p-4 rounded-xl bg-gray-900 flex items-center justify-between shadow-lg">
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 flex-shrink-0 rounded-full bg-gray-800 flex items-center justify-center mr-4">
-                                <!-- Icon for Deposit Funds -->
-                                <svg class="w-6 h-6 text-green-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 6v2a2 2 0 01-2 2H3M7 6a2 2 0 00-2 2H3m0 0a2 2 0 00-2 2v2a2 2 0 002 2h18a2 2 0 002-2v-2a2 2 0 00-2-2h-2a2 2 0 00-2 2h-4a2 2 0 00-2-2h-4a2 2 0 00-2 2H7z"></path>
-                                </svg>
-                            </div>
-                            <span class="text-lg font-medium">Deposit funds</span>
-                        </div>
-                        <div class="absolute right-4 top-1/2 -translate-y-1/2 text-5xl font-extrabold text-gray-700 opacity-20">2</div>
-                    </div>
-
-                    <!-- Step 3 -->
-                    <div class="relative w-full max-w-lg mb-6 p-4 rounded-xl bg-gray-900 flex items-center justify-between shadow-lg">
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 flex-shrink-0 rounded-full bg-gray-800 flex items-center justify-center mr-4">
-                                <!-- Icon for Start Trading -->
-                                <svg class="w-6 h-6 text-green-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                </svg>
-                            </div>
-                            <span class="text-lg font-medium">Start trading</span>
-                        </div>
-                        <div class="absolute right-4 top-1/2 -translate-y-1/2 text-5xl font-extrabold text-gray-700 opacity-20">3</div>
-                    </div>
-
-                    <!-- Get Started Button -->
-                    <a href="register.php" class="w-full max-w-lg mt-8 py-4 bg-green-accent text-black font-bold rounded-full text-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                        Get Started
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
      <!-- Testimonial Section -->
     <div class="mt-24 container mx-auto p-4 md:p-8">
         <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Who is using Octavat?</h2>
