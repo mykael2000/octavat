@@ -206,36 +206,56 @@ include("header.php");
     <!-- Placeholder Sections for Navigation -->
      <section id="why-bitunix" class="container mx-auto px-4 py-16">
         <h2 class="text-3xl font-bold mb-8">Why Bitunix?</h2>
-        <div class="space-y-8">
-            <div class="flex items-start space-x-4">
-                <img src="path_to_secure_icon.png" alt="Secure" class="w-12 h-12">
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Secure</h3>
-                    <p class="text-gray-400">We offer industry-leading secure cryptocurrency trading platform, maintaining a robust reserve fund that exceeds 1:1 ratio against user holdings.</p>
-                </div>
-            </div>
-            
-            <div class="flex items-start space-x-4">
-                <img src="path_to_seamless_icon.png" alt="Seamless" class="w-12 h-12">
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Seamless</h3>
-                    <p class="text-gray-400">Enjoy the benefits of efficient and real-time online trading. Start your crypto journey with just $10 investment.</p>
-                </div>
-            </div>
+        <div class="flex items-center justify-center min-h-screen p-8">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Card 1: Secure -->
+                    <div class="flex flex-col items-center text-center p-8 rounded-2xl bg-black border border-gray-800 transition-colors duration-300 hover:bg-gray-900">
+                        <div class="w-24 h-24 mb-6 rounded-full bg-gray-900 flex items-center justify-center">
+                            <!-- Secure Icon -->
+                            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 14.053L2 22h20l-1.382-3.007z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Secure</h3>
+                        <p class="text-gray-400 text-sm">We offer industry-leading secure cryptocurrency trading platform, maintaining a robust reserve fund that exceeds a 1:1 ratio against user holdings.</p>
+                    </div>
 
-            <div class="flex items-start space-x-4">
-                <img src="path_to_insights_icon.png" alt="Insights" class="w-12 h-12">
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Insights</h3>
-                    <p class="text-gray-400">Get real-time updates and sharp insights about the cryptocurrency market.</p>
-                </div>
-            </div>
+                    <!-- Card 2: Seamless -->
+                    <div class="flex flex-col items-center text-center p-8 rounded-2xl bg-black border border-gray-800 transition-colors duration-300 hover:bg-gray-900">
+                        <div class="w-24 h-24 mb-6 rounded-full bg-gray-900 flex items-center justify-center">
+                            <!-- Seamless Icon -->
+                            <svg class="w-12 h-12 text-green-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.414 9.457 5 8 5c-4 0-4 6-4 6v.475M12 6.253c1.168.836 2.543 1.253 4 1.253 4 0 4-6 4-6v-.475M12 6.253v13M12 6.253c1.168-.836 2.543-1.253 4-1.253 4 0 4 6 4 6v.475M12 6.253V4M8 10v4M16 10v4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Seamless</h3>
+                        <p class="text-gray-400 text-sm">Enjoy the benefits of efficient and real-time online trading. Start your crypto journey with just a $10 investment.</p>
+                    </div>
 
-            <div class="flex items-start space-x-4">
-                <img src="path_to_service_icon.png" alt="Service" class="w-12 h-12">
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Service</h3>
-                    <p class="text-gray-400">Experience unparalleled assistance with multilingual 24/7 customer support. Ensuring a seamless and satisfying trading experience.</p>
+                    <!-- Card 3: Insights -->
+                    <div class="flex flex-col items-center text-center p-8 rounded-2xl bg-black border border-gray-800 transition-colors duration-300 hover:bg-gray-900">
+                        <div class="w-24 h-24 mb-6 rounded-full bg-gray-900 flex items-center justify-center">
+                            <!-- Insights Icon -->
+                            <svg class="w-12 h-12 text-green-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2h4a2 2 0 002-2v-1a2 2 0 012-2h.945M8 20.25v-1.125a.875.875 0 01.875-.875h6.25a.875.875 0 01.875.875v1.125m-6.25 0V18.5a1.5 1.5 0 011.5-1.5h3.5a1.5 1.5 0 011.5 1.5v1.75z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Insights</h3>
+                        <p class="text-gray-400 text-sm">Get real-time updates and sharp insights about the cryptocurrency market.</p>
+                    </div>
+
+                    <!-- Card 4: Service -->
+                    <div class="flex flex-col items-center text-center p-8 rounded-2xl bg-green-accent text-black">
+                        <div class="w-24 h-24 mb-6 rounded-full bg-white flex items-center justify-center">
+                            <!-- Service Icon -->
+                            <svg class="w-12 h-12 text-green-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.414 9.457 5 8 5c-4 0-4 6-4 6v.475M12 6.253c1.168.836 2.543 1.253 4 1.253 4 0 4-6 4-6v-.475M12 6.253v13M12 6.253c1.168-.836 2.543-1.253 4-1.253 4 0 4 6 4 6v.475M12 6.253V4M8 10v4M16 10v4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Service</h3>
+                        <p class="text-gray-800 text-sm">Experience unparalleled assistance with multilingual 24/7 customer support. Ensuring a seamless and satisfying trading experience.</p>
+                    </div>
                 </div>
             </div>
         </div>
