@@ -218,7 +218,7 @@ include("header.php");
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-2">Secure</h3>
-                        <p class="text-gray-400 text-sm">We offer industry-leading secure cryptocurrency trading platform, maintaining a robust reserve fund that exceeds a 1:1 ratio against user holdings.</p>
+                        <p class="text-gray-800 text-sm">We offer industry-leading secure cryptocurrency trading platform, maintaining a robust reserve fund that exceeds a 1:1 ratio against user holdings.</p>
                     </div>
 
                     <!-- Card 2: Seamless -->
@@ -230,7 +230,7 @@ include("header.php");
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-2">Seamless</h3>
-                        <p class="text-gray-400 text-sm">Enjoy the benefits of efficient and real-time online trading. Start your crypto journey with just a $10 investment.</p>
+                        <p class="text-gray-800 text-sm">Enjoy the benefits of efficient and real-time online trading. Start your crypto journey with just a $10 investment.</p>
                     </div>
 
                     <!-- Card 3: Insights -->
@@ -242,7 +242,7 @@ include("header.php");
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-2">Insights</h3>
-                        <p class="text-gray-400 text-sm">Get real-time updates and sharp insights about the cryptocurrency market.</p>
+                        <p class="text-gray-800 text-sm">Get real-time updates and sharp insights about the cryptocurrency market.</p>
                     </div>
 
                     <!-- Card 4: Service -->
