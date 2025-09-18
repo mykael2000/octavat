@@ -1,10 +1,9 @@
 <?php include("header.php"); ?>
-<div class="relative bg-gradient-to-br from-blue-950 to-indigo-950 text-white py-16 lg:py-32 overflow-hidden">
-    <img src="images/blob.svg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-20">
+<div class="relative bg-[#111111] text-white py-16 lg:py-32 overflow-hidden">  
     <div class="container mx-auto px-4 relative z-10">
         <div class="flex flex-col items-center justify-center text-center pt-5">
             <div class="lg:w-8/12">
-                <h1 class="text-4xl lg:text-5xl font-bold mb-3 text-blue-900 dark:text-gray-100" data-aos="fade-up">About Us</h1>
+                <h1 class="text-4xl lg:text-5xl font-bold mb-3 text-white dark:text-gray-100" data-aos="fade-up">About Us</h1>
                 <p class="text-sm lg:text-base text-gray-200 dark:text-gray-300">
                     <span class="text-gray-200 dark:text-gray-300">
                         Octavat is revolutionizing how people invest and trade. The Octavat platform allows users to deploy automated trading bots to execute non-stop cryptocurrency trading and minimize risks. Committed to building a reliable platform that helps users stabilize their crypto earnings and remove the proclivity of emotional decision-making, Octavat embraces user feedback to drive refinements, grow the platform, and develop it into multiple exceptional products. Priding ourselves on our Octavat ecosystem, we provide users with a place to learn, share and build together. We are extremely proud of our sensitivity to user-generated feedback, as it allows us to remain customer-centric and ensures that all our developments are designed specifically for our Octavat family!
@@ -15,7 +14,7 @@
     </div>
 </div>
 
-<div class="relative z-0 py-16 bg-gray-900">
+<div class="relative z-0 py-16 bg-[#111111]">
     <div class="flex flex-col lg:flex-row items-stretch">
         <div class="flex-1 p-8 md:p-16 bg-blue-950">
             <h2 class="text-3xl lg:text-4xl font-bold text-white mb-3 text-center">Our Mission</h2>
@@ -26,7 +25,7 @@
     </div>
 </div>
 
-<div class="bg-gray-800 py-16">
+<div class="bg-[#111111] py-16">
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div class="flex justify-center mb-8 col-span-full">
