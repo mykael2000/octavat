@@ -88,6 +88,12 @@
             color: #9ca3af;
             margin-bottom: 0.5rem;
         }
+        .text-green-accent {
+            color: #60e336;
+        }
+        .bg-green-accent {
+            background-color: #60e336;
+        }
     </style>
 </head>
 <body class="bg-[#111111] text-white">
