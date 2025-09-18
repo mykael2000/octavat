@@ -210,8 +210,8 @@ include("header.php");
             <div class="container mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Card 1: Secure -->
-                    <div class="group flex flex-col items-center text-center p-8 rounded-2xl bg-black border border-gray-800 transition-colors duration-300 hover:bg-green-accent hover:text-black">
-                        <div class="w-24 h-24 mb-6 rounded-full bg-gray-900 flex items-center justify-center transition-colors duration-300 group-hover:bg-white">
+                    <div class="flex flex-col items-center text-center p-8 rounded-2xl bg-black border border-gray-800 transition-colors duration-300 hover:bg-gray-900">
+                        <div class="w-24 h-24 mb-6 rounded-full bg-gray-900 flex items-center justify-center">
                             <!-- Secure Icon -->
                             <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 14.053L2 22h20l-1.382-3.007z"></path>
@@ -222,9 +222,9 @@ include("header.php");
                     </div>
 
                     <!-- Card 2: Seamless -->
-                    <div class="group flex flex-col items-center text-center p-8 rounded-2xl bg-black border border-gray-800 transition-colors duration-300 hover:bg-green-accent hover:text-black">
-                        <div class="w-24 h-24 mb-6 rounded-full bg-gray-900 flex items-center justify-center transition-colors duration-300 group-hover:bg-white">
-                        <!-- Seamless Icon -->
+                    <div class="flex flex-col items-center text-center p-8 rounded-2xl bg-black border border-gray-800 transition-colors duration-300 hover:bg-gray-900">
+                        <div class="w-24 h-24 mb-6 rounded-full bg-gray-900 flex items-center justify-center">
+                            <!-- Seamless Icon -->
                             <svg class="w-12 h-12 text-green-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.414 9.457 5 8 5c-4 0-4 6-4 6v.475M12 6.253c1.168.836 2.543 1.253 4 1.253 4 0 4-6 4-6v-.475M12 6.253v13M12 6.253c1.168-.836 2.543-1.253 4-1.253 4 0 4 6 4 6v.475M12 6.253V4M8 10v4M16 10v4"></path>
                             </svg>
@@ -234,7 +234,7 @@ include("header.php");
                     </div>
 
                     <!-- Card 3: Insights -->
-                    <div class="group flex flex-col items-center text-center p-8 rounded-2xl bg-black border border-gray-800 transition-colors duration-300 hover:bg-green-accent hover:text-black">
+                    <div class="group flex flex-col items-center text-center p-8 rounded-2xl transition-colors duration-300 hover:bg-green-accent hover:text-black">
                         <div class="w-24 h-24 mb-6 rounded-full bg-gray-900 flex items-center justify-center transition-colors duration-300 group-hover:bg-white">
                             <!-- Insights Icon -->
                             <svg class="w-12 h-12 text-green-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -246,9 +246,8 @@ include("header.php");
                     </div>
 
                     <!-- Card 4: Service -->
-                    <div class="group flex flex-col items-center text-center p-8 rounded-2xl bg-black border border-gray-800 transition-colors duration-300 hover:bg-green-accent hover:text-black">
-                        <div class="w-24 h-24 mb-6 rounded-full bg-gray-900 flex items-center justify-center transition-colors duration-300 group-hover:bg-white">
-            
+                    <div class="flex flex-col items-center text-center p-8 rounded-2xl bg-green-accent text-black">
+                        <div class="w-24 h-24 mb-6 rounded-full bg-white flex items-center justify-center">
                             <!-- Service Icon -->
                             <svg class="w-12 h-12 text-green-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.414 9.457 5 8 5c-4 0-4 6-4 6v.475M12 6.253c1.168.836 2.543 1.253 4 1.253 4 0 4-6 4-6v-.475M12 6.253v13M12 6.253c1.168-.836 2.543-1.253 4-1.253 4 0 4 6 4 6v.475M12 6.253V4M8 10v4M16 10v4"></path>
