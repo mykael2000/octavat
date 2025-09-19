@@ -281,30 +281,16 @@ include('function.php');
             <!-- New Listing Content (New Section) -->
             <div id="new-listing-content" class="hidden">
                 <!-- New Coin Listing Section -->
-                <div class="w-full max-w-xl p-6 rounded-xl bg-gray-900 border border-gray-700 shadow-xl">
-                    <h2 class="text-2xl font-bold mb-4">Octavat Coin Listing</h2>
-                    <div id="countdown-container" class="flex justify-center items-center space-x-6 text-white font-bold text-3xl">
-                        <div class="flex flex-col items-center">
-                            <span id="days" class="text-4xl md:text-5xl text-green-accent">00</span>
-                            <span class="text-sm font-normal text-gray-400">Days</span>
-                        </div>
-                        <span class="text-green-accent hidden sm:block">:</span>
-                        <div class="flex flex-col items-center">
-                            <span id="hours" class="text-4xl md:text-5xl text-green-accent">00</span>
-                            <span class="text-sm font-normal text-gray-400">Hours</span>
-                        </div>
-                        <span class="text-green-accent hidden sm:block">:</span>
-                        <div class="flex flex-col items-center">
-                            <span id="minutes" class="text-4xl md:text-5xl text-green-accent">00</span>
-                            <span class="text-sm font-normal text-gray-400">Minutes</span>
-                        </div>
-                        <span class="text-green-accent hidden sm:block">:</span>
-                        <div class="flex flex-col items-center">
-                            <span id="seconds" class="text-4xl md:text-5xl text-green-accent">00</span>
-                            <span class="text-sm font-normal text-gray-400">Seconds</span>
-                        </div>
-                    </div>
+                <section id="tapper-section" class="container mx-auto px-4">
+                <h2 class="text-center text-2xl font-bold mb-4">Tap to Claim Your Free Octavat Token!</h2>
+                <div id="coin-container">
+                    <img height="50px" width="50px" id="coin-image" src="logo.png" alt="Tappable Coin">
                 </div>
+                <div id="tap-count" class="mt-4 text-xl font-bold">Taps: <span id="taps">0</span></div>
+
+                <p id="timer-label" class="mt-12">Token Listing in:</p>
+                <div id="countdown-timer"></div>
+            </section>
                 <div class="mb-6">
                     <h1 class="text-xl font-bold mb-1 text-white pt-4">Bitcoin Community</h1>
                     
@@ -597,43 +583,85 @@ include('function.php');
         });
     </script>
     <script>
-        // Set the date we're counting down to
-        const countdownDate = new Date("September 25, 2025 00:00:00").getTime();
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            // Toggle the mobile menu on button click
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
 
-        // Use a global variable to store the interval ID
-        let countdownInterval;
+            // Smooth scroll for internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Hide the mobile menu after clicking a link
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
 
-        // Clear any existing interval before starting a new one
-        if (countdownInterval) {
-            clearInterval(countdownInterval);
-        }
+            // --- COIN TAPPER & TIMER LOGIC ---
+            const coin = document.getElementById('coin-container');
+            const tapsDisplay = document.getElementById('taps');
+            const countdownDisplay = document.getElementById('countdown-timer');
+            let taps = 0;
 
-        // Update the countdown every 1 second
-        countdownInterval = setInterval(function() {
-            // Get the current date and time
-            const now = new Date().getTime();
+            // Tapping logic
+            coin.addEventListener('click', (event) => {
+                taps++;
+                tapsDisplay.textContent = taps;
+                createTapEffect(event);
+            });
 
-            // Find the distance between now and the countdown date
-            const distance = countdownDate - now;
+            // Add a tap effect (like a number popping up)
+            function createTapEffect(event) {
+                const effect = document.createElement('div');
+                effect.textContent = '+1';
+                effect.className = 'tap-effect';
+                
+                // Position the effect where the tap occurred
+                effect.style.left = `${event.clientX}px`;
+                effect.style.top = `${event.clientY}px`;
 
-            // Time calculations for days, hours, minutes, and seconds
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Display the result in the elements with the corresponding IDs
-            document.getElementById("days").textContent = days.toString().padStart(2, '0');
-            document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
-            document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-            document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
-
-            // If the countdown is finished, display a message and clear the interval
-            if (distance < 0) {
-                clearInterval(countdownInterval);
-                document.getElementById("countdown-container").innerHTML = '<div class="text-2xl font-bold text-green-accent">LISTING LIVE!</div>';
+                document.body.appendChild(effect);
+                
+                // Remove the element after the animation finishes
+                setTimeout(() => {
+                    effect.remove();
+                }, 500);
             }
-        }, 1000);
+
+            // Timer Logic
+            // ** IMPORTANT: Set your token listing date here! **
+            // The format is 'Month Day, Year HH:MM:SS GMT+00:00'
+            // Example: 'January 1, 2026 12:00:00 GMT+00:00'
+            const listingDate = new Date('October 20, 2025 10:00:00 GMT+00:00').getTime();
+
+            const timer = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = listingDate - now;
+
+                if (distance < 0) {
+                    clearInterval(timer);
+                    countdownDisplay.innerHTML = "🎉 **LISTED!**";
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownDisplay.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }, 1000);
+        });
     </script>
    <script src="js/topNavFooter.js"></script>
 </body>
