@@ -294,7 +294,7 @@ include('function.php');
                     <h1 class="text-xl font-bold mb-1 text-white pt-4">Bitcoin Community</h1>
 
                 </div>
-                <div class="mt-16 p-2 rounded-xl bg-gray-900 border border-gray-700 shadow-xl">
+                <div class="mt-4 p-2 rounded-xl bg-gray-900 border border-gray-700 shadow-xl">
                     <div class="flex justify-between items-center mb-4">
                         <span class="text-lg font-semibold text-gray-300">Community sentiment</span>
                         <div class="text-sm text-gray-500">4.7M votes</div>
@@ -336,7 +336,7 @@ include('function.php');
                         </button>
                     </div>
                 </div>
-                <div class="mt-16 p-2 rounded-xl bg-gray-900 border border-gray-700 shadow-xl">
+                <div class="mt-4 p-2 rounded-xl bg-gray-900 border border-gray-700 shadow-xl">
                     <div class="flex items-center mb-4">
                         <div class="w-10 h-10 rounded-full bg-gray-700 mr-4"></div>
                         <div>
