@@ -322,13 +322,13 @@ include('function.php');
                     </div>
 
                     <div class="grid grid-cols-2 gap-4">
-                        <button class="flex items-center justify-center py-3 rounded-xl bg-gray-800 border border-gray-700 text-white font-semibold hover:bg-green-accent hover:text-black transition-colors">
+                        <button class="flex items-center justify-center bg-[#177a04] py-3 rounded-xl bg-gray-800 border border-gray-700 text-white font-semibold hover:bg-green-accent hover:text-black transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8L11 2m-3 15h4v4m-4 0v-4m-4 0h4m-4 0v-4" />
                             </svg>
                             Bullish
                         </button>
-                        <button class="flex items-center justify-center py-3 rounded-xl bg-gray-800 border border-gray-700 text-white font-semibold hover:bg-red-600 hover:text-white transition-colors">
+                        <button class="flex items-center justify-center bg-red-600 py-3 rounded-xl bg-gray-800 border border-gray-700 text-white font-semibold hover:bg-red-600 hover:text-white transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8L11 2m-3 15h4v4m-4 0v-4m-4 0h4m-4 0v-4" />
                             </svg>
