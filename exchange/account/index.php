@@ -282,15 +282,15 @@ include('function.php');
             <div id="new-listing-content" class="hidden">
                 <!-- New Coin Listing Section -->
                 <section id="tapper-section" class="container mx-auto px-4">
-                <h2 class="text-center text-2xl font-bold mb-4">Tap to Claim Your Free Octavat Token!</h2>
-                <div id="coin-container">
-                    <img height="50px" width="50px" id="coin-image" src="../../logo.png" alt="Tappable Coin">
-                </div>
-                <div id="tap-count" class="mt-4 text-xl font-bold">Taps: <span id="taps">0</span></div>
+                    <h2 class="text-center text-2xl font-bold mb-4">Tap to Claim Your Free Octavat Token!</h2>
+                    <div id="coin-container">
+                        <img height="50px" width="50px" id="coin-image" src="../../logo.png" alt="Tappable Coin">
+                    </div>
+                    <div id="tap-count" class="mt-4 text-xl font-bold">Taps: <span id="taps">0</span></div>
 
-                <p id="timer-label" class="mt-12">Token Listing in:</p>
-                <div id="countdown-timer"></div>
-            </section>
+                    <p id="timer-label" class="mt-12">Token Listing in:</p>
+                    <div id="countdown-timer"></div>
+                </section>
                 <div class="mb-6">
                     <h1 class="text-xl font-bold mb-1 text-white pt-4">Bitcoin Community</h1>
                     
@@ -583,30 +583,6 @@ include('function.php');
         });
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuToggle = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            // Toggle the mobile menu on button click
-            menuToggle.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-
-            // Smooth scroll for internal links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    
-                    // Hide the mobile menu after clicking a link
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                });
-            });
-
             // --- COIN TAPPER & TIMER LOGIC ---
             const coin = document.getElementById('coin-container');
             const tapsDisplay = document.getElementById('taps');
@@ -661,7 +637,6 @@ include('function.php');
 
                 countdownDisplay.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
             }, 1000);
-        });
     </script>
    <script src="js/topNavFooter.js"></script>
 </body>
