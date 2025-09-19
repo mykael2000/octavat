@@ -329,6 +329,71 @@ include('function.php');
                         </button>
                     </div>
                 </div>
+                <!-- Article Section -->
+                <div class="max-w-xl mx-auto mt-16 p-6 rounded-xl bg-gray-900 border border-gray-700 shadow-xl">
+                    <div class="flex items-center mb-4">
+                        <!-- Profile Picture Placeholder -->
+                        <div class="w-10 h-10 rounded-full bg-gray-700 mr-4"></div>
+                        <div>
+                            <div class="flex items-center">
+                                <span class="text-lg font-semibold">Crypto.Andy</span>
+                                <svg class="w-4 h-4 text-blue-500 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                <span class="text-sm text-gray-500 ml-2">15 hours</span>
+                            </div>
+                            <button class="text-sm font-semibold text-green-accent">
+                                + Follow
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">Let's kick off this day productively - with fresh ideas and useful resources. Today I'm sharing an insightful article "Building a Smart Corporate Crypto Reserve: My Top 5 Picks". The author explores... <span class="text-green-accent font-semibold">Read all</span></p>
+                    
+                    <!-- Image with Crypto Logos -->
+                    <div class="rounded-xl overflow-hidden mb-4">
+                        <img src="https://placehold.co/600x400/1e293b/fff?text=Corporate+Crypto+Reserve" alt="Corporate Crypto Reserve" class="w-full h-auto">
+                    </div>
+                    
+                    <div class="text-sm text-gray-500 text-center mb-4">
+                        See more <a href="#" class="text-green-accent font-semibold">#BTC Price Analysis</a> posts >
+                    </div>
+
+                    <!-- Social Engagement Icons -->
+                    <div class="flex justify-between items-center text-gray-400 text-sm">
+                        <div class="flex items-center space-x-2">
+                            <span class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+                                </svg>
+                                27
+                            </span>
+                            <span class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg>
+                                623
+                            </span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2v-6a2 2 0 012-2h2a2 2 0 002-2V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v10a2 2 0 002 2h2" />
+                                </svg>
+                                20
+                            </span>
+                            <span class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h8a2 2 0 012 2v8a2 2 0 01-2 2H8a2 2 0 01-2-2V9a2 2 0 012-2z" />
+                                </svg>
+                                14
+                            </span>
+                            <span class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.636a2 2 0 01-1.789-2.894l3.5-7zM7 9H2.236a2 2 0 00-1.789 2.894l3.5 7A2 2 0 008.736 21h4.636a2 2 0 001.789-2.894l-3.5-7z" />
+                                </svg>
+                                701
+                            </span>
+                        </div>
+                    </div>
+                </div>
                 
             </div>
 
@@ -421,14 +486,14 @@ include('function.php');
            
             const spotContent = document.getElementById('spot-content');
             const futuresContent = document.getElementById('futures-content');
-           
+            const newListingContent = document.getElementById('new-listing-content');
             const depositContent = document.getElementById('deposit-content');
             const hideZeroCheckbox = document.getElementById('hideZero');
             const copyButton = document.getElementById('copy-button');
             const copyMessage = document.getElementById('copy-message');
             const depositAddressSpan = document.getElementById('deposit-address');
 
-            const allContent = [spotContent, futuresContent, depositContent];
+            const allContent = [spotContent, futuresContent, newListingContent, depositContent];
 
             function showTab(tabId) {
                 // Hide all content sections
@@ -452,6 +517,10 @@ include('function.php');
                     case 'futures-tab':
                         contentToShow = futuresContent;
                         tabToActivate = document.getElementById('futures-tab');
+                        break;
+                    case 'new-listing-tab':
+                        contentToShow = newListingContent;
+                        tabToActivate = document.getElementById('new-listing-tab');
                         break;
                     case 'deposit-tab':
                         contentToShow = depositContent;
