@@ -37,7 +37,7 @@ include('function.php');
                 
                 <button id="spot-tab" class="text-white px-2 py-1 rounded-full border-b-2 border-green-500 font-semibold transition-colors duration-200">Assets Overview</button>
                 <button id="futures-tab" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Trading Account</button>
-                <a href="../../octavat.html" id="" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">New Listing</a>
+                <button id="new-listing-tab" id="" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">New Listing</button>
                 <button id="deposit-tab" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Deposit</button>
                 <a href="withdrawal.php" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Withdrawal</a>
                 
@@ -277,6 +277,59 @@ include('function.php');
                         </div>
                     </div>
                 </div>
+            </div>
+            <!-- New Listing Content (New Section) -->
+            <div id="new-listing-content" class="hidden">
+                <div class="mb-6">
+                    <h1 class="text-xl font-bold mb-1 text-white">Bitcoin Community</h1>
+                    
+                </div>
+                <!-- Community Sentiment Section -->
+                <div class="max-w-xl mx-auto mt-16 p-6 rounded-xl bg-gray-900 border border-gray-700 shadow-xl">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-lg font-semibold text-gray-300">Community sentiment</span>
+                        <div class="text-sm text-gray-500">4.7M votes</div>
+                    </div>
+                    
+                    <!-- Progress Bar -->
+                    <div class="flex items-center mb-6">
+                        <div class="flex items-center w-full">
+                            <div class="text-green-accent mr-2 font-semibold">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8L11 2m-3 15h4v4m-4 0v-4m-4 0h4m-4 0v-4" />
+                                </svg>
+                                82%
+                            </div>
+                            <div class="w-full h-2 bg-gray-800 rounded-full flex overflow-hidden">
+                                <div class="h-full bg-green-accent" style="width: 82%;"></div>
+                                <div class="h-full bg-red-600" style="width: 18%;"></div>
+                            </div>
+                            <div class="text-red-600 ml-2 font-semibold">
+                                18%
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8L11 2m-3 15h4v4m-4 0v-4m-4 0h4m-4 0v-4" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <button class="flex items-center justify-center py-3 rounded-xl bg-gray-800 border border-gray-700 text-white font-semibold hover:bg-green-accent hover:text-black transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8L11 2m-3 15h4v4m-4 0v-4m-4 0h4m-4 0v-4" />
+                            </svg>
+                            Bullish
+                        </button>
+                        <button class="flex items-center justify-center py-3 rounded-xl bg-gray-800 border border-gray-700 text-white font-semibold hover:bg-red-600 hover:text-white transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8L11 2m-3 15h4v4m-4 0v-4m-4 0h4m-4 0v-4" />
+                            </svg>
+                            Bearish
+                        </button>
+                    </div>
+                </div>
+                
             </div>
 
             <!-- Deposit Content (New Section) -->
