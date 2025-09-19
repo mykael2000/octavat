@@ -280,10 +280,9 @@ include('function.php');
             </div>
             <!-- New Listing Content (New Section) -->
             <div id="new-listing-content" class="hidden">
-                <!-- New Coin Listing Section -->
-                <section id="tapper-section" class="container mx-auto px-4">
+                <section id="tapper-section" class="flex flex-col items-center container mx-auto px-4">
                     <h2 class="text-center text-2xl font-bold mb-4">Tap to Claim Your Free Octavat Token!</h2>
-                    <div id="coin-container">
+                    <div id="coin-container" class="flex flex-col items-center">
                         <img height="50px" width="50px" id="coin-image" src="../../logo.png" alt="Tappable Coin">
                     </div>
                     <div id="tap-count" class="mt-4 text-xl font-bold">Taps: <span id="taps">0</span></div>
@@ -293,16 +292,14 @@ include('function.php');
                 </section>
                 <div class="mb-6">
                     <h1 class="text-xl font-bold mb-1 text-white pt-4">Bitcoin Community</h1>
-                    
+
                 </div>
-                <!-- Community Sentiment Section -->
-                <div class="max-w-xl mx-auto mt-16 p-6 rounded-xl bg-gray-900 border border-gray-700 shadow-xl">
+                <div class="mt-16 p-6 rounded-xl bg-gray-900 border border-gray-700 shadow-xl">
                     <div class="flex justify-between items-center mb-4">
                         <span class="text-lg font-semibold text-gray-300">Community sentiment</span>
                         <div class="text-sm text-gray-500">4.7M votes</div>
                     </div>
-                    
-                    <!-- Progress Bar -->
+
                     <div class="flex items-center mb-6">
                         <div class="flex items-center w-full">
                             <div class="text-green-accent mr-2 font-semibold">
@@ -324,7 +321,6 @@ include('function.php');
                         </div>
                     </div>
 
-                    <!-- Buttons -->
                     <div class="grid grid-cols-2 gap-4">
                         <button class="flex items-center justify-center py-3 rounded-xl bg-gray-800 border border-gray-700 text-white font-semibold hover:bg-green-accent hover:text-black transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -334,16 +330,14 @@ include('function.php');
                         </button>
                         <button class="flex items-center justify-center py-3 rounded-xl bg-gray-800 border border-gray-700 text-white font-semibold hover:bg-red-600 hover:text-white transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8L11 2m-3 15h4v4m-4 0v-4m-4 0h4m-4 0v-4" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8L11 2m-3 15h4v4m-4 0v-4m-4 0h4m-4 0v-4" />
                             </svg>
                             Bearish
                         </button>
                     </div>
                 </div>
-                <!-- Article Section -->
-                <div class="max-w-xl mx-auto mt-16 p-6 rounded-xl bg-gray-900 border border-gray-700 shadow-xl">
+                <div class="mt-16 p-6 rounded-xl bg-gray-900 border border-gray-700 shadow-xl">
                     <div class="flex items-center mb-4">
-                        <!-- Profile Picture Placeholder -->
                         <div class="w-10 h-10 rounded-full bg-gray-700 mr-4"></div>
                         <div>
                             <div class="flex items-center">
@@ -357,17 +351,15 @@ include('function.php');
                         </div>
                     </div>
                     <p class="text-gray-300 mb-4">Let's kick off this day productively - with fresh ideas and useful resources. Today I'm sharing an insightful article "Building a Smart Corporate Crypto Reserve: My Top 5 Picks". The author explores... <span class="text-green-accent font-semibold">Read all</span></p>
-                    
-                    <!-- Image with Crypto Logos -->
+
                     <div class="rounded-xl overflow-hidden mb-4">
                         <img src="https://placehold.co/600x400/1e293b/fff?text=Corporate+Crypto+Reserve" alt="Corporate Crypto Reserve" class="w-full h-auto">
                     </div>
-                    
+
                     <div class="text-sm text-gray-500 text-center mb-4">
                         See more <a href="#" class="text-green-accent font-semibold">#BTC Price Analysis</a> posts >
                     </div>
 
-                    <!-- Social Engagement Icons -->
                     <div class="flex justify-between items-center text-gray-400 text-sm">
                         <div class="flex items-center space-x-2">
                             <span class="flex items-center">
@@ -405,7 +397,7 @@ include('function.php');
                         </div>
                     </div>
                 </div>
-                
+
             </div>
 
             <!-- Deposit Content (New Section) -->
