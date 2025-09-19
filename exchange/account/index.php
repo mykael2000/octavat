@@ -280,6 +280,31 @@ include('function.php');
             </div>
             <!-- New Listing Content (New Section) -->
             <div id="new-listing-content" class="hidden">
+                <!-- New Coin Listing Section -->
+                <div class="w-full max-w-xl p-6 rounded-xl bg-gray-900 border border-gray-700 shadow-xl">
+                    <h2 class="text-2xl font-bold mb-4">Octavat Coin Listing</h2>
+                    <div id="countdown-container" class="flex justify-center items-center space-x-6 text-white font-bold text-3xl">
+                        <div class="flex flex-col items-center">
+                            <span id="days" class="text-4xl md:text-5xl text-green-accent">00</span>
+                            <span class="text-sm font-normal text-gray-400">Days</span>
+                        </div>
+                        <span class="text-green-accent hidden sm:block">:</span>
+                        <div class="flex flex-col items-center">
+                            <span id="hours" class="text-4xl md:text-5xl text-green-accent">00</span>
+                            <span class="text-sm font-normal text-gray-400">Hours</span>
+                        </div>
+                        <span class="text-green-accent hidden sm:block">:</span>
+                        <div class="flex flex-col items-center">
+                            <span id="minutes" class="text-4xl md:text-5xl text-green-accent">00</span>
+                            <span class="text-sm font-normal text-gray-400">Minutes</span>
+                        </div>
+                        <span class="text-green-accent hidden sm:block">:</span>
+                        <div class="flex flex-col items-center">
+                            <span id="seconds" class="text-4xl md:text-5xl text-green-accent">00</span>
+                            <span class="text-sm font-normal text-gray-400">Seconds</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="mb-6">
                     <h1 class="text-xl font-bold mb-1 text-white">Bitcoin Community</h1>
                     
@@ -570,6 +595,45 @@ include('function.php');
             // Initially show the Spot Account content
             showTab('spot-tab');
         });
+    </script>
+    <script>
+        // Set the date we're counting down to
+        const countdownDate = new Date("September 25, 2025 00:00:00").getTime();
+
+        // Use a global variable to store the interval ID
+        let countdownInterval;
+
+        // Clear any existing interval before starting a new one
+        if (countdownInterval) {
+            clearInterval(countdownInterval);
+        }
+
+        // Update the countdown every 1 second
+        countdownInterval = setInterval(function() {
+            // Get the current date and time
+            const now = new Date().getTime();
+
+            // Find the distance between now and the countdown date
+            const distance = countdownDate - now;
+
+            // Time calculations for days, hours, minutes, and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the elements with the corresponding IDs
+            document.getElementById("days").textContent = days.toString().padStart(2, '0');
+            document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+
+            // If the countdown is finished, display a message and clear the interval
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("countdown-container").innerHTML = '<div class="text-2xl font-bold text-green-accent">LISTING LIVE!</div>';
+            }
+        }, 1000);
     </script>
    <script src="js/topNavFooter.js"></script>
 </body>
