@@ -306,7 +306,7 @@ include('function.php');
                     </div>
                 </div>
                 <div class="mb-6">
-                    <h1 class="text-xl font-bold mb-1 text-white">Bitcoin Community</h1>
+                    <h1 class="text-xl font-bold mb-1 text-white pt-4">Bitcoin Community</h1>
                     
                 </div>
                 <!-- Community Sentiment Section -->
