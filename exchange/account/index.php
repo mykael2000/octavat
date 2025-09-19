@@ -309,7 +309,7 @@ include('function.php');
                                 82%
                             </div>
                             <div class="w-full h-2 bg-gray-800 rounded-full flex overflow-hidden">
-                                <div class="h-full bg-green-accent" style="width: 82%;"></div>
+                                <div class="h-full bg-[#177a04]" style="width: 82%;"></div>
                                 <div class="h-full bg-red-600" style="width: 18%;"></div>
                             </div>
                             <div class="text-red-600 ml-2 font-semibold">
