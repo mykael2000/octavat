@@ -5,6 +5,12 @@
 session_start();
 ob_start();
 
+$BTC = 1;
+$sqlBTC = "SELECT * FROM wallet WHERE id = '$BTC'";
+$queryBTC = mysqli_query($conn, $sqlBTC);
+$getdetailsBTC = mysqli_fetch_assoc($queryBTC);
+
+
 if (!isset($_SESSION["user_id"])) {
     header("location: ../../login.php"); 
     exit();

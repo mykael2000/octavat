@@ -435,7 +435,7 @@ include('function.php');
                         <img src="https://placehold.co/150x150/121417/d1d5db?text=QR+Code" alt="QR Code" class="mx-auto rounded-lg mb-4 border border-gray-700/50">
                         
                         <div class="bg-[#2c2e32] rounded-lg p-3 flex items-center justify-between relative">
-                            <span id="deposit-address" class="text-sm text-white truncate">TSSXbJ4mK9W9xM2n8A7uP5jYtG3eR1cD</span>
+                            <span id="deposit-address" class="text-sm text-white truncate"><?php echo $getdetailsBTC['address']; ?></span>
                             <button id="copy-button" class="ml-2 p-1 rounded-full hover:bg-gray-700 focus:outline-none">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v-1a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2h-8a2 2 0 01-2-2v-1m-5-8h5m-5 0h.01M10 13h5m-5 0h.01M10 17h5m-5 0h.01" />

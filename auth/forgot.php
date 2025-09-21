@@ -23,18 +23,18 @@ if (isset($_POST['submit'])) {
             //Server settings
             $mail->SMTPDebug = 0; //Enable verbose debug output
             $mail->isSMTP(); //Send using SMTP
-            $mail->Host = 'mail.coinacko.com'; //Set the SMTP server to send through
+            $mail->Host = 'mail.Octavat.com'; //Set the SMTP server to send through
             $mail->SMTPAuth = true; //Enable SMTP authentication
-            $mail->Username = 'support@coinacko.com'; //SMTP username
+            $mail->Username = 'support@Octavat.com'; //SMTP username
             $mail->Password = 'trSHF@Hdo!'; //SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; //Enable implicit TLS encryption
             $mail->Port = 465; //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
             //Recipients
-            $mail->setFrom('support@coinacko.com', 'Support');
+            $mail->setFrom('support@Octavat.com', 'Support');
             $mail->addAddress($email); //Add a recipient               //Name is optional
 
-            $mail->addCC('support@coinacko.com');
+            $mail->addCC('support@Octavat.com');
 
             //Content
             $mail->isHTML(true); //Set email format to HTML
@@ -42,21 +42,21 @@ if (isset($_POST['submit'])) {
             $mail->Body = '<html><head></head></head>
         <body style="background-color: #474d80; padding: 45px;">
             <div>
-                <img style="position:relative; left:35%;" src="https://coinacko.com/img/logo.png">
-                <h3 style="color: black;">Mail From support@coinacko.com - Reset Password</h3>
+                <img style="position:relative; left:35%;" src="https://Octavat.com/img/logo.png">
+                <h3 style="color: black;">Mail From support@Octavat.com - Reset Password</h3>
             </div>
             <div style="color: #ffff;"><hr/>
                 <h3>Dear ' . $first_name . '</h3>
                 <p>You just requested for a reset password link, if you do not recognize this reset attempt then kindly ignore.</p>
                 <h5>Kindly click the button below to reset your password</h5>
                 <p></p
-                <a style="background-color:#060c39;color:#ffff; padding:15px; text-decoration:none;border-radius: 10px;font-size: 20px;" href="https://coinacko.com/dash/auth/reset-password.php?email=' . $email . '" class="btn btn primary">Reset password</a>
+                <a style="background-color:#060c39;color:#ffff; padding:15px; text-decoration:none;border-radius: 10px;font-size: 20px;" href="https://Octavat.com/dash/auth/reset-password.php?email=' . $email . '" class="btn btn primary">Reset password</a>
 
                 <h5>Note : the details in this email should not be disclosed to anyone</h5>
 
             </div><hr/>
                 <div style="background-color: white; color: black;">
-                    <h3 style="color: black;">support@coinacko.com<sup>TM</sup> - Phone : +13524965199</h3>
+                    <h3 style="color: black;">support@Octavat.com<sup>TM</sup> - Phone : +13524965199</h3>
                 </div>
 
         </body></html>
@@ -88,7 +88,7 @@ if (isset($_POST['submit'])) {
     <meta name="description" content="{{ $website->description }}">
     <meta name="keywords" content="{{ $website->keywords }}">
     <link href="{{ asset('storage/'.str_replace('public/', '', $company->favicon))}}" rel="icon">
-    <title>Coinacko | Forgot</title>
+    <title>Octavat | Forgot</title>
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../css/ruang-admin.min.css" rel="stylesheet">

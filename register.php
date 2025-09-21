@@ -6,9 +6,9 @@ use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 
 // Load PHPMailer classes
-require 'PHPMailer-master/src/PHPMailer.php';
-require 'PHPMailer-master/src/Exception.php';
-require 'PHPMailer-master/src/SMTP.php';
+require '../PHPMailer-master/src/PHPMailer.php';
+require '../PHPMailer-master/src/Exception.php';
+require '../PHPMailer-master/src/SMTP.php';
 
 $message = ""; // Initialize message variable
 error_reporting(E_ALL);
