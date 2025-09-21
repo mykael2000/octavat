@@ -283,12 +283,16 @@ include('function.php');
                 <section id="tapper-section" class="flex flex-col items-center container mx-auto px-4">
                     <h2 class="text-center text-2xl font-bold mb-4">Tap to Claim Your Free Octavat Token!</h2>
                     <div id="coin-container" class="flex flex-col items-center">
-                        <img height="300px" width="300px" id="coin-image" src="octacoin.gif" alt="Tappable Coin">
+                        <img height="300px" width="300px" id="coin-image" src="genuis.png" alt="Tappable Coin">
                     </div>
                     <div id="tap-count" class="mt-4 text-xl font-bold">Taps: <span id="taps">0</span></div>
 
                     <p id="timer-label" class="mt-12">Token Listing in:</p>
                     <div id="countdown-timer"></div>
+                    <div class="flex justify-center mt-4 space-x-4">
+                        <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300">Buy Token</a>
+                        <a href="#" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full transition-colors duration-300">Whitepaper</a>
+                    </div>
                 </section>
                 <div class="mb-6">
                     <h1 class="text-xl font-bold mb-1 text-white pt-4">Bitcoin Community</h1>
