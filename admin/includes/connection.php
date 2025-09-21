@@ -1,9 +1,17 @@
 <?php
-$conn = mysqli_connect("vin101.truehost.cloud", "trustron_Coinacko", "cheWess23@!YQ", "trustron_Coinacko");
-//$conn = mysqli_connect("localhost", "root", "", "Coinacko");
+// Database connection (Change credentials accordingly)
+        $servername = "cp3.offsh.nl";
+        //$username = "dualstre_octavat";
+        $username = "dualxtra_octavat";
+        $password = "OCT3244@DSfdrdv";
+        //$dbname = "dualstre_octavat";
+        $dbname = "dualxtra_octavat";
 
-// if($con){
-//     echo "connected";
-// }else{
-//     echo "failed";
-// }
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // if($conn){
+        //     echo "connected successfully";
+        // }else{
+        //     echo "connection failed";
+        // }
+
+        ?>
