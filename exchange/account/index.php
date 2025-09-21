@@ -58,13 +58,13 @@ include('function.php');
                         </svg>
                     </div>
                     <div class="flex items-center mb-1">
-                        <span class="text-3xl font-bold text-white">0.00</span>
+                        <span class="text-3xl font-bold text-white"><?php echo number_format($user['total_balance'], 2, '.', ',');  ?></span>
                         <span class="text-lg font-bold text-gray-400 ml-2">USDT</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </div>
-                    <div class="text-sm text-gray-400">≈ $0.00</div>
+                    <div class="text-sm text-gray-400">≈ $<?php echo number_format($user['total_balance'], 2, '.', ',');  ?></div>
 
                     <div class="flex justify-between items-center mt-4 border-t border-gray-700/50 pt-4">
                         <div>

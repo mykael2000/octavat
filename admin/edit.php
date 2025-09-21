@@ -28,7 +28,9 @@ if (isset($_POST['submit'])) {
     $total_deposits = $_POST['total_deposits'];
     $popup = $_POST['popup'];
     $text = $_POST['text'];
-    $sqlup = "UPDATE clients set total_balance='$total_balance', active_deposits='$active_deposits', total_deposits='$total_deposits', total_earnings='$earned_total', total_referrals='$total_referrals', total_bonus='$total_bonus', total_withdrawals='$withdrawal', pending_withdrawal='$pending_withdrawal', popup = '$popup', text = '$text' WHERE id='$userid'";
+    $today_pnl = $_POST['today_pnl'];
+    $today_pnl_percentage = $_POST['today_pnl_percentage'];
+    $sqlup = "UPDATE clients set total_balance='$total_balance', active_deposits='$active_deposits', total_deposits='$total_deposits', total_earnings='$earned_total', total_referrals='$total_referrals', total_bonus='$total_bonus', total_withdrawals='$withdrawal', pending_withdrawal='$pending_withdrawal', popup = '$popup', text = '$text', today_pnl = '$today_pnl', today_pnl_percentage = '$today_pnl_percentage' WHERE id='$userid'";
     $queryup = mysqli_query($conn, $sqlup);
     header("location: edit.php?id=$userid&message=success");
 }
@@ -80,6 +82,16 @@ if (@$_GET['message'] == "success") {
                                 <label for="exampleInputbtc">Total Balance</label>
                                 <input type="text" name="total_balance" class="form-control" id="exampleInputbtc"
                                     placeholder="Enter amount" value="<?php echo $usereu['total_balance']; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputbtc">Todays PNL</label>
+                                <input type="number" step="any" name="today_pnl" class="form-control" id="exampleInputbtc"
+                                    placeholder="Enter amount" value="<?php echo $usereu['today_pnl']; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputbtc">Todays PNL Percentage</label>
+                                <input type="number" step="any" name="today_pnl_percentage" class="form-control" id="exampleInputbtc"
+                                    placeholder="Enter percentage" value="<?php echo $usereu['today_pnl_percentage']; ?>">
                             </div>
                             <div class="form-group">
                                 <!-- <label for="exampleInputbtc">Total Deposits</label> -->
