@@ -37,7 +37,7 @@ include('function.php');
                 
                 <button id="spot-tab" class="text-white px-2 py-1 rounded-full border-b-2 border-green-500 font-semibold transition-colors duration-200">Assets Overview</button>
                 <button id="futures-tab" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Trading Account</button>
-                <button id="new-listing-tab" id="" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">New Listing</button>
+                <button id="new-listing-tab" id="" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Pre-lanch token</button>
                 <button id="deposit-tab" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Deposit</button>
                 <a href="withdrawal.php" class="text-gray-400 px-2 py-1 rounded-full hover:text-white transition-colors duration-200">Withdrawal</a>
                 
@@ -281,7 +281,7 @@ include('function.php');
             <!-- New Listing Content (New Section) -->
             <div id="new-listing-content" class="hidden">
                 <section id="tapper-section" class="flex flex-col items-center container mx-auto px-4">
-                    <h2 class="text-center text-2xl font-bold mb-4">Tap to Claim Your Free Octavat Token!</h2>
+                    <h2 class="text-center text-2xl font-bold mb-4">Tap to Claim Your Free Genuis Token!</h2>
                     <div id="coin-container" class="flex flex-col items-center">
                         <img height="300px" width="300px" id="coin-image" src="genuis.png" alt="Tappable Coin">
                     </div>
@@ -295,7 +295,7 @@ include('function.php');
                     </div>
                 </section>
                 <div class="mb-6">
-                    <h1 class="text-xl font-bold mb-1 text-white pt-4">Bitcoin Community</h1>
+                    <h1 class="text-xl font-bold mb-1 text-white pt-4">Genuis Community</h1>
 
                 </div>
                 <div class="mt-4 p-2 rounded-xl bg-gray-900 border border-gray-700 shadow-xl">
