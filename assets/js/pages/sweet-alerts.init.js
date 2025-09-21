@@ -94,7 +94,7 @@
         Swal.fire({
           title: "Uplon",
           text: "Responsive Bootstrap 4 Admin Dashboard",
-          imageUrl: "assets/Coinackologo-sm.png",
+          imageUrl: "assets/Octavatlogo-sm.png",
           imageHeight: 50,
           animation: !1,
           confirmButtonColor: "#348cd4",

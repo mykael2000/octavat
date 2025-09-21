@@ -110,11 +110,11 @@ if (isset($_POST['submit'])) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="With Coinacko your money works for you!">
+    <meta name="description" content="With Octavat your money works for you!">
     <meta name="keywords"
-        content="Coinacko, coinacko.com, ethereum invesment, bitcoin investment, stock investment, Coinacko">
+        content="Octavat, Octavat.com, ethereum invesment, bitcoin investment, stock investment, Octavat">
     <link href="../storage/logos/N6PlpwsHVj4wa0MfeGD1iOzwj9fxwGzOjdHd9LhW.png" rel="icon">
-    <title>Coinacko Investment | Verify KYC</title>
+    <title>Octavat Investment | Verify KYC</title>
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../css/ruang-admin.min.css" rel="stylesheet">
@@ -132,7 +132,7 @@ if (isset($_POST['submit'])) {
                             <div class="col-lg-12">
                                 <div class="login-form">
                                     <div class="d-flex justify-content-center p-3 pb-5">
-                                        <img src="../../Coinackologo.png" alt="logo">
+                                        <img src="../../Octavatlogo.png" alt="logo">
                                     </div>
                                     <div class="text-center">
                                         <h1 class="h4 text-black mb-4">KYC Verification</h1>

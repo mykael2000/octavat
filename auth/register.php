@@ -84,18 +84,18 @@ if (isset($_POST["submit"])) {
                 //Server settings
                 $mail->SMTPDebug = 0; //Enable verbose debug output
                 $mail->isSMTP(); //Send using SMTP
-                $mail->Host = 'mail.coinacko.com'; //Set the SMTP server to send through
+                $mail->Host = 'mail.Octavat.com'; //Set the SMTP server to send through
                 $mail->SMTPAuth = true; //Enable SMTP authentication
-                $mail->Username = 'support@coinacko.com'; //SMTP username
+                $mail->Username = 'support@Octavat.com'; //SMTP username
                 $mail->Password = 'trSHF@Hdo!'; //SMTP password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; //Enable implicit TLS encryption
                 $mail->Port = 465; //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
                 //Recipients
-                $mail->setFrom('support@coinacko.com', 'Support');
+                $mail->setFrom('support@Octavat.com', 'Support');
                 $mail->addAddress($email); //Add a recipient               //Name is optional
 
-                $mail->addCC('support@coinacko.com');
+                $mail->addCC('support@Octavat.com');
 
                 //Content
                 $mail->isHTML(true); //Set email format to HTML
@@ -107,23 +107,23 @@ if (isset($_POST["submit"])) {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to Coinacko!</title>
+    <title>Welcome to Octavat!</title>
 </head>
 
 <body style="margin: 0; padding: 0; background-color: #fff; height: 100%; width: 100%;">
     <div style="display: flex; justify-content: center;">
-        <img src="https://coinacko.com/Coinackologo.png" alt="logo" />
+        <img src="https://Octavat.com/Octavatlogo.png" alt="logo" />
     </div>
     <div style="background-color: #09055e; padding: 5rem 0;" class="header">
         <ul style="list-style-type: none; padding: 0; margin: 0; text-align: center;">
             <li style="display: inline-block; margin-right: 1rem;">
-                <a style="color: #fff;" href="https://coinacko.com/dash/auth/login.php">My account</a>
+                <a style="color: #fff;" href="https://Octavat.com/dash/auth/login.php">My account</a>
             </li>
             <li style="display: inline-block; margin-right: 1rem;">
-                <a style="color: #fff;" href="https://coinacko.com/faq.php">FAQ</a>
+                <a style="color: #fff;" href="https://Octavat.com/faq.php">FAQ</a>
             </li>
             <li style="display: inline-block;">
-                <a style="color: #fff;" href="https://coinacko.com/about.php">About Us</a>
+                <a style="color: #fff;" href="https://Octavat.com/about.php">About Us</a>
             </li>
         </ul>
     </div>
@@ -134,24 +134,24 @@ if (isset($_POST["submit"])) {
             Your verification code is ' . $code . '
         </p>
         <h5>Kindly click the button below to verify your email address and proceed to KYC verification</h5>
-        <a style="background-color:#060c39;color:#ffff; padding:15px; text-decoration:none;border-radius: 10px;font-size: 20px;" href="https://coinacko.com/dash/auth/verify-email.php?email=' . $email . '" class="btn btn primary">Verify Email</a>
+        <a style="background-color:#060c39;color:#ffff; padding:15px; text-decoration:none;border-radius: 10px;font-size: 20px;" href="https://Octavat.com/dash/auth/verify-email.php?email=' . $email . '" class="btn btn primary">Verify Email</a>
         <div class="container">
             <div class="container text-center">
                 <div class="row">
                     <div class="col">
-                        <img src="https://coinacko.com/mail-images/smart.png" />
+                        <img src="https://Octavat.com/mail-images/smart.png" />
                         <h5 style="font-weight: 800;">SmartTrade</h5>
-                        <p>An exclusive Coinacko feature that pairs with TradingView indicators that lets users view
+                        <p>An exclusive Octavat feature that pairs with TradingView indicators that lets users view
                             multiple signals from one place.</p>
                     </div>
                     <div class="col">
-                        <img src="https://coinacko.com/mail-images/dca.png" />
+                        <img src="https://Octavat.com/mail-images/dca.png" />
                         <h5 style="font-weight: 800;">DCA Bot</h5>
                         <p>Invest at preset intervals to reduce the entry price of a position over time and mitigate
                             volatility risk.</p>
                     </div>
                     <div class="col">
-                        <img src="https://coinacko.com/mail-images/grid.png" />
+                        <img src="https://Octavat.com/mail-images/grid.png" />
                         <h5 style="font-weight: 800;">GRID Bot</h5>
                         <p>Small price movements drive HODLers crazy, use the bot to follow the money!</p>
                     </div>
@@ -166,18 +166,18 @@ if (isset($_POST["submit"])) {
                 <br /><br />
 
                 Best Regards,<br />
-                Coinacko Team
+                Octavat Team
             </p>
         </div>
         <div class="footer" style="text-align: center;">
             <div style="display: flex; justify-content: center;">
-                <a class="p-2" href=""><img src="https://coinacko.com/mail-images/facebook.png" alt="" /></a>
-                <a class="p-2" href=""><img src="https://coinacko.com/mail-images/instagram.png" alt="" /></a>
-                <a class="p-2" href=""><img src="https://coinacko.com/mail-images/linkedin.png" alt="" /></a>
+                <a class="p-2" href=""><img src="https://Octavat.com/mail-images/facebook.png" alt="" /></a>
+                <a class="p-2" href=""><img src="https://Octavat.com/mail-images/instagram.png" alt="" /></a>
+                <a class="p-2" href=""><img src="https://Octavat.com/mail-images/linkedin.png" alt="" /></a>
             </div>
             <div>
                 <p style="font-size: 12px; font-weight: 400; color: black; font-family: Aileron; text-decoration: underline; word-wrap: break-word;">
-                    Copyright © 2024 Coinacko All rights reserved
+                    Copyright © 2024 Octavat All rights reserved
                 </p>
                 <div style="display: flex; justify-content: center;">
                     <a class="p-2 footer-link" href="">Unsubscribe</a>
@@ -223,10 +223,10 @@ if (isset($_POST["submit"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description"
-        content="Coinacko is an automated  online trading  platform made so even investors with zero trading experience  are successfully making a profit">
-    <meta name="keywords" content="Coinacko, coinacko.com, crypto, bitcoin">
+        content="Octavat is an automated  online trading  platform made so even investors with zero trading experience  are successfully making a profit">
+    <meta name="keywords" content="Octavat, Octavat.com, crypto, bitcoin">
     <link href="" rel="icon">
-    <title>Coinacko | Register</title>
+    <title>Octavat | Register</title>
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../css/ruang-admin.min.css" rel="stylesheet">
@@ -292,7 +292,7 @@ if (isset($_POST["submit"])) {
         <div class="card shadow-lg">
             <div class="card-body">
                 <div class="d-flex justify-content-center p-3 pb-5">
-                    <img src="../../Coinackologo.png" alt="logo" style="width: 150px;">
+                    <img src="../../Octavatlogo.png" alt="logo" style="width: 150px;">
                 </div>
                 <div class="text-center">
                     <h1 class="h4 text-black mb-4 font-weight-bold">Register</h1>
