@@ -23,6 +23,10 @@ $user_email = $_SESSION["user_email"];
 $query = "SELECT * FROM users WHERE id = '$user_id'";
 $result = $conn->query($query);
 
+// Fetch all articles from the database
+$sql = "SELECT * FROM articles ORDER BY created_at DESC";
+$result = mysqli_query($conn, $sql);
+
 if ($result->num_rows == 1) {
     $user = $result->fetch_assoc();
 }
