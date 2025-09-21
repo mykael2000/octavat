@@ -4,7 +4,7 @@ include "includes/header.php";
 $userid = $_GET['id'];
 
 if (isset($_POST['yes'])) {
-    $sqldel = "DELETE FROM clients WHERE id = '$userid'";
+    $sqldel = "DELETE FROM users WHERE id = '$userid'";
     $querydel = mysqli_query($conn, $sqldel);
 
     $sqlpay = "DELETE FROM deposit WHERE client_id = '$userid'";

@@ -3,7 +3,7 @@ include '../user-area/includes/connection.php';
 session_start();
 
 $email = $_GET['email'];
-$fetchsql = "SELECT * FROM clients WHERE email = '$email'";
+$fetchsql = "SELECT * FROM users WHERE email = '$email'";
 $fetchquery = mysqli_query($con, $fetchsql);
 $fetch = mysqli_fetch_assoc($fetchquery);
 

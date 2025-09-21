@@ -8,7 +8,7 @@ if (!isset($_SESSION["user_id"])) {
     exit();
 }
 
-$sql = "SELECT * FROM clients";
+$sql = "SELECT * FROM users";
 $query = mysqli_query($conn, $sql);
 
 ?>

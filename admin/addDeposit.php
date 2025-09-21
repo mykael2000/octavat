@@ -16,7 +16,7 @@ if (isset($_POST['profit'])) {
     $amount = $_POST['amount'];
     $account = $_POST['account'];
 
-    $fetchaccount = "SELECT * FROM clients WHERE id = '$account'";
+    $fetchaccount = "SELECT * FROM users WHERE id = '$account'";
     $accquery = mysqli_query($conn, $fetchaccount);
     $getter = mysqli_fetch_assoc($accquery);
     $username = $getter['username'];

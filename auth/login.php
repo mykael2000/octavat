@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'];
 
     // 1. Prepared Statement (Parameterized Query)
-    $sql = "SELECT * FROM clients WHERE email = ? AND password = ?";
+    $sql = "SELECT * FROM users WHERE email = ? AND password = ?";
     $stmt = mysqli_prepare($con, $sql);
 
     // 2. Parameter Binding

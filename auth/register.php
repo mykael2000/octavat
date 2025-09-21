@@ -66,7 +66,7 @@ if (isset($_POST["submit"])) {
         $sAnswer = $_POST["sAnswer"];
     }
 
-    $sql_e = "SELECT * FROM clients WHERE email='$email'";
+    $sql_e = "SELECT * FROM users WHERE email='$email'";
     $res_e = mysqli_query($con, $sql_e);
     if (mysqli_num_rows($res_e) > 0) {
         echo "<script>alert('Email already exists')</script>";

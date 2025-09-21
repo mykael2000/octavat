@@ -12,7 +12,7 @@ require '../PHPMailer-master/src/SMTP.php';
 $mail = new PHPMailer(true);
 
 $userid = $_GET['id'];
-$sqleu = "SELECT * FROM clients WHERE id='$userid'";
+$sqleu = "SELECT * FROM users WHERE id='$userid'";
 $queryeu = mysqli_query($conn, $sqleu);
 $usereu = mysqli_fetch_assoc($queryeu);
 $message = "";

@@ -19,7 +19,7 @@ $usereu = mysqli_fetch_assoc($queryeu);
 $message = "";
 
 $userid = $usereu['client_id'];
-$sqlSu = "SELECT * FROM clients WHERE id='$userid'";
+$sqlSu = "SELECT * FROM users WHERE id='$userid'";
 $querySu = mysqli_query($conn, $sqlSu);
 $userSu = mysqli_fetch_assoc($querySu);
 $firstname = $userSu['first_name'];

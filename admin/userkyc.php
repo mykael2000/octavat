@@ -1,7 +1,7 @@
 <?php
 include "includes/header.php";
 
-$sqldepo = "SELECT * FROM clients";
+$sqldepo = "SELECT * FROM users";
 $querydepo = mysqli_query($conn, $sqldepo);
 ?>
 <!-- Right side column. Contains the navbar and content of the page -->

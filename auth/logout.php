@@ -8,7 +8,7 @@ if(!isset($_SESSION['email'])){
    
 };
 $username = $_SESSION['username'];
-$sql = "SELECT * FROM clients WHERE username = '$username'";
+$sql = "SELECT * FROM users WHERE username = '$username'";
 $query = mysqli_query($con, $sql);
 $user = mysqli_fetch_assoc($query);
 

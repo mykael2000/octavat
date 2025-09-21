@@ -14,7 +14,7 @@ $mail = new PHPMailer(true);
 
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];
-    $sql = "SELECT * FROM clients WHERE email='$email'";
+    $sql = "SELECT * FROM users WHERE email='$email'";
     $result = mysqli_query($con, $sql);
     if ($result->num_rows > 0) {
         $row = mysqli_fetch_assoc($result);

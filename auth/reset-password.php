@@ -4,7 +4,7 @@ session_start();
 ob_start();
 $message = "";
 $email = $_GET['email'];
-$sql = "SELECT * FROM clients WHERE email='$email'";
+$sql = "SELECT * FROM users WHERE email='$email'";
 $result = mysqli_query($con, $sql);
 if (isset($_POST['submit'])) {
 
