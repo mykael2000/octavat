@@ -127,12 +127,14 @@
                     </svg>
                     <span>Octavat</span>
                 </a>
-                <ul class="hidden md:flex space-x-6 text-sm font-medium text-gray-400">
+                <ul class="hidden md:flex space-x-6 text-sm font-medium bg-[#111111] text-gray-400">
                     <li><a href="#trade-now" class="hover:text-green-accent transition-colors">Buy Crypto <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full ml-1">NEW</span></a></li>
                     <li><a href="#trending-section" class="hover:text-green-accent transition-colors">Trading Plans</a></li>
                     <li><a href="faq.php" class="hover:text-green-accent transition-colors">FAQ</a></li>
                     <li><a href="about.php" class="hover:text-green-accent transition-colors">About Us</a></li>
                     <li><a href="contact.php" class="hover:text-green-accent transition-colors">Contact Us</a></li>
+                    <li><a href="login.php" class="hover:text-green-accent transition-colors">Log in</a></li>
+                    <li><a href="register.php" class="hover:text-green-accent transition-colors">Sign up</a></li>
                 </ul>
             </div>
             
