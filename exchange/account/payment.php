@@ -34,12 +34,21 @@
         <!-- Deposit Content -->
         <div>
             <div class="mb-6">
-                <h1 class="text-xl font-bold mb-1 text-white">Deposit</h1>
+                <h1 class="text-xl font-bold mb-1 text-white">Purchase Genuis Token</h1>
                 <p class="text-sm text-gray-400">Select the coin and network to get your deposit address.</p>
             </div>
 
             <!-- Deposit Form -->
             <div class="bg-[#1f2125] rounded-lg p-6 space-y-4">
+                
+                <div>
+                    <label for="amount-field" class="block text-sm font-medium text-gray-400 mb-2">Amount</label>
+                    <input id="amount-field" type="number" step="any" min="1086.96" class="w-full bg-[#2c2e32] text-white rounded-lg p-3 border-none focus:ring-1 focus:ring-green-500 focus:outline-none" placeholder="Enter amount of tokens">
+                    <p class="mt-2 text-xs text-gray-500">
+                        $0.69 = 1 Genuis token<br>
+                        Minimum purchase: 1086.96 tokens
+                    </p>
+                </div>
                 <!-- Coin Selection -->
                 <div>
                     <label for="coin-select" class="block text-sm font-medium text-gray-400 mb-2">Select Coin</label>
