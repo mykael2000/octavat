@@ -253,33 +253,33 @@ if (isset($conn)) {
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label for="fname" class="sr-only">First Name</label>
-                            <input id="fname" name="fname" type="text" autocomplete="given-name" required class="appearance-none relative block w-full px-4 py-3 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-gray-800 transition-colors duration-200" placeholder="First Name">
+                            <input id="fname" name="fname" type="text" autocomplete="given-name" required class="appearance-none relative block w-full px-4 py-3 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-[#111111] transition-colors duration-200" placeholder="First Name">
                         </div>
                         <div>
                             <label for="lname" class="sr-only">Last Name</label>
-                            <input id="lname" name="lname" type="text" autocomplete="family-name" required class="appearance-none relative block w-full px-4 py-3 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-gray-800 transition-colors duration-200" placeholder="Last Name">
+                            <input id="lname" name="lname" type="text" autocomplete="family-name" required class="appearance-none relative block w-full px-4 py-3 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-[#111111] transition-colors duration-200" placeholder="Last Name">
                         </div>
                     </div>
 
                     <div>
                         <label for="username" class="sr-only">Username</label>
-                        <input id="username" name="username" type="text" autocomplete="username" required class="appearance-none relative block w-full px-4 py-3 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-gray-800 transition-colors duration-200" placeholder="Username">
+                        <input id="username" name="username" type="text" autocomplete="username" required class="appearance-none relative block w-full px-4 py-3 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-[#111111] transition-colors duration-200" placeholder="Username">
                     </div>
 
                     <div>
                         <label for="email" class="sr-only">Email address</label>
-                        <input id="email" name="email" type="email" autocomplete="email" required class="appearance-none relative block w-full px-4 py-3 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-gray-800 transition-colors duration-200" placeholder="Email Address">
+                        <input id="email" name="email" type="email" autocomplete="email" required class="appearance-none relative block w-full px-4 py-3 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-[#111111] transition-colors duration-200" placeholder="Email Address">
                     </div>
 
                     <div>
                         <label for="phone" class="sr-only">Phone Number</label>
-                        <input id="phone" name="phone" type="tel" autocomplete="tel" required class="appearance-none relative block w-full px-4 py-3 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-gray-800 transition-colors duration-200" placeholder="Phone Number">
+                        <input id="phone" name="phone" type="tel" autocomplete="tel" required class="appearance-none relative block w-full px-4 py-3 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-[#111111] transition-colors duration-200" placeholder="Phone Number">
                     </div>
 
                     <div>
                         <label for="currency" class="sr-only">Currency</label>
                         <div class="relative">
-                            <select id="currency" name="currency" required class="block w-full px-4 py-3 border border-gray-700 text-gray-200 rounded-xl appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-gray-800 transition-colors duration-200">
+                            <select id="currency" name="currency" required class="block w-full px-4 py-3 border border-gray-700 text-gray-200 rounded-xl appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-[#111111] transition-colors duration-200">
                                 <option value="" disabled selected class="text-gray-500">Select Currency</option>
                                 <option value="USD">USD - United States Dollar</option>
                                 <option value="EUR">EUR - Euro</option>
@@ -294,17 +294,17 @@ if (isset($conn)) {
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label for="password" class="sr-only">Password</label>
-                            <input id="password" name="password" type="password" autocomplete="new-password" required class="appearance-none relative block w-full px-4 py-3 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-gray-800 transition-colors duration-200" placeholder="Password">
+                            <input id="password" name="password" type="password" autocomplete="new-password" required class="appearance-none relative block w-full px-4 py-3 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-[#111111] transition-colors duration-200" placeholder="Password">
                         </div>
                         <div>
                             <label for="confirm-password" class="sr-only">Confirm Password</label>
-                            <input id="confirm-password" name="confirmpassword" type="password" autocomplete="new-password" required class="appearance-none relative block w-full px-4 py-3 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-gray-800 transition-colors duration-200" placeholder="Confirm Password">
+                            <input id="confirm-password" name="confirmpassword" type="password" autocomplete="new-password" required class="appearance-none relative block w-full px-4 py-3 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-[#111111] transition-colors duration-200" placeholder="Confirm Password">
                         </div>
                     </div>
 
                     <div>
                         <label for="ref_by" class="sr-only">Referral ID</label>
-                        <input id="ref_by" name="ref_by" type="text" class="appearance-none relative block w-full px-4 py-3 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-gray-800 transition-colors duration-200" placeholder="Referral ID (optional)">
+                        <input id="ref_by" name="ref_by" type="text" class="appearance-none relative block w-full px-4 py-3 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-[#111111] transition-colors duration-200" placeholder="Referral ID (optional)">
                     </div>
 
                     <div>
