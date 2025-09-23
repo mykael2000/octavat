@@ -1,111 +1,196 @@
+<?php
+include('connection.php');
+include('function.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crypto Deposit</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* A simple class to manage visibility, though Tailwind's 'hidden' utility is used directly */
-    .hidden {
-      display: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Deposit</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #121417;
+            font-family: 'Inter', sans-serif;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 2rem;
+        }
+        #copy-message {
+            white-space: nowrap;
+            animation: fadeInOut 2s ease-in-out forwards;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-[#121417] text-white">
 
-  <div class="flex flex-col items-center justify-center min-h-screen p-4">
-    <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-lg">
-      <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Deposit Crypto</h2>
+    <div class="container">
+        <!-- Deposit Content -->
+        <div>
+            <div class="mb-6">
+                <h1 class="text-xl font-bold mb-1 text-white">Deposit</h1>
+                <p class="text-sm text-gray-400">Select the coin and network to get your deposit address.</p>
+            </div>
 
-      <div class="flex justify-around space-x-4 mb-8">
-        <button id="btc-button" class="flex-1 py-3 px-6 rounded-lg text-lg font-semibold text-white bg-yellow-500 hover:bg-yellow-600 transition-colors duration-300 shadow-md">
-          Bitcoin (BTC)
-        </button>
-        <button id="eth-button" class="flex-1 py-3 px-6 rounded-lg text-lg font-semibold text-white bg-gray-700 hover:bg-gray-800 transition-colors duration-300 shadow-md">
-          Ethereum (ETH)
-        </button>
-        <button id="usdt-button" class="flex-1 py-3 px-6 rounded-lg text-lg font-semibold text-white bg-green-500 hover:bg-green-600 transition-colors duration-300 shadow-md">
-          Tether (USDT)
-        </button>
-      </div>
+            <!-- Deposit Form -->
+            <div class="bg-[#1f2125] rounded-lg p-6 space-y-4">
+                <!-- Coin Selection -->
+                <div>
+                    <label for="coin-select" class="block text-sm font-medium text-gray-400 mb-2">Select Coin</label>
+                    <select id="coin-select" class="w-full bg-[#2c2e32] text-white rounded-lg p-3 border-none focus:ring-1 focus:ring-green-500 focus:outline-none">
+                        <option value="USDT">USDT - Tether</option>
+                        <option value="BTC">BTC - Bitcoin</option>
+                        <option value="ETH">ETH - Ethereum</option>
+                    </select>
+                </div>
 
-      <div id="btc-deposit" class="deposit-info hidden text-center p-6 bg-gray-50 rounded-lg border border-gray-200">
-        <h3 class="text-xl font-bold text-gray-800 mb-2">Deposit Bitcoin</h3>
-        <p class="text-sm text-gray-600 mb-4">Send only BTC to this address. Sending any other currency will result in permanent loss.</p>
-        <div class="bg-white p-4 rounded-lg border border-gray-300 inline-block mb-4">
-          <img src="https://via.placeholder.com/150?text=BTC+QR" alt="Bitcoin QR Code" class="w-40 h-40">
-        </div>
-        <div class="bg-white p-3 rounded-lg border border-gray-300 mb-4 break-all">
-          <p class="wallet-address text-lg font-mono text-gray-700">1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</p>
-        </div>
-        <button class="copy-button w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors duration-300">
-          Copy Address
-        </button>
-      </div>
+                <!-- Network Selection -->
+                <div>
+                    <label for="network-select" class="block text-sm font-medium text-gray-400 mb-2">Select Network</label>
+                    <select id="network-select" class="w-full bg-[#2c2e32] text-white rounded-lg p-3 border-none focus:ring-1 focus:ring-green-500 focus:outline-none"></select>
+                </div>
 
-      <div id="eth-deposit" class="deposit-info hidden text-center p-6 bg-gray-50 rounded-lg border border-gray-200">
-        <h3 class="text-xl font-bold text-gray-800 mb-2">Deposit Ethereum</h3>
-        <p class="text-sm text-gray-600 mb-4">Send only ETH to this address. Sending any other currency will result in permanent loss.</p>
-        <div class="bg-white p-4 rounded-lg border border-gray-300 inline-block mb-4">
-          <img src="https://via.placeholder.com/150?text=ETH+QR" alt="Ethereum QR Code" class="w-40 h-40">
-        </div>
-        <div class="bg-white p-3 rounded-lg border border-gray-300 mb-4 break-all">
-          <p class="wallet-address text-lg font-mono text-gray-700">0x1234567890abcdef1234567890abcdef12345678</p>
-        </div>
-        <button class="copy-button w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors duration-300">
-          Copy Address
-        </button>
-      </div>
+                <!-- Deposit Address -->
+                <div class="text-center">
+                    <p class="text-gray-400 text-sm mb-2">Scan QR code to deposit</p>
+                    <img id="qr-code" src="https://placehold.co/150x150/121417/d1d5db?text=QR+Code" alt="QR Code" class="mx-auto rounded-lg mb-4 border border-gray-700/50">
+                    
+                    <div class="bg-[#2c2e32] rounded-lg p-3 flex items-center justify-between relative">
+                        <span id="deposit-address" class="text-sm text-white truncate"></span>
+                        <button id="copy-button" class="ml-2 p-1 rounded-full hover:bg-gray-700 focus:outline-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"></path>
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                                <path d="M12 6v14"></path>
+                            </svg>
+                        </button>
+                        <div id="copy-message" class="absolute top-[-35px] left-1/2 -translate-x-1/2 bg-green-500 text-white text-xs px-2 py-1 rounded-full opacity-0 transition-opacity duration-300">
+                            Copied!
+                        </div>
+                    </div>
+                </div>
 
-      <div id="usdt-deposit" class="deposit-info hidden text-center p-6 bg-gray-50 rounded-lg border border-gray-200">
-        <h3 class="text-xl font-bold text-gray-800 mb-2">Deposit USDT (ERC-20)</h3>
-        <p class="text-sm text-gray-600 mb-4">Send only USDT (ERC-20) to this address. Sending any other currency will result in permanent loss.</p>
-        <div class="bg-white p-4 rounded-lg border border-gray-300 inline-block mb-4">
-          <img src="https://via.placeholder.com/150?text=USDT+QR" alt="USDT QR Code" class="w-40 h-40">
+                <!-- Warning -->
+                <div id="warning-message" class="bg-yellow-900/30 text-yellow-300 rounded-lg p-4 text-sm mt-4">
+                    <p class="font-bold mb-1">Warning:</p>
+                    <p>Only send USDT on the selected network to this address. Sending other coins or using a different network may result in permanent loss of funds.</p>
+                </div>
+            </div>
         </div>
-        <div class="bg-white p-3 rounded-lg border border-gray-300 mb-4 break-all">
-          <p class="wallet-address text-lg font-mono text-gray-700">0x1234567890abcdef1234567890abcdef12345678</p>
-        </div>
-        <button class="copy-button w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors duration-300">
-          Copy Address
-        </button>
-      </div>
     </div>
-  </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const buttons = document.querySelectorAll('.deposit-options button');
-      const depositSections = document.querySelectorAll('.deposit-info');
-      const copyButtons = document.querySelectorAll('.copy-button');
+    <script>
+        // Data for deposit addresses and networks (placeholders)
+        const cryptoData = {
+            'USDT': {
+                'TRC20': {
+                    address: 'TRC20-USDT-address-placeholder-1234567890',
+                    warning: 'Only send USDT on the TRC20 network to this address. Sending other coins or using a different network may result in permanent loss of funds.'
+                },
+                'ERC20': {
+                    address: 'ERC20-USDT-address-placeholder-abcdefg',
+                    warning: 'Only send USDT on the ERC20 network to this address. Sending other coins or using a different network may result in permanent loss of funds.'
+                },
+                'BEP20': {
+                    address: 'BEP20-USDT-address-placeholder-hijklmn',
+                    warning: 'Only send USDT on the BEP20 network to this address. Sending other coins or using a different network may result in permanent loss of funds.'
+                }
+            },
+            'BTC': {
+                'Bitcoin': {
+                    address: 'BTC-address-placeholder-1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa',
+                    warning: 'Only send BTC to this address. Sending other coins may result in permanent loss of funds.'
+                }
+            },
+            'ETH': {
+                'ERC20': {
+                    address: 'ETH-address-placeholder-0x742d35Cc6634C0632926E6f819f39002492f54a5',
+                    warning: 'Only send ETH to this address. Sending other coins may result in permanent loss of funds.'
+                }
+            }
+        };
 
-      buttons.forEach(button => {
-        button.addEventListener('click', () => {
-          // Hide all deposit sections
-          depositSections.forEach(section => {
-            section.classList.add('hidden');
-          });
+        const coinSelect = document.getElementById('coin-select');
+        const networkSelect = document.getElementById('network-select');
+        const depositAddress = document.getElementById('deposit-address');
+        const qrCode = document.getElementById('qr-code');
+        const warningMessage = document.getElementById('warning-message');
+        const copyButton = document.getElementById('copy-button');
+        const copyMessage = document.getElementById('copy-message');
+        
+        // Function to update the page based on the selected coin and network
+        function updatePage() {
+            const selectedCoin = coinSelect.value;
+            const coinNetworks = Object.keys(cryptoData[selectedCoin]);
+            
+            // Clear and populate network options
+            networkSelect.innerHTML = '';
+            coinNetworks.forEach(network => {
+                const option = document.createElement('option');
+                option.value = network;
+                option.textContent = network;
+                networkSelect.appendChild(option);
+            });
+            
+            // Trigger network change to update address and warning
+            updateDetails();
+        }
 
-          // Show the selected deposit section
-          const targetId = button.id.replace('-button', '-deposit');
-          document.getElementById(targetId).classList.remove('hidden');
+        // Function to update the address, QR, and warning based on the network
+        function updateDetails() {
+            const selectedCoin = coinSelect.value;
+            const selectedNetwork = networkSelect.value;
+            
+            if (cryptoData[selectedCoin] && cryptoData[selectedCoin][selectedNetwork]) {
+                const data = cryptoData[selectedCoin][selectedNetwork];
+                depositAddress.textContent = data.address;
+                qrCode.src = `https://placehold.co/150x150/121417/d1d5db?text=${encodeURIComponent(data.address)}`;
+                warningMessage.querySelector('p:nth-of-type(2)').textContent = data.warning;
+            } else {
+                // Handle cases where no valid network is selected
+                depositAddress.textContent = 'Select a network...';
+                qrCode.src = 'https://placehold.co/150x150/121417/d1d5db?text=QR+Code';
+                warningMessage.querySelector('p:nth-of-type(2)').textContent = 'Please select a valid network for this coin.';
+            }
+        }
+
+        // Initial setup and event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            updatePage(); // Initial load
+            
+            coinSelect.addEventListener('change', updatePage);
+            networkSelect.addEventListener('change', updateDetails);
+
+            copyButton.addEventListener('click', () => {
+                const addressToCopy = depositAddress.textContent;
+                
+                // Use the older, more reliable method for copying in iframes
+                const tempInput = document.createElement('textarea');
+                tempInput.value = addressToCopy;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+
+                // Show the "Copied!" message
+                copyMessage.classList.add('fade-in-out');
+                setTimeout(() => {
+                    copyMessage.classList.remove('fade-in-out');
+                }, 2000);
+            });
         });
-      });
-
-      copyButtons.forEach(copyButton => {
-        copyButton.addEventListener('click', () => {
-          const address = copyButton.parentNode.querySelector('.wallet-address').textContent;
-          
-          navigator.clipboard.writeText(address).then(() => {
-            alert('Address copied to clipboard!');
-          }).catch(err => {
-            console.error('Failed to copy text: ', err);
-          });
-        });
-      });
-    });
-  </script>
+    </script>
 
 </body>
 </html>
