@@ -104,9 +104,9 @@ if (isset($_POST['login'])) {
                 <h2 class="text-3xl font-bold text-center text-gray-100">Log Into Your Account</h2>
                 <?php echo $message; ?>
                 <p class="mt-2 text-center text-sm text-gray-400">
-                    Dont have an account?
+                  
                     <a href="register.php" class="font-medium text-[#60e336] hover:text-[#1a5705] transition-colors duration-200">
-                        Create One
+                        Create An Account
                     </a>
                 </p>
 
