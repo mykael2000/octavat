@@ -105,8 +105,9 @@ if (isset($_POST['login'])) {
                 <p class="text-center text-sm text-gray-400 mt-2">- Better trading, Better liquidity -</p>
                 <?php echo $message; ?>
                 <p class="mt-2 text-center text-sm text-gray-400">
+                    Don't have an account?
                     <a href="register.php" class="font-medium text-[#60e336] hover:text-[#1a5705] transition-colors duration-200">
-                        Create An Account
+                        Create Account
                     </a>
                 </p>
 
