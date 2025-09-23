@@ -191,7 +191,7 @@
             }
 
             const usdAmount = tokens * conversionRate;
-            usdAmountField.value = usdAmount.toFixed(2);
+            usdAmountField.value = "$"+usdAmount.toFixed(2);
         }
 
         // Initial setup and event listeners
