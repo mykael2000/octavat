@@ -133,6 +133,8 @@
                     <li><a href="faq.php" class="hover:text-green-accent transition-colors">FAQ</a></li>
                     <li><a href="about.php" class="hover:text-green-accent transition-colors">About Us</a></li>
                     <li><a href="contact.php" class="hover:text-green-accent transition-colors">Contact Us</a></li>
+                    <li><a href="login.php" class="hover:text-green-accent transition-colors">Log in</a></li>
+                    <li><a href="register.php" class="hover:text-green-accent transition-colors">Sign up</a></li>
                     
                 </ul>
             </div>
