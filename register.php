@@ -238,7 +238,7 @@ if (isset($conn)) {
         </div>
 
         <!-- Right Column - Registration Form -->
-        <div class="flex-1 p-6 sm:p-10 lg:p-16 flex items-center justify-center">
+        <div class="bg-[#111111] flex-1 p-6 sm:p-10 lg:p-16 flex items-center justify-center">
             <div class="w-full max-w-md">
                 <h2 class="text-3xl font-bold text-center text-gray-100">Create Your Account</h2>
                 <p class="mt-2 text-center text-sm text-gray-400">
