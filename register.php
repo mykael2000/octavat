@@ -201,7 +201,7 @@ if (isset($conn)) {
     </style>
 </head>
 <body class="bg-gray-950 text-white flex items-center justify-center min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-grid-pattern">
-    <div class="max-w-4xl w-full flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-2xl bg-gray-900 border border-gray-800">
+    <div class="max-w-4xl w-full flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-2xl bg-[#111111] border border-gray-800">
 
         <!-- Left Column - Visuals and Marketing -->
         <div class="hidden md:flex flex-1 p-8 lg:p-12 flex-col justify-between bg-[#111111] relative">
