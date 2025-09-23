@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="text-center mt-12 text-sm text-gray-500">
-                &copy; 2022 - 2025 Octavat.com. All rights reserved.
+                - Better trading, Better liquidity -
             </div>
         </div>
     </footer>
