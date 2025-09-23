@@ -102,9 +102,9 @@ if (isset($_POST['login'])) {
         <div class="flex-1 p-6 sm:p-10 lg:p-16 flex items-center justify-center">
             <div class="w-full max-w-md">
                 <h2 class="text-3xl font-bold text-center text-gray-100">Log Into Your Account</h2>
+                <p class="text-center text-sm text-gray-400 mt-2">- Better trading, Better liquidity -</p>
                 <?php echo $message; ?>
                 <p class="mt-2 text-center text-sm text-gray-400">
-                  
                     <a href="register.php" class="font-medium text-[#60e336] hover:text-[#1a5705] transition-colors duration-200">
                         Create An Account
                     </a>
@@ -119,6 +119,12 @@ if (isset($_POST['login'])) {
                     <div>
                         <label for="password" class="sr-only">Password</label>
                         <input id="password" name="password" type="password" autocomplete="new-password" required class="appearance-none relative block w-full px-4 py-3 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-[#111111] transition-colors duration-200" placeholder="Password">
+                    </div>
+
+                    <div class="text-right text-sm">
+                        <a href="#" class="font-medium text-gray-400 hover:text-[#60e336] transition-colors duration-200">
+                            Forgot password?
+                        </a>
                     </div>
 
                     <div>
