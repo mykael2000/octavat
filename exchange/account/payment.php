@@ -185,13 +185,20 @@
             const conversionRate = 0.69;
             const minTokens = 1086.96;
 
-            if (isNaN(tokens) || tokens < minTokens) {
+            if (isNaN(tokens)) {
                 usdAmountField.value = '';
+                usdAmountField.classList.remove('text-red-500');
                 return;
             }
 
             const usdAmount = tokens * conversionRate;
-            usdAmountField.value = "$"+usdAmount.toFixed(2);
+            usdAmountField.value = `$${usdAmount.toFixed(2)}`;
+
+            if (tokens < minTokens) {
+                usdAmountField.classList.add('text-red-500');
+            } else {
+                usdAmountField.classList.remove('text-red-500');
+            }
         }
 
         // Initial setup and event listeners
