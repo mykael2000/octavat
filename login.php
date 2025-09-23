@@ -65,7 +65,7 @@ if (isset($_POST['login'])) {
     <div class="max-w-4xl w-full flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-2xl bg-[#111111] border border-gray-800">
 
         <!-- Left Column - Visuals and Marketing -->
-        <div class="hidden md:flex flex-1 p-8 lg:p-12 flex-col justify-between bg-gradient-to-br from-indigo-900 to-slate-950 relative">
+        <div class="hidden md:flex flex-1 p-8 lg:p-12 flex-col justify-between bg-[#111111] to-slate-950 relative">
             <div class="absolute inset-0 z-0 opacity-20">
                 <canvas id="chartCanvas" class="w-full h-full"></canvas>
             </div>
@@ -123,7 +123,7 @@ if (isset($_POST['login'])) {
 
                     <div>
                         <button name="login" type="submit" class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-semibold rounded-xl text-white bg-[#60e336] hover:from-indigo-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-md">
-                            Sign in
+                            Log in
                         </button>
                     </div>
                 </form>
