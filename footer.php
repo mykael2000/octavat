@@ -37,16 +37,51 @@
         </div>
     </footer>
      <script>
+        const carousel = document.getElementById('testimonial-carousel');
+        const nextBtn = document.getElementById('next-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const cardWidth = carousel.children[0].offsetWidth + 24; // Card width + space-x-6 (24px)
+        let autoScrollInterval;
+
+        // Scroll function for buttons
         function scrollCarousel(direction) {
-            const carousel = document.getElementById('testimonial-carousel');
-            const scrollAmount = carousel.offsetWidth;
-            
             if (direction === 'next') {
-                carousel.scrollLeft += scrollAmount;
+                carousel.scrollLeft += cardWidth;
             } else {
-                carousel.scrollLeft -= scrollAmount;
+                carousel.scrollLeft -= cardWidth;
             }
         }
+
+        // Event listeners for arrow buttons
+        nextBtn.addEventListener('click', () => scrollCarousel('next'));
+        prevBtn.addEventListener('click', () => scrollCarousel('prev'));
+
+        // Auto-scroll functionality
+        function startAutoScroll() {
+            autoScrollInterval = setInterval(() => {
+                const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+                if (carousel.scrollLeft >= maxScrollLeft) {
+                    // Scroll back to the beginning smoothly
+                    carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    carousel.scrollLeft += cardWidth;
+                }
+            }, 5000); // Scrolls every 5 seconds
+        }
+
+        function stopAutoScroll() {
+            clearInterval(autoScrollInterval);
+        }
+
+        // Start auto-scroll on page load
+        startAutoScroll();
+
+        // Stop and restart auto-scroll on user interaction
+        carousel.addEventListener('mouseenter', stopAutoScroll);
+        carousel.addEventListener('mouseleave', startAutoScroll);
+        nextBtn.addEventListener('click', stopAutoScroll);
+        prevBtn.addEventListener('click', stopAutoScroll);
+        
     </script>
         <script>
         document.addEventListener('DOMContentLoaded', () => {

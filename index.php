@@ -317,13 +317,13 @@ include("header.php");
         </section>
      <!-- Testimonial Section -->
     <div class="mt-24 container mx-auto p-4 md:p-8">
-        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Who is using Octavat?</h2>
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-white">Who is using Octavat?</h2>
         
         <div class="relative">
             <!-- Testimonial Carousel Container -->
             <div id="testimonial-carousel" class="flex overflow-x-auto snap-x snap-mandatory pb-4 space-x-6 scroll-smooth">
                 <!-- Testimonial 1 -->
-                <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center bg-[#111111] p-8 rounded-2xl flex flex-col items-center text-center">
+                <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center bg-[#181818] p-8 rounded-2xl flex flex-col items-center text-center">
                     <img src="https://placehold.co/100x100/111827/ffffff?text=User" alt="User Avatar" class="w-24 h-24 rounded-full mb-4 object-cover">
                     <p class="text-gray-400 text-sm mb-4">"Octavat has revolutionized my trading. The interface is intuitive, and the seamless service makes me feel secure with every trade. Highly recommended!"</p>
                     <div class="mt-auto">
@@ -333,7 +333,7 @@ include("header.php");
                 </div>
 
                 <!-- Testimonial 2 -->
-                <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center bg-[#111111] p-8 rounded-2xl flex flex-col items-center text-center">
+                <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center bg-[#181818] p-8 rounded-2xl flex flex-col items-center text-center">
                     <img src="https://placehold.co/100x100/111827/ffffff?text=User" alt="User Avatar" class="w-24 h-24 rounded-full mb-4 object-cover">
                     <p class="text-gray-400 text-sm mb-4">"The insights provided by this platform are a game-changer. I feel much more confident in my investment decisions now. It’s an essential tool for any trader."</p>
                     <div class="mt-auto">
@@ -343,7 +343,7 @@ include("header.php");
                 </div>
 
                 <!-- Testimonial 3 -->
-                <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center bg-[#111111] p-8 rounded-2xl flex flex-col items-center text-center">
+                <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center bg-[#181818] p-8 rounded-2xl flex flex-col items-center text-center">
                     <img src="https://placehold.co/100x100/111827/ffffff?text=User" alt="User Avatar" class="w-24 h-24 rounded-full mb-4 object-cover">
                     <p class="text-gray-400 text-sm mb-4">"I've been on other platforms, but the security and customer support here are unmatched. It's a truly worry-free trading experience."</p>
                     <div class="mt-auto">
@@ -351,21 +351,47 @@ include("header.php");
                         <p class="text-gray-500 text-sm">28k Followers</p>
                     </div>
                 </div>
+                
+                <!-- Additional Testimonials to make scrolling obvious -->
+                <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center bg-[#181818] p-8 rounded-2xl flex flex-col items-center text-center">
+                    <img src="https://placehold.co/100x100/111827/ffffff?text=User" alt="User Avatar" class="w-24 h-24 rounded-full mb-4 object-cover">
+                    <p class="text-gray-400 text-sm mb-4">"The mobile experience is fantastic. I can manage my portfolio on the go with confidence. A must-have app for modern traders."</p>
+                    <div class="mt-auto">
+                        <h4 class="font-bold text-white">Sophie Dubois</h4>
+                        <p class="text-gray-500 text-sm">19k Followers</p>
+                    </div>
+                </div>
+                
+                <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center bg-[#181818] p-8 rounded-2xl flex flex-col items-center text-center">
+                    <img src="https://placehold.co/100x100/111827/ffffff?text=User" alt="User Avatar" class="w-24 h-24 rounded-full mb-4 object-cover">
+                    <p class="text-gray-400 text-sm mb-4">"I love the clean design and powerful tools. Octavat has made crypto trading accessible and less intimidating. Excellent platform."</p>
+                    <div class="mt-auto">
+                        <h4 class="font-bold text-white">David Miller</h4>
+                        <p class="text-gray-500 text-sm">45k Followers</p>
+                    </div>
+                </div>
+                
+                <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center bg-[#181818] p-8 rounded-2xl flex flex-col items-center text-center">
+                    <img src="https://placehold.co/100x100/111827/ffffff?text=User" alt="User Avatar" class="w-24 h-24 rounded-full mb-4 object-cover">
+                    <p class="text-gray-400 text-sm mb-4">"The responsive support team is what sets this platform apart. They are always ready to help. A trustworthy service in the crypto space."</p>
+                    <div class="mt-auto">
+                        <h4 class="font-bold text-white">Maria Garcia</h4>
+                        <p class="text-gray-500 text-sm">22k Followers</p>
+                    </div>
+                </div>
             </div>
 
-            <!-- Carousel Navigation Buttons -->
-            <div class="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 flex justify-between px-4 hidden md:flex">
-                <button onclick="scrollCarousel('prev')" class="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-700 transition-colors duration-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
-                    </svg>
-                </button>
-                <button onclick="scrollCarousel('next')" class="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-700 transition-colors duration-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </button>
-            </div>
+            <!-- Carousel Navigation Arrows -->
+            <button id="prev-btn" class="absolute top-1/2 left-0 transform -translate-y-1/2 -ml-6 md:-ml-8 bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-gray-600 transition-colors duration-300 hidden md:flex items-center justify-center">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <button id="next-btn" class="absolute top-1/2 right-0 transform -translate-y-1/2 -mr-6 md:-mr-8 bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-gray-600 transition-colors duration-300 hidden md:flex items-center justify-center">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
         </div>
     </div>
     <section id="faq" class="container mx-auto px-4 py-16 hidden">

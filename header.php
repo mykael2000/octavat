@@ -94,6 +94,24 @@
         .bg-green-accent {
             background-color: #60e336;
         }
+        /* Custom scrollbar styles for a more obvious visual cue */
+        #testimonial-carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        #testimonial-carousel::-webkit-scrollbar-track {
+            background: #2b2b2b;
+            border-radius: 10px;
+        }
+
+        #testimonial-carousel::-webkit-scrollbar-thumb {
+            background: #6b7280;
+            border-radius: 10px;
+        }
+
+        #testimonial-carousel::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af;
+        }
     </style>
 </head>
 <body class="bg-[#111111] text-white">
