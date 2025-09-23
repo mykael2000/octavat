@@ -18,9 +18,9 @@ if (isset($_POST['register'])) {
     // Sanitize and collect form inputs
     $firstname = trim($_POST["fname"]);
     $lastname = trim($_POST["lname"]);
-    $username = trim($_POST['username']);
+   
     $email = trim($_POST["email"]);
-    $currency = trim($_POST["currency"]);
+   
     $phone = trim($_POST["phone"]);
     $password = trim($_POST["password"]);
     $confirmpassword = trim($_POST["confirmpassword"]);
@@ -73,14 +73,14 @@ if (isset($_POST['register'])) {
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
         // Prepare and execute the INSERT statement
-        $stmt_insert_user = $conn->prepare("INSERT INTO users (firstname, lastname, username, email, currency, phone, password, ref_by) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt_insert_user = $conn->prepare("INSERT INTO users (firstname, lastname, email, phone, password, ref_by) VALUES (?, ?, ?, ?, ?, ?)");
         
         // Check if prepare was successful
         if ($stmt_insert_user === false) {
             $message = "<div class='alert alert-danger'>Database error (user insertion): " . $conn->error . "</div>";
         } else {
             // Include ref_by in binding
-            $stmt_insert_user->bind_param("ssssssss", $firstname, $lastname, $username, $email, $currency, $phone, $hashedPassword, $ref_by);
+            $stmt_insert_user->bind_param("ssssss", $firstname, $lastname, $email, $phone, $hashedPassword, $ref_by);
 
             if ($stmt_insert_user->execute()) {
                 // User successfully inserted into DB
@@ -214,22 +214,22 @@ if (isset($conn)) {
                 </div>
                 <div class="mt-auto">
                     <h1 class="text-4xl font-bold leading-tight mt-8">
-                        Join the <br>Future of <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">Crypto Trading</span>
+                        Join the <br>Future of <span class="text-transparent bg-clip-text bg-[#60e336]">Crypto Trading</span>
                     </h1>
                     <p class="mt-4 text-gray-300 max-w-sm">
                         Seamlessly register in minutes and gain access to a world-class platform with advanced tools and real-time market data.
                     </p>
                     <ul class="mt-8 space-y-4 text-gray-400">
                         <li class="flex items-center">
-                            <i class="fa-solid fa-chart-line text-indigo-400 w-5 h-5 mr-3"></i>
+                            <i class="fa-solid fa-chart-line text-[#60e336] w-5 h-5 mr-3"></i>
                             <span class="text-gray-200">Live Market Insights</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fa-solid fa-lock text-indigo-400 w-5 h-5 mr-3"></i>
+                            <i class="fa-solid fa-lock text-[#60e336] w-5 h-5 mr-3"></i>
                             <span class="text-gray-200">Secure & Protected</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fa-solid fa-headset text-indigo-400 w-5 h-5 mr-3"></i>
+                            <i class="fa-solid fa-headset text-[#60e336] w-5 h-5 mr-3"></i>
                             <span class="text-gray-200">24/7 Support</span>
                         </li>
                     </ul>
@@ -242,9 +242,9 @@ if (isset($conn)) {
             <div class="w-full max-w-md">
                 <h2 class="text-3xl font-bold text-center text-gray-100">Create Your Account</h2>
                 <p class="mt-2 text-center text-sm text-gray-400">
-                    Already a member?
-                    <a href="login.php" class="font-medium text-indigo-400 hover:text-indigo-500 transition-colors duration-200">
-                        Sign in to your account
+                    Have An Account?
+                    <a href="login.php" class="font-medium text-[#60e336] hover:text-[#1a5705] transition-colors duration-200">
+                        Log in
                     </a>
                 </p>
 
@@ -261,10 +261,7 @@ if (isset($conn)) {
                         </div>
                     </div>
 
-                    <div>
-                        <label for="username" class="sr-only">Username</label>
-                        <input id="username" name="username" type="text" autocomplete="username" required class="appearance-none relative block w-full px-4 py-3 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-[#111111] transition-colors duration-200" placeholder="Username">
-                    </div>
+                    
 
                     <div>
                         <label for="email" class="sr-only">Email address</label>
@@ -274,21 +271,6 @@ if (isset($conn)) {
                     <div>
                         <label for="phone" class="sr-only">Phone Number</label>
                         <input id="phone" name="phone" type="tel" autocomplete="tel" required class="appearance-none relative block w-full px-4 py-3 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-[#111111] transition-colors duration-200" placeholder="Phone Number">
-                    </div>
-
-                    <div>
-                        <label for="currency" class="sr-only">Currency</label>
-                        <div class="relative">
-                            <select id="currency" name="currency" required class="block w-full px-4 py-3 border border-gray-700 text-gray-200 rounded-xl appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-[#111111] transition-colors duration-200">
-                                <option value="" disabled selected class="text-gray-500">Select Currency</option>
-                                <option value="USD">USD - United States Dollar</option>
-                                <option value="EUR">EUR - Euro</option>
-                                <option value="GBP">GBP - British Pound Sterling</option>
-                            </select>
-                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
