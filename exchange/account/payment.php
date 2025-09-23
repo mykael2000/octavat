@@ -83,30 +83,6 @@
                 </div>
             </div>
             
-            <!-- Deposit History Section -->
-            <div class="mt-8">
-                <h2 class="text-xl font-bold mb-4 text-white">Deposit History</h2>
-                <div class="bg-[#1f2125] rounded-lg p-4">
-                    <div class="flex justify-between items-center py-2 border-b border-gray-700/50 text-sm text-gray-400 font-semibold">
-                        <span>Date</span>
-                        <span>Coin</span>
-                        <span>Amount</span>
-                        <span>Status</span>
-                    </div>
-                    <div class="flex justify-between items-center py-2 border-b border-gray-700/50">
-                        <span class="text-sm text-gray-400">2024-10-26</span>
-                        <span class="text-sm text-white">USDT</span>
-                        <span class="text-sm text-white">100.00</span>
-                        <span class="text-sm text-green-500">Completed</span>
-                    </div>
-                    <div class="flex justify-between items-center py-2">
-                        <span class="text-sm text-gray-400">2024-10-25</span>
-                        <span class="text-sm text-white">BTC</span>
-                        <span class="text-sm text-white">0.001</span>
-                        <span class="text-sm text-green-500">Completed</span>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
