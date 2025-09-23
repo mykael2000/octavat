@@ -382,12 +382,12 @@ include("header.php");
             </div>
 
             <!-- Carousel Navigation Arrows -->
-            <button id="prev-btn" class="absolute top-1/2 left-0 transform -translate-y-1/2 -ml-6 md:-ml-8 bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-gray-600 transition-colors duration-300 hidden md:flex items-center justify-center">
+            <button id="prev-btn" class="absolute top-1/2 left-0 transform -translate-y-1/2 -ml-6 md:-ml-8 bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-gray-600 transition-colors duration-300 md:flex items-center justify-center">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
                 </svg>
             </button>
-            <button id="next-btn" class="absolute top-1/2 right-0 transform -translate-y-1/2 -mr-6 md:-mr-8 bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-gray-600 transition-colors duration-300 hidden md:flex items-center justify-center">
+            <button id="next-btn" class="absolute top-1/2 right-0 transform -translate-y-1/2 -mr-6 md:-mr-8 bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-gray-600 transition-colors duration-300 md:flex items-center justify-center">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
                 </svg>
