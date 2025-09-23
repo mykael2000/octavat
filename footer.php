@@ -14,10 +14,11 @@
                     <p class="text-sm">Connect with us:</p>
                     <div class="flex space-x-4 mt-2">
                         <!-- Social Icons -->
-                        <a href="#"><img src="https://placehold.co/24x24/111111/ffffff?text=in" alt="LinkedIn" class="rounded"></a>
-                        <a href="#"><img src="https://placehold.co/24x24/111111/ffffff?text=X" alt="Twitter" class="rounded"></a>
-                        <a href="#"><img src="https://placehold.co/24x24/111111/ffffff?text=F" alt="Facebook" class="rounded"></a>
+                        <!-- <a href="#"><img src="https://placehold.co/24x24/111111/ffffff?text=in" alt="LinkedIn" class="rounded"></a> -->
+                        <a href="https://x.com/octavat_?s=11"><img src="https://placehold.co/24x24/111111/ffffff?text=X" alt="Twitter" class="rounded"></a>
+                        <!-- <a href="#"><img src="https://placehold.co/24x24/111111/ffffff?text=F" alt="Facebook" class="rounded"></a> -->
                     </div>
+                    <a href="mailto:support@octavat.com" class="text-sm">support@octavat.com</a>
                 </div>
                 <!-- Company Links -->
                 <div class="col-span-1">
