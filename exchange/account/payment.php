@@ -42,13 +42,19 @@
             <div class="bg-[#1f2125] rounded-lg p-6 space-y-4">
                 
                 <div>
-                    <label for="amount-field" class="block text-sm font-medium text-gray-400 mb-2">Amount</label>
-                    <input id="amount-field" type="number" step="any" min="1086.96" class="w-full bg-[#2c2e32] text-white rounded-lg p-3 border-none focus:ring-1 focus:ring-green-500 focus:outline-none" placeholder="Enter amount of tokens">
+                    <label for="token-amount-field" class="block text-sm font-medium text-gray-400 mb-2">Number of Tokens</label>
+                    <input id="token-amount-field" type="number" step="any" min="1086.96" class="w-full bg-[#2c2e32] text-white rounded-lg p-3 border-none focus:ring-1 focus:ring-green-500 focus:outline-none" placeholder="Enter number of tokens">
                     <p class="mt-2 text-xs text-gray-500">
                         $0.69 = 1 Genuis token<br>
                         Minimum purchase: 1086.96 tokens
                     </p>
                 </div>
+
+                <div>
+                    <label for="usd-amount-field" class="block text-sm font-medium text-gray-400 mb-2">USD Amount</label>
+                    <input id="usd-amount-field" type="text" readonly class="w-full bg-[#2c2e32] text-white rounded-lg p-3 border-none focus:ring-1 focus:ring-green-500 focus:outline-none" placeholder="$0.00">
+                </div>
+                
                 <!-- Coin Selection -->
                 <div>
                     <label for="coin-select" class="block text-sm font-medium text-gray-400 mb-2">Select Coin</label>
@@ -133,6 +139,9 @@
         const warningMessage = document.getElementById('warning-message');
         const copyButton = document.getElementById('copy-button');
         const copyMessage = document.getElementById('copy-message');
+
+        const tokenAmountField = document.getElementById('token-amount-field');
+        const usdAmountField = document.getElementById('usd-amount-field');
         
         // Function to update the page based on the selected coin and network
         function updatePage() {
@@ -170,12 +179,28 @@
             }
         }
 
+        // Function to calculate the USD amount based on tokens
+        function updateUsdAmount() {
+            const tokens = parseFloat(tokenAmountField.value);
+            const conversionRate = 0.69;
+            const minTokens = 1086.96;
+
+            if (isNaN(tokens) || tokens < minTokens) {
+                usdAmountField.value = '';
+                return;
+            }
+
+            const usdAmount = tokens * conversionRate;
+            usdAmountField.value = usdAmount.toFixed(2);
+        }
+
         // Initial setup and event listeners
         document.addEventListener('DOMContentLoaded', () => {
             updatePage(); // Initial load
             
             coinSelect.addEventListener('change', updatePage);
             networkSelect.addEventListener('change', updateDetails);
+            tokenAmountField.addEventListener('input', updateUsdAmount);
 
             copyButton.addEventListener('click', () => {
                 const addressToCopy = depositAddress.textContent;
