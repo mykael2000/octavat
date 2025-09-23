@@ -204,7 +204,7 @@ if (isset($conn)) {
     <div class="max-w-4xl w-full flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-2xl bg-gray-900 border border-gray-800">
 
         <!-- Left Column - Visuals and Marketing -->
-        <div class="hidden md:flex flex-1 p-8 lg:p-12 flex-col justify-between bg-gradient-to-br from-indigo-900 to-slate-950 relative">
+        <div class="hidden md:flex flex-1 p-8 lg:p-12 flex-col justify-between bg-[#111111] relative">
             <div class="absolute inset-0 z-0 opacity-20">
                 <canvas id="chartCanvas" class="w-full h-full"></canvas>
             </div>
