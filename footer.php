@@ -38,33 +38,24 @@
     </footer>
      <script>
         const carousel = document.getElementById('testimonial-carousel');
-        const nextBtn = document.getElementById('next-btn');
-        const prevBtn = document.getElementById('prev-btn');
-        const cardWidth = carousel.children[0].offsetWidth + 24; // Card width + space-x-6 (24px)
+        const nextCardButtons = document.querySelectorAll('.next-card-btn');
         let autoScrollInterval;
 
-        // Scroll function for buttons
-        function scrollCarousel(direction) {
-            if (direction === 'next') {
-                carousel.scrollLeft += cardWidth;
-            } else {
-                carousel.scrollLeft -= cardWidth;
-            }
+        // Scroll to the next card
+        function scrollNextCard() {
+            const cardWidth = carousel.children[0].offsetWidth + 24; // Card width + space-x-6 (24px)
+            carousel.scrollLeft += cardWidth;
         }
-
-        // Event listeners for arrow buttons
-        nextBtn.addEventListener('click', () => scrollCarousel('next'));
-        prevBtn.addEventListener('click', () => scrollCarousel('prev'));
 
         // Auto-scroll functionality
         function startAutoScroll() {
             autoScrollInterval = setInterval(() => {
                 const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
-                if (carousel.scrollLeft >= maxScrollLeft) {
+                if (carousel.scrollLeft + 1 >= maxScrollLeft) {
                     // Scroll back to the beginning smoothly
                     carousel.scrollTo({ left: 0, behavior: 'smooth' });
                 } else {
-                    carousel.scrollLeft += cardWidth;
+                    scrollNextCard();
                 }
             }, 5000); // Scrolls every 5 seconds
         }
@@ -73,14 +64,20 @@
             clearInterval(autoScrollInterval);
         }
 
+        // Event listeners for the new buttons
+        nextCardButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                stopAutoScroll();
+                scrollNextCard();
+            });
+        });
+
         // Start auto-scroll on page load
         startAutoScroll();
 
-        // Stop and restart auto-scroll on user interaction
+        // Stop and restart auto-scroll on user interaction with the carousel
         carousel.addEventListener('mouseenter', stopAutoScroll);
         carousel.addEventListener('mouseleave', startAutoScroll);
-        nextBtn.addEventListener('click', stopAutoScroll);
-        prevBtn.addEventListener('click', stopAutoScroll);
         
     </script>
         <script>
