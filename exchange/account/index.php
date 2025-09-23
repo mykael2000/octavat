@@ -290,8 +290,8 @@ include('function.php');
                     <p id="timer-label" class="mt-12">Token Listing in:</p>
                     <div id="countdown-timer"></div>
                     <div class="flex justify-center mt-4 space-x-4">
-                        <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300">Buy Token</a>
-                        <a href="#" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full transition-colors duration-300">Whitepaper</a>
+                        <a href="payment.php" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300">Buy Token</a>
+                        <a href="genuis.php" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full transition-colors duration-300">Whitepaper</a>
                     </div>
                 </section>
                 <div class="mb-6">
