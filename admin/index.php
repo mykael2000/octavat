@@ -32,7 +32,7 @@ require '../PHPMailer-master/src/SMTP.php';
 $mail = new PHPMailer(true);
 
 // SQL query to get the total number of users
-$sqlt = "SELECT COUNT(*) as total_users FROM clients";
+$sqlt = "SELECT COUNT(*) as total_users FROM users";
 
 // Execute the query
 $result = mysqli_query($conn, $sqlt);
