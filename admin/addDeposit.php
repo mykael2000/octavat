@@ -33,14 +33,15 @@ if (isset($_POST['profit'])) {
     $address = "";
     $prosql = "UPDATE users set total_balance = '$newBal', active_deposits = '$newActiveDeposits' WHERE id = '$account'";
     $proquery = mysqli_query($conn, $prosql);
+    $sqlpde = "INSERT into payments (client_id, email, tranx_id, plan, coin, amount, status, created_at) VALUES ('$client_id','$useremail','$tranx_id','$plan','$paidvia','$amount','$investment_status','$created_at')";
+    $stmtde = mysqli_query($conn, $sqlpde);
+
     if (empty($_POST['investmet_status'])) {
         $investment_status = "not-active";
     } else {
         $investment_status = $_POST['investment_status'];
     }
-    $sqlpde = "INSERT into payments (client_id, email, tranx_id, plan, coin, amount, status, created_at) VALUES ('$client_id','$useremail','$tranx_id','$plan','$paidvia','$amount','$investment_status','$created_at')";
-    $stmtde = mysqli_query($conn, $sqlpde);
-
+    
     $message = '<div class="alert alert-success d-flex align-items-center" role="alert">
             <svg class="bi flex-shrink-0 me-2" width="24" height="24">
                 <use xlink:href="#check-circle-fill" />

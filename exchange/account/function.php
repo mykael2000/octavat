@@ -16,6 +16,11 @@ if (!isset($_SESSION["user_id"])) {
     exit();
 }
 
+if(empty($_SESSION['user_id'])){
+    header("location: ../../login.php"); 
+    exit();
+}
+
 
 
 $user_id = $_SESSION["user_id"];
