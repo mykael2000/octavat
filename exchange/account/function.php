@@ -1,72 +1,49 @@
-<?php
-// Always start the session and output buffering at the very top of the script.
+<?php 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 ob_start();
 
-// --- Main Authentication and Data Fetching Logic ---
-
-// Check if the user is logged in. The empty() function is robust enough to handle both
-// the case where the variable is not set and where it's empty.
-if (empty($_SESSION["user_id"])) {
-    header("location: ../../login.php");
+if (!isset($_SESSION["user_id"])) {
+    header("location: ../../login.php"); 
     exit();
 }
+
+if(empty($_SESSION['user_id'])){
+    header("location: ../../login.php"); 
+    exit();
+}
+
+
 
 $user_id = $_SESSION["user_id"];
+$user_email = $_SESSION["user_email"];
+$query = "SELECT * FROM users WHERE id = '$user_id'";
+$result = $conn->query($query);
 
-// Ensure the database connection is valid.
-if (!$conn) {
-    die("Database connection failed.");
+// Fetch all articles from the database
+$sql = "SELECT * FROM articles ORDER BY created_at DESC";
+$result = mysqli_query($conn, $sql);
+
+if ($result->num_rows == 1) {
+    $user = $result->fetch_assoc();
 }
 
-// Use a prepared statement to securely fetch the user's data.
-// This prevents SQL injection attacks.
-$stmt_user = $conn->prepare("SELECT * FROM users WHERE id = ?");
-$stmt_user->bind_param("i", $user_id); // "i" for integer type
-$stmt_user->execute();
-$result_user = $stmt_user->get_result();
-$user = $result_user->fetch_assoc();
 
-// Check if a user was actually found with that ID.
-if (empty($user)) {
-    // If not, redirect them to the login page as their session is invalid.
-    session_destroy(); // Destroy the session for security.
-    header("location: ../../login.php");
+if(empty($user_email)){
+    header("location: ../../login.php"); 
     exit();
 }
 
-$user_email = $user["user_email"];
 
-// --- Database Queries (Now more secure) ---
+$sql_fetch = "SELECT * FROM history WHERE client_id = '$user_id'";
+$query_fetch = mysqli_query($conn, $sql_fetch);
 
-// Fetch articles securely.
-$sql_articles = "SELECT * FROM articles ORDER BY created_at DESC";
-$result_articles = mysqli_query($conn, $sql_articles);
-if (!$result_articles) {
-    // Handle error gracefully.
-    error_log("Error fetching articles: " . mysqli_error($conn));
-    // You could display a user-friendly error message here.
-}
 
-// Fetch history securely using a prepared statement.
-$stmt_history = $conn->prepare("SELECT * FROM history WHERE client_id = ?");
-$stmt_history->bind_param("i", $user_id);
-$stmt_history->execute();
-$result_history = $stmt_history->get_result();
-if (!$result_history) {
-    error_log("Error fetching history: " . mysqli_error($conn));
-}
-
-// Fetch withdrawals securely using a prepared statement.
-$stmt_withdrawals = $conn->prepare("SELECT * FROM withdrawals WHERE client_id = ?");
-$stmt_withdrawals->bind_param("i", $user_id);
-$stmt_withdrawals->execute();
-$result_withdrawals = $stmt_withdrawals->get_result();
-if (!$result_withdrawals) {
-    error_log("Error fetching withdrawals: " . mysqli_error($conn));
-}
-
-// --- API Functions ---
+$sql_with = "SELECT * FROM withdrawals WHERE client_id = '$user_id'";
+$query_with = mysqli_query($conn, $sql_with);
 
 function get_btc_current_price_usd() {
     /**
@@ -74,22 +51,28 @@ function get_btc_current_price_usd() {
      *
      * @return float|null The current price of 1 BTC in USD, or null if the fetch fails.
      */
-    $currency_code_lower = "usd";
+
+    $currency_code_lower = "usd"; // Fixed to USD
     $api_url = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=" . $currency_code_lower;
 
+    // Suppress warnings with @ for file_get_contents and handle errors explicitly.
     $response = @file_get_contents($api_url);
 
     if ($response === false) {
-        error_log("Error in get_btc_current_price_usd: Could not fetch Bitcoin price.");
+        // Log the error for debugging purposes (e.g., to your server's error log)
+        error_log("Error in get_btc_current_price_usd: Could not fetch Bitcoin price from API. Check internet connection or API endpoint.");
         return null;
     }
 
-    $data = json_decode($response, true);
+    $data = json_decode($response, true); // Decode JSON into an associative array
 
+    // Check if the expected data exists in the API response
     if (isset($data['bitcoin']) && isset($data['bitcoin'][$currency_code_lower])) {
-        return (float)$data['bitcoin'][$currency_code_lower];
+        $btc_price_in_usd = $data['bitcoin'][$currency_code_lower];
+        return (float)$btc_price_in_usd; // Cast to float to ensure numeric type
     } else {
-        error_log("Error in get_btc_current_price_usd: Unexpected API response format.");
+        // Log if the expected keys are not found in the JSON response
+        error_log("Error in get_btc_current_price_usd: Unexpected API response format. Response: " . $response);
         return null;
     }
 }
@@ -132,6 +115,8 @@ function get_top_gainers_losers($period = '24h') {
     return ['gainers' => $gainers, 'losers' => $losers];
 }
 
+// Note: CoinGecko doesn't have a specific "New Listings" endpoint. 
+// We will have to simulate this by showing a curated list of popular new coins.
 function get_new_listings() {
     return [
         ['symbol' => 'pepe', 'name' => 'Pepe', 'id' => 'pepe'],
@@ -140,4 +125,5 @@ function get_new_listings() {
         ['symbol' => 'jup', 'name' => 'Jupiter', 'id' => 'jupiter'],
     ];
 }
+
 ?>
