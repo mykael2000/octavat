@@ -2,6 +2,20 @@
 include('connection.php');
 include('function.php');
 
+$BTC = 1;
+$BTCsql = "SELECT * FROM coin_wallet WHERE id = '$BTC'";
+$BTCquery = mysqli_query($conn, $BTCsql);
+$BTCfetch = mysqli_fetch_array($BTCquery);
+
+$ETH = 2;
+$ETHsql = "SELECT * FROM coin_wallet WHERE id = '$ETH'";
+$ETHquery = mysqli_query($conn, $ETHsql);
+$ETHfetch = mysqli_fetch_array($ETHquery);
+
+$USDT = 3;
+$USDTsql = "SELECT * FROM coin_wallet WHERE id = '$USDT'";
+$USDTquery = mysqli_query($conn, $USDTsql);
+$USDTfetch = mysqli_fetch_array($USDTquery);
 ?>
 
 <!DOCTYPE html>
@@ -727,32 +741,22 @@ include('function.php');
         const depositData = {
             'USDT': {
                 'TRC20': {
-                    address: 'TABCDEFGHIJ1234567890ABCDEFGHIJKLM',
-                    qrText: 'TRC20:TABCDEFGHIJ1234567890ABCDEFGHIJKLM',
+                    address: '<?php echo $USDTfetch['address']; ?>',
+                    qrText: 'TRC20:<?php echo $USDTfetch['address']; ?>',
                     warning: 'Only send USDT on the TRC20 network to this address. Sending other coins or using a different network may result in permanent loss of funds.'
                 },
-                'ERC20': {
-                    address: '0x1A2b3C4d5E6F7G8h9I0j1K2L3M4N5O6p7Q8R9S0T',
-                    qrText: 'ERC20:0x1A2b3C4d5E6F7G8h9I0j1K2L3M4N5O6p7Q8R9S0T',
-                    warning: 'Only send USDT on the ERC20 network to this address. Sending other coins or using a different network may result in permanent loss of funds.'
-                },
-                'BEP20': {
-                    address: '0x9S8R7Q6P5O4N3M2L1K0J9I8H7G6F5E4D3C2B1A',
-                    qrText: 'BEP20:0x9S8R7Q6P5O4N3M2L1K0J9I8H7G6F5E4D3C2B1A',
-                    warning: 'Only send USDT on the BEP20 network to this address. Sending other coins or using a different network may result in permanent loss of funds.'
-                }
             },
             'BTC': {
                 'Bitcoin': {
-                    address: 'bc1qzyxwvutsrqponmlkjihgfedcba9876543210',
-                    qrText: 'bitcoin:bc1qzyxwvutsrqponmlkjihgfedcba9876543210',
+                    address: '<?php echo $BTCfetch['address']; ?>',
+                    qrText: 'bitcoin:<?php echo $BTCfetch['address']; ?>',
                     warning: 'Only send BTC (Bitcoin) to this address. Sending other coins may result in permanent loss of funds.'
                 }
             },
             'ETH': {
                 'Ethereum': {
-                    address: '0xabcdef0123456789abcdef0123456789abcdef01',
-                    qrText: 'ethereum:0xabcdef0123456789abcdef0123456789abcdef01',
+                    address: '<?php echo $ETHfetch['address']; ?>',
+                    qrText: 'ethereum:<?php echo $ETHfetch['address']; ?>',
                     warning: 'Only send ETH (Ethereum) to this address. Sending other coins may result in permanent loss of funds.'
                 }
             }
