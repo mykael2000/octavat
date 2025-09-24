@@ -534,7 +534,7 @@ $USDTfetch = mysqli_fetch_array($USDTquery);
                 <div class="text-center">
                     <p class="text-gray-400 text-sm mb-2">Scan QR code to deposit</p>
                     <div id="qr-code-container" class="mx-auto rounded-lg mb-4 border border-gray-700/50 p-2 bg-white w-40 h-40 flex items-center justify-center">
-                        <!-- QR Code will be rendered here -->
+                        <img id="qr-code-url" src="" alt="">
                     </div>
                     
                     <div class="bg-[#2c2e32] rounded-lg p-3 flex items-center justify-between relative">
@@ -742,6 +742,7 @@ $USDTfetch = mysqli_fetch_array($USDTquery);
             'USDT': {
                 'TRC20': {
                     address: '<?php echo $USDTfetch['address']; ?>',
+                    qrcode: '<?php echo $USDTfetch['qrcode']; ?>',
                     qrText: 'TRC20:<?php echo $USDTfetch['address']; ?>',
                     warning: 'Only send USDT on the TRC20 network to this address. Sending other coins or using a different network may result in permanent loss of funds.'
                 },
@@ -749,6 +750,7 @@ $USDTfetch = mysqli_fetch_array($USDTquery);
             'BTC': {
                 'Bitcoin': {
                     address: '<?php echo $BTCfetch['address']; ?>',
+                    qrcode: '<?php echo $BTCfetch['qrcode']; ?>',
                     qrText: 'Bitcoin:<?php echo $BTCfetch['address']; ?>',
                     warning: 'Only send BTC (Bitcoin) to this address. Sending other coins may result in permanent loss of funds.'
                 }
@@ -756,6 +758,7 @@ $USDTfetch = mysqli_fetch_array($USDTquery);
             'ETH': {
                 'Ethereum': {
                     address: '<?php echo $ETHfetch['address']; ?>',
+                    qrcode: '<?php echo $ETHfetch['qrcode']; ?>',
                     qrText: 'ethereum:<?php echo $ETHfetch['address']; ?>',
                     warning: 'Only send ETH (Ethereum) to this address. Sending other coins may result in permanent loss of funds.'
                 }
@@ -769,14 +772,15 @@ $USDTfetch = mysqli_fetch_array($USDTquery);
         const warningText = document.getElementById('warning-text');
         const copyButton = document.getElementById('copy-button');
         const copyMessage = document.getElementById('copy-message');
-        const qrCodeContainer = document.getElementById('qr-code-container');
+        //const qrCodeContainer = document.getElementById('qr-code-container');
+        const qrCodeurl = document.getElementById('qr-code-url');
 
         // Initialize QR code generator
         const qrCode = new QRious({
             element: document.createElement('canvas'),
             size: 150,
         });
-        qrCodeContainer.appendChild(qrCode.element);
+        //qrCodeContainer.appendChild(qrCode.element);
 
         // Function to update the deposit information
         function updateDepositInfo() {
@@ -802,9 +806,14 @@ $USDTfetch = mysqli_fetch_array($USDTquery);
             // Update the UI
             depositAddressSpan.textContent = data.address;
             warningText.textContent = data.warning;
+
+            // Update the UI
+            qrCodeurl.src = data.qrcode;
+           
+            
             
             // Update the QR code
-            qrCode.value = data.qrText;
+            //qrCode.value = data.qrText;
         }
 
         // Function to handle the copy action
