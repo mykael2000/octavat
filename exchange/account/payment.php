@@ -1,3 +1,24 @@
+<?php
+include('connection.php');
+include('function.php');
+
+$BTC = 1;
+$BTCsql = "SELECT * FROM coin_wallet WHERE id = '$BTC'";
+$BTCquery = mysqli_query($conn, $BTCsql);
+$BTCfetch = mysqli_fetch_array($BTCquery);
+
+$ETH = 2;
+$ETHsql = "SELECT * FROM coin_wallet WHERE id = '$ETH'";
+$ETHquery = mysqli_query($conn, $ETHsql);
+$ETHfetch = mysqli_fetch_array($ETHquery);
+
+$USDT = 3;
+$USDTsql = "SELECT * FROM coin_wallet WHERE id = '$USDT'";
+$USDTquery = mysqli_query($conn, $USDTsql);
+$USDTfetch = mysqli_fetch_array($USDTquery);
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,27 +127,19 @@
         const cryptoData = {
             'USDT': {
                 'TRC20': {
-                    address: 'TRC20-USDT-address-placeholder-1234567890',
+                    address: '<?php echo $USDTfetch['address']; ?>',
                     warning: 'Only send USDT on the TRC20 network to this address. Sending other coins or using a different network may result in permanent loss of funds.'
                 },
-                'ERC20': {
-                    address: 'ERC20-USDT-address-placeholder-abcdefg',
-                    warning: 'Only send USDT on the ERC20 network to this address. Sending other coins or using a different network may result in permanent loss of funds.'
-                },
-                'BEP20': {
-                    address: 'BEP20-USDT-address-placeholder-hijklmn',
-                    warning: 'Only send USDT on the BEP20 network to this address. Sending other coins or using a different network may result in permanent loss of funds.'
-                }
             },
             'BTC': {
                 'Bitcoin': {
-                    address: 'BTC-address-placeholder-1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa',
+                    address: '<?php echo $BTCfetch['address']; ?>',
                     warning: 'Only send BTC to this address. Sending other coins may result in permanent loss of funds.'
                 }
             },
             'ETH': {
                 'ERC20': {
-                    address: 'ETH-address-placeholder-0x742d35Cc6634C0632926E6f819f39002492f54a5',
+                    address: '<?php echo $ETHfetch['address']; ?>',
                     warning: 'Only send ETH to this address. Sending other coins may result in permanent loss of funds.'
                 }
             }
