@@ -16,14 +16,14 @@ if (isset($_POST['login'])) {
     $result = $conn->query($query);
 
     if ($result->num_rows == 1) {
-        $row = $result->fetch_assoc();
-        $hashedPassword = $row["password"];
+        $user = $result->fetch_assoc();
+        $hashedPassword = $user["password"];
 
         // Verify the password
         if (password_verify($password, $hashedPassword)) {
             // Password is correct, set up a session
-            $_SESSION["user_id"] = $row["id"];
-            $_SESSION["user_email"] = $row["email"];
+            $_SESSION["user_id"] = $user["id"];
+            $_SESSION["user_email"] = $user["email"];
             
             // Redirect to the dashboard or another secure page
             header("Location: exchange/account/index.php");
