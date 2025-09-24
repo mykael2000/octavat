@@ -15,7 +15,7 @@ if (isset($_POST['save'])) {
         $file_tmp = $_FILES["btcqr"]["tmp_name"];
 
         // Specify upload directory
-        $upload_dir = "user-area/address/";
+        $upload_dir = "../address/";
 
         // Move the uploaded file to the specified directory
         move_uploaded_file($file_tmp, $upload_dir . $file_name);
