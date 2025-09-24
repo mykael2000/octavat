@@ -130,7 +130,7 @@ mysqli_close($conn);
                         <?php echo $message; ?>
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="exampleInputltc">Paid Via</label>
+                                <label for="exampleInputltc">Coin</label>
                                 <input type="text" name="paidvia" class="form-control" id="exampleInputltc"
                                     placeholder="Enter Payment Method">
                             </div>
