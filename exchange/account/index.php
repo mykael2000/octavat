@@ -456,10 +456,6 @@ include('function.php');
                         <img src="../../admin/<?php echo htmlspecialchars($article['image']); ?>" alt="<?php echo htmlspecialchars($article['title']); ?>" class="w-full h-auto">
                     </div>
 
-                    <div class="text-sm text-gray-500 text-center mb-4">
-                        See more <a href="#" class="text-green-accent font-semibold">#BTC Price Analysis</a> posts >
-                    </div>
-
                     <div class="flex justify-between items-center text-gray-400 text-sm">
                         <div class="flex items-end space-x-4">
                             
