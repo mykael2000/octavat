@@ -634,6 +634,10 @@ $USDTfetch = mysqli_fetch_array($USDTquery);
                         contentToShow = depositContent;
                         tabToActivate = document.getElementById('deposit-tab');
                         break;
+                    case 'deposit-tab2':
+                        contentToShow = depositContent;
+                        tabToActivate = document.getElementById('deposit-tab');
+                        break;
                 }
 
                 if (contentToShow && tabToActivate) {
