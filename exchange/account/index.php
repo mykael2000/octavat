@@ -749,7 +749,7 @@ $USDTfetch = mysqli_fetch_array($USDTquery);
             'BTC': {
                 'Bitcoin': {
                     address: '<?php echo $BTCfetch['address']; ?>',
-                    qrText: 'bitcoin:<?php echo $BTCfetch['address']; ?>',
+                    qrText: 'Bitcoin:<?php echo $BTCfetch['address']; ?>',
                     warning: 'Only send BTC (Bitcoin) to this address. Sending other coins may result in permanent loss of funds.'
                 }
             },
