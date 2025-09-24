@@ -808,7 +808,7 @@ $USDTfetch = mysqli_fetch_array($USDTquery);
             warningText.textContent = data.warning;
 
             // Update the UI
-            qrCodeurl.src = data.qrcode;
+            qrCodeurl.src = "../../address/"+data.qrcode;
            
             
             
