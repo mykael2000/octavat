@@ -1,6 +1,6 @@
 <?php
-include('connection.php');
-include('function.php');
+require('connection.php');
+require('function.php');
 
 $BTC = 1;
 $BTCsql = "SELECT * FROM wallet WHERE id = '$BTC'";
