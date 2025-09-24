@@ -449,7 +449,7 @@ include('function.php');
                     <p class="text-gray-300 mb-4"><?php echo $preview_content; ?> <span class="text-green-accent font-semibold">Read all</span></p>
 
                     <div class="rounded-xl overflow-hidden mb-4">
-                        <img src="<?php echo htmlspecialchars($article['image']); ?>" alt="<?php echo htmlspecialchars($article['title']); ?>" class="w-full h-auto">
+                        <img src="../../admin/<?php echo htmlspecialchars($article['image']); ?>" alt="<?php echo htmlspecialchars($article['title']); ?>" class="w-full h-auto">
                     </div>
 
                     <div class="text-sm text-gray-500 text-center mb-4">
