@@ -8,23 +8,31 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-if (!isset($_SESSION["user_id"])) {
-    header("location: ../../login.php"); 
-    exit();
-}
-
 if(empty($_SESSION['user_id'])){
     header("location: ../../login.php"); 
     exit();
 }
 
-
-
 $user_id = $_SESSION["user_id"];
-$user_email = $_SESSION["user_email"];
-$query = "SELECT * FROM users WHERE id = '$user_id'";
-$result = $conn->query($query);
+// Ensure the database connection is valid.
+if (!$conn) {
+    die("Database connection failed.");
+}
 
+$stmt_user = $conn->prepare("SELECT * FROM users WHERE id = ?");
+$stmt_user->bind_param("i", $user_id); // "i" for integer type
+$stmt_user->execute();
+$result_user = $stmt_user->get_result();
+$user = $result_user->fetch_assoc();
+
+$user_email = $user["user_email"];
+
+if (empty($user)) {
+    // If not, redirect them to the login page as their session is invalid.
+    session_destroy(); // Destroy the session for security.
+    header("location: ../../login.php");
+    exit();
+}
 // Fetch all articles from the database
 $sql = "SELECT * FROM articles ORDER BY created_at DESC";
 $result = mysqli_query($conn, $sql);
