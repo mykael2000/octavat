@@ -7,43 +7,37 @@ $message = "";
 if (isset($_POST['update_address'])) {
     $coin_id = $_POST['coin_id'];
     $new_address = mysqli_real_escape_string($conn, $_POST['new_address']);
-    
-    // Generate QR code URL (using a placeholder service like goqr.me)
-    $new_qrcode_url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" . urlencode($new_address);
 
-    $update_sql = "UPDATE coin_wallet SET address = '$new_address', qrcode = '$new_qrcode_url' WHERE id = '$coin_id'";
-    $update_query = mysqli_query($conn, $update_sql);
-
-    if ($update_query) {
-        $message = '<div class="alert alert-success d-flex align-items-center" role="alert">
-                      <div>Wallet address updated successfully!</div>
-                  </div>';
-    } else {
+    // Validate coin_id is one of the allowed IDs
+    if (!in_array($coin_id, ['1', '2', '3'])) {
         $message = '<div class="alert alert-danger d-flex align-items-center" role="alert">
-                      <div>Error updating wallet address: ' . mysqli_error($conn) . '</div>
-                  </div>';
+                    <div>Invalid wallet ID. Only BTC, ETH, and USDT can be updated.</div>
+                </div>';
+    } else {
+        // Generate QR code URL
+        $new_qrcode_url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" . urlencode($new_address);
+
+        $update_sql = "UPDATE coin_wallet SET address = ?, qrcode = ? WHERE id = ?";
+        $stmt = mysqli_prepare($conn, $update_sql);
+        mysqli_stmt_bind_param($stmt, "ssi", $new_address, $new_qrcode_url, $coin_id);
+        
+        if (mysqli_stmt_execute($stmt)) {
+            $message = '<div class="alert alert-success d-flex align-items-center" role="alert">
+                        <div>Wallet address updated successfully!</div>
+                    </div>';
+        } else {
+            $message = '<div class="alert alert-danger d-flex align-items-center" role="alert">
+                        <div>Error updating wallet address: ' . mysqli_error($conn) . '</div>
+                    </div>';
+        }
+        mysqli_stmt_close($stmt);
     }
 }
 
-// Fetch all available coins and networks from the database for the dropdowns
-$coins_sql = "SELECT DISTINCT coin, network, id, address, qrcode FROM coin_wallet ORDER BY coin, network";
-$coins_query = mysqli_query($conn, $coins_sql);
-
-// Initialize variables for the form
-$current_address = "No address selected.";
-$current_qrcode = "https://via.placeholder.com/150x150.png?text=QR+Code";
-
-// Fetch the address and QR code based on user selection if available
-if (isset($_GET['selected_id']) && !empty($_GET['selected_id'])) {
-    $selected_id = mysqli_real_escape_string($conn, $_GET['selected_id']);
-    $fetch_sql = "SELECT address, qrcode FROM coin_wallet WHERE id = '$selected_id'";
-    $fetch_query = mysqli_query($conn, $fetch_sql);
-    if ($fetch_query && mysqli_num_rows($fetch_query) > 0) {
-        $data = mysqli_fetch_assoc($fetch_query);
-        $current_address = $data['address'];
-        $current_qrcode = $data['qrcode'];
-    }
-}
+// Fetch only the wallets with IDs 1, 2, and 3
+$wallets_sql = "SELECT id, coin, network, address, qrcode FROM coin_wallet WHERE id IN (1, 2, 3) ORDER BY id ASC";
+$wallets_query = mysqli_query($conn, $wallets_sql);
+$wallets = mysqli_fetch_all($wallets_query, MYSQLI_ASSOC);
 
 mysqli_close($conn);
 ?>
@@ -59,45 +53,34 @@ mysqli_close($conn);
 
     <section class="content">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
+                <?php echo $message; ?>
+            </div>
+            <?php foreach ($wallets as $wallet): ?>
+            <div class="col-md-4">
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">Edit Wallet Addresses</h3>
+                        <h3 class="box-title">Edit <?php echo htmlspecialchars($wallet['coin']); ?> Wallet</h3>
                     </div>
                     <form action="" method="post" role="form">
-                        <?php echo $message; ?>
+                        <input type="hidden" name="coin_id" value="<?php echo htmlspecialchars($wallet['id']); ?>">
                         <div class="box-body">
-                            <div class="form-group">
-                                <label for="coin_select">Select Coin & Network</label>
-                                <select class="form-control" name="coin_id" id="coin_select" onchange="window.location.href = 'edit_wallet.php?selected_id=' + this.value;">
-                                    <option value="">-- Select --</option>
-                                    <?php
-                                    // Reset the pointer and loop through the data for the dropdown
-                                    mysqli_data_seek($coins_query, 0);
-                                    while ($coin = mysqli_fetch_assoc($coins_query)) {
-                                        $selected = (isset($_GET['selected_id']) && $_GET['selected_id'] == $coin['id']) ? 'selected' : '';
-                                        echo "<option value='{$coin['id']}' {$selected}>{$coin['coin']} ({$coin['network']})</option>";
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                            
                             <div class="form-group text-center">
-                                <label>Current QR Code</label>
+                                <label>Current QR Code (<?php echo htmlspecialchars($wallet['coin']); ?>)</label>
                                 <br>
-                                <img id="qr_code_display" src="<?php echo htmlspecialchars($current_qrcode); ?>" alt="QR Code" style="width:150px;height:150px;border:1px solid #ccc;">
+                                <img src="<?php echo htmlspecialchars($wallet['qrcode']); ?>" alt="QR Code" style="width:150px;height:150px;border:1px solid #ccc;">
                             </div>
                             
                             <div class="form-group">
-                                <label for="current_address_display">Current Address</label>
-                                <input type="text" id="current_address_display" class="form-control" value="<?php echo htmlspecialchars($current_address); ?>" readonly>
+                                <label>Current Address</label>
+                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($wallet['address']); ?>" readonly>
                             </div>
-
+                            
                             <hr>
                             <h4 class="text-center">Update Address</h4>
                             <div class="form-group">
-                                <label for="new_address">New Wallet Address</label>
-                                <input type="text" name="new_address" id="new_address" class="form-control" placeholder="Enter new wallet address" required>
+                                <label for="new_address_<?php echo htmlspecialchars($wallet['id']); ?>">New Wallet Address</label>
+                                <input type="text" name="new_address" id="new_address_<?php echo htmlspecialchars($wallet['id']); ?>" class="form-control" placeholder="Enter new wallet address" required>
                             </div>
                         </div>
 
@@ -107,6 +90,7 @@ mysqli_close($conn);
                     </form>
                 </div>
             </div>
+            <?php endforeach; ?>
         </div>
     </section>
 </div>
