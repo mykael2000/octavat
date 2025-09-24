@@ -164,14 +164,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php echo $message; ?>
 
         <?php if ($action === 'list' || $message) { ?>
-            <div class="box box-primary">
-                <div class="box-header">
-                    <h3 class="box-title">All Articles</h3>
-                    <div class="box-tools pull-right">
-                        <a href="?action=add" class="btn btn-success btn-sm">Add New Article</a>
-                    </div>
-                </div>
-                <div class="box-body">
+            <div class="box-body">
+                <!-- This div makes the table horizontally scrollable on mobile -->
+                <div class="overflow-x-auto">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -214,6 +209,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </table>
                 </div>
             </div>
+
 
         <?php } elseif ($action === 'add' || $action === 'edit') { ?>
             <?php
