@@ -19,7 +19,7 @@ if (isset($_POST['profit'])) {
     $fetchaccount = "SELECT * FROM users WHERE id = '$account'";
     $accquery = mysqli_query($conn, $fetchaccount);
     $getter = mysqli_fetch_assoc($accquery);
-    $username = $getter['username'];
+
     $useremail = $getter['email'];
     $firstname = $getter['first_name'];
     $client_id = $getter['id'];
@@ -31,14 +31,14 @@ if (isset($_POST['profit'])) {
     $plan = $_POST['plan'];
     $paidvia = $_POST['paidvia'];
     $address = "";
-    $prosql = "UPDATE clients set total_balance = '$newBal', active_deposits = '$newActiveDeposits' WHERE id = '$account'";
+    $prosql = "UPDATE users set total_balance = '$newBal', active_deposits = '$newActiveDeposits' WHERE id = '$account'";
     $proquery = mysqli_query($conn, $prosql);
     if (empty($_POST['investmet_status'])) {
         $investment_status = "not-active";
     } else {
         $investment_status = $_POST['investment_status'];
     }
-    $sqlpde = "INSERT into deposits (client_id, username, tranx_id, plan, paid_via, amount, status, created_at) VALUES ('$client_id','$username','$tranx_id','$plan','$paidvia','$amount','$investment_status','$created_at')";
+    $sqlpde = "INSERT into payments (client_id, email, tranx_id, plan, coin, amount, status, created_at) VALUES ('$client_id','$useremail','$tranx_id','$plan','$paidvia','$amount','$investment_status','$created_at')";
     $stmtde = mysqli_query($conn, $sqlpde);
 
     $message = '<div class="alert alert-success d-flex align-items-center" role="alert">
