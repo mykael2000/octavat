@@ -173,9 +173,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <th style="width: 10px">#</th>
                                 <th>Title</th>
                                 <th>Author</th>
-                                <th>Followers</th>
-                                <th>Upvotes</th>
-                                <th>Downvotes</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -191,9 +188,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         <td><?php echo $count++; ?></td>
                                         <td><?php echo htmlspecialchars($row['title']); ?></td>
                                         <td><?php echo htmlspecialchars($row['author_name']); ?></td>
-                                        <td><?php echo htmlspecialchars($row['followers']); ?></td>
-                                        <td><?php echo htmlspecialchars($row['upvotes']); ?></td>
-                                        <td><?php echo htmlspecialchars($row['downvotes']); ?></td>
+                                        
                                         <td>
                                             <a href="?action=edit&id=<?php echo $row['id']; ?>" class="btn btn-warning btn-xs">Edit</a>
                                             <a href="?action=delete&id=<?php echo $row['id']; ?>" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete this article?');">Delete</a>
