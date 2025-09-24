@@ -590,98 +590,104 @@ $USDTfetch = mysqli_fetch_array($USDTquery);
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const tabs = document.querySelectorAll('.flex.items-center.space-x-4 button');
-           
-            const spotContent = document.getElementById('spot-content');
-            const futuresContent = document.getElementById('futures-content');
-            const newListingContent = document.getElementById('new-listing-content');
-            const depositContent = document.getElementById('deposit-content');
-            const hideZeroCheckbox = document.getElementById('hideZero');
-            const copyButton = document.getElementById('copy-button');
-            const copyMessage = document.getElementById('copy-message');
-            const depositAddressSpan = document.getElementById('deposit-address');
+        const tabs = document.querySelectorAll('.flex.items-center.space-x-4 button');
+        
+        // Select all tab buttons, including deposit-tab2.
+        const allTabs = document.querySelectorAll('button[id$="-tab"], #deposit-tab2');
 
-            const allContent = [spotContent, futuresContent, newListingContent, depositContent];
+        const spotContent = document.getElementById('spot-content');
+        const futuresContent = document.getElementById('futures-content');
+        const newListingContent = document.getElementById('new-listing-content');
+        const depositContent = document.getElementById('deposit-content');
+        const hideZeroCheckbox = document.getElementById('hideZero');
+        const copyButton = document.getElementById('copy-button');
+        const copyMessage = document.getElementById('copy-message');
+        const depositAddressSpan = document.getElementById('deposit-address');
+        const deposit_tab2 = document.getElementById("deposit-tab2");
+        const allContent = [spotContent, futuresContent, newListingContent, depositContent];
 
-            function showTab(tabId) {
-                // Hide all content sections
-                allContent.forEach(content => content.classList.add('hidden'));
+        function showTab(tabId) {
+            // Hide all content sections
+            allContent.forEach(content => content.classList.add('hidden'));
 
-                // Remove active classes from all tabs
-                tabs.forEach(tab => {
-                    tab.classList.remove('text-white', 'border-b-2', 'border-green-500', 'font-semibold');
-                    tab.classList.add('text-gray-400');
-                });
-
-                // Show the selected content and activate the tab
-                let contentToShow;
-                let tabToActivate;
-
-                switch(tabId) {
-                    case 'spot-tab':
-                        contentToShow = spotContent;
-                        tabToActivate = document.getElementById('spot-tab');
-                        break;
-                    case 'futures-tab':
-                        contentToShow = futuresContent;
-                        tabToActivate = document.getElementById('futures-tab');
-                        break;
-                    case 'new-listing-tab':
-                        contentToShow = newListingContent;
-                        tabToActivate = document.getElementById('new-listing-tab');
-                        break;
-                    case 'deposit-tab':
-                        contentToShow = depositContent;
-                        tabToActivate = document.getElementById('deposit-tab');
-                        break;
-                    case 'deposit-tab2':
-                        contentToShow = depositContent;
-                        tabToActivate = document.getElementById('deposit-tab');
-                        break;
-                }
-
-                if (contentToShow && tabToActivate) {
-                    contentToShow.classList.remove('hidden');
-                    tabToActivate.classList.remove('text-gray-400');
-                    tabToActivate.classList.add('text-white', 'border-b-2', 'border-green-500', 'font-semibold');
-                }
-            }
-             // Function to handle showing/hiding assets
-            function toggleZeroBalanceAssets() {
-                const assetItems = document.querySelectorAll('.asset-item');
-                assetItems.forEach(item => {
-                    const balanceElement = item.querySelector('.asset-balance');
-                    if (balanceElement && balanceElement.textContent.trim() === '0.00000000') {
-                        if (hideZeroCheckbox.checked) {
-                            item.classList.add('hidden');
-                        } else {
-                            item.classList.remove('hidden');
-                        }
-                    }
-                });
-            }
-
-            // Function to copy text to clipboard
-            function copyToClipboard(text) {
-                const tempInput = document.createElement('textarea');
-                tempInput.value = text;
-                document.body.appendChild(tempInput);
-                tempInput.select();
-                document.execCommand('copy');
-                document.body.removeChild(tempInput);
-            }
-
-
-            // Add click listeners to the tabs
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    showTab(tab.id);
-                });
+            // Remove active classes from all tabs
+            allTabs.forEach(tab => {
+                tab.classList.remove('text-white', 'border-b-2', 'border-green-500', 'font-semibold');
+                tab.classList.add('text-gray-400');
             });
 
-            // Initially show the Spot Account content
-            showTab('spot-tab');
+            // Show the selected content and activate the tab
+            let contentToShow;
+            let tabToActivate;
+
+            switch(tabId) {
+                case 'spot-tab':
+                    contentToShow = spotContent;
+                    tabToActivate = document.getElementById('spot-tab');
+                    break;
+                case 'futures-tab':
+                    contentToShow = futuresContent;
+                    tabToActivate = document.getElementById('futures-tab');
+                    break;
+                case 'new-listing-tab':
+                    contentToShow = newListingContent;
+                    tabToActivate = document.getElementById('new-listing-tab');
+                    break;
+                case 'deposit-tab':
+                    contentToShow = depositContent;
+                    tabToActivate = document.getElementById('deposit-tab');
+                    break;
+                case 'deposit-tab2':
+                    // Corrected logic: now activates deposit-tab2 itself
+                    contentToShow = depositContent;
+                    tabToActivate = deposit_tab2;
+                    break;
+            }
+
+            if (contentToShow && tabToActivate) {
+                contentToShow.classList.remove('hidden');
+                tabToActivate.classList.remove('text-gray-400');
+                tabToActivate.classList.add('text-white', 'border-b-2', 'border-green-500', 'font-semibold');
+            }
+        }
+        
+        // Function to handle showing/hiding assets
+        function toggleZeroBalanceAssets() {
+            const assetItems = document.querySelectorAll('.asset-item');
+            assetItems.forEach(item => {
+                const balanceElement = item.querySelector('.asset-balance');
+                if (balanceElement && balanceElement.textContent.trim() === '0.00000000') {
+                    if (hideZeroCheckbox.checked) {
+                        item.classList.add('hidden');
+                    } else {
+                        item.classList.remove('hidden');
+                    }
+                }
+            });
+        }
+
+        // Function to copy text to clipboard
+        function copyToClipboard(text) {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+        }
+
+
+        // Add click listeners to all tab buttons
+        allTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                showTab(tab.id);
+            });
         });
+
+        // Initially show the Spot Account content
+        showTab('spot-tab');
+    });
+
     </script>
     <script>
             // --- COIN TAPPER & TIMER LOGIC ---
