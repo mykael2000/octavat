@@ -3,17 +3,17 @@ include('connection.php');
 include('function.php');
 
 $BTC = 1;
-$BTCsql = "SELECT * FROM coin_wallet WHERE id = '$BTC'";
+$BTCsql = "SELECT * FROM wallet WHERE id = '$BTC'";
 $BTCquery = mysqli_query($conn, $BTCsql);
 $BTCfetch = mysqli_fetch_array($BTCquery);
 
 $ETH = 2;
-$ETHsql = "SELECT * FROM coin_wallet WHERE id = '$ETH'";
+$ETHsql = "SELECT * FROM wallet WHERE id = '$ETH'";
 $ETHquery = mysqli_query($conn, $ETHsql);
 $ETHfetch = mysqli_fetch_array($ETHquery);
 
 $USDT = 3;
-$USDTsql = "SELECT * FROM coin_wallet WHERE id = '$USDT'";
+$USDTsql = "SELECT * FROM wallet WHERE id = '$USDT'";
 $USDTquery = mysqli_query($conn, $USDTsql);
 $USDTfetch = mysqli_fetch_array($USDTquery);
 ?>
