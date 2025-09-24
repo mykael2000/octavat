@@ -25,7 +25,7 @@ $stmt_user->execute();
 $result_user = $stmt_user->get_result();
 $user = $result_user->fetch_assoc();
 
-$user_email = $user["user_email"];
+$user_email = $user["email"];
 
 if (empty($user)) {
     // If not, redirect them to the login page as their session is invalid.
