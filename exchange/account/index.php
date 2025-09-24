@@ -721,6 +721,7 @@ include('function.php');
                 countdownDisplay.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
             }, 1000);
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
     <script>
         // Data object to hold all deposit info
         const depositData = {
