@@ -1,40 +1,60 @@
 <?php
 session_start();
-include("exchange/account/connection.php");
-$message ="";
+
+// Make sure your connection.php file is stored in a secure location
+// outside of the web root to prevent unauthorized access.
+include("exchange/account/connection.php"); 
+
+$message = "";
+
 if (isset($_POST['login'])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    // Check connection
+    // Check database connection
     if ($conn->connect_error) {
+        // In a production environment, you should log this error and show a generic message
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Query to fetch user details based on email
-    $query = "SELECT id, email, password FROM users WHERE email = '$email'";
-    $result = $conn->query($query);
+    // Use a prepared statement to prevent SQL injection
+    $stmt = $conn->prepare("SELECT id, password FROM users WHERE email = ?");
+    
+    // Check if the statement was prepared successfully
+    if ($stmt === false) {
+        die("Prepare failed: " . $conn->error);
+    }
 
-    if ($result->num_rows == 1) {
+    // "s" indicates that the parameter is a string
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
         $hashedPassword = $user["password"];
 
-        // Verify the password
+        // Verify the password using password_verify()
         if (password_verify($password, $hashedPassword)) {
-            // Password is correct, set up a session
+            // Password is correct, set up session variables
             $_SESSION["user_id"] = $user["id"];
-            $_SESSION["user_email"] = $user["email"];
+            // It's not necessary to store the email in the session, 
+            // but it can be useful for display purposes.
+            $_SESSION["user_email"] = $email;
             
-            // Redirect to the dashboard or another secure page
+            // Redirect to the dashboard
             header("Location: exchange/account/index.php");
-            exit();
+            exit(); // Always call exit() after a header redirect
         } else {
-            $message = '<div class="bg-red-100 border-l-4 border-red-500 text-red-800 p-2 rounded-md shadow-sm" role="alert">Incorrect password. Please try again.</div>';
+            $message = '<div class="bg-red-100 border-l-4 border-red-500 text-red-800 p-2 rounded-md shadow-sm" role="alert">Incorrect email or password. Please try again.</div>';
         }
     } else {
-        $message = '<div class="bg-red-100 border-l-4 border-red-500 text-red-800 p-2 rounded-md shadow-sm" role="alert">User not found. Please check your email.</div>';
+        // Use a generic message for both user not found and incorrect password
+        $message = '<div class="bg-red-100 border-l-4 border-red-500 text-red-800 p-2 rounded-md shadow-sm" role="alert">Incorrect email or password. Please try again.</div>';
     }
 
+    // Close the statement and connection
+    $stmt->close();
     $conn->close();
 }
 ?>
@@ -44,12 +64,9 @@ if (isset($_POST['login'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register | Octavat Exchange</title>
-    <!-- Inter Font -->
+    <title>Login | Octavat Exchange</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
@@ -64,14 +81,13 @@ if (isset($_POST['login'])) {
 <body class="bg-[#111111] text-white flex items-center justify-center min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-grid-pattern">
     <div class="max-w-4xl w-full flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-2xl bg-[#111111] border border-gray-800">
 
-        <!-- Left Column - Visuals and Marketing -->
         <div class="hidden md:flex flex-1 p-8 lg:p-12 flex-col justify-between bg-[#111111] to-slate-950 relative">
             <div class="absolute inset-0 z-0 opacity-20">
                 <canvas id="chartCanvas" class="w-full h-full"></canvas>
             </div>
             <div class="relative z-10 flex flex-col h-full">
                 <div class="text-indigo-400 text-3xl font-extrabold tracking-tight">
-                    <img src='logo.png'>
+                    <img src='logo.png' alt="Logo">
                 </div>
                 <div class="mt-auto">
                     <h1 class="text-4xl font-bold leading-tight mt-8">
@@ -98,7 +114,6 @@ if (isset($_POST['login'])) {
             </div>
         </div>
 
-        <!-- Right Column - Registration Form -->
         <div class="flex-1 p-6 sm:p-10 lg:p-16 flex items-center justify-center">
             <div class="w-full max-w-md">
                 <h2 class="text-3xl font-bold text-center text-gray-100">Log Into Your Account</h2>
@@ -119,7 +134,7 @@ if (isset($_POST['login'])) {
 
                     <div>
                         <label for="password" class="sr-only">Password</label>
-                        <input id="password" name="password" type="password" autocomplete="new-password" required class="appearance-none relative block w-full px-4 py-3 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-[#111111] transition-colors duration-200" placeholder="Password">
+                        <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none relative block w-full px-4 py-3 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-[#111111] transition-colors duration-200" placeholder="Password">
                     </div>
 
                     <div class="text-right text-sm">
@@ -195,8 +210,6 @@ if (isset($_POST['login'])) {
             initPoints();
             draw();
         };
-
-       
     </script>
 </body>
 </html>
