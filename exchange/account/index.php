@@ -488,83 +488,87 @@ include('function.php');
             </div>
 
             <!-- Deposit Content (New Section) -->
-            <div id="deposit-content" class="hidden">
-                <div class="mb-6">
-                    <h1 class="text-xl font-bold mb-1 text-white">Deposit</h1>
-                    <p class="text-sm text-gray-400">Select the coin and network to get your deposit address.</p>
+           <div id="deposit-content">
+            <div class="mb-6">
+                <h1 class="text-2xl font-bold mb-1 text-white">Deposit</h1>
+                <p class="text-sm text-gray-400">Select the coin and network to get your deposit address.</p>
+            </div>
+
+            <!-- Deposit Form -->
+            <div class="bg-[#1f2125] rounded-xl p-6 space-y-4 shadow-lg">
+                <!-- Coin Selection -->
+                <div>
+                    <label for="coin-select" class="block text-sm font-medium text-gray-400 mb-2">Select Coin</label>
+                    <select id="coin-select" class="w-full bg-[#2c2e32] text-white rounded-lg p-3 border-none focus:ring-1 focus:ring-green-500 focus:outline-none transition-colors duration-200">
+                        <option value="USDT">USDT - Tether</option>
+                        <option value="BTC">BTC - Bitcoin</option>
+                        <option value="ETH">ETH - Ethereum</option>
+                    </select>
                 </div>
 
-                <!-- Deposit Form -->
-                <div class="bg-[#1f2125] rounded-lg p-6 space-y-4">
-                    <!-- Coin Selection -->
-                    <div>
-                        <label for="coin-select" class="block text-sm font-medium text-gray-400 mb-2">Select Coin</label>
-                        <select id="coin-select" class="w-full bg-[#2c2e32] text-white rounded-lg p-3 border-none focus:ring-1 focus:ring-green-500 focus:outline-none">
-                            <option value="USDT">USDT - Tether</option>
-                            <option value="BTC">BTC - Bitcoin</option>
-                            <option value="ETH">ETH - Ethereum</option>
-                        </select>
-                    </div>
+                <!-- Network Selection -->
+                <div>
+                    <label for="network-select" class="block text-sm font-medium text-gray-400 mb-2">Select Network</label>
+                    <select id="network-select" class="w-full bg-[#2c2e32] text-white rounded-lg p-3 border-none focus:ring-1 focus:ring-green-500 focus:outline-none transition-colors duration-200">
+                        <option value="TRC20">TRC20</option>
+                        <option value="ERC20">ERC20</option>
+                        <option value="BEP20">BEP20</option>
+                    </select>
+                </div>
 
-                    <!-- Network Selection -->
-                    <div>
-                        <label for="network-select" class="block text-sm font-medium text-gray-400 mb-2">Select Network</label>
-                        <select id="network-select" class="w-full bg-[#2c2e32] text-white rounded-lg p-3 border-none focus:ring-1 focus:ring-green-500 focus:outline-none">
-                            <option value="TRC20">TRC20</option>
-                            <option value="ERC20">ERC20</option>
-                            <option value="BEP20">BEP20</option>
-                        </select>
+                <!-- Deposit Address & QR Code -->
+                <div class="text-center">
+                    <p class="text-gray-400 text-sm mb-2">Scan QR code to deposit</p>
+                    <div id="qr-code-container" class="mx-auto rounded-lg mb-4 border border-gray-700/50 p-2 bg-white w-40 h-40 flex items-center justify-center">
+                        <!-- QR Code will be rendered here -->
                     </div>
-
-                    <!-- Deposit Address -->
-                    <div class="text-center">
-                        <p class="text-gray-400 text-sm mb-2">Scan QR code to deposit</p>
-                        <img src="https://placehold.co/150x150/121417/d1d5db?text=QR+Code" alt="QR Code" class="mx-auto rounded-lg mb-4 border border-gray-700/50">
-                        
-                        <div class="bg-[#2c2e32] rounded-lg p-3 flex items-center justify-between relative">
-                            <span id="deposit-address" class="text-sm text-white truncate"><?php echo $getdetailsBTC['address']; ?></span>
-                            <button id="copy-button" class="ml-2 p-1 rounded-full hover:bg-gray-700 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v-1a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2h-8a2 2 0 01-2-2v-1m-5-8h5m-5 0h.01M10 13h5m-5 0h.01M10 17h5m-5 0h.01" />
-                                </svg>
-                            </button>
-                            <div id="copy-message" class="absolute top-[-35px] left-1/2 -translate-x-1/2 bg-green-500 text-white text-xs px-2 py-1 rounded-full opacity-0 transition-opacity duration-300">
-                                Copied!
-                            </div>
+                    
+                    <div class="bg-[#2c2e32] rounded-lg p-3 flex items-center justify-between relative">
+                        <span id="deposit-address" class="text-sm text-white truncate w-full"></span>
+                        <button id="copy-button" class="ml-2 p-1 rounded-full hover:bg-gray-700 focus:outline-none transition-colors duration-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v-1a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2h-8a2 2 0 01-2-2v-1m-5-8h5m-5 0h.01M10 13h5m-5 0h.01M10 17h5m-5 0h.01" />
+                            </svg>
+                        </button>
+                        <div id="copy-message" class="absolute top-[-35px] left-1/2 -translate-x-1/2 bg-green-500 text-white text-xs px-2 py-1 rounded-full opacity-0 transition-opacity duration-300">
+                            Copied!
                         </div>
-                    </div>
-
-                    <!-- Warning -->
-                    <div class="bg-yellow-900/30 text-yellow-300 rounded-lg p-4 text-sm mt-4">
-                        <p class="font-bold mb-1">Warning:</p>
-                        <p>Only send USDT on the selected network to this address. Sending other coins or using a different network may result in permanent loss of funds.</p>
                     </div>
                 </div>
-                <!-- Deposit History Section -->
-                <div class="mt-8">
-                    <h2 class="text-xl font-bold mb-4 text-white">Deposit History</h2>
-                    <div class="bg-[#1f2125] rounded-lg p-4">
-                        <div class="flex justify-between items-center py-2 border-b border-gray-700/50 text-sm text-gray-400 font-semibold">
-                            <span>Date</span>
-                            <span>Coin</span>
-                            <span>Amount</span>
-                            <span>Status</span>
-                        </div>
-                        <div class="flex justify-between items-center py-2 border-b border-gray-700/50">
-                            <span class="text-sm text-gray-400">2024-10-26</span>
-                            <span class="text-sm text-white">USDT</span>
-                            <span class="text-sm text-white">100.00</span>
-                            <span class="text-sm text-green-500">Completed</span>
-                        </div>
-                        <div class="flex justify-between items-center py-2">
-                            <span class="text-sm text-gray-400">2024-10-25</span>
-                            <span class="text-sm text-white">BTC</span>
-                            <span class="text-sm text-white">0.001</span>
-                            <span class="text-sm text-green-500">Completed</span>
-                        </div>
+
+                <!-- Warning -->
+                <div class="bg-yellow-900/30 text-yellow-300 rounded-lg p-4 text-sm mt-4">
+                    <p class="font-bold mb-1">Warning:</p>
+                    <p id="warning-text"></p>
+                </div>
+            </div>
+
+            <!-- Deposit History Section -->
+            <div class="mt-8">
+                <h2 class="text-xl font-bold mb-4 text-white">Deposit History</h2>
+                <div class="bg-[#1f2125] rounded-lg p-4 shadow-lg">
+                    <div class="flex justify-between items-center py-2 border-b border-gray-700/50 text-sm text-gray-400 font-semibold">
+                        <span>Date</span>
+                        <span>Coin</span>
+                        <span>Amount</span>
+                        <span>Status</span>
+                    </div>
+                    <!-- Static history entries. These would be loaded from a database in a production app. -->
+                    <div class="flex justify-between items-center py-2 border-b border-gray-700/50">
+                        <span class="text-sm text-gray-400">2024-10-26</span>
+                        <span class="text-sm text-white">USDT</span>
+                        <span class="text-sm text-white">100.00</span>
+                        <span class="text-sm text-green-500">Completed</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2">
+                        <span class="text-sm text-gray-400">2024-10-25</span>
+                        <span class="text-sm text-white">BTC</span>
+                        <span class="text-sm text-white">0.001</span>
+                        <span class="text-sm text-green-500">Completed</span>
                     </div>
                 </div>
             </div>
+        </div>
         </main>
         
        <?php include('navbar.php'); ?>
@@ -716,6 +720,116 @@ include('function.php');
 
                 countdownDisplay.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
             }, 1000);
+    </script>
+    <script>
+        // Data object to hold all deposit info
+        const depositData = {
+            'USDT': {
+                'TRC20': {
+                    address: 'TABCDEFGHIJ1234567890ABCDEFGHIJKLM',
+                    qrText: 'TRC20:TABCDEFGHIJ1234567890ABCDEFGHIJKLM',
+                    warning: 'Only send USDT on the TRC20 network to this address. Sending other coins or using a different network may result in permanent loss of funds.'
+                },
+                'ERC20': {
+                    address: '0x1A2b3C4d5E6F7G8h9I0j1K2L3M4N5O6p7Q8R9S0T',
+                    qrText: 'ERC20:0x1A2b3C4d5E6F7G8h9I0j1K2L3M4N5O6p7Q8R9S0T',
+                    warning: 'Only send USDT on the ERC20 network to this address. Sending other coins or using a different network may result in permanent loss of funds.'
+                },
+                'BEP20': {
+                    address: '0x9S8R7Q6P5O4N3M2L1K0J9I8H7G6F5E4D3C2B1A',
+                    qrText: 'BEP20:0x9S8R7Q6P5O4N3M2L1K0J9I8H7G6F5E4D3C2B1A',
+                    warning: 'Only send USDT on the BEP20 network to this address. Sending other coins or using a different network may result in permanent loss of funds.'
+                }
+            },
+            'BTC': {
+                'Bitcoin': {
+                    address: 'bc1qzyxwvutsrqponmlkjihgfedcba9876543210',
+                    qrText: 'bitcoin:bc1qzyxwvutsrqponmlkjihgfedcba9876543210',
+                    warning: 'Only send BTC (Bitcoin) to this address. Sending other coins may result in permanent loss of funds.'
+                }
+            },
+            'ETH': {
+                'Ethereum': {
+                    address: '0xabcdef0123456789abcdef0123456789abcdef01',
+                    qrText: 'ethereum:0xabcdef0123456789abcdef0123456789abcdef01',
+                    warning: 'Only send ETH (Ethereum) to this address. Sending other coins may result in permanent loss of funds.'
+                }
+            }
+        };
+
+        // Get DOM elements
+        const coinSelect = document.getElementById('coin-select');
+        const networkSelect = document.getElementById('network-select');
+        const depositAddressSpan = document.getElementById('deposit-address');
+        const warningText = document.getElementById('warning-text');
+        const copyButton = document.getElementById('copy-button');
+        const copyMessage = document.getElementById('copy-message');
+        const qrCodeContainer = document.getElementById('qr-code-container');
+
+        // Initialize QR code generator
+        const qrCode = new QRious({
+            element: document.createElement('canvas'),
+            size: 150,
+        });
+        qrCodeContainer.appendChild(qrCode.element);
+
+        // Function to update the deposit information
+        function updateDepositInfo() {
+            const selectedCoin = coinSelect.value;
+            const selectedNetwork = networkSelect.value;
+
+            // Handle network options
+            const networks = Object.keys(depositData[selectedCoin]);
+            networkSelect.innerHTML = ''; // Clear existing options
+            networks.forEach(network => {
+                const option = document.createElement('option');
+                option.value = network;
+                option.textContent = network;
+                networkSelect.appendChild(option);
+            });
+
+            // Get the selected network after options are updated
+            const currentNetwork = networkSelect.value;
+
+            // Get the data for the current selection
+            const data = depositData[selectedCoin][currentNetwork];
+
+            // Update the UI
+            depositAddressSpan.textContent = data.address;
+            warningText.textContent = data.warning;
+            
+            // Update the QR code
+            qrCode.value = data.qrText;
+        }
+
+        // Function to handle the copy action
+        function copyAddress() {
+            const address = depositAddressSpan.textContent;
+            const tempInput = document.createElement('input');
+            tempInput.value = address;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            // Show a "Copied!" message
+            copyMessage.classList.remove('opacity-0');
+            copyMessage.classList.add('opacity-100');
+            setTimeout(() => {
+                copyMessage.classList.remove('opacity-100');
+                copyMessage.classList.add('opacity-0');
+            }, 1500);
+        }
+
+        // Add event listeners
+        coinSelect.addEventListener('change', updateDepositInfo);
+        networkSelect.addEventListener('change', updateDepositInfo);
+        copyButton.addEventListener('click', copyAddress);
+
+        // Initial setup on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateDepositInfo();
+        });
     </script>
    <script src="js/topNavFooter.js"></script>
 </body>
