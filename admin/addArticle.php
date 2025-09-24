@@ -9,7 +9,8 @@ $message = "";
 function handle_file_upload($file_key, $upload_dir) {
     if (isset($_FILES[$file_key]) && $_FILES[$file_key]['error'] == UPLOAD_ERR_OK) {
         $file_tmp_path = $_FILES[$file_key]['tmp_name'];
-        $file_name = uniqid() . '_' . basename($_FILES[$file_key]['name']);
+        // Use a more robust way to create a unique file name to prevent conflicts
+        $file_name = uniqid() . '_' . preg_replace("/[^a-zA-Z0-9.]/", "_", basename($_FILES[$file_key]['name']));
         $dest_path = $upload_dir . $file_name;
 
         // Ensure the directory exists
@@ -41,6 +42,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'] ?? '';
     $content = $_POST['content'] ?? '';
     $author_name = $_POST['author_name'] ?? '';
+    $author_profile_link = $_POST['author_profile_link'] ?? '';
+    $followers = (int)($_POST['followers'] ?? 0);
+    $upvotes = (int)($_POST['upvotes'] ?? 0);
+    $downvotes = (int)($_POST['downvotes'] ?? 0);
 
     // Handle article image upload
     $article_image_path = handle_file_upload('image', 'uploads/');
@@ -63,11 +68,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (isset($_POST['add_article'])) {
-        $sql = "INSERT INTO articles (title, content, author_name, image, author_image_url) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO articles (title, content, author_name, image, author_image_url, author_profile_link, followers, upvotes, downvotes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($conn, $sql);
         
         if ($stmt) {
-            mysqli_stmt_bind_param($stmt, "sssss", $title, $content, $author_name, $article_image_path, $author_image_path);
+            mysqli_stmt_bind_param($stmt, "sssssiiis", $title, $content, $author_name, $article_image_path, $author_image_path, $author_profile_link, $followers, $upvotes, $downvotes);
             
             if (mysqli_stmt_execute($stmt)) {
                 $message = '<div class="alert alert-success">Article added successfully!</div>';
@@ -83,11 +88,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif (isset($_POST['update_article'])) {
         $id = $_POST['article_id'] ?? 0;
         
-        $sql = "UPDATE articles SET title = ?, content = ?, author_name = ?, image = ?, author_image_url = ? WHERE id = ?";
+        $sql = "UPDATE articles SET title = ?, content = ?, author_name = ?, image = ?, author_image_url = ?, author_profile_link = ?, followers = ?, upvotes = ?, downvotes = ? WHERE id = ?";
         $stmt = mysqli_prepare($conn, $sql);
         
         if ($stmt) {
-            mysqli_stmt_bind_param($stmt, "sssssi", $title, $content, $author_name, $article_image_path, $author_image_path, $id);
+            mysqli_stmt_bind_param($stmt, "sssssiiiis", $title, $content, $author_name, $article_image_path, $author_image_path, $author_profile_link, $followers, $upvotes, $downvotes, $id);
             
             if (mysqli_stmt_execute($stmt)) {
                 $message = '<div class="alert alert-success">Article updated successfully!</div>';
@@ -173,13 +178,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <th style="width: 10px">#</th>
                                 <th>Title</th>
                                 <th>Author</th>
-                                <th>Image</th>
+                                <th>Followers</th>
+                                <th>Upvotes</th>
+                                <th>Downvotes</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $sql = "SELECT id, title, author_name, image FROM articles ORDER BY created_at DESC";
+                            $sql = "SELECT id, title, author_name, followers, upvotes, downvotes FROM articles ORDER BY created_at DESC";
                             $result = mysqli_query($conn, $sql);
                             if (mysqli_num_rows($result) > 0) {
                                 $count = 1;
@@ -189,13 +196,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         <td><?php echo $count++; ?></td>
                                         <td><?php echo htmlspecialchars($row['title']); ?></td>
                                         <td><?php echo htmlspecialchars($row['author_name']); ?></td>
-                                        <td>
-                                            <?php if (!empty($row['image'])): ?>
-                                                <img src="<?php echo htmlspecialchars($row['image']); ?>" alt="Article Image" style="width: 50px; height: auto;">
-                                            <?php else: ?>
-                                                N/A
-                                            <?php endif; ?>
-                                        </td>
+                                        <td><?php echo htmlspecialchars($row['followers']); ?></td>
+                                        <td><?php echo htmlspecialchars($row['upvotes']); ?></td>
+                                        <td><?php echo htmlspecialchars($row['downvotes']); ?></td>
                                         <td>
                                             <a href="?action=edit&id=<?php echo $row['id']; ?>" class="btn btn-warning btn-xs">Edit</a>
                                             <a href="?action=delete&id=<?php echo $row['id']; ?>" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete this article?');">Delete</a>
@@ -204,7 +207,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <?php
                                 }
                             } else {
-                                echo "<tr><td colspan='5'>No articles found.</td></tr>";
+                                echo "<tr><td colspan='7'>No articles found.</td></tr>";
                             }
                             ?>
                         </tbody>
@@ -220,6 +223,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $article_author_name = '';
             $article_image = '';
             $article_author_image_url = '';
+            $article_author_profile_link = '';
+            $article_followers = '';
+            $article_upvotes = '';
+            $article_downvotes = '';
             $form_action_url = '?action=add';
             $form_heading = 'Add New Article';
             $submit_name = 'add_article';
@@ -241,6 +248,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $article_author_name = htmlspecialchars($article['author_name']);
                     $article_image = htmlspecialchars($article['image']);
                     $article_author_image_url = htmlspecialchars($article['author_image_url']);
+                    $article_author_profile_link = htmlspecialchars($article['author_profile_link']);
+                    $article_followers = htmlspecialchars($article['followers']);
+                    $article_upvotes = htmlspecialchars($article['upvotes']);
+                    $article_downvotes = htmlspecialchars($article['downvotes']);
+                    
                     $form_action_url = '?action=edit&id=' . $article_id;
                     $form_heading = 'Edit Article';
                     $submit_name = 'update_article';
@@ -262,6 +274,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="form-group">
                             <label for="author_name">Author Name</label>
                             <input type="text" name="author_name" id="author_name" class="form-control" value="<?php echo $article_author_name; ?>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="author_profile_link">Author Profile Link</label>
+                            <input type="url" name="author_profile_link" id="author_profile_link" class="form-control" value="<?php echo $article_author_profile_link; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="followers">Followers</label>
+                            <input type="number" name="followers" id="followers" class="form-control" value="<?php echo $article_followers; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="upvotes">Upvotes</label>
+                            <input type="number" name="upvotes" id="upvotes" class="form-control" value="<?php echo $article_upvotes; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="downvotes">Downvotes</label>
+                            <input type="number" name="downvotes" id="downvotes" class="form-control" value="<?php echo $article_downvotes; ?>">
                         </div>
                         <div class="form-group">
                             <label for="image">Article Image</label>
