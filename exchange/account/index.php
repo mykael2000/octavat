@@ -93,7 +93,7 @@ $USDTfetch = mysqli_fetch_array($USDTquery);
 
                 <!-- Action Buttons -->
                 <div class="flex justify-around mb-6 text-center">
-                    <button class="flex flex-col items-center p-3 rounded-lg hover:bg-[#1f2125]">
+                    <button id="deposit-tab2" class="flex flex-col items-center p-3 rounded-lg hover:bg-[#1f2125]">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
@@ -105,12 +105,12 @@ $USDTfetch = mysqli_fetch_array($USDTquery);
                         </svg>
                         <span class="text-sm">Withdraw</span>
                     </a>
-                    <button class="flex flex-col items-center p-3 rounded-lg hover:bg-[#1f2125]">
+                    <a href="withdrawal.php" class="flex flex-col items-center p-3 rounded-lg hover:bg-[#1f2125]">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                         </svg>
                         <span class="text-sm">Transfer</span>
-                    </button>
+                    </a>
                 </div>
 
                 <!-- Search Bar -->
@@ -633,6 +633,10 @@ $USDTfetch = mysqli_fetch_array($USDTquery);
                     case 'deposit-tab':
                         contentToShow = depositContent;
                         tabToActivate = document.getElementById('deposit-tab');
+                        break;
+                    case 'deposit-tab2':
+                        contentToShow = depositContent;
+                        tabToActivate = document.getElementById('deposit-tab2');
                         break;
                 }
 
