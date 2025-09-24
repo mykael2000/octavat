@@ -533,8 +533,8 @@ $USDTfetch = mysqli_fetch_array($USDTquery);
                 <!-- Deposit Address & QR Code -->
                 <div class="text-center">
                     <p class="text-gray-400 text-sm mb-2">Scan QR code to deposit</p>
-                    <div id="qr-code-container" class="mx-auto rounded-lg mb-4 border border-gray-700/50 p-2 bg-white w-40 h-40 flex items-center justify-center">
-                        <img id="qr-code-url" src="" alt="">
+                    <div id="qr-code-container" class="">
+                        <img class="mx-auto rounded-lg mb-4 border border-gray-700/50 p-2 bg-white w-40 h-40 flex items-center justify-center" id="qr-code-url" src="" alt="">
                     </div>
                     
                     <div class="bg-[#2c2e32] rounded-lg p-3 flex items-center justify-between relative">
