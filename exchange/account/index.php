@@ -431,17 +431,19 @@ include('function.php');
                 ?>
                 <div class="mt-4 p-2 rounded-xl bg-gray-900 border border-gray-700 shadow-xl">
                     <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 rounded-full bg-gray-700 mr-4">
-                            <img src="<?php echo htmlspecialchars($article['author_image_url']); ?>" alt="Author's Image" class="w-10 h-10 rounded-full">
-                        </div>
-                        <div>
-                            <div class="flex items-center">
-                                <span class="text-lg font-semibold"><?php echo htmlspecialchars($article['author_name']); ?></span>
-                                <svg class="w-4 h-4 text-blue-500 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span class="text-sm text-gray-500 ml-2"><?php echo $time_ago; ?></span>
+                        <a href="<?php echo htmlspecialchars($article['author_profile_link']); ?>">
+                            <div class="w-10 h-10 rounded-full bg-gray-700 mr-4">
+                                <img src="<?php echo htmlspecialchars($article['author_image_url']); ?>" alt="Author's Image" class="w-10 h-10 rounded-full">
                             </div>
-                            <button class="text-sm font-semibold text-green-accent">+ Follow</button>
-                        </div>
+                            <div>
+                                <div class="flex items-center">
+                                    <span class="text-lg font-semibold"><?php echo htmlspecialchars($article['author_name']); ?></span>
+                                    <svg class="w-4 h-4 text-blue-500 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <span class="text-sm text-gray-500 ml-2"><?php echo $time_ago; ?></span>
+                                </div>
+                                <button class="text-sm font-semibold text-green-accent">+ Follow</button>
+                            </div>
+                        </a>
                     </div>
                     <h2 class="text-xl font-bold text-white mb-2"><?php echo htmlspecialchars($article['title']); ?></h2>
                     <p class="text-gray-300 mb-4"><?php echo $preview_content; ?> <span class="text-green-accent font-semibold">Read all</span></p>
